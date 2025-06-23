@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>樊振东传奇历程图片拼接工具</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #f8fafc;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 30px;
+        }
+        
+        .collage-container {
+            width: 100%;
+            max-width: 1200px; /* 增加宽度适应7列布局 */
+            margin: 0 auto;
+            background: linear-gradient(135deg, #0a1929 0%, #1e3a8a 25%, #1e40af 50%, #1e3a8a 75%, #0a1929 100%);
+            border-radius: 0; /* 移除容器圆角 */
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 16/9; /* 确保16:9宽高比 */
+        }
+        
+        .collage-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr); /* 1行7列布局 */
+            grid-template-rows: 1fr; /* 单行布局 */
+            gap: 0; /* 完全无缝拼接 */
+            padding: 0; /* 移除内边距 */
+            min-height: 400px;
+            width: 100%;
+        }
+        
+        .hero-image {
+            background: #e2e8f0;
+            border-radius: 0; /* 移除圆角确保无缝拼接 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 14px;
+            text-align: center;
+            padding: 0; /* 移除内边距确保无缝拼接 */
+            position: relative;
+            overflow: hidden;
+            border: none; /* 移除边框 */
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0; /* 移除图片圆角 */
+            border: none; /* 移除图片边框 */
+        }
+        
+        .hero-image.placeholder {
+            background: linear-gradient(45deg, #dbeafe 0%, #bfdbfe 100%);
+            border: 2px dashed #3b82f6;
+        }
+        
+        .image-label {
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+            right: 5px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 10px;
+            padding: 2px 4px;
+            border-radius: 3px;
+            text-align: center;
+        }
+        
+        .upload-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 2px dashed #cbd5e1;
+        }
+        
+        .upload-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 15px;
+        }
+        
+        .file-input {
+            margin-bottom: 10px;
+        }
+        
+        .file-input label {
+            display: inline-block;
+            width: 100px;
+            font-weight: 500;
+            color: #4b5563;
+        }
+        
+        .file-input input {
+            margin-left: 10px;
+        }
+        
+        .generate-btn {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        /* 批量上传样式 */
+        .batch-upload {
+            background: #f0fdf4;
+            border: 2px solid #22c55e;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .individual-upload {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .batch-btn {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .batch-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e2e8f0;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 15px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .upload-status {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .upload-status.success {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #22c55e;
+            display: block;
+        }
+
+        .upload-status.error {
+            background: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #ef4444;
+            display: block;
+        }
+        
+        .instructions {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fef3c7;
+            border: 1px solid #fbbf24;
+            border-radius: 12px;
+        }
+        
+        .instructions h3 {
+            color: #92400e;
+            margin-bottom: 15px;
+        }
+        
+        .instructions ol {
+            color: #78350f;
+            line-height: 1.6;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        .download-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: none;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(5, 150, 105, 0.3);
+        }
+
+        /* 响应式样式 */
+        @media (max-width: 768px) {
+            .collage-container {
+                max-width: 100%;
+                margin: 0 10px;
+            }
+
+            .collage-grid {
+                min-height: 200px;
+            }
+
+            .hero-image {
+                font-size: 10px;
+            }
+
+            .image-label {
+                font-size: 8px;
+                padding: 1px 2px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 20px;
+            }
+
+            .collage-grid {
+                min-height: 150px;
+            }
+
+            .hero-image {
+                font-size: 8px;
+            }
+
+            .upload-section {
+                padding: 15px;
+            }
+
+            .file-input label {
+                width: 80px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">樊振东传奇历程图片拼接工具 - 等比例缩放拼接</h1>
+        
+        <div class="collage-container">
+            <div class="collage-grid">
+                <div class="hero-image placeholder" data-index="1">
+                    <div>Hero-1<br>2016 德国</div>
+                    <div class="image-label">王子加冕</div>
+                </div>
+                <div class="hero-image placeholder" data-index="2">
+                    <div>Hero-2<br>2018 法国</div>
+                    <div class="image-label">领地宣誓</div>
+                </div>
+                <div class="hero-image placeholder" data-index="3">
+                    <div>Hero-3<br>2019 成都</div>
+                    <div class="image-label">捍卫王座</div>
+                </div>
+                <div class="hero-image placeholder" data-index="4">
+                    <div>Hero-4<br>2020 威海</div>
+                    <div class="image-label">铸就神话</div>
+                </div>
+                <div class="hero-image placeholder" data-index="5">
+                    <div>Hero-5<br>2021 休斯敦</div>
+                    <div class="image-label">驱逐心魔</div>
+                </div>
+                <div class="hero-image placeholder" data-index="6">
+                    <div>Hero-6<br>2023 德班</div>
+                    <div class="image-label">传承与压制</div>
+                </div>
+                <div class="hero-image placeholder" data-index="7">
+                    <div>Hero-7<br>2024 巴黎</div>
+                    <div class="image-label">王权加冕</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="upload-section">
+            <h3 class="upload-title">上传图片文件</h3>
+
+            <!-- 批量上传选项 -->
+            <div class="batch-upload">
+                <h4 style="color: #059669; margin-bottom: 10px;">🚀 批量上传（推荐）</h4>
+                <div class="file-input">
+                    <label style="width: 150px;">选择7张图片:</label>
+                    <input type="file" id="batchUpload" accept="image/*" multiple>
+                    <button class="batch-btn" onclick="processBatchUpload()">批量处理</button>
+                </div>
+                <p style="color: #6b7280; font-size: 14px; margin: 10px 0;">
+                    请选择2-8张图片，按照时间顺序排列。系统将自动根据图片数量调整拼接布局。
+                </p>
+            </div>
+
+            <div class="divider">
+                <span>或者</span>
+            </div>
+
+            <!-- 单个上传选项 -->
+            <div class="individual-upload">
+                <h4 style="color: #3b82f6; margin-bottom: 10px;">📁 单个上传</h4>
+
+                <!-- 图片数量选择器 -->
+                <div class="file-input" style="margin-bottom: 15px;">
+                    <label style="width: 120px;">图片数量:</label>
+                    <select id="imageCountSelector" onchange="updateIndividualInputs()" style="padding: 5px; border-radius: 4px; border: 1px solid #d1d5db;">
+                        <option value="2">2张图片</option>
+                        <option value="3">3张图片</option>
+                        <option value="4">4张图片</option>
+                        <option value="5">5张图片</option>
+                        <option value="6">6张图片</option>
+                        <option value="7" selected>7张图片</option>
+                        <option value="8">8张图片</option>
+                    </select>
+                </div>
+
+                <!-- 动态生成的输入框容器 -->
+                <div id="individualInputsContainer">
+                    <!-- 输入框将通过JavaScript动态生成 -->
+                </div>
+            </div>
+
+            <button class="generate-btn" onclick="generateCollage()">生成拼接图片</button>
+        </div>
+        
+        <div class="download-section">
+            <button class="download-btn" id="downloadBtn" onclick="downloadCollage()">下载拼接图片</button>
+        </div>
+        
+        <div class="instructions">
+            <h3>使用说明 - 水平无缝拼接</h3>
+            <div style="background: #fef3c7; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                <h4 style="color: #92400e; margin: 0 0 10px 0;">🚀 推荐：批量上传方式</h4>
+                <ol style="color: #78350f; margin: 0;">
+                    <li>准备2-8张樊振东传奇历程的图片文件（建议尺寸：16:9比例）</li>
+                    <li>将图片文件按时间顺序重命名，确保文件名排序正确</li>
+                    <li>点击"选择图片"，一次性选择所需数量的图片</li>
+                    <li>点击"批量处理"按钮，系统自动按顺序加载并调整布局</li>
+                </ol>
+            </div>
+
+            <div style="background: #f0f9ff; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                <h4 style="color: #0c4a6e; margin: 0 0 10px 0;">📁 备选：单个上传方式</h4>
+                <ol style="color: #0369a1; margin: 0;">
+                    <li>首先选择要拼接的图片数量（2-8张）</li>
+                    <li>按照时间顺序分别上传图片到对应的输入框</li>
+                    <li>系统将根据选择的数量自动调整拼接布局</li>
+                </ol>
+            </div>
+
+            <div style="background: #f0fdf4; padding: 15px; border-radius: 8px;">
+                <h4 style="color: #166534; margin: 0 0 10px 0;">🎯 生成和使用</h4>
+                <ol style="color: #15803d; margin: 0;">
+                    <li>点击"生成拼接图片"按钮创建水平无缝拼接图</li>
+                    <li>生成的图片将是7张图片从左到右完全无缝连接的单行布局</li>
+                    <li>预览效果满意后，点击"下载拼接图片"保存到本地</li>
+                    <li>将下载的图片重命名为 <code>hero-collage.jpg</code></li>
+                    <li>将图片放置到项目的 <code>public/images/carousel/</code> 目录下</li>
+                    <li>刷新网站查看水平拼接的开场轮播图效果</li>
+                </ol>
+            </div>
+
+            <p><strong>技术规格：</strong>输出图片为1920×1080像素，支持2-8列动态布局，等比例缩放保留完整原图，完全无缝拼接。</p>
+            <p><strong>等比例缩放：</strong>采用智能缩放算法，完整保留每张图片内容，不进行任何裁剪，只进行等比例放大或缩小。</p>
+            <p><strong>动态适应：</strong>根据图片数量自动调整每张图片宽度，2张图片各占1/2，3张各占1/3，以此类推到8张。</p>
+            <p><strong>完整保留：</strong>所有图片内容100%保留，空白区域自动填充深色背景，确保视觉协调。</p>
+            <p><strong>质量提升：</strong>95%JPEG质量输出，轻微对比度增强，确保最佳显示效果。</p>
+        </div>
+    </div>
+    
+    <canvas id="collageCanvas" style="display: none;"></canvas>
+    
+    <script>
+        const images = {};
+
+        // 批量上传处理函数 - 支持2-8张图片
+        function processBatchUpload() {
+            const batchInput = document.getElementById('batchUpload');
+            const files = Array.from(batchInput.files);
+
+            if (files.length === 0) {
+                showUploadStatus('请先选择图片文件！', 'error');
+                return;
+            }
+
+            if (files.length < 2 || files.length > 8) {
+                showUploadStatus(`请选择2-8张图片，当前选择了${files.length}张`, 'error');
+                return;
+            }
+
+            // 清空之前的图片
+            clearAllImages();
+
+            // 按文件名排序（假设文件名包含顺序信息）
+            files.sort((a, b) => a.name.localeCompare(b.name));
+
+            let loadedCount = 0;
+
+            files.forEach((file, index) => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const heroIndex = index + 1;
+                    images[heroIndex] = e.target.result;
+                    updatePreview(heroIndex, e.target.result);
+
+                    loadedCount++;
+                    if (loadedCount === files.length) {
+                        showUploadStatus(`✅ 批量上传成功！${files.length}张图片已全部加载`, 'success');
+                        updateImageCountDisplay(files.length);
+                    }
+                };
+                reader.onerror = function() {
+                    showUploadStatus(`图片 ${file.name} 加载失败`, 'error');
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // 清空所有图片
+        function clearAllImages() {
+            for (let i = 1; i <= 8; i++) {
+                delete images[i];
+                const preview = document.getElementById(`preview${i}`);
+                if (preview) {
+                    preview.style.display = 'none';
+                }
+            }
+        }
+
+        // 更新图片数量显示
+        function updateImageCountDisplay(count) {
+            let countDisplay = document.getElementById('imageCountDisplay');
+            if (!countDisplay) {
+                countDisplay = document.createElement('div');
+                countDisplay.id = 'imageCountDisplay';
+                countDisplay.style.cssText = 'margin-top: 10px; padding: 8px 12px; background: #dbeafe; color: #1e40af; border-radius: 6px; font-weight: 600; text-align: center;';
+                document.querySelector('.batch-upload').appendChild(countDisplay);
+            }
+            countDisplay.textContent = `已加载 ${count} 张图片，将生成 ${count} 列拼接图`;
+            countDisplay.style.display = 'block';
+        }
+
+        // 显示上传状态
+        function showUploadStatus(message, type) {
+            let statusDiv = document.getElementById('uploadStatus');
+            if (!statusDiv) {
+                statusDiv = document.createElement('div');
+                statusDiv.id = 'uploadStatus';
+                statusDiv.className = 'upload-status';
+                document.querySelector('.batch-upload').appendChild(statusDiv);
+            }
+
+            statusDiv.textContent = message;
+            statusDiv.className = `upload-status ${type}`;
+
+            if (type === 'success') {
+                setTimeout(() => {
+                    statusDiv.style.display = 'none';
+                }, 5000);
+            }
+        }
+
+        // 动态生成单个上传输入框
+        function updateIndividualInputs() {
+            const count = parseInt(document.getElementById('imageCountSelector').value);
+            const container = document.getElementById('individualInputsContainer');
+
+            // 清空容器
+            container.innerHTML = '';
+
+            // 生成对应数量的输入框
+            for (let i = 1; i <= count; i++) {
+                const inputDiv = document.createElement('div');
+                inputDiv.className = 'file-input';
+                inputDiv.innerHTML = `
+                    <label>图片-${i}:</label>
+                    <input type="file" id="hero${i}" accept="image/*">
+                `;
+                container.appendChild(inputDiv);
+            }
+
+            // 为新生成的输入框添加事件监听
+            for (let i = 1; i <= count; i++) {
+                document.getElementById(`hero${i}`).addEventListener('change', function(e) {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            images[i] = e.target.result;
+                            updatePreview(i, e.target.result);
+                            updateImageCountDisplay(Object.keys(images).length);
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+
+            // 清空之前的图片
+            clearAllImages();
+        }
+
+        // 页面加载时初始化输入框
+        document.addEventListener('DOMContentLoaded', function() {
+            updateIndividualInputs();
+        });
+        
+        function updatePreview(index, src) {
+            // 简化预览功能，主要用于验证图片加载
+            console.log(`图片 ${index} 已加载`);
+        }
+        
+        function generateCollage() {
+            const canvas = document.getElementById('collageCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // 设置画布尺寸 (16:9 比例) - 提高分辨率
+            canvas.width = 1920;
+            canvas.height = 1080;
+
+            // 启用图像平滑处理
+            ctx.imageSmoothingEnabled = true;
+            ctx.imageSmoothingQuality = 'high';
+
+            // 绘制深色背景
+            ctx.fillStyle = '#0a1929';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // 动态计算布局 - 根据实际图片数量
+            const totalImages = Object.keys(images).length;
+
+            if (totalImages === 0) {
+                alert('请先上传至少一张图片！');
+                return;
+            }
+
+            if (totalImages < 2 || totalImages > 8) {
+                alert(`支持2-8张图片拼接，当前有${totalImages}张图片`);
+                return;
+            }
+
+            const cols = totalImages; // 列数等于图片数量
+            const cellWidth = canvas.width / cols; // 每张图片分配宽度
+            const cellHeight = canvas.height; // 全高度
+
+            let loadedCount = 0;
+            
+            // 等比例缩放拼接算法 - 保留完整原图
+            Object.keys(images).forEach((key, index) => {
+                const img = new Image();
+                img.onload = function() {
+                    const col = index;
+                    const x = col * cellWidth;
+                    const y = 0;
+
+                    // 等比例缩放算法：保留完整图片，不裁剪
+                    const imgAspectRatio = img.width / img.height;
+                    const cellAspectRatio = cellWidth / cellHeight;
+
+                    let drawWidth, drawHeight, drawX, drawY;
+
+                    if (imgAspectRatio > cellAspectRatio) {
+                        // 图片比分配空间更宽，以宽度为准进行等比例缩放
+                        drawWidth = cellWidth;
+                        drawHeight = cellWidth / imgAspectRatio;
+                        drawX = x;
+                        drawY = y + (cellHeight - drawHeight) / 2; // 垂直居中
+                    } else {
+                        // 图片比分配空间更高，以高度为准进行等比例缩放
+                        drawHeight = cellHeight;
+                        drawWidth = cellHeight * imgAspectRatio;
+                        drawX = x + (cellWidth - drawWidth) / 2; // 水平居中
+                        drawY = y;
+                    }
+
+                    // 先填充背景色（填充空白区域）
+                    ctx.fillStyle = '#0a1929';
+                    ctx.fillRect(x, y, cellWidth, cellHeight);
+
+                    // 使用高质量绘制
+                    ctx.save();
+                    ctx.imageSmoothingEnabled = true;
+                    ctx.imageSmoothingQuality = 'high';
+
+                    // 绘制完整的等比例缩放图片
+                    ctx.drawImage(
+                        img,
+                        0, 0, img.width, img.height, // 使用完整的源图片
+                        drawX, drawY, drawWidth, drawHeight // 等比例缩放后的目标区域
+                    );
+
+                    ctx.restore();
+
+                    loadedCount++;
+                    if (loadedCount === totalImages) {
+                        // 应用后处理优化
+                        applyPostProcessing(ctx, canvas.width, canvas.height);
+
+                        document.getElementById('downloadBtn').style.display = 'inline-block';
+                        alert(`🎉 等比例拼接完成！${totalImages}张图片已完整保留，生成${cols}列水平拼接图。`);
+                    }
+                };
+                img.src = images[key];
+            });
+        }
+
+        // 后处理优化函数
+        function applyPostProcessing(ctx, width, height) {
+            // 获取图像数据
+            const imageData = ctx.getImageData(0, 0, width, height);
+            const data = imageData.data;
+
+            // 应用轻微的色彩平衡和对比度增强
+            for (let i = 0; i < data.length; i += 4) {
+                // 轻微增强对比度
+                data[i] = Math.min(255, data[i] * 1.05);     // Red
+                data[i + 1] = Math.min(255, data[i + 1] * 1.05); // Green
+                data[i + 2] = Math.min(255, data[i + 2] * 1.05); // Blue
+                // Alpha通道保持不变
+            }
+
+            // 将处理后的数据放回画布
+            ctx.putImageData(imageData, 0, 0);
+        }
+
+        // 边缘柔化函数（可选使用）
+        function addEdgeBlending(ctx, x, y, width, height, side) {
+            const gradient = ctx.createLinearGradient(
+                side === 'left' ? x : x + width - 2,
+                y,
+                side === 'left' ? x + 2 : x + width,
+                y
+            );
+
+            if (side === 'left') {
+                gradient.addColorStop(0, 'rgba(0,0,0,0.1)');
+                gradient.addColorStop(1, 'rgba(0,0,0,0)');
+            } else {
+                gradient.addColorStop(0, 'rgba(0,0,0,0)');
+                gradient.addColorStop(1, 'rgba(0,0,0,0.1)');
+            }
+
+            ctx.fillStyle = gradient;
+            ctx.fillRect(
+                side === 'left' ? x : x + width - 2,
+                y,
+                2,
+                height
+            );
+        }
+
+        function downloadCollage() {
+            const canvas = document.getElementById('collageCanvas');
+            const link = document.createElement('a');
+            link.download = 'hero-collage.jpg';
+            // 使用更高的质量设置
+            link.href = canvas.toDataURL('image/jpeg', 0.95);
+            link.click();
+        }
+    </script>
+</body>
+</html>

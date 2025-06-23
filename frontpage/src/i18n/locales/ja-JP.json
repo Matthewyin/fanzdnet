@@ -1,0 +1,158 @@
+{
+  "common": {
+    "home": "ホーム",
+    "news": "ニュース",
+    "schedule": "スケジュール",
+    "gallery": "ギャラリー",
+    "community": "コミュニティ",
+    "aiGenerator": "AI生成器",
+    "search": "検索",
+    "loading": "読み込み中...",
+    "loadMore": "もっと読み込む",
+    "noData": "データがありません",
+    "error": "エラー",
+    "retry": "再試行",
+    "confirm": "確認",
+    "cancel": "キャンセル",
+    "save": "保存",
+    "edit": "編集",
+    "delete": "削除",
+    "share": "共有",
+    "like": "いいね",
+    "comment": "コメント",
+    "favorite": "お気に入り",
+    "download": "ダウンロード",
+    "upload": "アップロード",
+    "submit": "送信",
+    "reset": "リセット",
+    "refresh": "更新",
+    "back": "戻る",
+    "next": "次へ",
+    "previous": "前へ",
+    "close": "閉じる",
+    "open": "開く",
+    "view": "表示",
+    "more": "もっと",
+    "all": "すべて",
+    "today": "今日",
+    "yesterday": "昨日",
+    "week": "今週",
+    "month": "今月",
+    "year": "今年"
+  },
+  "nav": {
+    "fanZhendong": "樊振東",
+    "subtitle": "卓球世界チャンピオン",
+    "language": "言語",
+    "theme": "テーマ",
+    "settings": "設定"
+  },
+  "home": {
+    "title": "樊振東公式ファンサイト",
+    "subtitle": "世界ナンバーワンを応援し、伝説の瞬間を目撃しよう",
+    "latestNews": "最新ニュース",
+    "upcomingMatches": "今後の試合",
+    "featuredGallery": "注目のギャラリー",
+    "communityHighlights": "コミュニティハイライト",
+    "stats": {
+      "worldRanking": "世界ランキング",
+      "careerTitles": "キャリアタイトル",
+      "winRate": "勝率",
+      "fans": "世界のファン"
+    },
+    "achievements": {
+      "title": "主な成果",
+      "olympicChampion": "オリンピックチャンピオン",
+      "worldChampion": "世界チャンピオン",
+      "worldCupWinner": "ワールドカップ優勝者",
+      "grandSlamWinner": "グランドスラム優勝者"
+    }
+  },
+  "news": {
+    "title": "ニュース",
+    "subtitle": "樊振東の最新ニュースとアップデート",
+    "categories": {
+      "all": "すべて",
+      "match": "試合",
+      "training": "トレーニング",
+      "interview": "インタビュー",
+      "life": "生活",
+      "achievement": "成果"
+    },
+    "readMore": "続きを読む",
+    "relatedNews": "関連ニュース",
+    "shareNews": "ニュースを共有"
+  },
+  "schedule": {
+    "title": "試合スケジュール",
+    "subtitle": "樊振東の試合スケジュールと結果",
+    "upcoming": "今後",
+    "ongoing": "進行中",
+    "completed": "完了",
+    "tournament": "トーナメント",
+    "opponent": "対戦相手",
+    "time": "時間",
+    "venue": "会場",
+    "result": "結果",
+    "score": "スコア",
+    "setReminder": "リマインダーを設定",
+    "watchLive": "ライブ視聴"
+  },
+  "gallery": {
+    "title": "ギャラリー",
+    "subtitle": "樊振東の素晴らしい瞬間",
+    "categories": {
+      "all": "すべて",
+      "match": "試合",
+      "training": "トレーニング",
+      "award": "表彰",
+      "life": "生活",
+      "fan": "ファン"
+    },
+    "upload": "画像をアップロード",
+    "viewOriginal": "オリジナルを表示",
+    "downloadImage": "画像をダウンロード"
+  },
+  "community": {
+    "title": "ファンコミュニティ",
+    "subtitle": "樊振東ファンコミュニティ",
+    "forum": "フォーラムディスカッション",
+    "chat": "ライブチャット",
+    "createPost": "投稿を作成",
+    "onlineUsers": "オンラインユーザー",
+    "totalPosts": "総投稿数",
+    "todayPosts": "今日の投稿"
+  },
+  "aiGenerator": {
+    "title": "AIスマート応援ジェネレーター",
+    "subtitle": "AIで樊振東のユニークな応援コンテンツを作成",
+    "types": {
+      "slogan": "応援スローガン",
+      "banner": "応援バナー",
+      "meme": "ミーム"
+    },
+    "generate": "生成",
+    "generating": "生成中...",
+    "results": "結果",
+    "history": "履歴"
+  },
+  "footer": {
+    "disclaimer": "免責事項",
+    "disclaimerText": "これは樊振東の非公式ファンウェブサイトです。すべてのコンテンツはファンコミュニケーションのみを目的としています。",
+    "copyright": "著作権"
+  },
+  "messages": {
+    "success": {
+      "saved": "正常に保存されました",
+      "deleted": "正常に削除されました",
+      "uploaded": "正常にアップロードされました",
+      "shared": "正常に共有されました"
+    },
+    "error": {
+      "saveFailed": "保存に失敗しました",
+      "deleteFailed": "削除に失敗しました",
+      "uploadFailed": "アップロードに失敗しました",
+      "shareFailed": "共有に失敗しました"
+    }
+  }
+}

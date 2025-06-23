@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图片布局优化测试</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #f8fafc;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 30px;
+        }
+        
+        .demo-section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .layout-demo {
+            width: 100%;
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .demo-carousel-item {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            /* 左侧纯黑色背景 */
+            background: linear-gradient(90deg, #000000 0%, #000000 50%, transparent 50%, transparent 100%);
+        }
+        
+        .demo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: right; /* 图片定位到右侧 */
+            background: linear-gradient(45deg, #dbeafe 0%, #3b82f6 100%);
+        }
+        
+        .demo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* 纯黑色背景：左侧完全黑色，右侧透明 */
+            background: linear-gradient(90deg, rgba(0, 0, 0, 1.0) 0%, rgba(0, 0, 0, 1.0) 45%, rgba(0, 0, 0, 0.5) 55%, transparent 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px 60px;
+        }
+        
+        .demo-text-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            max-width: 60%; /* 限制在左侧区域 */
+        }
+        
+        .demo-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+        
+        .demo-subtitle {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffd700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+        }
+        
+        .demo-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #ffffff;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+            max-width: 60%; /* 限制在左侧区域 */
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .comparison-item {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .comparison-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .old-layout {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.7) 100%);
+        }
+        
+        .old-layout .demo-text-container {
+            max-width: 100%;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .old-layout .demo-image {
+            object-position: center;
+        }
+        
+        .old-layout .demo-description {
+            max-width: 100%;
+            text-align: center;
+        }
+        
+        .features {
+            background: #f0f9ff;
+            border: 1px solid #0ea5e9;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .features h3 {
+            color: #0c4a6e;
+            margin-bottom: 15px;
+        }
+        
+        .features ul {
+            color: #0369a1;
+            line-height: 1.8;
+        }
+        
+        .features li {
+            margin-bottom: 8px;
+        }
+        
+        /* 响应式样式 */
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .layout-demo {
+                height: 300px;
+            }
+            
+            .demo-carousel-item {
+                /* 移动端使用垂直纯黑色渐变 */
+                background: linear-gradient(180deg, #000000 0%, #000000 60%, transparent 60%, transparent 100%);
+            }
+
+            .demo-overlay {
+                /* 移动端纯黑色背景渐变 */
+                background: linear-gradient(180deg, rgba(0, 0, 0, 1.0) 0%, rgba(0, 0, 0, 1.0) 55%, rgba(0, 0, 0, 0.3) 75%, transparent 100%);
+                padding: 20px 30px;
+            }
+            
+            .demo-image {
+                object-position: center bottom;
+            }
+            
+            .demo-text-container {
+                max-width: 100%;
+            }
+            
+            .demo-description {
+                max-width: 100%;
+            }
+            
+            .demo-title {
+                font-size: 24px;
+            }
+            
+            .demo-subtitle {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">轮播图片布局优化效果</h1>
+        
+        <div class="demo-section">
+            <h2 class="section-title">新版布局：图片右侧定位 + 左侧黑色背景</h2>
+            <div class="layout-demo">
+                <div class="demo-carousel-item">
+                    <div class="demo-image"></div>
+                    <div class="demo-overlay">
+                        <div class="demo-text-container">
+                            <h1 class="demo-title">2024 · 法国 巴黎</h1>
+                            <h2 class="demo-subtitle">王权加冕</h2>
+                        </div>
+                        <div class="demo-description">
+                            奥运会。这是最后的圣杯，是通往万神殿的唯一门票。他背负着一个时代的重量走上决赛场，对手是宿命的重逢...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="comparison-grid">
+            <div class="comparison-item">
+                <h3 class="comparison-title">修改前：居中布局</h3>
+                <div class="layout-demo old-layout">
+                    <div class="demo-carousel-item">
+                        <div class="demo-image"></div>
+                        <div class="demo-overlay">
+                            <div class="demo-text-container">
+                                <h1 class="demo-title">居中标题</h1>
+                                <h2 class="demo-subtitle">居中副标题</h2>
+                            </div>
+                            <div class="demo-description">
+                                文字在图片中央，可能与图片内容重叠...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comparison-item">
+                <h3 class="comparison-title">修改后：左右分离</h3>
+                <div class="layout-demo">
+                    <div class="demo-carousel-item">
+                        <div class="demo-image"></div>
+                        <div class="demo-overlay">
+                            <div class="demo-text-container">
+                                <h1 class="demo-title">左侧标题</h1>
+                                <h2 class="demo-subtitle">左侧副标题</h2>
+                            </div>
+                            <div class="demo-description">
+                                文字在左侧黑色背景上，图片在右侧完整显示...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="features">
+            <h3>🎯 纯黑色背景优化特点</h3>
+            <ul>
+                <li><strong>图片右侧定位：</strong>使用 object-position: right 将图片内容定位到容器右侧</li>
+                <li><strong>纯黑色背景：</strong>左侧使用完全的纯黑色背景 rgba(0, 0, 0, 1.0)，无任何灰色过渡</li>
+                <li><strong>最大对比度：</strong>纯黑色背景提供最强的文字对比度和视觉冲击力</li>
+                <li><strong>文字区域优化：</strong>限制文字容器宽度为60%，确保在左侧纯黑色区域</li>
+                <li><strong>专业视觉：</strong>纯黑色背景营造更专业、更具冲击力的视觉效果</li>
+                <li><strong>图片完整性：</strong>保持 object-fit: contain，确保人像不被裁剪</li>
+                <li><strong>响应式适配：</strong>移动端也使用纯黑色背景，保持一致性</li>
+                <li><strong>渐变过渡：</strong>右侧保持透明渐变，确保图片区域不受影响</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

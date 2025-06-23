@@ -1,0 +1,400 @@
+// Element Plus 主题定制
+@use './variables.scss' as *;
+
+// ===== Element Plus 变量覆盖 =====
+:root {
+  // 主色调
+  --el-color-primary: #{$primary-color};
+  --el-color-primary-light-1: #{$primary-light-1};
+  --el-color-primary-light-2: #{$primary-light-2};
+  --el-color-primary-light-3: #{$primary-light-3};
+  --el-color-primary-light-4: #{$primary-light-4};
+  --el-color-primary-light-5: #{$primary-light-5};
+  --el-color-primary-light-6: #{$primary-light-6};
+  --el-color-primary-light-7: #{$primary-light-7};
+  --el-color-primary-light-8: #{$primary-light-8};
+  --el-color-primary-light-9: #{$primary-light-9};
+  --el-color-primary-dark-1: #{$primary-dark-1};
+  --el-color-primary-dark-2: #{$primary-dark-2};
+
+  // 功能色
+  --el-color-success: #{$success-color};
+  --el-color-warning: #{$warning-color};
+  --el-color-danger: #{$danger-color};
+  --el-color-info: #{$info-color};
+
+  // 文字颜色
+  --el-text-color-primary: #{$text-color-primary};
+  --el-text-color-regular: #{$text-color-regular};
+  --el-text-color-secondary: #{$text-color-secondary};
+  --el-text-color-placeholder: #{$text-color-placeholder};
+  --el-text-color-disabled: #{$text-color-disabled};
+
+  // 边框颜色
+  --el-border-color: #{$border-color};
+  --el-border-color-light: #{$border-color-light};
+  --el-border-color-lighter: #{$border-color-lighter};
+  --el-border-color-extra-light: #{$border-color-extra-light};
+  --el-border-color-dark: #{$border-color-dark};
+  --el-border-color-darker: #{$border-color-darker};
+
+  // 背景色
+  --el-bg-color: #{$bg-color};
+  --el-bg-color-page: #{$bg-color-page};
+  --el-bg-color-overlay: #{$bg-color-overlay};
+
+  // 圆角
+  --el-border-radius-base: #{$border-radius-base};
+  --el-border-radius-small: #{$border-radius-small};
+  --el-border-radius-round: #{$border-radius-round};
+  --el-border-radius-circle: #{$border-radius-circle};
+
+  // 字体
+  --el-font-family: #{$font-family};
+  --el-font-size-base: #{$font-size-base};
+  --el-font-size-small: #{$font-size-small};
+  --el-font-size-large: #{$font-size-large};
+  --el-font-size-extra-large: #{$font-size-extra-large};
+  --el-font-size-extra-small: #{$font-size-extra-small};
+  --el-font-size-medium: #{$font-size-medium};
+
+  // 阴影
+  --el-box-shadow: #{$box-shadow-base};
+  --el-box-shadow-light: #{$box-shadow-light};
+  --el-box-shadow-dark: #{$box-shadow-dark};
+
+  // 动画
+  --el-transition-duration: #{$transition-duration};
+  --el-transition-all: #{$transition-all};
+  --el-transition-fade: #{$transition-fade};
+  --el-transition-md-fade: #{$transition-md-fade};
+  --el-transition-border: #{$transition-border};
+  --el-transition-box-shadow: #{$transition-box-shadow};
+  --el-transition-color: #{$transition-color};
+}
+
+// ===== Element Plus 组件样式定制 =====
+
+// Button 按钮
+.el-button {
+  border-radius: var(--el-border-radius-base);
+  font-weight: 400;
+  transition: var(--el-transition-all);
+
+  &.el-button--primary {
+    background-color: var(--el-color-primary);
+    border-color: var(--el-color-primary);
+
+    &:hover {
+      background-color: var(--el-color-primary-light-1);
+      border-color: var(--el-color-primary-light-1);
+    }
+
+    &:active {
+      background-color: var(--el-color-primary-dark-1);
+      border-color: var(--el-color-primary-dark-1);
+    }
+  }
+
+  &.el-button--success {
+    background-color: var(--el-color-success);
+    border-color: var(--el-color-success);
+  }
+
+  &.el-button--warning {
+    background-color: var(--el-color-warning);
+    border-color: var(--el-color-warning);
+  }
+
+  &.el-button--danger {
+    background-color: var(--el-color-danger);
+    border-color: var(--el-color-danger);
+  }
+
+  &.el-button--info {
+    background-color: var(--el-color-info);
+    border-color: var(--el-color-info);
+  }
+}
+
+// Card 卡片
+.el-card {
+  border-radius: #{$card-border-radius};
+  box-shadow: #{$card-shadow};
+  border: 1px solid var(--el-border-color-lighter);
+
+  .el-card__header {
+    padding: #{$spacing-lg} #{$spacing-xl};
+    border-bottom: 1px solid var(--el-border-color-lighter);
+    background-color: var(--el-bg-color);
+  }
+
+  .el-card__body {
+    padding: #{$card-padding};
+  }
+}
+
+// Input 输入框
+.el-input {
+  .el-input__wrapper {
+    border-radius: var(--el-border-radius-base);
+    transition: var(--el-transition-border);
+
+    &:hover {
+      border-color: var(--el-border-color-dark);
+    }
+
+    &.is-focus {
+      border-color: var(--el-color-primary);
+      box-shadow: 0 0 0 2px rgba(64, 158, 255, 0.2);
+    }
+  }
+}
+
+// Menu 菜单
+.el-menu {
+  &.el-menu--horizontal {
+    border-bottom: none;
+
+    .el-menu-item {
+      border-bottom: 2px solid transparent;
+      transition: var(--el-transition-all);
+
+      &:hover {
+        background-color: var(--el-color-primary-light-9);
+        color: var(--el-color-primary);
+      }
+
+      &.is-active {
+        border-bottom-color: var(--el-color-primary);
+        color: var(--el-color-primary);
+        background-color: var(--el-color-primary-light-9);
+      }
+    }
+  }
+}
+
+// Dialog 对话框
+.el-dialog {
+  border-radius: #{$border-radius-base * 2};
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+  .el-dialog__header {
+    padding: #{$spacing-xl} #{$spacing-xl} #{$spacing-lg};
+    border-bottom: 1px solid var(--el-border-color-lighter);
+
+    .el-dialog__title {
+      font-size: var(--el-font-size-large);
+      font-weight: 600;
+      color: var(--el-text-color-primary);
+    }
+  }
+
+  .el-dialog__body {
+    padding: #{$spacing-xl};
+  }
+
+  .el-dialog__footer {
+    padding: #{$spacing-lg} #{$spacing-xl} #{$spacing-xl};
+    border-top: 1px solid var(--el-border-color-lighter);
+  }
+}
+
+// Alert 警告
+.el-alert {
+  border-radius: var(--el-border-radius-base);
+  border: none;
+
+  &.el-alert--warning {
+    background-color: #fff3cd;
+    color: #856404;
+
+    .el-alert__icon {
+      color: var(--el-color-warning);
+    }
+  }
+
+  &.el-alert--success {
+    background-color: #d4edda;
+    color: #155724;
+
+    .el-alert__icon {
+      color: var(--el-color-success);
+    }
+  }
+
+  &.el-alert--error {
+    background-color: #f8d7da;
+    color: #721c24;
+
+    .el-alert__icon {
+      color: var(--el-color-danger);
+    }
+  }
+
+  &.el-alert--info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+
+    .el-alert__icon {
+      color: var(--el-color-info);
+    }
+  }
+}
+
+// Table 表格
+.el-table {
+  .el-table__header {
+    th {
+      background-color: var(--el-bg-color-page);
+      color: var(--el-text-color-primary);
+      font-weight: 600;
+    }
+  }
+
+  .el-table__row {
+    &:hover {
+      background-color: var(--el-color-primary-light-9);
+    }
+  }
+}
+
+// Pagination 分页
+.el-pagination {
+  .el-pager li {
+    border-radius: var(--el-border-radius-base);
+    margin: 0 2px;
+
+    &.is-active {
+      background-color: var(--el-color-primary);
+      color: white;
+    }
+  }
+
+  .btn-prev,
+  .btn-next {
+    border-radius: var(--el-border-radius-base);
+  }
+}
+
+// Loading 加载
+.el-loading-mask {
+  background-color: rgba(255, 255, 255, 0.9);
+
+  .el-loading-spinner {
+    .el-loading-text {
+      color: var(--el-color-primary);
+      font-size: var(--el-font-size-base);
+    }
+  }
+}
+
+// Message 消息
+.el-message {
+  border-radius: var(--el-border-radius-base);
+  box-shadow: var(--el-box-shadow-light);
+  border: none;
+
+  &.el-message--success {
+    background-color: #f0f9eb;
+    border-left: 4px solid var(--el-color-success);
+  }
+
+  &.el-message--warning {
+    background-color: #fdf6ec;
+    border-left: 4px solid var(--el-color-warning);
+  }
+
+  &.el-message--error {
+    background-color: #fef0f0;
+    border-left: 4px solid var(--el-color-danger);
+  }
+
+  &.el-message--info {
+    background-color: #f4f4f5;
+    border-left: 4px solid var(--el-color-info);
+  }
+}
+
+// Drawer 抽屉
+.el-drawer {
+  .el-drawer__header {
+    padding: #{$spacing-xl} #{$spacing-xl} #{$spacing-lg};
+    border-bottom: 1px solid var(--el-border-color-lighter);
+    margin-bottom: 0;
+
+    .el-drawer__title {
+      font-size: var(--el-font-size-large);
+      font-weight: 600;
+      color: var(--el-text-color-primary);
+    }
+  }
+
+  .el-drawer__body {
+    padding: #{$spacing-xl};
+  }
+}
+
+// Badge 徽章
+.el-badge {
+  .el-badge__content {
+    border-radius: #{$border-radius-round};
+    font-size: #{$font-size-extra-small};
+    padding: 2px 6px;
+    min-width: 18px;
+    height: 18px;
+    line-height: 14px;
+  }
+}
+
+// Avatar 头像
+.el-avatar {
+  border-radius: var(--el-border-radius-circle);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+// Backtop 回到顶部
+.el-backtop {
+  border-radius: var(--el-border-radius-circle);
+  box-shadow: var(--el-box-shadow-light);
+  background-color: var(--el-color-primary);
+  color: white;
+  transition: var(--el-transition-all);
+
+  &:hover {
+    background-color: var(--el-color-primary-light-1);
+    transform: translateY(-2px);
+  }
+}
+
+// ===== 自定义组件样式 =====
+.custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--el-border-color-dark);
+    border-radius: 3px;
+    transition: var(--el-transition-all);
+
+    &:hover {
+      background-color: var(--el-border-color-darker);
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}
+
+// 响应式隐藏滚动条
+@media (max-width: $breakpoint-md) {
+  .custom-scrollbar {
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+  }
+}

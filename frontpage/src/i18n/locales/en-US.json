@@ -1,0 +1,290 @@
+{
+  "common": {
+    "home": "Home",
+    "news": "News",
+    "schedule": "Schedule",
+    "gallery": "Gallery",
+    "community": "Community",
+    "aiGenerator": "AI Generator",
+    "search": "Search",
+    "loading": "Loading...",
+    "loadMore": "Load More",
+    "noData": "No Data",
+    "error": "Error",
+    "retry": "Retry",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "share": "Share",
+    "like": "Like",
+    "comment": "Comment",
+    "favorite": "Favorite",
+    "download": "Download",
+    "upload": "Upload",
+    "submit": "Submit",
+    "reset": "Reset",
+    "refresh": "Refresh",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "open": "Open",
+    "view": "View",
+    "more": "More",
+    "all": "All",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "week": "This Week",
+    "month": "This Month",
+    "year": "This Year"
+  },
+  "nav": {
+    "fanZhendong": "Fan Zhendong",
+    "subtitle": "Table Tennis World Champion",
+    "language": "Language",
+    "theme": "Theme",
+    "settings": "Settings"
+  },
+  "home": {
+    "title": "Fan Zhendong Official Fan Site",
+    "subtitle": "Support the World No.1, Witness Legendary Moments",
+    "latestNews": "Latest News",
+    "upcomingMatches": "Upcoming Matches",
+    "featuredGallery": "Featured Gallery",
+    "communityHighlights": "Community Highlights",
+    "stats": {
+      "worldRanking": "World Ranking",
+      "careerTitles": "Career Titles",
+      "winRate": "Win Rate",
+      "fans": "Global Fans"
+    },
+    "achievements": {
+      "title": "Major Achievements",
+      "olympicChampion": "Olympic Champion",
+      "worldChampion": "World Champion",
+      "worldCupWinner": "World Cup Winner",
+      "grandSlamWinner": "Grand Slam Winner"
+    }
+  },
+  "news": {
+    "title": "News",
+    "subtitle": "Latest news and updates about Fan Zhendong",
+    "categories": {
+      "all": "All",
+      "match": "Match",
+      "training": "Training",
+      "interview": "Interview",
+      "life": "Life",
+      "achievement": "Achievement"
+    },
+    "filters": {
+      "category": "Category",
+      "date": "Date",
+      "sort": "Sort",
+      "latest": "Latest",
+      "popular": "Popular",
+      "views": "Views"
+    },
+    "readMore": "Read More",
+    "relatedNews": "Related News",
+    "shareNews": "Share News"
+  },
+  "schedule": {
+    "title": "Match Schedule",
+    "subtitle": "Fan Zhendong's match schedule and results",
+    "upcoming": "Upcoming",
+    "ongoing": "Ongoing",
+    "completed": "Completed",
+    "tournament": "Tournament",
+    "opponent": "Opponent",
+    "time": "Time",
+    "venue": "Venue",
+    "result": "Result",
+    "score": "Score",
+    "status": {
+      "scheduled": "Scheduled",
+      "live": "Live",
+      "finished": "Finished",
+      "cancelled": "Cancelled",
+      "postponed": "Postponed"
+    },
+    "reminder": "Reminder",
+    "setReminder": "Set Reminder",
+    "watchLive": "Watch Live"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "Spectacular moments of Fan Zhendong in matches and life",
+    "categories": {
+      "all": "All",
+      "match": "Match",
+      "training": "Training",
+      "award": "Award",
+      "life": "Life",
+      "fan": "Fan"
+    },
+    "upload": "Upload Image",
+    "viewOriginal": "View Original",
+    "downloadImage": "Download Image",
+    "imageInfo": "Image Info",
+    "photographer": "Photographer",
+    "location": "Location",
+    "equipment": "Equipment"
+  },
+  "community": {
+    "title": "Fan Community",
+    "subtitle": "Fan Zhendong fan community for discussion and interaction",
+    "forum": "Forum Discussion",
+    "chat": "Live Chat",
+    "createPost": "Create Post",
+    "postTitle": "Post Title",
+    "postContent": "Post Content",
+    "postCategory": "Post Category",
+    "tags": "Tags",
+    "addTag": "Add Tag",
+    "reply": "Reply",
+    "quote": "Quote",
+    "report": "Report",
+    "onlineUsers": "Online Users",
+    "totalPosts": "Total Posts",
+    "todayPosts": "Today's Posts",
+    "categories": {
+      "discussion": "Discussion",
+      "news": "News",
+      "match": "Match",
+      "support": "Support",
+      "question": "Question"
+    }
+  },
+  "aiGenerator": {
+    "title": "AI Smart Support Generator",
+    "subtitle": "Create unique support content for Fan Zhendong with AI",
+    "types": {
+      "slogan": "Support Slogan",
+      "banner": "Support Banner",
+      "meme": "Meme"
+    },
+    "parameters": {
+      "theme": "Theme",
+      "emotion": "Emotion",
+      "length": "Length",
+      "size": "Size",
+      "colorScheme": "Color Scheme",
+      "style": "Style",
+      "prompt": "Creative Prompt"
+    },
+    "themes": {
+      "victory": "Victory",
+      "support": "Support",
+      "technique": "Technique",
+      "spirit": "Spirit",
+      "achievement": "Achievement"
+    },
+    "emotions": {
+      "passionate": "Passionate",
+      "warm": "Warm",
+      "humorous": "Humorous",
+      "inspiring": "Inspiring",
+      "proud": "Proud"
+    },
+    "generate": "Generate",
+    "generating": "Generating...",
+    "regenerate": "Regenerate",
+    "results": "Results",
+    "history": "History",
+    "usage": "Usage",
+    "dailyLimit": "Daily Limit"
+  },
+  "realtime": {
+    "title": "Real-time Data",
+    "connected": "Connected",
+    "disconnected": "Disconnected",
+    "newsUpdate": "News Update",
+    "matchUpdate": "Match Update",
+    "communityMessage": "Community Message",
+    "notification": "Notification",
+    "lastUpdate": "Last Update",
+    "autoRefresh": "Auto Refresh",
+    "refreshInterval": "Refresh Interval"
+  },
+  "pwa": {
+    "install": "Install App",
+    "installPrompt": "Add Fan Zhendong Fan Site to your home screen for a better experience",
+    "updateAvailable": "Update Available",
+    "updatePrompt": "Click to update for the best experience",
+    "offline": "Offline Mode",
+    "onlineRestored": "Network connection restored",
+    "notifications": {
+      "permission": "Notification Permission",
+      "enable": "Enable Notifications",
+      "disable": "Disable Notifications",
+      "pushSubscribe": "Subscribe to Push",
+      "pushUnsubscribe": "Unsubscribe from Push"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language Settings",
+    "theme": "Theme Settings",
+    "notifications": "Notification Settings",
+    "privacy": "Privacy Settings",
+    "about": "About Us",
+    "version": "Version Info",
+    "feedback": "Feedback",
+    "contact": "Contact Us"
+  },
+  "footer": {
+    "disclaimer": "Disclaimer",
+    "disclaimerText": "This is an unofficial fan website for Fan Zhendong. All content is for fan communication only.",
+    "copyright": "Copyright",
+    "links": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "contact": "Contact Us",
+      "about": "About Us"
+    }
+  },
+  "errors": {
+    "404": "Page Not Found",
+    "500": "Server Error",
+    "network": "Network Error",
+    "timeout": "Request Timeout",
+    "unauthorized": "Unauthorized Access",
+    "forbidden": "Access Forbidden",
+    "notFound": "Resource Not Found",
+    "serverError": "Internal Server Error",
+    "networkError": "Network Connection Failed",
+    "timeoutError": "Request timeout, please retry",
+    "unknownError": "Unknown Error"
+  },
+  "messages": {
+    "success": {
+      "saved": "Saved successfully",
+      "deleted": "Deleted successfully",
+      "uploaded": "Uploaded successfully",
+      "shared": "Shared successfully",
+      "liked": "Liked successfully",
+      "commented": "Commented successfully",
+      "subscribed": "Subscribed successfully",
+      "installed": "Installed successfully"
+    },
+    "error": {
+      "saveFailed": "Save failed",
+      "deleteFailed": "Delete failed",
+      "uploadFailed": "Upload failed",
+      "shareFailed": "Share failed",
+      "likeFailed": "Like failed",
+      "commentFailed": "Comment failed",
+      "subscribeFailed": "Subscribe failed",
+      "installFailed": "Install failed"
+    },
+    "warning": {
+      "unsavedChanges": "You have unsaved changes",
+      "confirmDelete": "Are you sure you want to delete this item?",
+      "networkUnavailable": "Network unavailable",
+      "featureUnavailable": "Feature unavailable"
+    }
+  }
+}

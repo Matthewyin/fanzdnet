@@ -1,0 +1,40 @@
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景，设为透明。如果需要白色背景，请将 fill="none" 改为 fill="white" -->
+  <rect width="100%" height="100%" fill="none"/>
+
+  <!-- 1. 乒乓球拍和球的 Emoji 图标 -->
+  <text x="150" y="80" font-size="80" text-anchor="middle" dominant-baseline="middle">
+    🏓
+  </text>
+
+  <!-- 定义效果 -->
+  <defs>
+    <!-- 2. 定义文字要遵循的“下弦月”弧形路径 -->
+    <!-- 路径的位置已向下调整，以放在图标下方 -->
+    <path id="downwardArc" d="M 40 135 Q 150 175 260 135" fill="none" />
+
+    <!-- 3. 定义文字的阴影效果 -->
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feOffset dx="1" dy="1" result="offset" />
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.5" result="blur" />
+      <feFlood flood-color="#000000" flood-opacity="0.5" result="color" />
+      <feComposite in="color" in2="blur" operator="in" result="shadow" />
+      <feMerge>
+        <feMergeNode in="shadow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 4. 将带有阴影效果的文字 "FANZD.NET" 应用于弧形路径 -->
+  <text 
+        font-family="'Segoe UI', 'Frutiger', 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif" 
+        font-size="32" 
+        fill="#000000" 
+        letter-spacing="1"
+        filter="url(#dropShadow)"> 
+    <textPath href="#downwardArc" startOffset="50%" text-anchor="middle">
+      FANZD.NET
+    </textPath>
+  </text>
+</svg>

@@ -1,0 +1,290 @@
+{
+  "common": {
+    "home": "首页",
+    "news": "新闻",
+    "schedule": "赛程",
+    "gallery": "图库",
+    "community": "社区",
+    "aiGenerator": "AI生成器",
+    "search": "搜索",
+    "loading": "加载中...",
+    "loadMore": "加载更多",
+    "noData": "暂无数据",
+    "error": "出错了",
+    "retry": "重试",
+    "confirm": "确认",
+    "cancel": "取消",
+    "save": "保存",
+    "edit": "编辑",
+    "delete": "删除",
+    "share": "分享",
+    "like": "点赞",
+    "comment": "评论",
+    "favorite": "收藏",
+    "download": "下载",
+    "upload": "上传",
+    "submit": "提交",
+    "reset": "重置",
+    "refresh": "刷新",
+    "back": "返回",
+    "next": "下一步",
+    "previous": "上一步",
+    "close": "关闭",
+    "open": "打开",
+    "view": "查看",
+    "more": "更多",
+    "all": "全部",
+    "today": "今天",
+    "yesterday": "昨天",
+    "week": "本周",
+    "month": "本月",
+    "year": "今年"
+  },
+  "nav": {
+    "fanZhendong": "樊振东",
+    "subtitle": "乒乓球世界冠军",
+    "language": "语言",
+    "theme": "主题",
+    "settings": "设置"
+  },
+  "home": {
+    "title": "樊振东官方球迷网站",
+    "subtitle": "支持世界第一，见证传奇时刻",
+    "latestNews": "最新动态",
+    "upcomingMatches": "即将到来的比赛",
+    "featuredGallery": "精彩瞬间",
+    "communityHighlights": "社区热点",
+    "stats": {
+      "worldRanking": "世界排名",
+      "careerTitles": "职业生涯冠军",
+      "winRate": "胜率",
+      "fans": "全球球迷"
+    },
+    "achievements": {
+      "title": "主要成就",
+      "olympicChampion": "奥运冠军",
+      "worldChampion": "世界冠军",
+      "worldCupWinner": "世界杯冠军",
+      "grandSlamWinner": "大满贯得主"
+    }
+  },
+  "news": {
+    "title": "新闻动态",
+    "subtitle": "樊振东最新新闻和动态",
+    "categories": {
+      "all": "全部",
+      "match": "比赛",
+      "training": "训练",
+      "interview": "采访",
+      "life": "生活",
+      "achievement": "成就"
+    },
+    "filters": {
+      "category": "分类",
+      "date": "日期",
+      "sort": "排序",
+      "latest": "最新",
+      "popular": "热门",
+      "views": "浏览量"
+    },
+    "readMore": "阅读全文",
+    "relatedNews": "相关新闻",
+    "shareNews": "分享新闻"
+  },
+  "schedule": {
+    "title": "比赛赛程",
+    "subtitle": "樊振东比赛安排和结果",
+    "upcoming": "即将进行",
+    "ongoing": "进行中",
+    "completed": "已完成",
+    "tournament": "赛事",
+    "opponent": "对手",
+    "time": "时间",
+    "venue": "场地",
+    "result": "结果",
+    "score": "比分",
+    "status": {
+      "scheduled": "已安排",
+      "live": "直播中",
+      "finished": "已结束",
+      "cancelled": "已取消",
+      "postponed": "已推迟"
+    },
+    "reminder": "提醒",
+    "setReminder": "设置提醒",
+    "watchLive": "观看直播"
+  },
+  "gallery": {
+    "title": "精彩图库",
+    "subtitle": "樊振东比赛和生活精彩瞬间",
+    "categories": {
+      "all": "全部",
+      "match": "比赛",
+      "training": "训练",
+      "award": "颁奖",
+      "life": "生活",
+      "fan": "球迷"
+    },
+    "upload": "上传图片",
+    "viewOriginal": "查看原图",
+    "downloadImage": "下载图片",
+    "imageInfo": "图片信息",
+    "photographer": "摄影师",
+    "location": "拍摄地点",
+    "equipment": "拍摄设备"
+  },
+  "community": {
+    "title": "球迷社区",
+    "subtitle": "樊振东球迷交流和讨论平台",
+    "forum": "论坛讨论",
+    "chat": "实时聊天",
+    "createPost": "发布帖子",
+    "postTitle": "帖子标题",
+    "postContent": "帖子内容",
+    "postCategory": "帖子分类",
+    "tags": "标签",
+    "addTag": "添加标签",
+    "reply": "回复",
+    "quote": "引用",
+    "report": "举报",
+    "onlineUsers": "在线用户",
+    "totalPosts": "帖子总数",
+    "todayPosts": "今日发帖",
+    "categories": {
+      "discussion": "讨论",
+      "news": "新闻",
+      "match": "比赛",
+      "support": "应援",
+      "question": "提问"
+    }
+  },
+  "aiGenerator": {
+    "title": "AI智能应援物生成器",
+    "subtitle": "用AI为樊振东创造独特的应援内容",
+    "types": {
+      "slogan": "应援口号",
+      "banner": "应援横幅",
+      "meme": "表情包"
+    },
+    "parameters": {
+      "theme": "主题风格",
+      "emotion": "情感色彩",
+      "length": "长度",
+      "size": "尺寸",
+      "colorScheme": "颜色方案",
+      "style": "风格",
+      "prompt": "创意提示"
+    },
+    "themes": {
+      "victory": "胜利主题",
+      "support": "支持鼓励",
+      "technique": "技术赞美",
+      "spirit": "精神品质",
+      "achievement": "成就荣誉"
+    },
+    "emotions": {
+      "passionate": "热情激昂",
+      "warm": "温暖感人",
+      "humorous": "幽默风趣",
+      "inspiring": "鼓舞人心",
+      "proud": "自豪骄傲"
+    },
+    "generate": "开始生成",
+    "generating": "生成中...",
+    "regenerate": "重新生成",
+    "results": "生成结果",
+    "history": "生成历史",
+    "usage": "使用次数",
+    "dailyLimit": "每日限制"
+  },
+  "realtime": {
+    "title": "实时数据",
+    "connected": "已连接",
+    "disconnected": "未连接",
+    "newsUpdate": "新闻更新",
+    "matchUpdate": "比赛更新",
+    "communityMessage": "社区消息",
+    "notification": "通知",
+    "lastUpdate": "最后更新",
+    "autoRefresh": "自动刷新",
+    "refreshInterval": "刷新间隔"
+  },
+  "pwa": {
+    "install": "安装应用",
+    "installPrompt": "将樊振东球迷网添加到主屏幕，获得更好的体验",
+    "updateAvailable": "发现新版本",
+    "updatePrompt": "点击更新以获得最佳体验",
+    "offline": "离线模式",
+    "onlineRestored": "网络连接已恢复",
+    "notifications": {
+      "permission": "通知权限",
+      "enable": "开启通知",
+      "disable": "关闭通知",
+      "pushSubscribe": "订阅推送",
+      "pushUnsubscribe": "取消订阅"
+    }
+  },
+  "settings": {
+    "title": "设置",
+    "language": "语言设置",
+    "theme": "主题设置",
+    "notifications": "通知设置",
+    "privacy": "隐私设置",
+    "about": "关于我们",
+    "version": "版本信息",
+    "feedback": "意见反馈",
+    "contact": "联系我们"
+  },
+  "footer": {
+    "disclaimer": "免责声明",
+    "disclaimerText": "本网站为樊振东非官方球迷网站，所有内容仅供球迷交流使用。",
+    "copyright": "版权所有",
+    "links": {
+      "privacy": "隐私政策",
+      "terms": "使用条款",
+      "contact": "联系我们",
+      "about": "关于我们"
+    }
+  },
+  "errors": {
+    "404": "页面未找到",
+    "500": "服务器错误",
+    "network": "网络错误",
+    "timeout": "请求超时",
+    "unauthorized": "未授权访问",
+    "forbidden": "访问被禁止",
+    "notFound": "资源不存在",
+    "serverError": "服务器内部错误",
+    "networkError": "网络连接失败",
+    "timeoutError": "请求超时，请重试",
+    "unknownError": "未知错误"
+  },
+  "messages": {
+    "success": {
+      "saved": "保存成功",
+      "deleted": "删除成功",
+      "uploaded": "上传成功",
+      "shared": "分享成功",
+      "liked": "点赞成功",
+      "commented": "评论成功",
+      "subscribed": "订阅成功",
+      "installed": "安装成功"
+    },
+    "error": {
+      "saveFailed": "保存失败",
+      "deleteFailed": "删除失败",
+      "uploadFailed": "上传失败",
+      "shareFailed": "分享失败",
+      "likeFailed": "点赞失败",
+      "commentFailed": "评论失败",
+      "subscribeFailed": "订阅失败",
+      "installFailed": "安装失败"
+    },
+    "warning": {
+      "unsavedChanges": "有未保存的更改",
+      "confirmDelete": "确认删除此项目？",
+      "networkUnavailable": "网络不可用",
+      "featureUnavailable": "功能暂不可用"
+    }
+  }
+}
