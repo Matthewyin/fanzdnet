@@ -17,7 +17,10 @@ export default defineConfig({
   },
   server: {
     host: "0.0.0.0",
-    port: "3000"
+    port: 3000,
+    open: true, // 自动打开浏览器
+    strictPort: false, // 端口被占用时自动尝试下一个可用端口
+    cors: true // 启用CORS
   },
   resolve: {
     alias: {

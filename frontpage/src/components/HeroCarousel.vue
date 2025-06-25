@@ -1,870 +1,810 @@
 <template>
-  <div class="hero-section star-density-medium">
+  <div class="hero-section">
+    <!-- 固定星空背景层 - 不参与轮播，580颗星星分3层 + 2个星座 -->
+    <div class="starfield-background">
+      <!-- 天蝎座主星层 - 8颗特殊蓝色恒星，3秒闪烁 -->
+      <div class="star-layer-scorpius" :style="starfieldStyles.scorpius"></div>
+      <!-- 天蝎座星座连线 - 按照参考图的弯曲身体形状 -->
+      <div class="scorpius-constellation">
+        <svg class="constellation-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <!-- 天蝎座连线路径 - 弯曲的身体和钳子 -->
+          <!-- 左钳子 -->
+          <path d="M 5 20 L 8 25" class="constellation-line" />
+          <!-- 右钳子 -->
+          <path d="M 5 30 L 8 25" class="constellation-line" />
+          <!-- 主体弯曲身体：心宿二(8,25) → β星(12,30) → δ星(15,35) → π星(10,40) → ρ星(18,45) → σ星(13,50) → τ星(16,55) → υ星(20,60) -->
+          <path d="M 8 25 L 12 30 L 15 35 L 10 40 L 18 45 L 13 50 L 16 55 L 20 60" class="constellation-line" />
+        </svg>
+      </div>
+      <!-- 水瓶座主星层 - 8颗特殊蓝色恒星，3秒闪烁 -->
+      <div class="star-layer-aquarius" :style="starfieldStyles.aquarius"></div>
+      <!-- 水瓶座星座连线 - 按照参考图的复杂连线结构 -->
+      <div class="aquarius-constellation">
+        <svg class="constellation-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <!-- 水瓶座连线路径 - 复杂的人形和倒水结构 -->
+          <!-- 上方长斜线：从右上角向左下延伸 -->
+          <path d="M 43 30 L 37 20 L 30 30" class="constellation-line" />
+          <!-- 中间横线连接 -->
+          <path d="M 30 30 L 35 35" class="constellation-line" />
+          <!-- 右侧连接到中心 -->
+          <path d="M 35 35 L 40 25" class="constellation-line" />
+          <!-- 左下方的三角形结构 -->
+          <path d="M 30 30 L 25 40 L 33 45" class="constellation-line" />
+          <path d="M 25 40 L 27 50" class="constellation-line" />
+          <path d="M 33 45 L 27 50" class="constellation-line" />
+          <!-- 水流波纹连接 -->
+          <path d="M 33 45 L 30 42" class="constellation-line" />
+          <path d="M 27 50 L 35 47" class="constellation-line" />
+        </svg>
+      </div>
+      <div class="star-layer-1" :style="starfieldStyles.layer1"></div>
+      <div class="star-layer-2" :style="starfieldStyles.layer2"></div>
+      <div class="star-layer-3" :style="starfieldStyles.layer3"></div>
+      <div class="nebula-layer" :style="starfieldStyles.nebula"></div>
+    </div>
+    
+    <!-- 轮播内容层 - 只有文字内容轮播 -->
     <div class="hero-carousel">
-      <el-carousel
-        :interval="3000"
-        autoplay
-        :arrow="'hover'"
-        indicator-position="outside"
-        height="100%"
-        class="main-carousel"
-      >
-        <el-carousel-item v-for="(image, index) in heroImages" :key="index">
-          <div class="carousel-item" :class="{ 'opening-slide': image.isOpening }">
-            <!-- 开场轮播图使用拼接图片背景 -->
-            <div v-if="image.isOpening" class="opening-background" :style="{ backgroundImage: `url(${image.url})` }"></div>
-            <img v-else :src="image.url" :alt="image.title" class="carousel-image" />
-
-            <div class="carousel-overlay" :class="{ 'opening-overlay': image.isOpening }">
-              <!-- 开场轮播图的特殊内容 -->
-              <div v-if="image.isOpening" class="opening-content">
-                <div class="opening-text-container">
-                  <div v-for="(line, lineIndex) in image.openingText" :key="lineIndex" 
-                       class="opening-line"
-                       :style="{ 
-                         '--line-index': lineIndex,
-                         animationDelay: (lineIndex * 0.5) + 's' 
-                       }">
-                    {{ line }}
-                  </div>
+      <div class="carousel-container">
+        <div 
+          class="carousel-wrapper" 
+          :style="{ 
+            transform: `translateX(-${currentIndex * 100}%)`,
+            transition: isTransitioning ? 'transform 0.5s ease-in-out' : 'none'
+          }"
+        >
+          <!-- 最后一张的克隆，用于无缝循环 -->
+          <div 
+            class="carousel-item"
+            v-if="heroItems.length > 0"
+          >
+            <div v-if="heroItems[heroItems.length - 1].isOpening" class="opening-content">
+              <div class="opening-text-container">
+                <div v-for="(line, lineIndex) in heroItems[heroItems.length - 1].openingText" :key="lineIndex" 
+                     class="opening-line"
+                     :style="{ 
+                       '--line-index': lineIndex,
+                       animationDelay: (lineIndex * 0.5) + 's' 
+                     }">
+                  {{ line }}
                 </div>
               </div>
-
-              <!-- 传奇历程轮播图的内容 -->
-              <template v-else>
-                <!-- 主要文字内容叠加在图片上 - 透明容器 -->
-                <div class="hero-text-container">
-                  <div class="hero-text-overlay">
-                    <h1 class="hero-title">{{ image.title }}</h1>
-                    <h2 class="hero-subtitle">{{ image.subtitle }}</h2>
-                    <p class="hero-quote">{{ image.quote }}</p>
-                    <div class="hero-stats">
-                      <div class="stat-item">
-                        <span class="stat-label">赛事</span>
-                        <span class="stat-value">{{ image.event }}</span>
-                      </div>
-                      <div class="stat-item">
-                        <span class="stat-label">对手</span>
-                        <span class="stat-value">{{ image.opponent }}</span>
-                      </div>
-                      <div class="stat-item">
-                        <span class="stat-label">比分</span>
-                        <span class="stat-value">{{ image.score }}</span>
-                      </div>
+            </div>
+            <div v-else class="hero-content">
+              <div class="hero-text-container">
+                <div class="hero-text-overlay">
+                  <h1 class="hero-title">{{ heroItems[heroItems.length - 1].title }}</h1>
+                  <h2 class="hero-subtitle">{{ heroItems[heroItems.length - 1].subtitle }}</h2>
+                  <p class="hero-quote">{{ heroItems[heroItems.length - 1].quote }}</p>
+                  <div class="hero-stats">
+                    <div class="stat-item">
+                      <span class="stat-label">赛事</span>
+                      <span class="stat-value">{{ heroItems[heroItems.length - 1].event }}</span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-label">对手</span>
+                      <span class="stat-value">{{ heroItems[heroItems.length - 1].opponent }}</span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-label">比分</span>
+                      <span class="stat-value">{{ heroItems[heroItems.length - 1].score }}</span>
                     </div>
                   </div>
                 </div>
-                <!-- 轮播图片描述信息 - 移除重复标题 -->
-                <div class="carousel-info">
-                  <p class="carousel-description">{{ image.description }}</p>
-                </div>
-              </template>
+              </div>
+              <div class="carousel-info">
+                <p class="carousel-description">{{ heroItems[heroItems.length - 1].description }}</p>
+              </div>
             </div>
           </div>
-        </el-carousel-item>
-      </el-carousel>
+
+          <!-- 原始轮播项 -->
+          <div 
+            v-for="(item, index) in heroItems" 
+            :key="'original-' + index"
+            class="carousel-item"
+          >
+            <!-- 开场轮播的特殊处理 -->
+            <div v-if="item.isOpening" class="opening-content">
+              <div class="opening-text-container">
+                <div v-for="(line, lineIndex) in item.openingText" :key="lineIndex" 
+                     class="opening-line"
+                     :style="{ 
+                       '--line-index': lineIndex,
+                       animationDelay: (lineIndex * 0.5) + 's' 
+                     }">
+                  {{ line }}
+                </div>
+              </div>
+            </div>
+
+            <!-- 传奇历程轮播的内容 -->
+            <div v-else class="hero-content">
+              <div class="hero-text-container">
+                <div class="hero-text-overlay">
+                  <h1 class="hero-title">{{ item.title }}</h1>
+                  <h2 class="hero-subtitle">{{ item.subtitle }}</h2>
+                  <p class="hero-quote">{{ item.quote }}</p>
+                  <div class="hero-stats">
+                    <div class="stat-item">
+                      <span class="stat-label">赛事</span>
+                      <span class="stat-value">{{ item.event }}</span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-label">对手</span>
+                      <span class="stat-value">{{ item.opponent }}</span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-label">比分</span>
+                      <span class="stat-value">{{ item.score }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-info">
+                <p class="carousel-description">{{ item.description }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 第一张的克隆，用于无缝循环 -->
+          <div 
+            class="carousel-item"
+            v-if="heroItems.length > 0"
+          >
+            <div v-if="heroItems[0].isOpening" class="opening-content">
+              <div class="opening-text-container">
+                <div v-for="(line, lineIndex) in heroItems[0].openingText" :key="lineIndex" 
+                     class="opening-line"
+                     :style="{ 
+                       '--line-index': lineIndex,
+                       animationDelay: (lineIndex * 0.5) + 's' 
+                     }">
+                  {{ line }}
+                </div>
+              </div>
+            </div>
+            <div v-else class="hero-content">
+              <div class="hero-text-container">
+                <div class="hero-text-overlay">
+                  <h1 class="hero-title">{{ heroItems[0].title }}</h1>
+                  <h2 class="hero-subtitle">{{ heroItems[0].subtitle }}</h2>
+                  <p class="hero-quote">{{ heroItems[0].quote }}</p>
+                  <div class="hero-stats">
+                    <div class="stat-item">
+                      <span class="stat-label">赛事</span>
+                      <span class="stat-value">{{ heroItems[0].event }}</span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-label">对手</span>
+                      <span class="stat-value">{{ heroItems[0].opponent }}</span>
+                    </div>
+                    <div class="stat-item">
+                      <span class="stat-label">比分</span>
+                      <span class="stat-value">{{ heroItems[0].score }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-info">
+                <p class="carousel-description">{{ heroItems[0].description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 轮播指示器 -->
+      <div class="carousel-indicators">
+        <button 
+          v-for="(item, index) in heroItems" 
+          :key="index"
+          :class="['indicator', { active: currentIndex === index + 1 }]"
+          @click="goToSlide(index)"
+        ></button>
+      </div>
+
+      <!-- 轮播控制按钮 -->
+      <button class="carousel-btn prev" @click="prevSlide">‹</button>
+      <button class="carousel-btn next" @click="nextSlide">›</button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { heroImages as heroImagesData } from '@/data/heroData.js'
+import { 
+  generateFullStarfield, 
+  generateNebulaCSS, 
+  nebulae,
+  scorpiusStars,
+  aquariusStars
+} from '@/data/starfield.js'
 
-// 主轮播图片数据 - 开场 + 7幕传奇历程
-const heroImages = ref(heroImagesData)
+// 轮播数据
+const heroItems = ref(heroImagesData)
+const currentIndex = ref(1) // 从1开始，因为0是最后一张的克隆
 
-// 图片预加载功能
-const preloadImages = () => {
-  heroImages.value.forEach(image => {
-    if (image.url) {
-      const img = new Image()
-      img.src = image.url
-      // 添加加载完成和错误处理
-      img.onload = () => {
-        console.log(`图片加载成功: ${image.url}`)
-      }
-      img.onerror = () => {
-        console.warn(`图片加载失败: ${image.url}`)
-      }
-    }
-  })
+// 生成星空样式
+const starfieldData = generateFullStarfield()
+const starfieldStyles = computed(() => ({
+  scorpius: {
+    backgroundImage: starfieldData.scorpius
+  },
+  aquarius: {
+    backgroundImage: starfieldData.aquarius
+  },
+  layer1: {
+    backgroundImage: starfieldData.layer1
+  },
+  layer2: {
+    backgroundImage: starfieldData.layer2
+  },
+  layer3: {
+    backgroundImage: starfieldData.layer3
+  },
+  nebula: {
+    backgroundImage: generateNebulaCSS(nebulae)
+  }
+}))
+
+// 轮播控制函数 - 无限循环滚动
+const isTransitioning = ref(false)
+
+const nextSlide = () => {
+  if (isTransitioning.value) return
+  isTransitioning.value = true
+  currentIndex.value++
+  
+  // 当到达第一张的克隆时（最后位置），无缝跳回第一张原始位置
+  if (currentIndex.value > heroItems.value.length) {
+    setTimeout(() => {
+      currentIndex.value = 1 // 跳回第一张原始位置
+      isTransitioning.value = false
+    }, 500)
+  } else {
+    setTimeout(() => {
+      isTransitioning.value = false
+    }, 500)
+  }
 }
 
-// 组件挂载时预加载图片
+const prevSlide = () => {
+  if (isTransitioning.value) return
+  isTransitioning.value = true
+  
+  // 当到达最后一张的克隆时（第0位置），无缝跳到最后一张原始位置
+  if (currentIndex.value <= 0) {
+    currentIndex.value = heroItems.value.length // 跳到最后一张原始位置
+  } else {
+    currentIndex.value--
+  }
+  
+  setTimeout(() => {
+    isTransitioning.value = false
+  }, 500)
+}
+
+const goToSlide = (index) => {
+  if (isTransitioning.value) return
+  currentIndex.value = index + 1 // +1因为第0位是克隆
+}
+
+// 自动轮播
+let autoplayTimer = null
+const startAutoplay = () => {
+  autoplayTimer = setInterval(nextSlide, 4000) // 4秒切换
+}
+
+const stopAutoplay = () => {
+  if (autoplayTimer) {
+    clearInterval(autoplayTimer)
+    autoplayTimer = null
+  }
+}
+
+// 组件生命周期
 onMounted(() => {
-  preloadImages()
+  startAutoplay()
+  console.log(`星空系统已加载：总计 ${starfieldData.total} 颗星星`)
 })
+
+// 鼠标悬停暂停自动轮播
+const handleMouseEnter = () => {
+  stopAutoplay()
+}
+
+const handleMouseLeave = () => {
+  startAutoplay()
+}
 </script>
 
 <style scoped>
-/* 主要内容区域 - 全屏轮播图片与叠加文字 */
+/* 主要内容区域 - 全屏轮播 */
 .hero-section {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   padding: 0;
   position: relative;
   overflow: hidden;
-}
-
-/* 轮播区域样式 */
-.hero-carousel {
-  width: 100%;
   height: 70vh;
   min-height: 500px;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(33, 150, 243, 0.15);
 }
 
-.main-carousel {
-  width: 100%;
-  height: 100%;
-}
-
-/* CSS变量定义 - 繁星密集度配置 */
-:root {
-  --star-density: medium; /* sparse, medium, dense */
-  --star-count-large: 8;
-  --star-count-medium: 12;
-  --star-count-small: 15;
-}
-
-.carousel-item {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  /* 统一深夜星空背景 - 所有轮播图使用相同效果 */
-  background:
-    /* 左侧文字区域保持纯黑 */
-    linear-gradient(90deg, #000000 0%, #000000 45%, transparent 45%, transparent 100%),
-    /* 深夜星空渐变背景 */
-    radial-gradient(ellipse at 25% 20%, rgba(10, 15, 28, 0.8) 0%, transparent 60%),
-    radial-gradient(ellipse at 75% 80%, rgba(15, 23, 42, 0.6) 0%, transparent 60%),
-    radial-gradient(ellipse at 50% 50%, rgba(30, 27, 75, 0.4) 0%, transparent 70%),
-    linear-gradient(135deg, #0a0f1c 0%, #0f172a 20%, #1e1b4b 40%, #0f172a 60%, #0a0f1c 80%, #000000 100%);
-}
-
-/* 统一繁星效果 - 第一层（大星星和中等星星）*/
-.carousel-item::before {
-  content: '';
+/* 固定星空背景层 - 不参与轮播，星云风格 */
+.starfield-background {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image:
-    /* 大星星 (2px) - 中等密集度 */
-    radial-gradient(2px 2px at 8% 15%, #ffffff, transparent),
-    radial-gradient(2px 2px at 18% 35%, #e0e7ff, transparent),
-    radial-gradient(2px 2px at 28% 65%, #ddd6fe, transparent),
-    radial-gradient(2px 2px at 38% 25%, #ffffff, transparent),
-    radial-gradient(2px 2px at 48% 75%, #e0e7ff, transparent),
-    radial-gradient(2px 2px at 58% 45%, #ddd6fe, transparent),
-    radial-gradient(2px 2px at 68% 85%, #ffffff, transparent),
-    radial-gradient(2px 2px at 78% 55%, #e0e7ff, transparent),
-    /* 中等星星 (1px) */
-    radial-gradient(1px 1px at 12% 50%, #ddd6fe, transparent),
-    radial-gradient(1px 1px at 22% 20%, #ffffff, transparent),
-    radial-gradient(1px 1px at 32% 80%, #e0e7ff, transparent),
-    radial-gradient(1px 1px at 42% 40%, #ddd6fe, transparent),
-    radial-gradient(1px 1px at 52% 10%, #ffffff, transparent),
-    radial-gradient(1px 1px at 62% 70%, #e0e7ff, transparent),
-    radial-gradient(1px 1px at 72% 30%, #ddd6fe, transparent),
-    radial-gradient(1px 1px at 82% 90%, #ffffff, transparent),
-    radial-gradient(1px 1px at 92% 60%, #e0e7ff, transparent),
-    /* 额外中等星星 */
-    radial-gradient(1px 1px at 15% 75%, #ddd6fe, transparent),
-    radial-gradient(1px 1px at 35% 95%, #ffffff, transparent),
-    radial-gradient(1px 1px at 55% 25%, #e0e7ff, transparent);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  opacity: 0.9;
-  animation: starTwinkle 8s ease-in-out infinite;
-  pointer-events: none;
+  background: 
+    radial-gradient(ellipse 800px 400px at 20% 30%, rgba(0, 150, 255, 0.5) 0%, transparent 50%),
+    radial-gradient(ellipse 600px 300px at 80% 70%, rgba(30, 200, 255, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse 400px 600px at 60% 20%, rgba(100, 180, 255, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 500px 350px at 40% 80%, rgba(65, 150, 255, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse 300px 200px at 10% 60%, rgba(0, 220, 255, 0.45) 0%, transparent 50%),
+    radial-gradient(ellipse 700px 500px at 90% 40%, rgba(70, 170, 255, 0.35) 0%, transparent 50%),
+    linear-gradient(135deg, #0a1428 0%, #1e4c8a 50%, #2a60c8 100%);
+  animation: nebulaGlow 15s ease-in-out infinite;
   z-index: 1;
 }
 
-/* 统一繁星效果 - 第二层（小星星和远景效果）*/
-.carousel-item::after {
-  content: '';
+/* 天蝎座主星层 - 8颗特殊蓝色恒星，3秒闪烁 */
+.star-layer-scorpius {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image:
-    /* 小星星 (0.5px) - 中等密集度 */
-    radial-gradient(0.5px 0.5px at 10% 30%, rgba(255, 255, 255, 0.7), transparent),
-    radial-gradient(0.5px 0.5px at 20% 60%, rgba(224, 231, 255, 0.6), transparent),
-    radial-gradient(0.5px 0.5px at 30% 10%, rgba(221, 214, 254, 0.8), transparent),
-    radial-gradient(0.5px 0.5px at 40% 80%, rgba(255, 255, 255, 0.5), transparent),
-    radial-gradient(0.5px 0.5px at 50% 35%, rgba(224, 231, 255, 0.7), transparent),
-    radial-gradient(0.5px 0.5px at 60% 90%, rgba(221, 214, 254, 0.6), transparent),
-    radial-gradient(0.5px 0.5px at 70% 15%, rgba(255, 255, 255, 0.8), transparent),
-    radial-gradient(0.5px 0.5px at 80% 65%, rgba(224, 231, 255, 0.5), transparent),
-    radial-gradient(0.5px 0.5px at 90% 40%, rgba(221, 214, 254, 0.7), transparent),
-    /* 微小星点 */
-    radial-gradient(0.3px 0.3px at 14% 45%, rgba(255, 255, 255, 0.4), transparent),
-    radial-gradient(0.3px 0.3px at 24% 75%, rgba(224, 231, 255, 0.3), transparent),
-    radial-gradient(0.3px 0.3px at 34% 25%, rgba(221, 214, 254, 0.5), transparent),
-    radial-gradient(0.3px 0.3px at 44% 95%, rgba(255, 255, 255, 0.4), transparent),
-    radial-gradient(0.3px 0.3px at 54% 5%, rgba(224, 231, 255, 0.6), transparent),
-    radial-gradient(0.3px 0.3px at 64% 55%, rgba(221, 214, 254, 0.3), transparent),
-    /* 深夜星云效果 */
-    radial-gradient(ellipse 25px 12px at 25% 50%, rgba(10, 15, 28, 0.15), transparent),
-    radial-gradient(ellipse 20px 10px at 75% 30%, rgba(30, 27, 75, 0.12), transparent),
-    radial-gradient(ellipse 30px 15px at 50% 80%, rgba(15, 23, 42, 0.1), transparent);
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  opacity: 0.7;
-  animation: starTwinkle 12s ease-in-out infinite reverse;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.carousel-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* 保持图片完整显示 */
-  object-position: right; /* 图片定位到右侧 */
-  transition: transform 0.3s ease;
-
-  /* 图片加载优化 */
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-
-  /* 图片加载时的占位背景 */
-  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-
-  /* 确保图片清晰度 */
-  backface-visibility: hidden;
+  opacity: 0.95;
+  animation: constellationGlow 3s ease-in-out infinite;
+  will-change: opacity;
   transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
-.carousel-item:hover .carousel-image {
-  transform: scale(1.05);
+/* 水瓶座主星层 - 8颗特殊蓝色恒星，3秒闪烁 */
+.star-layer-aquarius {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.95;
+  animation: constellationGlow 3s ease-in-out infinite;
+  will-change: opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
-/* 开场轮播图样式 - 使用统一深夜星空背景 */
-.opening-background {
+/* 天蝎座星座连线 */
+.scorpius-constellation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* 水瓶座星座连线 */
+.aquarius-constellation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.constellation-lines {
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
+}
 
-  /* 背景图片设置 - 定位到右侧 */
-  background-size: contain; /* 保持图片完整显示 */
-  background-position: right; /* 背景图片定位到右侧 */
+.constellation-line {
+  fill: none;
+  stroke: rgba(135, 206, 235, 0.4);
+  stroke-width: 0.15;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 2px rgba(135, 206, 235, 0.3));
+  animation: constellationLineGlow 6s ease-in-out infinite;
+}
+
+/* 第1层星空 - 最显眼的大星星，8秒闪烁 (50颗) */
+.star-layer-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-repeat: no-repeat;
-
-  /* 移除特殊背景效果，开场轮播图现在也使用统一的深夜星空背景 */
-  /* 背景效果由 .carousel-item 统一提供 */
+  background-size: 100% 100%;
+  opacity: 1.0;
+  animation: starTwinkle 8s ease-in-out infinite;
+  will-change: opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
-/* 移除旧的背景动画，统一使用星空效果 */
-
-/* 深夜繁星闪烁动画 - 缓慢宁静 */
-@keyframes starTwinkle {
-  0%, 100% {
-    opacity: 0.9;
-    transform: scale(1);
-  }
-  20% {
-    opacity: 0.7;
-    transform: scale(0.96);
-  }
-  40% {
-    opacity: 1;
-    transform: scale(1.04);
-  }
-  60% {
-    opacity: 0.8;
-    transform: scale(0.98);
-  }
-  80% {
-    opacity: 0.95;
-    transform: scale(1.02);
-  }
+/* 第2层星空 - 中等星星，10秒反向闪烁 (200颗) */
+.star-layer-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.8;
+  animation: starTwinkle 10s ease-in-out infinite reverse;
+  will-change: opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
-/* 繁星密集度配置 */
-/* 稀疏密集度 - 减少星星数量 */
-.star-density-sparse .carousel-item::before {
-  background-image:
-    /* 只保留大星星 */
-    radial-gradient(2px 2px at 15% 25%, #ffffff, transparent),
-    radial-gradient(2px 2px at 35% 65%, #e0e7ff, transparent),
-    radial-gradient(2px 2px at 55% 35%, #ddd6fe, transparent),
-    radial-gradient(2px 2px at 75% 75%, #ffffff, transparent),
-    /* 少量中等星星 */
-    radial-gradient(1px 1px at 25% 50%, #e0e7ff, transparent),
-    radial-gradient(1px 1px at 45% 20%, #ddd6fe, transparent),
-    radial-gradient(1px 1px at 65% 80%, #ffffff, transparent),
-    radial-gradient(1px 1px at 85% 40%, #e0e7ff, transparent);
+/* 第3层星空 - 背景小星星，12秒闪烁 (300颗) */
+.star-layer-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.6;
+  animation: starTwinkle 12s ease-in-out infinite;
+  will-change: opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
-.star-density-sparse .carousel-item::after {
-  background-image:
-    /* 减少小星星 */
-    radial-gradient(0.5px 0.5px at 20% 30%, rgba(255, 255, 255, 0.6), transparent),
-    radial-gradient(0.5px 0.5px at 40% 70%, rgba(224, 231, 255, 0.5), transparent),
-    radial-gradient(0.5px 0.5px at 60% 40%, rgba(221, 214, 254, 0.7), transparent),
-    radial-gradient(0.5px 0.5px at 80% 80%, rgba(255, 255, 255, 0.4), transparent);
+/* 星云层 */
+.nebula-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.6;
+  animation: nebulaFlow 20s ease-in-out infinite;
+  will-change: opacity, transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
-/* 密集密集度 - 增加星星数量 */
-.star-density-dense .carousel-item::before {
-  background-image:
-    /* 原有星星 + 额外星星 */
-    radial-gradient(2px 2px at 8% 15%, #ffffff, transparent),
-    radial-gradient(2px 2px at 18% 35%, #e0e7ff, transparent),
-    radial-gradient(2px 2px at 28% 65%, #ddd6fe, transparent),
-    radial-gradient(2px 2px at 38% 25%, #ffffff, transparent),
-    radial-gradient(2px 2px at 48% 75%, #e0e7ff, transparent),
-    radial-gradient(2px 2px at 58% 45%, #ddd6fe, transparent),
-    radial-gradient(2px 2px at 68% 85%, #ffffff, transparent),
-    radial-gradient(2px 2px at 78% 55%, #e0e7ff, transparent),
-    /* 额外大星星 */
-    radial-gradient(2px 2px at 88% 25%, #ddd6fe, transparent),
-    radial-gradient(2px 2px at 95% 75%, #ffffff, transparent),
-    /* 更多中等星星 */
-    radial-gradient(1px 1px at 12% 50%, #ddd6fe, transparent),
-    radial-gradient(1px 1px at 22% 20%, #ffffff, transparent),
-    radial-gradient(1px 1px at 32% 80%, #e0e7ff, transparent),
-    radial-gradient(1px 1px at 42% 40%, #ddd6fe, transparent),
-    radial-gradient(1px 1px at 52% 10%, #ffffff, transparent),
-    radial-gradient(1px 1px at 62% 70%, #e0e7ff, transparent),
-    radial-gradient(1px 1px at 72% 30%, #ddd6fe, transparent),
-    radial-gradient(1px 1px at 82% 90%, #ffffff, transparent),
-    radial-gradient(1px 1px at 92% 60%, #e0e7ff, transparent),
-    /* 额外中等星星 */
-    radial-gradient(1px 1px at 15% 75%, #ddd6fe, transparent),
-    radial-gradient(1px 1px at 35% 95%, #ffffff, transparent),
-    radial-gradient(1px 1px at 55% 25%, #e0e7ff, transparent),
-    radial-gradient(1px 1px at 75% 5%, #ddd6fe, transparent),
-    radial-gradient(1px 1px at 95% 45%, #ffffff, transparent);
+/* 轮播容器 */
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
 }
 
-.opening-overlay {
-  background: transparent !important; /* 开场轮播图不需要渐变遮罩 */
+.carousel-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.carousel-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 80px;
+  position: relative;
 }
 
+/* 开场内容样式 */
 .opening-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  max-width: 800px;
+  height: 100%;
   text-align: center;
-  position: relative;
-  z-index: 10; /* 确保开场文字在所有背景效果之上 */
 }
 
 .opening-text-container {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-
-  /* 性能优化：启用GPU加速和优化渲染 */
-  transform: translateZ(0);
-  will-change: auto;
-  contain: layout style paint;
+  max-width: 800px;
+  padding: 0 2rem;
 }
 
 .opening-line {
-  /* 现代优雅字体组合 */
-  font-family:
-    'SF Pro Display', 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB',
-    'Microsoft YaHei', 'Noto Sans SC', sans-serif;
-  font-size: 32px;
-  font-weight: 300;
-  line-height: 1.6;
-  letter-spacing: 2px;
+  font-size: 2.5rem;
+  font-weight: 700;
   color: #ffffff;
-
-  /* 优化后的双层阴影，减少渲染负担 */
-  text-shadow:
-    2px 2px 8px rgba(0, 0, 0, 0.9),
-    0 0 16px rgba(0, 0, 0, 0.6);
-
-  /* 初始状态 */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  margin: 1rem 0;
   opacity: 0;
   transform: translateY(30px);
+  animation: fadeInUp 1s ease-out forwards;
+}
 
-  /* 优化动画：0.5秒完成，使用GPU加速的transform和opacity */
-  animation: fadeInUp 0.5s ease-out forwards;
-  animation-delay: calc(var(--line-index, 0) * 0.5s); /* 每行间隔0.5秒 */
+/* 传奇历程内容样式 */
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 0 4rem;
+}
 
-  /* 启用GPU加速 */
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  perspective: 1000px;
+.hero-text-container {
+  flex: 1;
+  max-width: 50%;
+}
+
+.hero-text-overlay {
+  background: transparent;
+  padding: 2.5rem;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #87ceeb;
+  margin-bottom: 1.5rem;
+}
+
+.hero-quote {
+  font-size: 1.2rem;
+  color: #e0e7ff;
+  margin-bottom: 2rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.carousel-info {
+  position: absolute;
+  bottom: 2rem;
+  left: 4rem;
+  right: 4rem;
+  text-align: center;
+}
+
+.carousel-description {
+  font-size: 1rem;
+  color: #d0d0d0;
+  background: transparent;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+}
+
+/* 轮播指示器 */
+.carousel-indicators {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 3;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: #87ceeb;
+  border-color: #87ceeb;
+  box-shadow: 0 0 10px rgba(135, 206, 235, 0.5);
+}
+
+.indicator:hover {
+  border-color: #87ceeb;
+  transform: scale(1.2);
+}
+
+/* 轮播控制按钮 */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn:hover {
+  background: rgba(135, 206, 235, 0.2);
+  border-color: #87ceeb;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn.prev {
+  left: 2rem;
+}
+
+.carousel-btn.next {
+  right: 2rem;
+}
+
+/* 星空动画效果 */
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+@keyframes constellationGlow {
+  0%, 100% { 
+    opacity: 0.9; 
+    filter: brightness(1);
+  }
+  50% { 
+    opacity: 1; 
+    filter: brightness(1.2) drop-shadow(0 0 3px #87ceeb);
+  }
+}
+
+@keyframes nebulaFlow {
+  0%, 100% { 
+    opacity: 0.6; 
+    transform: translateZ(0) scale(1);
+  }
+  50% { 
+    opacity: 0.8; 
+    transform: translateZ(0) scale(1.02);
+  }
+}
+
+@keyframes nebulaGlow {
+  0%, 100% { 
+    filter: brightness(1) contrast(1);
+  }
+  25% { 
+    filter: brightness(1.1) contrast(1.05);
+  }
+  50% { 
+    filter: brightness(1.2) contrast(1.1);
+  }
+  75% { 
+    filter: brightness(1.1) contrast(1.05);
+  }
 }
 
 @keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.carousel-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* 纯黑色背景：左侧完全黑色，右侧透明，提供最大对比度 */
-  background: linear-gradient(90deg, rgba(0, 0, 0, 1.0) 0%, rgba(0, 0, 0, 1.0) 45%, rgba(0, 0, 0, 0.5) 55%, transparent 100%);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 60px 80px;
+@keyframes constellationLineGlow {
+  0%, 100% { 
+    opacity: 0.4; 
+    stroke: rgba(135, 206, 235, 0.4);
+    filter: drop-shadow(0 0 2px rgba(135, 206, 235, 0.3));
+  }
+  50% { 
+    opacity: 0.7; 
+    stroke: rgba(135, 206, 235, 0.6);
+    filter: drop-shadow(0 0 4px rgba(135, 206, 235, 0.5));
+  }
 }
 
-/* 人物位置相关的背景渐变优化 */
-.person-left .carousel-overlay {
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.6) 100%);
-}
-
-.person-right .carousel-overlay {
-  background: linear-gradient(270deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.6) 100%);
-}
-
-/* 重要：确保轮播项正确隐藏/显示 */
-.main-carousel :deep(.el-carousel__item) {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-.main-carousel :deep(.el-carousel__item:not(.is-active)) {
-  display: none !important;
-}
-
-.main-carousel :deep(.el-carousel__item.is-active) {
-  display: block !important;
-}
-
-/* 主要文字内容容器 - 定位在左侧黑色区域 */
-.hero-text-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* 顶端对齐 */
-  align-items: flex-start;
-  padding-top: 40px; /* 添加顶部间距 */
-  max-width: 60%; /* 限制宽度，确保在左侧区域 */
-  z-index: 2;
-}
-
-/* 主要文字内容叠加样式 - 完全透明无边界 */
-.hero-text-overlay {
-  background: transparent !important; /* 强制透明背景 */
-  padding: 0 !important; /* 强制移除所有内边距 */
-  margin: 0; /* 移除外边距 */
-  border: none !important; /* 强制移除边框 */
-  border-radius: 0 !important; /* 强制移除圆角 */
-  backdrop-filter: none !important; /* 强制移除模糊效果 */
-  box-shadow: none !important; /* 强制移除阴影 */
-  outline: none !important; /* 移除轮廓 */
-  max-width: 700px;
-  width: 100%;
-  transition: all 0.3s ease;
-}
-
-/* 文字内容位置控制 */
-.hero-text-overlay.text-left {
-  align-self: flex-start;
-  margin-right: auto;
-}
-
-.hero-text-overlay.text-right {
-  align-self: flex-end;
-  margin-left: auto;
-}
-
-.hero-title {
-  font-size: 48px;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 16px;
-  line-height: 1.2;
-  text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.9), 1px 1px 6px rgba(0, 0, 0, 0.8);
-}
-
-.hero-subtitle {
-  font-size: 32px;
-  font-weight: 600;
-  color: #ffd700;
-  margin-bottom: 20px;
-  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9), 1px 1px 5px rgba(0, 0, 0, 0.8);
-}
-
-.hero-quote {
-  font-size: 20px;
-  color: #ffffff;
-  line-height: 1.6;
-  margin-bottom: 32px;
-  /* 增强多层文字阴影确保可读性 */
-  text-shadow:
-    4px 4px 16px rgba(0, 0, 0, 0.95),
-    2px 2px 8px rgba(0, 0, 0, 0.9),
-    1px 1px 4px rgba(0, 0, 0, 0.8),
-    0 0 8px rgba(0, 0, 0, 0.7);
-  background: transparent !important; /* 强制透明背景 */
-  padding: 0 !important; /* 强制移除内边距 */
-  margin-left: 0 !important; /* 移除左边距 */
-  margin-right: 0 !important; /* 移除右边距 */
-  border: none !important; /* 强制移除边框 */
-  border-radius: 0 !important; /* 强制移除圆角 */
-  backdrop-filter: none !important; /* 强制移除模糊效果 */
-  box-shadow: none !important; /* 强制移除阴影 */
-  outline: none !important; /* 移除轮廓 */
-  font-style: italic;
-}
-
-.hero-stats {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.stat-item {
-  text-align: left;
-  background: transparent !important; /* 强制透明背景 */
-  padding: 0 !important; /* 强制移除所有内边距 */
-  margin: 0; /* 移除外边距 */
-  border: none !important; /* 强制移除边框 */
-  border-radius: 0 !important; /* 强制移除圆角 */
-  backdrop-filter: none !important; /* 强制移除模糊效果 */
-  box-shadow: none !important; /* 强制移除阴影 */
-  outline: none !important; /* 移除轮廓 */
-  min-width: 180px;
-  flex: 1;
-}
-
-.stat-label {
-  display: block;
-  font-size: 14px;
-  color: #ffd700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 6px;
-  font-weight: 600;
-  /* 增强多层文字阴影确保可读性 */
-  text-shadow:
-    4px 4px 14px rgba(0, 0, 0, 0.95),
-    2px 2px 8px rgba(0, 0, 0, 0.9),
-    1px 1px 4px rgba(0, 0, 0, 0.8),
-    0 0 6px rgba(0, 0, 0, 0.7);
-}
-
-.stat-value {
-  display: block;
-  font-size: 16px;
-  font-weight: 500;
-  color: #ffffff;
-  /* 增强多层文字阴影确保可读性 */
-  text-shadow:
-    4px 4px 16px rgba(0, 0, 0, 0.95),
-    2px 2px 10px rgba(0, 0, 0, 0.9),
-    1px 1px 5px rgba(0, 0, 0, 0.8),
-    0 0 8px rgba(0, 0, 0, 0.7);
-  line-height: 1.3;
-}
-
-/* 轮播图片信息样式 - 定位在左侧黑色区域 */
-.carousel-info {
-  z-index: 2;
-  transition: all 0.3s ease;
-  background: transparent !important; /* 强制透明背景 */
-  padding: 0 !important; /* 强制移除所有内边距 */
-  margin: 0; /* 移除外边距 */
-  border: none !important; /* 强制移除边框 */
-  border-radius: 0 !important; /* 强制移除圆角 */
-  backdrop-filter: none !important; /* 强制移除模糊效果 */
-  box-shadow: none !important; /* 强制移除阴影 */
-  outline: none !important; /* 移除轮廓 */
-  max-width: 60%; /* 限制宽度，确保在左侧区域 */
-  align-self: flex-start; /* 左对齐 */
-}
-
-.carousel-info.info-left {
-  text-align: left;
-  align-self: flex-start;
-}
-
-.carousel-info.info-right {
-  text-align: right;
-  align-self: flex-end;
-}
-
-/* 移除重复的标题样式，因为已经在上方显示 */
-.carousel-title {
-  display: none; /* 隐藏重复的标题 */
-}
-
-.carousel-description {
-  font-size: 18px; /* 增大字体大小 */
-  line-height: 1.8; /* 增加行高提升可读性 */
-  margin: 0;
-  /* 增强多层文字阴影确保各种背景下的可读性 */
-  text-shadow:
-    4px 4px 16px rgba(0, 0, 0, 0.95),
-    2px 2px 10px rgba(0, 0, 0, 0.9),
-    1px 1px 6px rgba(0, 0, 0, 0.8),
-    0 0 12px rgba(0, 0, 0, 0.7),
-    0 0 20px rgba(0, 0, 0, 0.5);
-  color: #ffffff; /* 改为白色提升对比度 */
-  font-weight: 400;
-}
-
-/* 响应式样式 */
+/* 响应式设计 */
 @media (max-width: 768px) {
-  .hero-carousel {
-    height: 60vh;
-    min-height: 400px;
+  .hero-content {
+    flex-direction: column;
+    padding: 2rem;
+    text-align: center;
   }
-
-  .carousel-overlay {
-    padding: 30px 20px;
-    /* 移动端纯黑色背景渐变 */
-    background: linear-gradient(180deg, rgba(0, 0, 0, 1.0) 0%, rgba(0, 0, 0, 1.0) 55%, rgba(0, 0, 0, 0.3) 75%, transparent 100%);
-  }
-
-  /* 移动端统一深夜星空背景 */
-  .carousel-item {
-    background:
-      /* 移动端文字区域保持纯黑 */
-      linear-gradient(180deg, #000000 0%, #000000 55%, transparent 55%, transparent 100%),
-      /* 移动端深夜星空渐变 */
-      radial-gradient(ellipse at 30% 20%, rgba(10, 15, 28, 0.6) 0%, transparent 50%),
-      radial-gradient(ellipse at 70% 80%, rgba(15, 23, 42, 0.4) 0%, transparent 50%),
-      linear-gradient(180deg, #0a0f1c 0%, #0f172a 25%, #1e1b4b 50%, #0f172a 75%, #0a0f1c 100%);
-  }
-
-  /* 移动端自动降低星星密集度 */
-  .carousel-item::before {
-    /* 移动端使用稀疏密集度 */
-    background-image:
-      radial-gradient(1.5px 1.5px at 15% 25%, #ffffff, transparent),
-      radial-gradient(1.5px 1.5px at 35% 65%, #e0e7ff, transparent),
-      radial-gradient(1.5px 1.5px at 55% 35%, #ddd6fe, transparent),
-      radial-gradient(1.5px 1.5px at 75% 75%, #ffffff, transparent),
-      radial-gradient(1px 1px at 25% 50%, #e0e7ff, transparent),
-      radial-gradient(1px 1px at 45% 20%, #ddd6fe, transparent),
-      radial-gradient(1px 1px at 65% 80%, #ffffff, transparent),
-      radial-gradient(1px 1px at 85% 40%, #e0e7ff, transparent);
-    opacity: 0.7;
-    animation-duration: 10s;
-  }
-
-  .carousel-item::after {
-    /* 移动端减少小星星 */
-    background-image:
-      radial-gradient(0.5px 0.5px at 20% 30%, rgba(255, 255, 255, 0.5), transparent),
-      radial-gradient(0.5px 0.5px at 40% 70%, rgba(224, 231, 255, 0.4), transparent),
-      radial-gradient(0.5px 0.5px at 60% 40%, rgba(221, 214, 254, 0.6), transparent),
-      radial-gradient(0.5px 0.5px at 80% 80%, rgba(255, 255, 255, 0.3), transparent),
-      /* 保留星云效果 */
-      radial-gradient(ellipse 20px 10px at 30% 60%, rgba(10, 15, 28, 0.1), transparent),
-      radial-gradient(ellipse 15px 8px at 70% 30%, rgba(15, 23, 42, 0.08), transparent);
-    opacity: 0.5;
-    animation-duration: 14s;
-  }
-
-  .carousel-image {
-    /* 移动端图片定位调整 */
-    object-position: center bottom;
-  }
-
-  /* 移动端开场轮播图样式 */
-  .opening-overlay {
-    padding: 40px 20px;
-  }
-
-  .opening-line {
-    font-size: 24px; /* 移动端适当调整字号 */
-    font-family:
-      'SF Pro Display', 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB',
-      'Microsoft YaHei', 'Noto Sans SC', sans-serif; /* 移动端保持现代字体 */
-    font-weight: 300; /* 保持轻盈字重 */
-    letter-spacing: 1.5px; /* 移动端适当减少字间距 */
-    line-height: 1.5; /* 移动端调整行高 */
-
-    /* 移动端优化：简化阴影效果 */
-    text-shadow:
-      2px 2px 6px rgba(0, 0, 0, 0.9),
-      0 0 12px rgba(0, 0, 0, 0.6);
-  }
-
-  .opening-text-container {
-    gap: 20px;
-  }
-
-  .hero-text-overlay {
-    max-width: 100%;
-    padding: 0 !important; /* 移动端强制移除内边距 */
-    margin: 0 !important; /* 移动端强制移除外边距 */
-    background: transparent !important; /* 移动端强制透明背景 */
-    border: none !important; /* 移动端强制移除边框 */
-    box-shadow: none !important; /* 移动端强制移除阴影 */
-  }
-
+  
   .hero-text-container {
-    max-width: 100%; /* 移动端使用全宽 */
+    max-width: 100%;
   }
-
-  .carousel-info {
-    max-width: 100%; /* 移动端使用全宽 */
+  
+  .hero-text-overlay {
+    padding: 2rem;
   }
-
+  
   .hero-title {
-    font-size: 42px;
+    font-size: 2rem;
   }
-
+  
   .hero-subtitle {
-    font-size: 22px;
+    font-size: 1.2rem;
   }
-
+  
   .hero-stats {
     justify-content: center;
-    gap: 16px;
+    gap: 1rem;
   }
-
-  .stat-item {
-    padding: 0 !important; /* 移动端强制移除内边距 */
-    margin: 0 !important; /* 移动端强制移除外边距 */
-    background: transparent !important; /* 移动端强制透明背景 */
-    border: none !important; /* 移动端强制移除边框 */
-    box-shadow: none !important; /* 移动端强制移除阴影 */
-  }
-
-  .carousel-info {
-    text-align: center;
-    background: transparent !important; /* 移动端强制透明背景 */
-    padding: 0 !important; /* 移动端强制移除内边距 */
-    margin: 0 !important; /* 移动端强制移除外边距 */
-    border: none !important; /* 移动端强制移除边框 */
-    box-shadow: none !important; /* 移动端强制移除阴影 */
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-carousel {
-    height: 50vh;
-    min-height: 350px;
-  }
-
-  .carousel-overlay {
-    padding: 20px 16px;
-  }
-
-  /* 小屏移动端开场轮播图样式 */
-  .opening-overlay {
-    padding: 30px 16px;
-  }
-
+  
   .opening-line {
-    font-size: 20px; /* 小屏移动端字号 */
-    font-family:
-      'SF Pro Display', 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB',
-      'Microsoft YaHei', 'Noto Sans SC', sans-serif; /* 小屏移动端保持现代字体 */
-    font-weight: 300; /* 保持轻盈字重 */
-    letter-spacing: 1px; /* 小屏移动端减少字间距 */
-    line-height: 1.4; /* 小屏移动端调整行高 */
-
-    /* 小屏移动端优化：最简化阴影效果 */
-    text-shadow:
-      1px 1px 4px rgba(0, 0, 0, 0.9),
-      0 0 8px rgba(0, 0, 0, 0.6);
+    font-size: 1.8rem;
   }
-
-  .opening-text-container {
-    gap: 16px;
+  
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
   }
-
-  .hero-text-overlay {
-    padding: 0 !important; /* 最小屏强制移除内边距 */
-    margin: 0 !important; /* 最小屏强制移除外边距 */
-    max-width: 100%;
-    background: transparent !important; /* 最小屏强制透明背景 */
-    border: none !important; /* 最小屏强制移除边框 */
-    box-shadow: none !important; /* 最小屏强制移除阴影 */
+  
+  .carousel-btn.prev {
+    left: 1rem;
   }
-
-  .hero-title {
-    font-size: 32px;
-  }
-
-  .hero-subtitle {
-    font-size: 20px;
-  }
-
-  .hero-quote {
-    font-size: 16px;
-    padding: 0 !important; /* 最小屏强制移除内边距 */
-    margin-left: 0 !important; /* 最小屏强制移除左边距 */
-    margin-right: 0 !important; /* 最小屏强制移除右边距 */
-    margin-bottom: 24px;
-    background: transparent !important; /* 最小屏强制透明背景 */
-    border: none !important; /* 最小屏强制移除边框 */
-    box-shadow: none !important; /* 最小屏强制移除阴影 */
-    /* 增强移动端文字阴影 */
-    text-shadow:
-      3px 3px 12px rgba(0, 0, 0, 0.95),
-      2px 2px 8px rgba(0, 0, 0, 0.9),
-      1px 1px 4px rgba(0, 0, 0, 0.8),
-      0 0 6px rgba(0, 0, 0, 0.7);
-  }
-
-  .hero-stats {
-    gap: 12px;
-  }
-
-  .stat-item {
-    padding: 0 !important; /* 最小屏强制移除内边距 */
-    margin: 0 !important; /* 最小屏强制移除外边距 */
-    min-width: auto;
-    flex: 1 1 100%;
-    background: transparent !important; /* 最小屏强制透明背景 */
-    border: none !important; /* 最小屏强制移除边框 */
-    box-shadow: none !important; /* 最小屏强制移除阴影 */
-  }
-
-  .stat-label {
-    font-size: 12px;
-  }
-
-  .stat-value {
-    font-size: 14px;
-  }
-
-  .carousel-info {
-    padding: 0 !important; /* 小屏移动端强制移除内边距 */
-    margin: 0 !important; /* 小屏移动端强制移除外边距 */
-    background: transparent !important; /* 小屏移动端强制透明背景 */
-    border: none !important; /* 小屏移动端强制移除边框 */
-    box-shadow: none !important; /* 小屏移动端强制移除阴影 */
-  }
-
-  .carousel-description {
-    font-size: 16px;
-    line-height: 1.6;
-    /* 小屏移动端增强文字阴影 */
-    text-shadow:
-      3px 3px 12px rgba(0, 0, 0, 0.95),
-      2px 2px 8px rgba(0, 0, 0, 0.9),
-      1px 1px 4px rgba(0, 0, 0, 0.8),
-      0 0 8px rgba(0, 0, 0, 0.7);
+  
+  .carousel-btn.next {
+    right: 1rem;
   }
 }
 </style>
+
+
+
+

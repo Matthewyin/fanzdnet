@@ -1,9 +1,19 @@
 <script setup>
 import AppLayout from './components/layout/AppLayout.vue'
+import { StagewiseToolbar } from '@stagewise/toolbar-vue'
+import { VuePlugin } from '@stagewise-plugins/vue'
+
+// 只在开发环境显示stagewise工具栏
+const isDev = import.meta.env.DEV
+
+const stagewise = {
+  plugins: [VuePlugin]
+}
 </script>
 
 <template>
   <AppLayout />
+  <StagewiseToolbar v-if="isDev" :config="stagewise" />
 </template>
 
 <style>

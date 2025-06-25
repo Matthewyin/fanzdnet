@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
-    "@stagewise/toolbar-vue": "^0.4.6",
     "axios": "^1.10.0",
     "element-plus": "^2.10.2",
     "pinia": "^3.0.3",
@@ -20,6 +19,8 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "@stagewise-plugins/vue": "^0.4.6",
+    "@stagewise/toolbar-vue": "^0.4.8",
     "@vitejs/plugin-vue": "^5.0.5",
     "vite": "^5.3.1"
   }
