@@ -1,0 +1,113 @@
+# 依赖目录
+node_modules/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Java相关
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+target/
+.gradle/
+build/
+out/
+.settings/
+.project
+.classpath
+
+# Node.js相关
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 环境变量文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 日志文件
+logs/
+*.log
+
+# 编辑器和IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统生成的文件
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# 缓存目录
+.cache/
+.pytest_cache/
+.coverage
+.nyc_output/
+
+# 临时文件
+tmp/
+temp/
+*.tmp
+*.temp
+
+# 数据库文件
+*.db
+*.sqlite
+*.sqlite3
+
+# 网关配置缓存
+gateway-cache/
+routes-cache/
+
+# API文档生成
+docs/generated/
+swagger-output/
+
+# 负载测试结果
+load-test-results/
+performance-logs/
+
+# Docker相关
+.dockerignore
+Dockerfile.local
+
+# SSL证书和密钥文件
+*.pem
+*.key
+*.crt
+*.p12
+ssl/
+certs/
+keys/
+
+# 网关特定配置
+config/local.*
+config/production.*
+config/development.*
+upstream.conf.local
+rate-limit.conf.local
+
+# 监控和指标
+metrics/
+monitoring/
+health-check-logs/
+
+# 备份文件
+*.bak
+*.backup
+*.old 

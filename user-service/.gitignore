@@ -1,0 +1,120 @@
+# 依赖目录
+node_modules/
+__pycache__/
+*.py[cod]
+*$py.class
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Java相关
+*.class
+*.jar
+*.war
+*.ear
+target/
+.gradle/
+build/
+out/
+
+# 环境变量文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 日志文件
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 编辑器和IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统生成的文件
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# 缓存目录
+.cache/
+.pytest_cache/
+.coverage
+.nyc_output/
+
+# 临时文件
+tmp/
+temp/
+*.tmp
+*.temp
+
+# 数据库文件
+*.db
+*.sqlite
+*.sqlite3
+
+# 用户服务特定
+# 用户上传文件
+uploads/
+user-uploads/
+avatars/
+profile-pictures/
+
+# 用户数据导出
+exports/
+user-data-exports/
+
+# 认证相关
+jwt-keys/
+oauth-keys/
+*.jwt
+*.refresh
+
+# 会话存储
+sessions/
+session-store/
+
+# 邮件模板编译结果
+email-templates/compiled/
+
+# 用户活动日志
+user-activity/
+audit-logs/
+
+# Docker相关
+.dockerignore
+Dockerfile.local
+
+# SSL证书和密钥文件
+*.pem
+*.key
+*.crt
+*.p12
+ssl/
+certs/
+
+# 配置文件
+config/local.*
+config/production.*
+config/development.*
+
+# 测试相关
+test-data/
+mock-data/
+fixtures/
+
+# 备份文件
+*.bak
+*.backup
+*.old 

@@ -1,0 +1,131 @@
+# 依赖目录
+node_modules/
+__pycache__/
+*.py[cod]
+*$py.class
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Java相关
+*.class
+*.jar
+*.war
+*.ear
+target/
+.gradle/
+build/
+out/
+
+# 环境变量文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 日志文件
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 编辑器和IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统生成的文件
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# 缓存目录
+.cache/
+.pytest_cache/
+.coverage
+.nyc_output/
+
+# 临时文件
+tmp/
+temp/
+*.tmp
+*.temp
+
+# 数据库文件
+*.db
+*.sqlite
+*.sqlite3
+
+# 赛程服务特定
+# 赛程数据缓存
+schedule-cache/
+match-cache/
+fixtures-cache/
+
+# 比赛结果和统计
+results-cache/
+statistics/
+match-stats/
+
+# 第三方API数据
+api-cache/
+external-data/
+sports-api-cache/
+
+# 推送通知相关
+notification-queue/
+push-logs/
+notification-cache/
+
+# 时区和本地化
+timezone-data/
+locale-cache/
+
+# 实时比分数据
+live-scores/
+real-time-data/
+websocket-cache/
+
+# 赛事图片和媒体
+team-logos/
+venue-images/
+match-photos/
+
+# 日历文件生成
+calendars/generated/
+ics-files/
+
+# Docker相关
+.dockerignore
+Dockerfile.local
+
+# SSL证书和密钥文件
+*.pem
+*.key
+*.crt
+*.p12
+ssl/
+certs/
+
+# 配置文件
+config/local.*
+config/production.*
+config/development.*
+
+# 测试相关
+test-data/
+mock-schedules/
+fixtures/
+
+# 备份文件
+*.bak
+*.backup
+*.old 

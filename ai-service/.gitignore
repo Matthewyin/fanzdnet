@@ -1,0 +1,118 @@
+# 依赖目录
+node_modules/
+__pycache__/
+*.py[cod]
+*$py.class
+pip-log.txt
+pip-delete-this-directory.txt
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# 分发/打包
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# 日志文件
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 环境变量文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 编辑器和IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统生成的文件
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# 缓存目录
+.cache/
+.pytest_cache/
+.coverage
+.nyc_output/
+
+# 临时文件
+tmp/
+temp/
+*.tmp
+*.temp
+
+# 数据库文件
+*.db
+*.sqlite
+*.sqlite3
+
+# 模型文件（可能很大）
+*.model
+*.pkl
+*.joblib
+models/checkpoints/
+*.h5
+*.pb
+
+# AI/ML相关
+*.npy
+*.npz
+data/raw/
+data/processed/
+experiments/
+wandb/
+
+# Docker相关
+.dockerignore
+Dockerfile.local
+
+# 证书和密钥文件
+*.pem
+*.key
+*.crt
+*.p12
+ssl/
+certs/
+
+# 配置文件
+config/local.*
+config/production.*
+config/development.*
+
+# 备份文件
+*.bak
+*.backup
+*.old 

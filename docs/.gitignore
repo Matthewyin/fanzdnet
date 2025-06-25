@@ -1,0 +1,70 @@
+# 文档生成相关
+_build/
+build/
+dist/
+site/
+public/
+
+# 文档工具缓存
+.cache/
+.docusaurus/
+.vuepress/
+.vitepress/cache/
+
+# 静态站点生成器
+.next/
+.nuxt/
+.gatsby/
+.quasar/
+
+# 编辑器和IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统生成的文件
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# 依赖目录
+node_modules/
+
+# 日志文件
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 环境变量文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 临时文件
+tmp/
+temp/
+*.tmp
+*.temp
+
+# 文档生成的PDF
+*.pdf
+generated-docs/
+
+# API文档生成
+api-docs/generated/
+swagger-docs/
+
+# 备份文件
+*.bak
+*.backup
+*.old 
