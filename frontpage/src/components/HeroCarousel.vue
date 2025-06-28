@@ -4,37 +4,36 @@
     <div class="starfield-background">
       <!-- 天蝎座主星层 - 8颗特殊蓝色恒星，3秒闪烁 -->
       <div class="star-layer-scorpius" :style="starfieldStyles.scorpius"></div>
-      <!-- 天蝎座星座连线 - 按照参考图的弯曲身体形状 -->
+      <!-- 天蝎座星座连线 - 左半边左下角，垂直压缩 -->
       <div class="scorpius-constellation">
         <svg class="constellation-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <!-- 天蝎座连线路径 - 弯曲的身体和钳子 -->
-          <!-- 左钳子 -->
-          <path d="M 5 20 L 8 25" class="constellation-line" />
-          <!-- 右钳子 -->
-          <path d="M 5 30 L 8 25" class="constellation-line" />
-          <!-- 主体弯曲身体：心宿二(8,25) → β星(12,30) → δ星(15,35) → π星(10,40) → ρ星(18,45) → σ星(13,50) → τ星(16,55) → υ星(20,60) -->
-          <path d="M 8 25 L 12 30 L 15 35 L 10 40 L 18 45 L 13 50 L 16 55 L 20 60" class="constellation-line" />
+          <!-- 天蝎座连线路径 - 根据横坐标+2后的点位重新绘制 -->
+          <!-- 主干连线：星1->星2->星3->星4 (10,40 -> 10.2,44.5 -> 10.3,48 -> 10.1,53) -->
+          <polyline points="10,40 10.2,44.5 10.3,48 10.1,53" class="constellation-line" />
+          <!-- 左侧分支：星2->星5->星6->星7 (10.2,44.5 -> 8.8,46.5 -> 8.1,49 -> 7.8,52.5) -->
+          <polyline points="10.2,44.5 8.8,46.5 8.1,49 7.8,52.5" class="constellation-line" />
+          <!-- 下方连线：星7->星8->星9->星10 (7.8,52.5 -> 7.4,58 -> 7.6,64 -> 7.7,70) -->
+          <polyline points="7.8,52.5 7.4,58 7.6,64 7.7,70" class="constellation-line" />
+          <!-- 尾部复杂连线1：星10->星11->星12->星13 (7.7,70 -> 6.5,72 -> 5.2,72.5 -> 3.6,72) -->
+          <polyline points="7.7,70 6.5,72 5.2,72.5 3.6,72" class="constellation-line" />
+          <!-- 尾部复杂连线2：星13->星14->星15->星16 (3.6,72 -> 4.4,68.5 -> 5.2,63.5 -> 3.6,60.5) -->
+          <polyline points="3.6,72 4.4,68.5 5.2,63.5 3.6,60.5" class="constellation-line" />
         </svg>
       </div>
       <!-- 水瓶座主星层 - 8颗特殊蓝色恒星，3秒闪烁 -->
       <div class="star-layer-aquarius" :style="starfieldStyles.aquarius"></div>
-      <!-- 水瓶座星座连线 - 按照参考图的复杂连线结构 -->
+      <!-- 水瓶座星座连线 - 左半边右上角的精确连线结构 -->
       <div class="aquarius-constellation">
         <svg class="constellation-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <!-- 水瓶座连线路径 - 复杂的人形和倒水结构 -->
-          <!-- 上方长斜线：从右上角向左下延伸 -->
-          <path d="M 43 30 L 37 20 L 30 30" class="constellation-line" />
-          <!-- 中间横线连接 -->
-          <path d="M 30 30 L 35 35" class="constellation-line" />
-          <!-- 右侧连接到中心 -->
-          <path d="M 35 35 L 40 25" class="constellation-line" />
-          <!-- 左下方的三角形结构 -->
-          <path d="M 30 30 L 25 40 L 33 45" class="constellation-line" />
-          <path d="M 25 40 L 27 50" class="constellation-line" />
-          <path d="M 33 45 L 27 50" class="constellation-line" />
-          <!-- 水流波纹连接 -->
-          <path d="M 33 45 L 30 42" class="constellation-line" />
-          <path d="M 27 50 L 35 47" class="constellation-line" />
+          <!-- 水瓶座连线路径 - 移动到左半边右上角 -->
+          <!-- 主要上方连线：28,5 -> 23,10 -> 18.5,14.5 -->
+          <polyline points="28,5 23,10 18.5,14.5" class="constellation-line" />
+          <!-- 右侧分支：18.5,14.5 -> 22.3,22.5 -> 26,20 -->
+          <polyline points="18.5,14.5 22.3,22.5 26,20" class="constellation-line" />
+          <!-- 左侧下降分支：18.5,14.5 -> 18,21.5 -> 16.5,21 -> 15.7,24 -->
+          <polyline points="18.5,14.5 18,21.5 16.5,21 15.7,24" class="constellation-line" />
+          <!-- 下方复杂连线：15.7,24 -> 19.6,35.9 -> 20.6,29.2 -> 23.4,29.6 -> 23.8,31.7 -> 25.7,35.7 -->
+          <polyline points="15.7,24 19.6,35.9 20.6,29.2 23.4,29.6 23.8,31.7 25.7,35.7" class="constellation-line" />
         </svg>
       </div>
       <div class="star-layer-1" :style="starfieldStyles.layer1"></div>
@@ -92,6 +91,16 @@
                   </div>
                 </div>
               </div>
+              <!-- 右侧图片容器 -->
+              <div v-if="heroItems[heroItems.length - 1].url" class="hero-image-container">
+                <img 
+                  :src="heroItems[heroItems.length - 1].url" 
+                  :alt="heroItems[heroItems.length - 1].title"
+                  class="hero-image"
+                  @load="onImageLoad"
+                  @error="onImageError"
+                />
+              </div>
               <div class="carousel-info">
                 <p class="carousel-description">{{ heroItems[heroItems.length - 1].description }}</p>
               </div>
@@ -106,42 +115,52 @@
           >
             <!-- 开场轮播的特殊处理 -->
             <div v-if="item.isOpening" class="opening-content">
-              <div class="opening-text-container">
+                <div class="opening-text-container">
                 <div v-for="(line, lineIndex) in item.openingText" :key="lineIndex" 
-                     class="opening-line"
-                     :style="{ 
-                       '--line-index': lineIndex,
-                       animationDelay: (lineIndex * 0.5) + 's' 
-                     }">
-                  {{ line }}
+                       class="opening-line"
+                       :style="{ 
+                         '--line-index': lineIndex,
+                         animationDelay: (lineIndex * 0.5) + 's' 
+                       }">
+                    {{ line }}
+                  </div>
                 </div>
               </div>
-            </div>
 
             <!-- 传奇历程轮播的内容 -->
             <div v-else class="hero-content">
-              <div class="hero-text-container">
-                <div class="hero-text-overlay">
+                <div class="hero-text-container">
+                  <div class="hero-text-overlay">
                   <h1 class="hero-title">{{ item.title }}</h1>
                   <h2 class="hero-subtitle">{{ item.subtitle }}</h2>
                   <p class="hero-quote">{{ item.quote }}</p>
-                  <div class="hero-stats">
-                    <div class="stat-item">
-                      <span class="stat-label">赛事</span>
+                    <div class="hero-stats">
+                      <div class="stat-item">
+                        <span class="stat-label">赛事</span>
                       <span class="stat-value">{{ item.event }}</span>
-                    </div>
-                    <div class="stat-item">
-                      <span class="stat-label">对手</span>
+                      </div>
+                      <div class="stat-item">
+                        <span class="stat-label">对手</span>
                       <span class="stat-value">{{ item.opponent }}</span>
-                    </div>
-                    <div class="stat-item">
-                      <span class="stat-label">比分</span>
+                      </div>
+                      <div class="stat-item">
+                        <span class="stat-label">比分</span>
                       <span class="stat-value">{{ item.score }}</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="carousel-info">
+                <!-- 右侧图片容器 -->
+                <div v-if="item.url" class="hero-image-container">
+                  <img 
+                    :src="item.url" 
+                    :alt="item.title"
+                    class="hero-image"
+                    @load="onImageLoad"
+                    @error="onImageError"
+                  />
+                </div>
+                <div class="carousel-info">
                 <p class="carousel-description">{{ item.description }}</p>
               </div>
             </div>
@@ -185,6 +204,16 @@
                     </div>
                   </div>
                 </div>
+              </div>
+              <!-- 右侧图片容器 -->
+              <div v-if="heroItems[0].url" class="hero-image-container">
+                <img 
+                  :src="heroItems[0].url" 
+                  :alt="heroItems[0].title"
+                  class="hero-image"
+                  @load="onImageLoad"
+                  @error="onImageError"
+                />
               </div>
               <div class="carousel-info">
                 <p class="carousel-description">{{ heroItems[0].description }}</p>
@@ -318,6 +347,17 @@ const handleMouseEnter = () => {
 const handleMouseLeave = () => {
   startAutoplay()
 }
+
+// 图片加载处理方法
+const onImageLoad = (event) => {
+  console.log('图片加载成功:', event.target.src)
+}
+
+const onImageError = (event) => {
+  console.log('图片加载失败:', event.target.src)
+  // 可以设置默认图片或隐藏图片容器
+  event.target.style.display = 'none'
+}
 </script>
 
 <style scoped>
@@ -332,14 +372,14 @@ const handleMouseLeave = () => {
   min-height: 500px;
 }
 
-/* 固定星空背景层 - 不参与轮播，星云风格 */
+/* 固定星空背景层 - 不参与轮播，星云风格，优化性能 */
 .starfield-background {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
+  background:
     radial-gradient(ellipse 800px 400px at 20% 30%, rgba(0, 150, 255, 0.5) 0%, transparent 50%),
     radial-gradient(ellipse 600px 300px at 80% 70%, rgba(30, 200, 255, 0.4) 0%, transparent 50%),
     radial-gradient(ellipse 400px 600px at 60% 20%, rgba(100, 180, 255, 0.35) 0%, transparent 50%),
@@ -347,11 +387,11 @@ const handleMouseLeave = () => {
     radial-gradient(ellipse 300px 200px at 10% 60%, rgba(0, 220, 255, 0.45) 0%, transparent 50%),
     radial-gradient(ellipse 700px 500px at 90% 40%, rgba(70, 170, 255, 0.35) 0%, transparent 50%),
     linear-gradient(135deg, #0a1428 0%, #1e4c8a 50%, #2a60c8 100%);
-  animation: nebulaGlow 15s ease-in-out infinite;
+  animation: nebulaGlow 25s ease-in-out infinite; /* 延长动画周期，减少频率 */
   z-index: 1;
 }
 
-/* 天蝎座主星层 - 8颗特殊蓝色恒星，3秒闪烁 */
+/* 天蝎座主星层 - 8颗特殊蓝色恒星，优化性能 */
 .star-layer-scorpius {
   position: absolute;
   top: 0;
@@ -361,13 +401,13 @@ const handleMouseLeave = () => {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   opacity: 0.95;
-  animation: constellationGlow 3s ease-in-out infinite;
-  will-change: opacity;
+  animation: constellationGlow 6s ease-in-out infinite; /* 延长动画周期 */
+  will-change: auto; /* 移除will-change */
   transform: translateZ(0);
   backface-visibility: hidden;
 }
 
-/* 水瓶座主星层 - 8颗特殊蓝色恒星，3秒闪烁 */
+/* 水瓶座主星层 - 8颗特殊蓝色恒星，优化性能 */
 .star-layer-aquarius {
   position: absolute;
   top: 0;
@@ -377,8 +417,8 @@ const handleMouseLeave = () => {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   opacity: 0.95;
-  animation: constellationGlow 3s ease-in-out infinite;
-  will-change: opacity;
+  animation: constellationGlow 6s ease-in-out infinite; /* 延长动画周期 */
+  will-change: auto; /* 移除will-change */
   transform: translateZ(0);
   backface-visibility: hidden;
 }
@@ -423,7 +463,7 @@ const handleMouseLeave = () => {
   animation: constellationLineGlow 6s ease-in-out infinite;
 }
 
-/* 第1层星空 - 最显眼的大星星，8秒闪烁 (50颗) */
+/* 第1层星空 - 最显眼的大星星，优化性能 (50颗) */
 .star-layer-1 {
   position: absolute;
   top: 0;
@@ -433,13 +473,13 @@ const handleMouseLeave = () => {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   opacity: 1.0;
-  animation: starTwinkle 8s ease-in-out infinite;
-  will-change: opacity;
+  animation: starTwinkle 12s ease-in-out infinite; /* 延长动画周期，减少频率 */
+  will-change: auto; /* 移除will-change，减少GPU负担 */
   transform: translateZ(0);
   backface-visibility: hidden;
 }
 
-/* 第2层星空 - 中等星星，10秒反向闪烁 (200颗) */
+/* 第2层星空 - 中等星星，优化性能 (200颗) */
 .star-layer-2 {
   position: absolute;
   top: 0;
@@ -449,13 +489,13 @@ const handleMouseLeave = () => {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   opacity: 0.8;
-  animation: starTwinkle 10s ease-in-out infinite reverse;
-  will-change: opacity;
+  animation: starTwinkle 16s ease-in-out infinite reverse; /* 延长动画周期 */
+  will-change: auto; /* 移除will-change */
   transform: translateZ(0);
   backface-visibility: hidden;
 }
 
-/* 第3层星空 - 背景小星星，12秒闪烁 (300颗) */
+/* 第3层星空 - 背景小星星，优化性能 (300颗) */
 .star-layer-3 {
   position: absolute;
   top: 0;
@@ -465,13 +505,13 @@ const handleMouseLeave = () => {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   opacity: 0.6;
-  animation: starTwinkle 12s ease-in-out infinite;
-  will-change: opacity;
+  animation: starTwinkle 20s ease-in-out infinite; /* 延长动画周期 */
+  will-change: auto; /* 移除will-change */
   transform: translateZ(0);
   backface-visibility: hidden;
 }
 
-/* 星云层 */
+/* 星云层 - 优化性能 */
 .nebula-layer {
   position: absolute;
   top: 0;
@@ -481,8 +521,8 @@ const handleMouseLeave = () => {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   opacity: 0.6;
-  animation: nebulaFlow 20s ease-in-out infinite;
-  will-change: opacity, transform;
+  animation: nebulaFlow 30s ease-in-out infinite; /* 延长动画周期 */
+  will-change: auto; /* 移除will-change */
   transform: translateZ(0);
   backface-visibility: hidden;
 }
@@ -536,6 +576,7 @@ const handleMouseLeave = () => {
   font-size: 2.5rem;
   font-weight: 700;
   color: #ffffff;
+  background: transparent; /* 设置为完全透明 */
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   margin: 1rem 0;
   opacity: 0;
@@ -551,36 +592,45 @@ const handleMouseLeave = () => {
   width: 100%;
   height: 100%;
   padding: 0 4rem;
+  position: relative;
 }
 
 .hero-text-container {
   flex: 1;
   max-width: 50%;
+  z-index: 3;
+  position: relative;
 }
 
 .hero-text-overlay {
-  background: transparent;
+  background: transparent; /* 保持完全透明 */
+  backdrop-filter: none; /* 移除模糊效果，保持完全透明 */
+  border-radius: 16px;
   padding: 2.5rem;
+  box-shadow: none; /* 移除阴影，保持完全透明 */
 }
 
 .hero-title {
   font-size: 3rem;
   font-weight: 800;
   color: #ffffff;
+  background: transparent; /* 设置为完全透明 */
   margin-bottom: 1rem;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-.hero-subtitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #87ceeb;
-  margin-bottom: 1.5rem;
-}
+  .hero-subtitle {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffd700;
+    background: transparent; /* 设置为完全透明 */
+    margin-bottom: 1.5rem;
+  }
 
 .hero-quote {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: #e0e7ff;
+  background: transparent; /* 设置为完全透明 */
   margin-bottom: 2rem;
   font-style: italic;
   line-height: 1.6;
@@ -595,19 +645,40 @@ const handleMouseLeave = () => {
 .stat-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
-.stat-label {
-  font-size: 0.9rem;
-  color: #b0b0b0;
-  margin-bottom: 0.5rem;
-}
+  .stat-label {
+    font-size: 1.2rem;
+    color: #ffd700;
+    background: transparent; /* 设置为完全透明 */
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
 
 .stat-value {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: #ffffff;
+  background: transparent; /* 设置为完全透明 */
+}
+
+/* 图片容器样式 */
+.hero-image-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .carousel-info {
@@ -615,15 +686,21 @@ const handleMouseLeave = () => {
   bottom: 2rem;
   left: 4rem;
   right: 4rem;
-  text-align: center;
+  text-align: left;
+  z-index: 3;
 }
 
 .carousel-description {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #d0d0d0;
-  background: transparent;
-  padding: 1rem 2rem;
-  border-radius: 10px;
+  background: transparent; /* 保持完全透明 */
+  backdrop-filter: none; /* 移除模糊效果，保持完全透明 */
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  max-width: 75%;
+  margin: 0;
+  border: none; /* 移除边框，保持完全透明 */
+  box-shadow: none; /* 移除阴影，保持完全透明 */
 }
 
 /* 轮播指示器 */
@@ -647,16 +724,16 @@ const handleMouseLeave = () => {
   transition: all 0.3s ease;
 }
 
-.indicator.active {
-  background: #87ceeb;
-  border-color: #87ceeb;
-  box-shadow: 0 0 10px rgba(135, 206, 235, 0.5);
-}
+  .indicator.active {
+    background: #ffd700;
+    border-color: #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  }
 
-.indicator:hover {
-  border-color: #87ceeb;
-  transform: scale(1.2);
-}
+  .indicator:hover {
+    border-color: #ffd700;
+    transform: scale(1.2);
+  }
 
 /* 轮播控制按钮 */
 .carousel-btn {
@@ -679,11 +756,11 @@ const handleMouseLeave = () => {
   justify-content: center;
 }
 
-.carousel-btn:hover {
-  background: rgba(135, 206, 235, 0.2);
-  border-color: #87ceeb;
-  transform: translateY(-50%) scale(1.1);
-}
+  .carousel-btn:hover {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: #ffd700;
+    transform: translateY(-50%) scale(1.1);
+  }
 
 .carousel-btn.prev {
   left: 2rem;
@@ -711,13 +788,13 @@ const handleMouseLeave = () => {
 }
 
 @keyframes nebulaFlow {
-  0%, 100% { 
-    opacity: 0.6; 
+  0%, 100% {
+    opacity: 0.6;
     transform: translateZ(0) scale(1);
   }
-  50% { 
-    opacity: 0.8; 
-    transform: translateZ(0) scale(1.02);
+  50% {
+    opacity: 0.7; /* 减少变化幅度 */
+    transform: translateZ(0) scale(1.01); /* 减少缩放幅度 */
   }
 }
 
@@ -766,27 +843,49 @@ const handleMouseLeave = () => {
   
   .hero-text-container {
     max-width: 100%;
+    z-index: 3;
   }
-  
+
   .hero-text-overlay {
     padding: 2rem;
+    background: transparent; /* 移动端也保持完全透明 */
+    backdrop-filter: none; /* 移动端移除模糊效果 */
+    box-shadow: none; /* 移动端移除阴影 */
   }
-  
+
+  .hero-image-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-top: 2rem;
+  }
+
   .hero-title {
     font-size: 2rem;
+    background: transparent; /* 移动端标题也保持完全透明 */
   }
-  
+
   .hero-subtitle {
     font-size: 1.2rem;
+    background: transparent; /* 移动端副标题也保持完全透明 */
   }
-  
+
   .hero-stats {
     justify-content: center;
     gap: 1rem;
   }
-  
+
+  .carousel-description {
+    max-width: 100%;
+    background: transparent; /* 移动端描述也保持完全透明 */
+    backdrop-filter: none; /* 移动端移除模糊效果 */
+    box-shadow: none; /* 移动端移除阴影 */
+    border: none; /* 移动端移除边框 */
+  }
+
   .opening-line {
     font-size: 1.8rem;
+    background: transparent; /* 移动端开场文字也保持完全透明 */
   }
   
   .carousel-btn {
@@ -801,6 +900,28 @@ const handleMouseLeave = () => {
   
   .carousel-btn.next {
     right: 1rem;
+  }
+}
+
+/* 性能优化 - 减少动画在低性能设备上的影响 */
+@media (prefers-reduced-motion: reduce) {
+  .star-layer-1,
+  .star-layer-2,
+  .star-layer-3,
+  .star-layer-scorpius,
+  .star-layer-aquarius,
+  .nebula-layer,
+  .starfield-background {
+    animation: none; /* 为有动画偏好设置的用户禁用动画 */
+  }
+}
+
+/* 在低性能设备上简化动画 */
+@media (max-width: 768px) and (max-resolution: 150dpi) {
+  .star-layer-2,
+  .star-layer-3,
+  .nebula-layer {
+    animation-duration: 40s; /* 进一步延长动画周期 */
   }
 }
 </style>

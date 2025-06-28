@@ -60,7 +60,7 @@ const appStore = useAppStore()
 const userStore = useUserStore()
 
 // 需要缓存的组件
-const keepAliveComponents = ref(['Home', 'News', 'Gallery'])
+const keepAliveComponents = ref(['Home', 'Gallery'])
 
 
 

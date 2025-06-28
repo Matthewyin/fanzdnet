@@ -68,29 +68,7 @@
       "grandSlamWinner": "Grand Slam Winner"
     }
   },
-  "news": {
-    "title": "News",
-    "subtitle": "Latest news and updates about Fan Zhendong",
-    "categories": {
-      "all": "All",
-      "match": "Match",
-      "training": "Training",
-      "interview": "Interview",
-      "life": "Life",
-      "achievement": "Achievement"
-    },
-    "filters": {
-      "category": "Category",
-      "date": "Date",
-      "sort": "Sort",
-      "latest": "Latest",
-      "popular": "Popular",
-      "views": "Views"
-    },
-    "readMore": "Read More",
-    "relatedNews": "Related News",
-    "shareNews": "Share News"
-  },
+
   "schedule": {
     "title": "Match Schedule",
     "subtitle": "Fan Zhendong's match schedule and results",

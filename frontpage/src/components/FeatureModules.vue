@@ -2,17 +2,21 @@
   <div class="feature-modules">
     <div class="container">
       <div class="modules-grid">
-        <div 
-          v-for="module in modules" 
+        <div
+          v-for="module in modules"
           :key="module.id"
           class="module-card"
           @click="handleModuleClick(module)"
         >
-          <div class="module-icon">
-            <img :src="module.icon" :alt="module.title" />
+          <div class="module-content">
+            <div class="module-icon">
+              <img :src="module.icon" :alt="module.title" loading="lazy" />
+            </div>
+            <div class="module-text">
+              <h3 class="module-title">{{ module.title }}</h3>
+              <p class="module-description">{{ module.description }}</p>
+            </div>
           </div>
-          <h3 class="module-title">{{ module.title }}</h3>
-          <p class="module-description">{{ module.description }}</p>
           <div class="module-arrow">
             <i class="el-icon-arrow-right"></i>
           </div>
@@ -68,14 +72,17 @@ const handleModuleClick = (module) => {
 .module-card {
   background: white;
   border-radius: 0; /* 移除圆角，因为在网格容器中 */
-  padding: 40px 30px;
-  text-align: center;
+  padding: 30px 25px;
+  text-align: left; /* 改为左对齐 */
   box-shadow: none; /* 移除单独的阴影，使用整体阴影 */
   transition: all 0.3s ease;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   border: none; /* 移除默认边框 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   /* 添加更明显的十字形分隔线 */
   border-right: 4px solid #94a3b8; /* 更粗更明显的右边框 */
@@ -85,6 +92,14 @@ const handleModuleClick = (module) => {
   box-shadow:
     inset -2px 0 4px rgba(148, 163, 184, 0.1), /* 右边框内阴影 */
     inset 0 -2px 4px rgba(148, 163, 184, 0.1); /* 下边框内阴影 */
+}
+
+/* 新增：模块内容容器 - 左右布局 */
+.module-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex: 1;
 }
 
 /* 移除最右列的右边框 */
@@ -134,38 +149,39 @@ const handleModuleClick = (module) => {
 }
 
 .module-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 24px;
+  width: 180px; /* 增大图标容器 */
+  height: 180px;
+  margin: 0; /* 移除margin，因为现在是左右布局 */
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-  border-radius: 16px;
+  border-radius: 20px; /* 增大圆角 */
   transition: all 0.3s ease;
-}
-
-.module-card:hover .module-icon {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-  transform: scale(1.1);
+  flex-shrink: 0; /* 防止图标被压缩 */
 }
 
 .module-icon img {
-  width: 32px;
-  height: 32px;
+  width: 140px; /* 增大图标尺寸 */
+  height: 140px;
   transition: all 0.3s ease;
 }
 
-.module-card:hover .module-icon img {
-  filter: brightness(0) invert(1);
+/* 新增：文字容器样式 */
+.module-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .module-title {
-  font-size: 24px;
+  font-size: 22px; /* 稍微减小，适应左右布局 */
   font-weight: 600;
   color: #1e293b;
-  margin-bottom: 12px;
+  margin-bottom: 8px; /* 减小间距 */
   transition: color 0.3s ease;
+  line-height: 1.3;
 }
 
 .module-card:hover .module-title {
@@ -173,10 +189,10 @@ const handleModuleClick = (module) => {
 }
 
 .module-description {
-  font-size: 16px;
+  font-size: 15px; /* 稍微减小 */
   color: #64748b;
-  line-height: 1.6;
-  margin-bottom: 24px;
+  line-height: 1.5;
+  margin: 0; /* 移除底部margin */
 }
 
 .module-arrow {
@@ -215,7 +231,22 @@ const handleModuleClick = (module) => {
   }
 
   .module-card {
-    padding: 30px 20px;
+    padding: 25px 20px;
+  }
+
+  .module-content {
+    gap: 15px; /* 减小间距 */
+  }
+
+  .module-icon {
+    width: 70px; /* 中等屏幕稍小的图标 */
+    height: 70px;
+    border-radius: 18px;
+  }
+
+  .module-icon img {
+    width: 35px;
+    height: 35px;
   }
 
   .module-title {
@@ -236,7 +267,7 @@ const handleModuleClick = (module) => {
   }
 
   .module-card {
-    padding: 24px 16px;
+    padding: 20px 16px;
     /* 重置边框 - 小屏幕单列布局 */
     border-right: none !important;
     border-bottom: 4px solid #94a3b8; /* 移动端也使用更明显的分隔线 */
@@ -251,38 +282,59 @@ const handleModuleClick = (module) => {
     box-shadow: none; /* 最后一个卡片移除阴影 */
   }
 
+  .module-content {
+    gap: 12px; /* 小屏幕更紧凑的间距 */
+  }
+
   .module-icon {
-    width: 56px;
-    height: 56px;
-    margin-bottom: 20px;
+    width: 60px; /* 小屏幕适中的图标尺寸 */
+    height: 60px;
+    border-radius: 16px;
   }
 
   .module-icon img {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
   }
 
   .module-title {
     font-size: 18px;
+    margin-bottom: 6px;
   }
 
   .module-description {
     font-size: 13px;
+    line-height: 1.4;
   }
 }
 
 /* 中等屏幕优化 */
 @media (max-width: 1024px) and (min-width: 769px) {
   .module-card {
-    padding: 35px 25px;
+    padding: 28px 22px;
+  }
+
+  .module-content {
+    gap: 18px;
+  }
+
+  .module-icon {
+    width: 75px;
+    height: 75px;
+    border-radius: 19px;
+  }
+
+  .module-icon img {
+    width: 38px;
+    height: 38px;
   }
 
   .module-title {
-    font-size: 22px;
+    font-size: 21px;
   }
 
   .module-description {
-    font-size: 15px;
+    font-size: 14px;
   }
 }
 </style>

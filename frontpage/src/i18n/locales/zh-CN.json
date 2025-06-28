@@ -68,29 +68,7 @@
       "grandSlamWinner": "大满贯得主"
     }
   },
-  "news": {
-    "title": "新闻动态",
-    "subtitle": "樊振东最新新闻和动态",
-    "categories": {
-      "all": "全部",
-      "match": "比赛",
-      "training": "训练",
-      "interview": "采访",
-      "life": "生活",
-      "achievement": "成就"
-    },
-    "filters": {
-      "category": "分类",
-      "date": "日期",
-      "sort": "排序",
-      "latest": "最新",
-      "popular": "热门",
-      "views": "浏览量"
-    },
-    "readMore": "阅读全文",
-    "relatedNews": "相关新闻",
-    "shareNews": "分享新闻"
-  },
+
   "schedule": {
     "title": "比赛赛程",
     "subtitle": "樊振东比赛安排和结果",

@@ -11,6 +11,12 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
+
+  // 滚动性能优化
+  scroll-behavior: smooth;
+  // 启用硬件加速
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 body {
@@ -23,6 +29,11 @@ body {
   background-color: $bg-color-page;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  // 滚动性能优化
+  -webkit-overflow-scrolling: touch;
+  // 减少重绘
+  will-change: auto; // 避免过度使用will-change
 }
 
 // ===== 链接样式 =====

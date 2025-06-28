@@ -1,0 +1,38 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="宝瓶座星座图（简化版）" style="background-color: #0d1117;">
+    <defs>
+        <!-- 定义星星的发光滤镜，让主星更突出 -->
+        <filter id="starGlow">
+            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <!-- 星座连线 -->
+    <g id="constellation-lines" stroke="rgba(255, 255, 255, 0.6)" stroke-width="2">
+        <polyline points="720,60 600,120 480,175" />
+        <polyline points="480,175 580,270 675,240" />
+        <polyline points="480,175 470,260 430,250 410,290" />
+        <polyline points="410,290 510,430 535,350 610,355 620,380 670,428" />
+    </g>
+
+    <!-- 星座主星 从右向左，从上到下-->
+    <g id="constellation-stars" fill="white" filter="url(#starGlow)">
+        <circle cx="720" cy="60" r="5" />     <!--1-->
+        <circle cx="600" cy="120" r="5" />    <!--2-->
+        <circle cx="480" cy="175" r="5" />    <!--3-->
+        <circle cx="470" cy="260" r="5" />    <!--4-->
+        <circle cx="430" cy="250" r="5" />    <!--5-->
+        <circle cx="410" cy="290" r="5" />    <!--6-->
+        <circle cx="580" cy="270" r="5" />    <!--7-->
+        <circle cx="675" cy="240" r="5" />    <!--8-->
+        <circle cx="510" cy="430" r="5" />    <!--9-->
+        <circle cx="535" cy="350" r="5" />    <!--10-->
+        <circle cx="610" cy="355" r="5" />    <!--11-->
+        <circle cx="620" cy="380" r="5" />    <!--12-->
+        <circle cx="670" cy="428" r="5" />    <!--13-->
+
+    </g>    
+</svg>

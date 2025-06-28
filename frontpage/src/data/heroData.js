@@ -13,17 +13,17 @@ export const heroImages = [
     openingText: [
       '在体育世界里，有些运动员赢得比赛。',
       '而另一些，他们改变比赛。',
-      '他们用力量重新定义物理极限，',
+      '他们用身体重新定义物理极限，',
       '用意志铸就无人能及的王朝。',
-      '在乒乓球这项速度与旋转的艺术中，',
-      '我们正在见证这样一个时代。',
-      '一个由他，定义的时代。'
+      '在乒乓球这项速度与力量的艺术中，',
+      '我们正在身处这样一个世界。',
+      '一个由他，定义的世界。'
     ]
   },
   {
     url: '/images/carousel/hero-1.jpg',
     title: '2016 · 德国 萨尔布吕肯 · 世界杯',
-    subtitle: '王子加冕——首夺世界杯',
+    subtitle: '初露锋芒——首夺世界杯',
     quote: '"世界知道他的名字，但他们还不了解他的野心。"',
     event: '2016年 世界杯 男子单打',
     opponent: '许昕 (中国)',
@@ -83,7 +83,7 @@ export const heroImages = [
   {
     url: '/images/carousel/hero-7.jpg',
     title: '2024 · 法国 巴黎 · 奥运会',
-    subtitle: '王权加冕——首夺奥运会',
+    subtitle: '王权加冕——首夺奥运会男单冠军',
     quote: '"人们总说，拿到这枚金牌，你就拥有一切。但他们错了。拿到它，一切才刚刚开始。因为从这一刻起，你不再是追逐者，你就是那座山。"',
     event: '2024年 奥运会 男子单打',
     opponent: '特鲁尔斯·莫雷加德 (瑞典)',
@@ -98,28 +98,28 @@ export const featureModules = [
     id: 'schedule',
     title: '赛程安排',
     description: '查看樊振东最新比赛安排和赛事信息',
-    icon: '/images/icons/schedule.png',
+    icon: '/images/icons/schedule.webp',
     route: '/schedule'
   },
   {
     id: 'moments',
     title: '精彩瞬间',
     description: '回顾樊振东职业生涯的经典时刻',
-    icon: '/images/icons/moments.png',
+    icon: '/images/icons/gallery.jpg',
     route: '/gallery'
   },
   {
     id: 'timeline',
     title: '大事记',
     description: '樊振东职业生涯重要节点时间线',
-    icon: '/images/icons/timeline.png',
+    icon: '/images/icons/timeline.jpg',
     route: '/timeline'
   },
   {
     id: 'interview',
     title: '采访',
     description: '樊振东最新采访和媒体报道',
-    icon: '/images/icons/interview.png',
+    icon: '/images/icons/interview.jpg',
     route: '/interview'
   }
 ]

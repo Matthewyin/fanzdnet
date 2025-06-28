@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 // 导入页面组件
 const Home = () => import('../views/Home.vue')
-const News = () => import('../views/News.vue')
 const Schedule = () => import('../views/Schedule.vue')
 const Gallery = () => import('../views/Gallery.vue')
 const Timeline = () => import('../views/Timeline.vue')
@@ -17,15 +16,6 @@ const routes = [
     meta: {
       title: '首页 - 樊振东球迷网',
       description: '樊振东球迷非官方网站首页'
-    }
-  },
-  {
-    path: '/news',
-    name: 'News',
-    component: News,
-    meta: {
-      title: '樊振东动态 - 樊振东球迷网',
-      description: '樊振东最新动态和新闻资讯'
     }
   },
   {

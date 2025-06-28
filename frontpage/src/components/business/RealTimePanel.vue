@@ -60,20 +60,6 @@
         <!-- 数据类型切换 -->
         <div class="data-tabs">
           <el-tabs v-model="activeTab" @tab-change="handleTabChange">
-            <el-tab-pane label="新闻" name="news">
-              <template #label>
-                <span class="tab-label">
-                  <el-icon><Document /></el-icon>
-                  新闻
-                  <el-badge 
-                    v-if="newNewsCount > 0" 
-                    :value="newNewsCount" 
-                    class="tab-badge"
-                  />
-                </span>
-              </template>
-            </el-tab-pane>
-            
             <el-tab-pane label="比赛" name="matches">
               <template #label>
                 <span class="tab-label">
@@ -120,29 +106,6 @@
 
         <!-- 数据列表 -->
         <div class="data-content">
-          <!-- 新闻列表 -->
-          <div v-if="activeTab === 'news'" class="news-list">
-            <div v-if="realtimeNews.length === 0" class="empty-state">
-              <el-empty description="暂无实时新闻" />
-            </div>
-            <div v-else class="data-list">
-              <div
-                v-for="news in realtimeNews.slice(0, 10)"
-                :key="news.id"
-                class="data-item"
-                :class="{ 'is-new': news.isNew }"
-                @click="handleNewsClick(news)"
-              >
-                <div class="item-content">
-                  <div class="item-title">{{ news.title }}</div>
-                  <div class="item-meta">
-                    <span class="item-time">{{ formatTime(news.receivedAt) }}</span>
-                    <el-tag v-if="news.isNew" type="success" size="small">新</el-tag>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
           <!-- 比赛列表 -->
           <div v-if="activeTab === 'matches'" class="matches-list">
@@ -326,7 +289,7 @@ const {
 } = useRealTimeData()
 
 // 响应式数据
-const activeTab = ref('news')
+const activeTab = ref('matches')
 const refreshing = ref(false)
 const showSettings = ref(false)
 const autoRefresh = ref(true)
@@ -335,10 +298,6 @@ const soundNotifications = ref(false)
 const refreshInterval = ref(10000)
 
 // 计算属性
-const newNewsCount = computed(() => {
-  return realtimeNews.value.filter(item => item.isNew).length
-})
-
 const newMatchCount = computed(() => {
   return realtimeMatches.value.filter(item => item.isNew || item.isUpdated).length
 })
@@ -365,10 +324,6 @@ const handleRefresh = async () => {
   } finally {
     refreshing.value = false
   }
-}
-
-const handleNewsClick = (news) => {
-  router.push(`/news/${news.id}`)
 }
 
 const handleMatchClick = (match) => {

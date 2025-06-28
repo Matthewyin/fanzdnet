@@ -60,29 +60,6 @@ export function useRealTimeData() {
   }
 
   // 数据更新处理
-  const handleNewsUpdate = (data) => {
-    realtimeNews.value.unshift({
-      ...data,
-      receivedAt: new Date().toISOString(),
-      isNew: true
-    })
-    
-    // 限制数量
-    if (realtimeNews.value.length > 50) {
-      realtimeNews.value = realtimeNews.value.slice(0, 50)
-    }
-    
-    stats.value.newsUpdates++
-    lastUpdateTime.value = new Date()
-    
-    // 显示通知
-    ElNotification({
-      title: '新闻更新',
-      message: data.title,
-      type: 'info',
-      duration: 3000
-    })
-  }
 
   const handleMatchUpdate = (data) => {
     // 查找现有比赛记录

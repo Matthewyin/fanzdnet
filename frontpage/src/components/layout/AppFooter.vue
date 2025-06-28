@@ -16,7 +16,6 @@
         <div class="footer-section">
           <h3 class="footer-title">功能导航</h3>
           <ul class="footer-links">
-            <li><router-link to="/news">樊振东动态</router-link></li>
             <li><router-link to="/schedule">赛程安排</router-link></li>
             <li><router-link to="/gallery">精彩瞬间</router-link></li>
             <li><router-link to="/timeline">大事记</router-link></li>

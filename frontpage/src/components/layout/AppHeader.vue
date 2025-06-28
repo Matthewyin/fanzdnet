@@ -26,10 +26,6 @@
               <img src="/images/icons/home.svg" alt="首页" class="menu-icon" />
               <span>首页</span>
             </el-menu-item>
-            <el-menu-item index="/news">
-              <img src="/images/icons/news.svg" alt="樊振东动态" class="menu-icon" />
-              <span>樊振东动态</span>
-            </el-menu-item>
             <el-menu-item index="/schedule">
               <img src="/images/icons/schedule.svg" alt="赛程安排" class="menu-icon" />
               <span>赛程安排</span>
@@ -97,10 +93,6 @@
         <el-menu-item index="/">
           <img src="/images/icons/home.svg" alt="首页" class="menu-icon" />
           <span>首页</span>
-        </el-menu-item>
-        <el-menu-item index="/news">
-          <img src="/images/icons/news.svg" alt="樊振东动态" class="menu-icon" />
-          <span>樊振东动态</span>
         </el-menu-item>
         <el-menu-item index="/schedule">
           <img src="/images/icons/schedule.svg" alt="赛程安排" class="menu-icon" />
