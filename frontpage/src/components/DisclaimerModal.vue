@@ -46,8 +46,8 @@
             <h4>联系我们</h4>
             <p>如有任何问题或建议，请通过以下方式联系：</p>
             <ul>
-              <li>邮箱：contact@fzdFan.com</li>
-              <li>微博：@樊振东球迷网</li>
+              <li>邮箱：contact@fanzd.net</li>
+              <li>微博：@fanzdnet</li>
             </ul>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
+import AIGeneratorAPI from '@/api/aiGenerator'
 
 export const useAIGeneratorStore = defineStore('aiGenerator', () => {
   // AI生成器状态
@@ -141,36 +142,30 @@ export const useAIGeneratorStore = defineStore('aiGenerator', () => {
 
     try {
       // 检查每日限制
-      // 注意：这里需要在组件中调用时传入userStore，避免循环依赖
-      // const userStore = useUserStore()
-      // if (!userStore.canUseAIGenerator) {
-      //   throw new Error('今日生成次数已用完，请明天再试')
-      // }
+      if (todayGenerated.value >= 10) {
+        throw new Error('今日生成次数已用完，请明天再试')
+      }
       
       // 调用AI生成API
-      // const response = await aiAPI.generateItem(generationParams.value)
-      
-      // 模拟AI生成过程
-      await new Promise(resolve => setTimeout(resolve, 3000))
-      
+      const response = await AIGeneratorAPI.generateItem(generationParams.value)
+
       const newItem = {
-        id: Date.now(),
+        id: response.id || Date.now(),
         type: generationParams.value.itemType,
         style: generationParams.value.style,
-        imageUrl: `/generated/${Date.now()}.png`, // 模拟生成的图片URL
-        thumbnailUrl: `/generated/${Date.now()}_thumb.png`,
+        imageUrl: response.imageUrl || `/generated/${Date.now()}.png`,
+        thumbnailUrl: response.thumbnailUrl || `/generated/${Date.now()}_thumb.png`,
         params: { ...generationParams.value },
-        createTime: new Date().toISOString(),
-        downloads: 0,
-        likes: 0,
-        isPublic: false
+        createTime: response.createTime || new Date().toISOString(),
+        downloads: response.downloads || 0,
+        likes: response.likes || 0,
+        isPublic: response.isPublic || false
       }
       
       addGeneratedItem(newItem)
       setCurrentItem(newItem)
       
-      // 增加用户AI使用次数
-      // userStore.incrementAIUsage()
+
       
       return newItem
     } catch (err) {
@@ -320,25 +315,27 @@ export const useAIGeneratorStore = defineStore('aiGenerator', () => {
   // 保存为模板
   const saveAsTemplate = async (item, templateName) => {
     try {
-      // await aiAPI.saveTemplate({
-      //   name: templateName,
-      //   params: item.params,
-      //   thumbnailUrl: item.thumbnailUrl
-      // })
-      
+      const templateData = {
+        name: templateName,
+        params: item.params,
+        thumbnailUrl: item.thumbnailUrl
+      }
+
+      const response = await AIGeneratorAPI.saveAsTemplate(templateData)
+
       const newTemplate = {
-        id: Date.now(),
+        id: response.id || Date.now(),
         name: templateName,
         params: item.params,
         thumbnailUrl: item.thumbnailUrl,
-        createTime: new Date().toISOString(),
-        author: '当前用户',
-        uses: 0,
-        likes: 0
+        createTime: response.createTime || new Date().toISOString(),
+        author: response.author || '匿名用户',
+        uses: response.uses || 0,
+        likes: response.likes || 0
       }
-      
+
       templates.value.unshift(newTemplate)
-      
+
       return newTemplate
     } catch (err) {
       setError(err.message || '保存模板失败')
@@ -389,11 +386,15 @@ export const useAIGeneratorStore = defineStore('aiGenerator', () => {
   // 获取模板列表
   const fetchTemplates = async () => {
     try {
-      // const response = await aiAPI.getTemplates()
-      // setTemplates(response.data.templates)
-      // setPopularTemplates(response.data.popular)
-      
-      // 模拟数据
+      const response = await AIGeneratorAPI.getTemplates()
+      setTemplates(response.templates || [])
+
+      const popularResponse = await AIGeneratorAPI.getPopularTemplates()
+      setPopularTemplates(popularResponse.templates || [])
+    } catch (err) {
+      console.warn('获取模板失败，使用模拟数据:', err.message)
+
+      // 如果API调用失败，使用模拟数据作为后备
       const mockTemplates = [
         {
           id: 1,
@@ -412,11 +413,9 @@ export const useAIGeneratorStore = defineStore('aiGenerator', () => {
           likes: 89
         }
       ]
-      
+
       setTemplates(mockTemplates)
       setPopularTemplates(mockTemplates.slice(0, 5))
-    } catch (err) {
-      setError(err.message || '获取模板失败')
     }
   }
   

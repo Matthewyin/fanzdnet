@@ -38,8 +38,7 @@
       <AppFooter />
     </el-container>
 
-    <!-- 全局对话框和弹窗 -->
-    <GlobalDialogs />
+
     
     <!-- PWA 更新提示 -->
     <PWAUpdatePrompt />
@@ -48,16 +47,15 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { useAppStore, useUserStore } from '@/stores'
+import { useAppStore } from '@/stores'
 import AppHeader from './AppHeader.vue'
 import AppFooter from './AppFooter.vue'
-import GlobalDialogs from '../common/GlobalDialogs.vue'
+
 import PWAUpdatePrompt from '../common/PWAUpdatePrompt.vue'
 import { Connection } from '@element-plus/icons-vue'
 
 
 const appStore = useAppStore()
-const userStore = useUserStore()
 
 // 需要缓存的组件
 const keepAliveComponents = ref(['Home', 'Gallery'])
@@ -102,8 +100,7 @@ const initApp = async () => {
     // 初始化应用状态
     appStore.initApp()
 
-    // 初始化用户状态
-    userStore.initUser()
+
 
     // 检查是否需要显示免责声明
     checkDisclaimerAcceptance()

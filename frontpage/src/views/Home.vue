@@ -9,6 +9,9 @@
 
     <el-container>
       <el-main>
+        <!-- 网站Logo -->
+        <SiteLogo />
+
         <!-- 主轮播区域 -->
         <HeroCarousel />
 
@@ -25,6 +28,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+import SiteLogo from '@/components/SiteLogo.vue'
 import HeroCarousel from '@/components/HeroCarousel.vue'
 import FeatureModules from '@/components/FeatureModules.vue'
 import AIGenerator from '@/components/AIGenerator.vue'
@@ -57,9 +61,10 @@ const handleModuleClick = (module) => {
     'schedule': '/schedule',
     'moments': '/gallery',
     'timeline': '/timeline',
-    'interview': '/interview'
+    'interview': '/interview',
+    'ai-generator': '/ai-generator'
   }
-  
+
   const route = routeMap[module.id]
   if (route) {
     router.push(route)

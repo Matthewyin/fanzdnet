@@ -14,10 +14,6 @@
               <span class="stat-label">张图片</span>
             </div>
             <div class="stat-item">
-              <span class="stat-number">{{ todayUploads }}</span>
-              <span class="stat-label">今日上传</span>
-            </div>
-            <div class="stat-item">
               <span class="stat-number">{{ totalViews }}</span>
               <span class="stat-label">总浏览量</span>
             </div>
@@ -49,7 +45,7 @@
             @change="handleFilterChange"
             style="width: 120px;"
           >
-            <el-option label="最新上传" value="latest" />
+            <el-option label="最新发布" value="latest" />
             <el-option label="最多点赞" value="popular" />
             <el-option label="最多浏览" value="views" />
           </el-select>
@@ -67,9 +63,6 @@
         </div>
 
         <div class="toolbar-right">
-          <el-button @click="showUploadDialog = true" type="primary" :icon="Plus">
-            上传图片
-          </el-button>
           <el-button @click="handleRefresh" :icon="Refresh">
             刷新
           </el-button>
@@ -85,11 +78,7 @@
 
         <!-- 空状态 -->
         <div v-else-if="!galleryStore.loading && imageList.length === 0" class="empty-container">
-          <el-empty description="暂无图片">
-            <el-button type="primary" @click="showUploadDialog = true">
-              上传第一张图片
-            </el-button>
-          </el-empty>
+          <el-empty description="暂无图片" />
         </div>
 
         <!-- 瀑布流布局 -->
@@ -122,18 +111,7 @@
       </div>
     </div>
 
-    <!-- 上传对话框 -->
-    <el-dialog
-      v-model="showUploadDialog"
-      title="上传图片"
-      width="600px"
-      :close-on-click-modal="false"
-    >
-      <ImageUpload
-        @upload-success="handleUploadSuccess"
-        @upload-error="handleUploadError"
-      />
-    </el-dialog>
+
 
     <!-- 图片详情对话框 -->
     <el-dialog
@@ -177,12 +155,7 @@
             </div>
 
             <div class="meta-item">
-              <span class="meta-label">上传者：</span>
-              <span>{{ selectedImage.uploader }}</span>
-            </div>
-
-            <div class="meta-item">
-              <span class="meta-label">上传时间：</span>
+              <span class="meta-label">拍摄时间：</span>
               <span>{{ formatFullTime(selectedImage.uploadTime) }}</span>
             </div>
 
@@ -202,7 +175,7 @@ import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { useGalleryStore } from '@/stores'
 import ImageCard from '@/components/business/ImageCard.vue'
-import ImageUpload from '@/components/business/ImageUpload.vue'
+
 import { Search, Plus, Refresh } from '@element-plus/icons-vue'
 
 const galleryStore = useGalleryStore()
@@ -211,11 +184,9 @@ const galleryStore = useGalleryStore()
 const selectedCategory = ref('')
 const selectedSort = ref('latest')
 const searchKeyword = ref('')
-const showUploadDialog = ref(false)
 const showImageDialog = ref(false)
 const selectedImage = ref(null)
 const masonryRef = ref()
-const todayUploads = ref(23)
 const totalViews = ref(156789)
 
 // 分类选项
@@ -286,7 +257,6 @@ const handleLoadMore = () => {
 }
 
 const updateStats = () => {
-  todayUploads.value = Math.floor(Math.random() * 50) + 10
   totalViews.value = Math.floor(Math.random() * 100000) + 100000
 }
 
@@ -372,18 +342,7 @@ const handleImageClick = (image) => {
   galleryStore.incrementViewCount(image.id)
 }
 
-const handleUploadSuccess = (response, file) => {
-  showUploadDialog.value = false
-  ElMessage.success('上传成功')
 
-  // 刷新图片列表
-  galleryStore.fetchImages()
-  updateStats()
-}
-
-const handleUploadError = (error, file) => {
-  ElMessage.error('上传失败，请重试')
-}
 
 // 工具方法
 const getCategoryLabel = (category) => {

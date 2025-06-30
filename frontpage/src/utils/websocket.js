@@ -18,7 +18,7 @@ class WebSocketService {
   /**
    * 连接WebSocket
    */
-  connect(url = 'ws://localhost:8080/ws') {
+  connect(url = `ws://localhost:27001/ws`) {
     if (this.isConnecting || (this.ws && this.ws.readyState === WebSocket.OPEN)) {
       return Promise.resolve()
     }

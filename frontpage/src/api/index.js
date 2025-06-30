@@ -2,7 +2,7 @@ import axios from 'axios'
 import { ElMessage, ElMessageBox } from 'element-plus'
 
 // API基础配置
-const API_BASE_URL = 'http://fzd-backend.ns-iuao844w.svc.cluster.local:8080'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:27007/api'
 
 // 创建axios实例
 const apiClient = axios.create({
@@ -16,11 +16,8 @@ const apiClient = axios.create({
 // 请求拦截器
 apiClient.interceptors.request.use(
   (config) => {
-    // 添加认证token
-    const token = localStorage.getItem('auth-token')
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`
-    }
+    // 添加通用请求头
+    config.headers['X-Requested-With'] = 'XMLHttpRequest'
     
     // 添加请求时间戳
     config.metadata = { startTime: new Date() }
@@ -78,11 +75,7 @@ apiClient.interceptors.response.use(
           message = data.message || '请求参数错误'
           break
         case 401:
-          message = '登录已过期，请重新登录'
-          // 清除token并跳转到登录页
-          localStorage.removeItem('auth-token')
-          localStorage.removeItem('user-info')
-          // router.push('/login')
+          message = '访问被拒绝'
           break
         case 403:
           message = '没有权限访问'

@@ -89,4 +89,32 @@ node_modules/
 
 # 本地配置文件
 config/local.*
-*.local 
+*.local
+
+# Python虚拟环境
+venv/
+.venv/
+env/
+.env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# 进程ID文件
+*.pid
+.*.pid
+
+# 存储目录
+storage/
+uploads/
+generated/
+
+# 测试覆盖率
+coverage/
+.coverage
+.nyc_output/
+
+# 运行时文件
+*.sock

@@ -20,7 +20,38 @@ export default defineConfig({
     port: 3000,
     open: true, // 自动打开浏览器
     strictPort: false, // 端口被占用时自动尝试下一个可用端口
-    cors: true // 启用CORS
+    cors: true, // 启用CORS
+    proxy: {
+      // API网关代理
+      '/api': {
+        target: 'http://localhost:27007',
+        changeOrigin: true,
+        secure: false
+      },
+      // 直接服务代理（开发环境备用）
+      '/api/auth': {
+        target: 'http://localhost:27001',
+        changeOrigin: true,
+        secure: false
+      },
+      '/api/ai': {
+        target: 'http://localhost:27002',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api\/ai/, '/api/v1')
+      },
+
+      '/api/news': {
+        target: 'http://localhost:27005',
+        changeOrigin: true,
+        secure: false
+      },
+      '/api/schedule': {
+        target: 'http://localhost:27006',
+        changeOrigin: true,
+        secure: false
+      }
+    }
   },
   resolve: {
     alias: {

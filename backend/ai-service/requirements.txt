@@ -1,0 +1,23 @@
+# Web框架
+fastapi
+uvicorn[standard]
+python-multipart
+
+# AI和机器学习
+google-generativeai
+Pillow
+numpy
+
+# 数据库和缓存
+redis
+mysql-connector-python
+
+# 工具库
+python-dotenv
+pydantic
+pydantic-settings
+httpx
+aiofiles
+
+# 日志和监控
+loguru

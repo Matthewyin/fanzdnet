@@ -98,28 +98,35 @@ export const featureModules = [
     id: 'schedule',
     title: '赛程安排',
     description: '查看樊振东最新比赛安排和赛事信息',
-    icon: '/images/icons/schedule.webp',
+    icon: '/images/icons/schedule.svg',
     route: '/schedule'
   },
   {
     id: 'moments',
     title: '精彩瞬间',
     description: '回顾樊振东职业生涯的经典时刻',
-    icon: '/images/icons/gallery.jpg',
+    icon: '/images/icons/gallery.svg',
     route: '/gallery'
   },
   {
     id: 'timeline',
     title: '大事记',
     description: '樊振东职业生涯重要节点时间线',
-    icon: '/images/icons/timeline.jpg',
+    icon: '/images/icons/timeline.svg',
     route: '/timeline'
   },
   {
     id: 'interview',
     title: '采访',
     description: '樊振东最新采访和媒体报道',
-    icon: '/images/icons/interview.jpg',
+    icon: '/images/icons/interview.svg',
     route: '/interview'
+  },
+  {
+    id: 'ai-generator',
+    title: 'AI应援物生成器',
+    description: '用AI智能生成樊振东应援横幅、口号和表情包',
+    icon: '/images/icons/ai-generator.svg',
+    route: '/ai-generator'
   }
 ]
