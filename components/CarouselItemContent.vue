@@ -47,7 +47,6 @@
 .hero-subtitle { font-size: 2rem; font-weight: 600; color: #ffd700; margin-bottom: 1.5rem; }
 .hero-quote { font-size: 1.5rem; color: #e0e7ff; margin-bottom: 2rem; font-style: italic; line-height: 1.6; }
 .hero-stats { display: flex; gap: 2rem; margin-bottom: 1rem; }
-.stat-item { display: flex; flex-direction: column; align-items: flex-start; }
 .stat-label { font-size: 1.2rem; color: #ffd700; margin-bottom: 0.5rem; font-weight: 600; }
 .stat-value { font-size: 1.2rem; font-weight: 600; color: #ffffff; }
 .hero-image-container { position: absolute; right: 0; top: 0; width: 50%; height: 100%; z-index: 1; overflow: hidden; display: flex; align-items: center; justify-content: center; }
