@@ -18,6 +18,7 @@
         <h1 class="hero-title">{{ item.title }}</h1>
         <h2 class="hero-subtitle">{{ item.subtitle }}</h2>
         <p class="hero-quote">{{ item.quote }}</p>
+
       <div class="carousel-info">
         <p class="carousel-description">{{ item.description }}</p>
       </div>
