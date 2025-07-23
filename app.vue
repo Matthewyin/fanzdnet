@@ -1,24 +1,44 @@
-
 <template>
   <div>
     <header class="main-header">
-      <div class="header-left">
+      <div class="header-content">
         <NuxtLink to="/" class="logo-link">
           <NuxtImg src="/logo.jpeg" alt="Fanzdnet Logo" class="logo-img" loading="lazy" />
         </NuxtLink>
-        <nav>
+        
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav">
           <NuxtLink to="/updates">最新动态</NuxtLink>
           <NuxtLink to="/schedule">赛事信息</NuxtLink>
           <NuxtLink to="/timeline">大事记</NuxtLink>
           <NuxtLink to="/ai-gallery">AI 灵感站</NuxtLink>
           <NuxtLink to="/about">关于</NuxtLink>
         </nav>
-      </div>
-      <div class="header-right">
-        <ThemeSwitcher />
+
+        <div class="header-right">
+          <ThemeSwitcher />
+          <!-- Mobile Menu Button -->
+          <button @click="isMobileMenuOpen = !isMobileMenuOpen" class="mobile-menu-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
-    <main>
+
+    <!-- Mobile Navigation Panel -->
+    <nav class="mobile-nav" :class="{ open: isMobileMenuOpen }">
+      <NuxtLink to="/updates" @click="closeMobileMenu">最新动态</NuxtLink>
+      <NuxtLink to="/schedule" @click="closeMobileMenu">赛事信息</NuxtLink>
+      <NuxtLink to="/timeline" @click="closeMobileMenu">大事记</NuxtLink>
+      <NuxtLink to="/ai-gallery" @click="closeMobileMenu">AI 灵感站</NuxtLink>
+      <NuxtLink to="/about" @click="closeMobileMenu">关于</NuxtLink>
+    </nav>
+
+    <main @click="closeMobileMenu">
       <NuxtPage />
     </main>
     <TheFooter />
@@ -26,13 +46,20 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import ThemeSwitcher from '@/components/ThemeSwitcher.vue';
 import TheFooter from '@/components/TheFooter.vue';
 import { NuxtImg } from '#components';
+
+const isMobileMenuOpen = ref(false);
+
+const closeMobileMenu = () => {
+  isMobileMenuOpen.value = false;
+};
 </script>
 
 <style>
-/* Global styles */
+/* ... (existing global styles remain the same) ... */
 *,
 *::before,
 *::after {
@@ -63,6 +90,12 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+nav {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  gap: 1.5rem; /* Adjust gap */
+}
+
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -81,38 +114,73 @@ body {
   gap: 2rem;
 }
 
-.logo-link {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.logo-img {
-  height: 48px;
-  width: auto;
+.mobile-menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--text-primary);
 }
 
-nav {
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Start off-screen */
+  width: 80%;
+  max-width: 300px;
+  height: 100vh;
+  background-color: var(--bg-secondary);
+  box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+  z-index: 999;
+  transition: right 0.3s ease-in-out;
   display: flex;
+  flex-direction: column;
+  padding: 6rem 2rem 2rem;
   gap: 1.5rem;
 }
 
-nav a {
-  font-size: 1.1rem;
+.mobile-nav.open {
+  right: 0;
+}
+
+.mobile-nav a {
+  font-size: 1.5rem;
   font-weight: 500;
   color: var(--text-secondary);
   text-decoration: none;
-  transition: color 0.2s;
-  padding: 0.5rem;
-}
-
-nav a:hover, 
-nav a.router-link-exact-active {
-  color: var(--text-primary);
 }
 
 main {
   padding-top: 1rem; 
 }
-</style>
 
+/* Desktop styles */
+@media (min-width: 769px) {
+  .desktop-nav {
+    display: flex; /* Show on desktop */
+    gap: 1.5rem;
+  }
+  .desktop-nav a {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+    padding: 0.5rem;
+  }
+  .desktop-nav a:hover, 
+  .desktop-nav a.router-link-exact-active {
+    color: var(--text-primary);
+  }
+  .mobile-menu-button {
+    display: none; /* Hide on desktop */
+  }
+}
+</style>

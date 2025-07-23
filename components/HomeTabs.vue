@@ -1,4 +1,3 @@
-
 <template>
   <div class="tabs-container">
     <div class="tabs-nav">
