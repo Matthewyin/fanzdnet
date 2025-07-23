@@ -1,16 +1,19 @@
+
 <template>
   <div class="timeline-page">
     <h1 class="page-title">大事记</h1>
     <div class="timeline-wrapper">
       <div class="timeline-line"></div>
-      <div v-for="(event, index) in timelineData" :key="index" class="timeline-item" :class="{ 'right': index % 2 !== 0 }">
-        <div class="timeline-dot"></div>
+      <div v-for="(event, index) in timelineData" :key="index" class="timeline-item" :class="{ 'item-right': index % 2 !== 0 }">
         <div class="timeline-content">
-          <img :src="event.imageUrl" :alt="event.title" class="timeline-image" @error="onImageError" />
-          <div class="text-content">
-            <div class="timeline-year">{{ event.year }}</div>
-            <h3 class="timeline-title">{{ event.title }}</h3>
-            <p class="timeline-description">{{ event.description }}</p>
+          <div class="timeline-dot"></div>
+          <div class="timeline-body">
+            <img :src="event.imageUrl" :alt="event.title" class="timeline-image" @error="onImageError" />
+            <div class="text-content">
+              <div class="timeline-year">{{ event.year }}</div>
+              <h3 class="timeline-title">{{ event.title }}</h3>
+              <p class="timeline-description">{{ event.description }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -22,7 +25,6 @@
 import { timelineData } from '@/data/timelineData.ts';
 
 const onImageError = (event) => {
-  // Hide broken images
   event.target.style.display = 'none';
 }
 </script>
@@ -43,14 +45,13 @@ const onImageError = (event) => {
 
 .timeline-wrapper {
   position: relative;
-  padding: 2rem 0;
 }
 
 .timeline-line {
   position: absolute;
   left: 50%;
-  top: 0;
-  bottom: 0;
+  top: 20px;
+  bottom: 20px;
   width: 4px;
   background-color: var(--border-color);
   transform: translateX(-2px);
@@ -63,45 +64,50 @@ const onImageError = (event) => {
   margin-bottom: 50px;
 }
 
-.timeline-item:nth-child(even) {
-  left: 50%;
+.timeline-item:nth-child(odd) {
+  float: left;
+  clear: both;
+  text-align: right;
 }
 
-.timeline-item:nth-child(odd) {
-  left: 0;
+.timeline-item:nth-child(even) {
+  float: right;
+  clear: both;
+  text-align: left;
 }
 
 .timeline-dot {
+  content: '';
   position: absolute;
-  top: 0;
-  width: 24px;
-  height: 24px;
+  top: 20px;
+  width: 20px;
+  height: 20px;
   background-color: var(--bg-primary);
   border: 4px solid #ffd700;
   border-radius: 50%;
   z-index: 1;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-}
-
-.timeline-item:nth-child(even) .timeline-dot {
-  left: -12px;
 }
 
 .timeline-item:nth-child(odd) .timeline-dot {
-  right: -12px;
+  right: -10px;
 }
 
-.timeline-content {
+.timeline-item:nth-child(even) .timeline-dot {
+  left: -10px;
+}
+
+.timeline-body {
   background-color: var(--bg-secondary);
   border-radius: 12px;
   box-shadow: 0 6px 24px rgba(0,0,0,0.08);
-  overflow: hidden; /* Ensures the image corners are rounded */
+  overflow: hidden;
+  border: 1px solid var(--border-color);
 }
 
 .timeline-image {
   width: 100%;
-  height: 200px; /* Fixed height for all images */
-  object-fit: cover; /* Crop images to fit */
+  height: 200px;
+  object-fit: cover;
   display: block;
 }
 
@@ -131,18 +137,29 @@ const onImageError = (event) => {
   margin: 0;
 }
 
+/* Clear floats */
+.timeline-wrapper::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .timeline-line {
-    left: 12px;
+    left: 20px;
   }
   .timeline-item {
     width: 100%;
-    left: 0 !important;
-    padding-left: 40px;
+    float: none !important;
+    clear: none !important;
+    text-align: left !important;
+    padding-left: 50px;
     padding-right: 0;
+    margin-bottom: 30px;
   }
   .timeline-dot {
-    left: 1px !important;
+    left: 10px !important;
   }
 }
 </style>
