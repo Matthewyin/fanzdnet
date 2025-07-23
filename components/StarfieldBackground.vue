@@ -282,8 +282,19 @@ const starfieldStyles = computed(() => ({
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .star-layer-1, .star-layer-2, .star-layer-3, .star-layer-scorpius, .star-layer-aquarius, .nebula-layer, .starfield-background {
+  .star-layer-1, .star-layer-2, .star-layer-3, .star-layer-scorpius, .star-layer-aquarius, .nebula-layer, .starfield-background, .constellation-line {
     animation: none;
+  }
+}
+
+/* Disable animations on mobile for performance */
+@media (max-width: 768px) {
+  .star-layer-1, .star-layer-2, .star-layer-3, .star-layer-scorpius, .star-layer-aquarius, .nebula-layer, .constellation-line {
+    animation: none;
+    display: none; /* Hide the star layers completely */
+  }
+  .starfield-background {
+      animation: none;
   }
 }
 </style>

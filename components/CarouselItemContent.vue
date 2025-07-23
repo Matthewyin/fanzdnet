@@ -1,4 +1,3 @@
-
 <template>
   <div v-if="item.isOpening" class="opening-content">
     <div class="opening-text-container">
@@ -10,6 +9,9 @@
     </div>
   </div>
   <div v-else class="hero-content">
+    <div class="hero-image-container">
+      <NuxtImg :src="item.url" :alt="item.title" class="hero-image" @error="onImageError" loading="lazy" />
+    </div>
     <div class="hero-text-container">
       <div class="hero-text-overlay">
         <h1 class="hero-title">{{ item.title }}</h1>
@@ -29,13 +31,10 @@
             <span class="stat-value">{{ item.score }}</span>
           </div>
         </div>
+        <div class="carousel-info">
+          <p class="carousel-description">{{ item.description }}</p>
+        </div>
       </div>
-    </div>
-    <div v-if="item.url" class="hero-image-container">
-      <NuxtImg :src="item.url" :alt="item.title" class="hero-image" @error="onImageError" loading="lazy" />
-    </div>
-    <div class="carousel-info">
-      <p class="carousel-description">{{ item.description }}</p>
     </div>
   </div>
 </template>
@@ -44,13 +43,12 @@
   defineProps({ item: Object });
 
   const onImageError = (event) => {
-    // Hide broken images
     event.target.style.display = 'none';
   }
 </script>
 
 <style scoped>
-/* All styles are identical to the main carousel component for content display */
+/* ... (Desktop styles remain the same) ... */
 .opening-content, .hero-content { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
 .opening-content { text-align: center; }
 .opening-text-container { max-width: 800px; padding: 0 2rem; }
@@ -70,14 +68,37 @@
 .carousel-info { position: absolute; bottom: 2rem; left: 4rem; right: 4rem; text-align: left; z-index: 3; }
 .carousel-description { font-size: 1.2rem; color: #d0d0d0; padding: 1.5rem 2rem; border-radius: 12px; max-width: 75%; margin: 0; }
 @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+/* Mobile Styles */
 @media (max-width: 768px) {
-  .hero-content { flex-direction: column; padding: 2rem; text-align: center; }
-  .hero-text-container { max-width: 100%; }
-  .hero-image-container { position: relative; width: 100%; height: 300px; margin-top: 2rem; }
-  .hero-title { font-size: 2rem; }
-  .hero-subtitle { font-size: 1.2rem; }
-  .hero-stats { justify-content: center; gap: 1rem; }
-  .carousel-description { max-width: 100%; }
-  .opening-line { font-size: 1.8rem; }
+  .hero-content {
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
+    justify-content: flex-start; /* Align to top */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+  }
+  .hero-image-container {
+    position: relative;
+    order: 1;
+    width: 100%;
+    height: 220px;
+    margin-bottom: 1rem;
+  }
+  .hero-text-container {
+    order: 2;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+  .hero-text-overlay { padding: 1rem 0; }
+  .hero-title { font-size: 1.5rem; }
+  .hero-subtitle { font-size: 1rem; }
+  .hero-quote { font-size: 0.9rem; margin-bottom: 1rem; }
+  .hero-stats { gap: 1rem; justify-content: center; }
+  .stat-label, .stat-value { font-size: 0.8rem; }
+  .carousel-info { position: static; padding: 0; margin-top: 1rem; }
+  .carousel-description { font-size: 0.9rem; padding: 0; max-width: 100%; }
+  .opening-line { font-size: 1.5rem; }
 }
 </style>
