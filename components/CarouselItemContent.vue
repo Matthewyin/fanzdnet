@@ -18,21 +18,6 @@
         <h1 class="hero-title">{{ item.title }}</h1>
         <h2 class="hero-subtitle">{{ item.subtitle }}</h2>
         <p class="hero-quote">{{ item.quote }}</p>
-        <div class="hero-stats">
-          <div class="stat-item">
-            <span class="stat-label">赛事</span>
-            <span class="stat-value">{{ item.event }}</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-label">对手</span>
-            <span class="stat-value">{{ item.opponent }}</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-label">比分</span>
-            <span class="stat-value">{{ item.score }}</span>
-          </div>
-        </div>
-      </div>
       <div class="carousel-info">
         <p class="carousel-description">{{ item.description }}</p>
       </div>
