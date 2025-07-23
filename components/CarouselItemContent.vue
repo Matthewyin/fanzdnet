@@ -1,4 +1,3 @@
-
 <template>
   <div v-if="item.isOpening" class="opening-content">
     <div class="opening-text-container">
@@ -49,6 +48,7 @@
 </script>
 
 <style scoped>
+/* Desktop-first styles */
 .opening-content, .hero-content { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
 .opening-content { text-align: center; }
 .opening-text-container { max-width: 800px; padding: 0 2rem; }
@@ -64,7 +64,7 @@
 .stat-label { font-size: 1.2rem; color: #ffd700; margin-bottom: 0.5rem; font-weight: 600; }
 .stat-value { font-size: 1.2rem; font-weight: 600; color: #ffffff; }
 .hero-image-container { position: absolute; right: 0; top: 0; width: 50%; height: 100%; z-index: 1; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.hero-image { width: 100%; height: 100%; object-fit: contain; object-position: center; }
+.hero-image { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .carousel-info { position: absolute; bottom: 2rem; left: 4rem; right: 4rem; text-align: left; z-index: 3; }
 .carousel-description { font-size: 1.2rem; color: #d0d0d0; padding: 1.5rem 2rem; border-radius: 12px; max-width: 75%; margin: 0; }
 @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
@@ -75,8 +75,8 @@
     flex-direction: column;
     padding: 1rem;
     text-align: center;
-    justify-content: flex-start; /* Align to top */
-    overflow-y: auto; /* Allow scrolling if content overflows */
+    justify-content: flex-start;
+    overflow-y: auto;
   }
   .hero-image-container {
     position: relative;
@@ -84,6 +84,9 @@
     width: 100%;
     height: 220px;
     margin-bottom: 1rem;
+  }
+  .hero-image {
+    object-fit: contain; /* Use contain for mobile to show full image */
   }
   .hero-text-container {
     order: 2;
