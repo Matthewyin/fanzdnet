@@ -2,17 +2,21 @@
 <template>
   <div>
     <header class="main-header">
-      <NuxtLink to="/" class="logo-link">
-        <NuxtImg src="/logo.jpeg" alt="Fanzdnet Logo" class="logo-img" loading="lazy">
-      </NuxtLink>
-      <nav>
-        <NuxtLink to="/updates">最新动态</NuxtLink>
-        <NuxtLink to="/schedule">赛事信息</NuxtLink>
-        <NuxtLink to="/timeline">大事记</NuxtLink>
-        <NuxtLink to="/ai-gallery">AI 灵感站</NuxtLink>
-        <NuxtLink to="/about">关于</NuxtLink>
-      </nav>
-      <ThemeSwitcher />
+      <div class="header-left">
+        <NuxtLink to="/" class="logo-link">
+          <NuxtImg src="/logo.jpeg" alt="Fanzdnet Logo" class="logo-img" loading="lazy" />
+        </NuxtLink>
+        <nav>
+          <NuxtLink to="/updates">最新动态</NuxtLink>
+          <NuxtLink to="/schedule">赛事信息</NuxtLink>
+          <NuxtLink to="/timeline">大事记</NuxtLink>
+          <NuxtLink to="/ai-gallery">AI 灵感站</NuxtLink>
+          <NuxtLink to="/about">关于</NuxtLink>
+        </nav>
+      </div>
+      <div class="header-right">
+        <ThemeSwitcher />
+      </div>
     </header>
     <main>
       <NuxtPage />
@@ -24,8 +28,8 @@
 <script setup>
 import ThemeSwitcher from '@/components/ThemeSwitcher.vue';
 import TheFooter from '@/components/TheFooter.vue';
+import { NuxtImg } from '#components';
 </script>
-
 
 <style>
 /* Global styles */
@@ -71,22 +75,26 @@ body {
   z-index: 100;
 }
 
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
 .logo-link {
   display: flex;
   align-items: center;
-  flex-shrink: 0; /* Prevent logo from shrinking */
+  flex-shrink: 0;
 }
 
 .logo-img {
-  height: 48px; /* Increased logo size */
+  height: 48px;
   width: auto;
 }
 
 nav {
-  flex-grow: 1;
   display: flex;
-  justify-content: flex-start; /* Align nav to the left */
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 nav a {
