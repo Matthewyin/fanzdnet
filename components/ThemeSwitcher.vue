@@ -1,27 +1,44 @@
-
 <template>
-  <button @click="toggleTheme" class="theme-switcher-btn">
-    <svg v-if="$colorMode.preference === 'dark'" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 3C7.03 3 3 7.03 3 12C3 16.97 7.03 21 12 21C16.97 21 21 16.97 21 12C21 7.03 16.97 3 12 3ZM12 19C8.13 19 5 15.87 5 12C5 8.13 8.13 5 12 5C15.87 5 19 8.13 19 12C19 15.87 15.87 19 12 19Z" fill="currentColor"/>
+  <button @click="toggleTheme" class="theme-switcher-btn" :aria-label="'Switch to ' + nextTheme + ' mode'">
+    <!-- Moon Icon for Dark Mode -->
+    <svg v-if="$colorMode.preference === 'dark'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
     </svg>
-    <svg v-else-if="$colorMode.preference === 'light'" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 7C9.24 7 7 9.24 7 12C7 14.76 9.24 17 12 17C14.76 17 17 14.76 17 12C17 9.24 14.76 7 12 7ZM12 15C10.34 15 9 13.66 9 12C9 10.34 10.34 9 12 9C13.66 9 15 10.34 15 12C15 13.66 13.66 15 12 15Z" fill="currentColor"/>
+    <!-- Sun Icon for Light Mode -->
+    <svg v-else-if="$colorMode.preference === 'light'" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
     </svg>
-    <svg v-else width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 11H20V13H4V11ZM4 7H20V9H4V7ZM4 15H20V17H4V15Z" fill="currentColor"/>
+    <!-- Desktop Icon for System Mode -->
+    <svg v-else xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+      <line x1="8" y1="21" x2="16" y2="21"></line>
+      <line x1="12" y1="17" x2="12" y2="21"></line>
     </svg>
   </button>
 </template>
 
 <script setup>
+import { computed } from 'vue';
 const colorMode = useColorMode();
 
 const themes = ['system', 'light', 'dark'];
 
-const toggleTheme = () => {
+const nextTheme = computed(() => {
   const current = themes.indexOf(colorMode.preference);
   const next = (current + 1) % themes.length;
-  colorMode.preference = themes[next];
+  return themes[next];
+});
+
+const toggleTheme = () => {
+  colorMode.preference = nextTheme.value;
 };
 </script>
 
@@ -30,14 +47,16 @@ const toggleTheme = () => {
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--text-primary);
+  color: var(--text-secondary);
   padding: 0.5rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: color 0.2s, background-color 0.2s;
 }
 .theme-switcher-btn:hover {
-  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  background-color: var(--border-color);
 }
 </style>
