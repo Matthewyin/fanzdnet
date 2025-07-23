@@ -1,44 +1,40 @@
+
 <template>
   <div>
     <header class="main-header">
-      <div class="header-content">
-        <NuxtLink to="/" class="logo-link">
-          <NuxtImg src="/logo.jpeg" alt="Fanzdnet Logo" class="logo-img" loading="lazy" />
-        </NuxtLink>
-        
-        <!-- Desktop Navigation -->
-        <nav class="desktop-nav">
-          <NuxtLink to="/updates">最新动态</NuxtLink>
-          <NuxtLink to="/schedule">赛事信息</NuxtLink>
-          <NuxtLink to="/timeline">大事记</NuxtLink>
-          <NuxtLink to="/ai-gallery">AI 灵感站</NuxtLink>
-          <NuxtLink to="/about">关于</NuxtLink>
-        </nav>
+      <NuxtLink to="/" class="logo-link">
+        <NuxtImg src="/logo.jpeg" alt="Fanzdnet Logo" class="logo-img" loading="lazy" />
+      </NuxtLink>
 
-        <div class="header-right">
-          <ThemeSwitcher />
-          <!-- Mobile Menu Button -->
-          <button @click="isMobileMenuOpen = !isMobileMenuOpen" class="mobile-menu-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
-        </div>
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        <NuxtLink to="/updates">最新动态</NuxtLink>
+        <NuxtLink to="/schedule">赛事信息</NuxtLink>
+        <NuxtLink to="/timeline">大事记</NuxtLink>
+        <NuxtLink to="/ai-gallery">AI 灵感站</NuxtLink>
+        <NuxtLink to="/about">关于</NuxtLink>
+      </nav>
+
+      <div class="header-right">
+        <ThemeSwitcher />
+        <button @click="isMobileMenuOpen = !isMobileMenuOpen" class="mobile-menu-button" aria-label="Toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
       </div>
     </header>
 
     <!-- Mobile Navigation Panel -->
     <nav class="mobile-nav" :class="{ open: isMobileMenuOpen }">
-      <NuxtLink to="/updates" @click="closeMobileMenu">最新动态</NuxtLink>
-      <NuxtLink to="/schedule" @click="closeMobileMenu">赛事信息</NuxtLink>
-      <NuxtLink to="/timeline" @click="closeMobileMenu">大事记</NuxtLink>
-      <NuxtLink to="/ai-gallery" @click="closeMobileMenu">AI 灵感站</NuxtLink>
-      <NuxtLink to="/about" @click="closeMobileMenu">关于</NuxtLink>
+      <NuxtLink v-for="link in navLinks" :key="link.path" :to="link.path" @click="closeMobileMenu">{{ link.name }}</NuxtLink>
     </nav>
 
-    <main @click="closeMobileMenu">
+    <div v-if="isMobileMenuOpen" class="overlay" @click="closeMobileMenu"></div>
+
+    <main>
       <NuxtPage />
     </main>
     <TheFooter />
@@ -52,10 +48,17 @@ import TheFooter from '@/components/TheFooter.vue';
 import { NuxtImg } from '#components';
 
 const isMobileMenuOpen = ref(false);
-
 const closeMobileMenu = () => {
   isMobileMenuOpen.value = false;
 };
+
+const navLinks = [
+  { name: '最新动态', path: '/updates' },
+  { name: '赛事信息', path: '/schedule' },
+  { name: '大事记', path: '/timeline' },
+  { name: 'AI 灵感站', path: '/ai-gallery' },
+  { name: '关于', path: '/about' },
+];
 </script>
 
 <style>
@@ -90,12 +93,6 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-nav {
-  display: flex;
-  align-items: center; /* Align items vertically */
-  gap: 1.5rem; /* Adjust gap */
-}
-
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -105,23 +102,32 @@ nav {
   border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
-.header-left {
+.logo-link {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  flex-shrink: 0;
 }
 
+.logo-img {
+  height: 48px;
+  width: auto;
+}
+
+.desktop-nav {
+  display: none; /* Hidden on mobile by default */
+}
 
 .header-right {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .mobile-menu-button {
+  display: flex; /* Visible on mobile */
   background: none;
   border: none;
   cursor: pointer;
@@ -132,13 +138,13 @@ nav {
 .mobile-nav {
   position: fixed;
   top: 0;
-  right: -100%; /* Start off-screen */
+  right: -100%;
   width: 80%;
   max-width: 300px;
   height: 100vh;
   background-color: var(--bg-secondary);
   box-shadow: -4px 0 15px rgba(0,0,0,0.1);
-  z-index: 999;
+  z-index: 1001;
   transition: right 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
@@ -157,15 +163,27 @@ nav {
   text-decoration: none;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
 main {
-  padding-top: 1rem; 
+  padding-top: 1rem;
 }
 
 /* Desktop styles */
-@media (min-width: 769px) {
+@media (min-width: 992px) {
   .desktop-nav {
-    display: flex; /* Show on desktop */
+    display: flex;
+    align-items: center;
     gap: 1.5rem;
+    margin-left: 2rem;
   }
   .desktop-nav a {
     font-size: 1.1rem;
@@ -179,8 +197,14 @@ main {
   .desktop-nav a.router-link-exact-active {
     color: var(--text-primary);
   }
-  .mobile-menu-button {
-    display: none; /* Hide on desktop */
+  .mobile-menu-button, .mobile-nav, .overlay {
+    display: none;
+  }
+  .main-header {
+    justify-content: flex-start;
+  }
+  .header-right {
+      margin-left: auto;
   }
 }
 </style>
