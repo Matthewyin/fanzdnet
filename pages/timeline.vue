@@ -8,7 +8,6 @@
         <div class="timeline-content">
           <div class="timeline-dot"></div>
           <div class="timeline-body">
-            <img :src="event.imageUrl" :alt="event.title" class="timeline-image" @error="onImageError" />
             <div class="text-content">
               <div class="timeline-year">{{ event.year }}</div>
               <h3 class="timeline-title">{{ event.title }}</h3>

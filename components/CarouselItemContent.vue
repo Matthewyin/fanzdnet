@@ -32,7 +32,7 @@
       </div>
     </div>
     <div v-if="item.url" class="hero-image-container">
-      <img :src="item.url" :alt="item.title" class="hero-image" @error="onImageError" />
+      <NuxtImg :src="item.url" :alt="item.title" class="hero-image" @error="onImageError" loading="lazy" />
     </div>
     <div class="carousel-info">
       <p class="carousel-description">{{ item.description }}</p>

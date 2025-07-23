@@ -2,10 +2,11 @@
 <template>
   <div>
     <HeroCarousel />
-    <!-- Other homepage content can go here -->
+    <HomeTabs />
   </div>
 </template>
 
 <script setup>
-import HeroCarousel from '@/components/HeroCarousel.vue'
+import HeroCarousel from '@/components/HeroCarousel.vue';
+import HomeTabs from '@/components/HomeTabs.vue';
 </script>

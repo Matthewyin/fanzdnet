@@ -3,7 +3,7 @@
   <div>
     <header class="main-header">
       <NuxtLink to="/" class="logo-link">
-        <img src="/logo.jpeg" alt="Fanzdnet Logo" class="logo-img">
+        <NuxtImg src="/logo.jpeg" alt="Fanzdnet Logo" class="logo-img" loading="lazy">
       </NuxtLink>
       <nav>
         <NuxtLink to="/updates">最新动态</NuxtLink>
@@ -85,8 +85,8 @@ body {
 nav {
   flex-grow: 1;
   display: flex;
-  justify-content: center; /* Center nav links within the available space */
-  gap: 2rem; /* Increased space between nav links */
+  justify-content: flex-start; /* Align nav to the left */
+  gap: 2rem;
 }
 
 nav a {
