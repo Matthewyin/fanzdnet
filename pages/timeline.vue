@@ -30,7 +30,7 @@ import { timelineData } from '@/data/timelineData.ts';
 .page-title {
   text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem; /* More space for title */
   color: var(--text-primary);
 }
 
@@ -52,60 +52,62 @@ import { timelineData } from '@/data/timelineData.ts';
 .timeline-item {
   position: relative;
   width: 50%;
-  padding: 1rem 2rem;
-  margin-bottom: 2rem;
+  padding: 0 40px; /* Horizontal padding */
+  margin-bottom: 50px; /* Vertical space between items */
 }
 
+/* Even items are on the right side */
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+
+/* Odd items are on the left side */
 .timeline-item:nth-child(odd) {
   left: 0;
-  padding-right: 40px; /* Space for the dot */
   text-align: right;
 }
 
-.timeline-item:nth-child(even) {
-  left: 50%;
-  padding-left: 40px; /* Space for the dot */
-  text-align: left;
-}
-
+/* The dot on the timeline */
 .timeline-dot {
   position: absolute;
   top: 20px;
   width: 20px;
   height: 20px;
   background-color: var(--bg-primary);
-  border: 4px solid var(--border-color);
+  border: 4px solid #ffd700; /* Use accent color for the dot */
   border-radius: 50%;
   z-index: 1;
-}
-
-.timeline-item:nth-child(odd) .timeline-dot {
-  right: -10px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
 .timeline-item:nth-child(even) .timeline-dot {
   left: -10px;
 }
 
+.timeline-item:nth-child(odd) .timeline-dot {
+  right: -10px;
+}
+
 .timeline-content {
   background-color: var(--bg-secondary);
   padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  border-radius: 12px; /* Slightly more rounded corners */
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
   position: relative;
+  border-top: 4px solid #ffd700;
 }
 
 .timeline-year {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #ffd700; /* Gold color for emphasis */
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
 .timeline-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #ffd700; /* Use accent color for title */
   margin-top: 0;
   margin-bottom: 0.75rem;
 }
@@ -117,7 +119,7 @@ import { timelineData } from '@/data/timelineData.ts';
   margin: 0;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .timeline-line {
     left: 20px;
@@ -125,9 +127,9 @@ import { timelineData } from '@/data/timelineData.ts';
   .timeline-item {
     width: 100%;
     left: 0 !important;
-    padding-left: 50px; /* Space for the dot */
+    padding-left: 50px;
     padding-right: 1rem;
-    text-align: left;
+    text-align: left !important;
   }
   .timeline-dot {
     left: 10px !important;
