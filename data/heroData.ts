@@ -7,7 +7,7 @@ export const heroImages = [
     description: '',
     isOpening: true,
     openingText: [
-      '在竞技体育中，有些运动员参与比赛。',
+      '在竞技体育中，有些运动员参加比赛。',
       '而另一些，他们改变比赛。',
       '他们用身体重新定义物理极限，',
       '用意志铸就无人能及的王朝。',
