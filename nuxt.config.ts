@@ -13,6 +13,12 @@ export default defineNuxtConfig({
       ]
     }
   },
+  content: {
+    // https://content.nuxt.com/get-started/configuration
+    highlight: {
+      theme: 'github-dark'
+    }
+  },
   nitro: {
     compatibilityDate: '2025-07-28'
   }

@@ -2,45 +2,26 @@
 <template>
   <div class="page-container">
     <h1>随笔</h1>
-    <div class="essays-layout">
-      <!-- Article Titles as Tabs -->
-      <div class="essays-nav">
-        <a v-for="article in articles" 
-           :key="article._path"
-           :href="`#${article._path}`" 
-           @click.prevent="activeArticle = article._path"
-           :class="{ active: activeArticle === article._path }">
-          {{ article.title }}
-        </a>
-      </div>
-
-      <!-- Article Content -->
-      <div class="essay-content">
-        <ContentDoc :path="activeArticle" />
-      </div>
-    </div>
+    <ul class="article-list">
+      <li v-for="article in articles" :key="article._path" class="article-item">
+        <NuxtLink :to="article._path" class="article-link">
+          <h2 class="article-title">{{ article.title }}</h2>
+          <p class="article-description">{{ article.description }}</p>
+        </NuxtLink>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-
-const activeArticle = ref('');
 const { data: articles } = await useAsyncData('all-essays', () => 
-  queryContent('/essays').only(['_path', 'title']).find()
+  queryContent('/essays').only(['_path', 'title', 'description']).sort({ date: -1 }).find()
 );
-
-// Set the first article as active by default
-onMounted(() => {
-  if (articles.value && articles.value.length > 0) {
-    activeArticle.value = articles.value[0]._path;
-  }
-});
 </script>
 
 <style scoped>
 .page-container {
-  max-width: 1200px;
+  max-width: 960px;
   margin: 2rem auto;
   padding: 2rem;
 }
@@ -51,58 +32,37 @@ h1 {
   margin-bottom: 3rem;
 }
 
-.essays-layout {
-  display: flex;
-  gap: 2rem;
+.article-list {
+  list-style: none;
+  padding: 0;
 }
 
-.essays-nav {
-  width: 300px;
-  flex-shrink: 0;
-  border-right: 1px solid var(--border-color);
-  padding-right: 2rem;
+.article-item {
+  margin-bottom: 1.5rem;
 }
 
-.essays-nav a {
+.article-link {
   display: block;
-  padding: 1rem;
-  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
   text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.article-link:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.article-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.article-description {
+  margin: 0;
   color: var(--text-secondary);
-  font-size: 1.1rem;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-.essays-nav a:hover {
-  background-color: var(--bg-secondary);
-}
-
-.essays-nav a.active {
-  background-color: #ffd700;
-  color: #111;
-  font-weight: 600;
-}
-
-.essay-content {
-  flex-grow: 1;
-}
-
-@media (max-width: 768px) {
-  .essays-layout {
-    flex-direction: column;
-  }
-  .essays-nav {
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid var(--border-color);
-    padding-right: 0;
-    padding-bottom: 1rem;
-    display: flex;
-    overflow-x: auto;
-    gap: 0.5rem;
-  }
-  .essays-nav a {
-    white-space: nowrap;
-  }
 }
 </style>
