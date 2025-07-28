@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-28',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/color-mode', '@nuxt/image'],
+  modules: ['@nuxtjs/color-mode', '@nuxt/image', '@nuxt/content'],
   colorMode: {
     classSuffix: ''
   },

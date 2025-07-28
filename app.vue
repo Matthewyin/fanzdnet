@@ -12,6 +12,7 @@
         <NuxtLink to="/schedule">赛事信息</NuxtLink>
         <NuxtLink to="/timeline">大事记</NuxtLink>
         <NuxtLink to="/ai-gallery">AI 灵感站</NuxtLink>
+        <NuxtLink to="/essays">随笔</NuxtLink>
         <NuxtLink to="/about">关于</NuxtLink>
       </nav>
 
@@ -57,6 +58,7 @@ const navLinks = [
   { name: '赛事信息', path: '/schedule' },
   { name: '大事记', path: '/timeline' },
   { name: 'AI 灵感站', path: '/ai-gallery' },
+  { name: '随笔', path: '/essays' },
   { name: '关于', path: '/about' },
 ];
 </script>

@@ -41,6 +41,12 @@ const tabs = [
     description: '以时间线的形式，记录樊振东职业生涯中的重要里程碑和高光时刻，回顾他从天才少年到乒坛传奇的每一步。',
     route: '/timeline'
   },
+  {
+    id: 'essays',
+    title: '随笔',
+    description: '阅读关于乒乓球、体育精神以及樊振东职业生涯的深度分析和评论文章。'
+,    route: '/essays'
+  },
 ];
 </script>
 
