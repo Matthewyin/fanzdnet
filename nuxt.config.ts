@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  compatibilityDate: '2025-07-28',
   devtools: { enabled: true },
   modules: ['@nuxtjs/color-mode', '@nuxt/image'],
   colorMode: {
@@ -13,6 +14,6 @@ export default defineNuxtConfig({
     }
   },
   nitro: {
-    compatibilityDate: '2025-07-23'
+    compatibilityDate: '2025-07-28'
   }
 })
