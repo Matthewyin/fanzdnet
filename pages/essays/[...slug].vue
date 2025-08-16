@@ -5,9 +5,7 @@
   </main>
 </template>
 
-<script setup>
-import { ContentDoc } from '#components';
-</script>
+
 
 <style>
 /* Using global styles for prose content from @nuxt/content */
