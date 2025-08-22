@@ -5,8 +5,8 @@
  * 检查网站的各项功能是否正常工作
  */
 
-const https = require('https')
-const http = require('http')
+import https from 'https'
+import http from 'http'
 
 const SITE_URL = 'https://fanzd.net'
 const TIMEOUT = 10000 // 10 秒超时
@@ -320,11 +320,11 @@ async function main() {
 }
 
 // 运行检查
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(error => {
     log(`❌ 未处理的错误: ${error.message}`, 'red')
     process.exit(1)
   })
 }
 
-module.exports = { main, checkPageAccessibility, checkMultiLanguageSupport, checkSEOFiles, checkAPIEndpoints, checkSecurityHeaders }
+export { main, checkPageAccessibility, checkMultiLanguageSupport, checkSEOFiles, checkAPIEndpoints, checkSecurityHeaders }

@@ -26,6 +26,14 @@ env:
     availability:
       - BUILD
       - RUNTIME
+  - variable: PORT
+    value: "8080"
+    availability:
+      - RUNTIME
+  - variable: HOST
+    value: "0.0.0.0"
+    availability:
+      - RUNTIME
 
   # Grant access to secrets in Cloud Secret Manager.
   # See https://firebase.google.com/docs/app-hosting/configure#secret-parameters

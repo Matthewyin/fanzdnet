@@ -77,7 +77,10 @@ export default defineNuxtConfig({
         '/essays'
       ],
       failOnError: false
-    }
+    },
+    // Firebase App Hosting 端口配置
+    port: process.env.PORT ? parseInt(process.env.PORT) : 3000,
+    host: process.env.HOST || '0.0.0.0'
   },
 
   // 图片优化
