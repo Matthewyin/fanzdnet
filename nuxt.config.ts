@@ -65,7 +65,7 @@ export default defineNuxtConfig({
   // 预渲染配置
   nitro: {
     compatibilityDate: '2025-07-28',
-    preset: 'firebase',
+    preset: 'node-server',
     prerender: {
       routes: [
         '/',
@@ -78,9 +78,15 @@ export default defineNuxtConfig({
       ],
       failOnError: false
     },
-    // Firebase App Hosting 端口配置
-    port: process.env.PORT ? parseInt(process.env.PORT) : 3000,
-    host: process.env.HOST || '0.0.0.0'
+    // Firebase App Hosting 配置
+    firebase: {
+      gen: 2,
+      nodeVersion: '20'
+    },
+    // 服务器配置
+    experimental: {
+      wasm: false
+    }
   },
 
   // 图片优化

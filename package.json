@@ -7,7 +7,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "start": "node scripts/start-server.js",
+    "start": "node server.js",
     "start:direct": "node .output/server/index.mjs",
     "postinstall": "nuxt prepare",
     "deploy": "bash scripts/deploy.sh",
