@@ -3,6 +3,7 @@
 export interface MultiLanguageText {
   zh: string
   en: string
+  es: string
   fr: string
   de: string
   ja: string
@@ -64,13 +65,14 @@ export const COLLECTIONS = {
 } as const
 
 // 支持的语言列表
-export const SUPPORTED_LANGUAGES = ['zh', 'en', 'fr', 'de', 'ja', 'ko', 'sv'] as const
+export const SUPPORTED_LANGUAGES = ['zh', 'en', 'es', 'fr', 'de', 'ja', 'ko', 'sv'] as const
 export type SupportedLanguage = typeof SUPPORTED_LANGUAGES[number]
 
 // 语言配置
 export const LANGUAGE_CONFIG = {
   zh: { name: '中文', nativeName: '中文', code: 'zh-CN' },
   en: { name: 'English', nativeName: 'English', code: 'en-US' },
+  es: { name: 'Spanish', nativeName: 'Español', code: 'es-ES' },
   fr: { name: 'French', nativeName: 'Français', code: 'fr-FR' },
   de: { name: 'German', nativeName: 'Deutsch', code: 'de-DE' },
   ja: { name: 'Japanese', nativeName: '日本語', code: 'ja-JP' },

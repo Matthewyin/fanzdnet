@@ -4,7 +4,7 @@
     <h1>随笔</h1>
     <ul class="article-list">
       <li v-for="article in articles" :key="article._path" class="article-item">
-        <NuxtLink :to="article._path" class="article-link">
+        <NuxtLink :to="localePath(article._path)" class="article-link">
           <h2 class="article-title">{{ article.title }}</h2>
           <p class="article-description">{{ article.description }}</p>
         </NuxtLink>
@@ -14,6 +14,9 @@
 </template>
 
 <script setup>
+// 使用 i18n
+const localePath = useLocalePath()
+
 // 暂时使用静态数据，避免 queryContent 错误
 const articles = ref([
   {

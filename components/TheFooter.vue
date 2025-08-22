@@ -1,10 +1,25 @@
 
 <template>
   <footer class="site-footer">
-    <p>本站所有数据均来源于互联网公开信息，仅供球迷交流学习使用。</p>
-    <p>如有侵权或信息有误，请联系我们进行删除或更正。</p>
+    <div class="footer-content">
+      <!-- 免责声明 -->
+      <p class="disclaimer">{{ t('footer.disclaimer', '本网站为樊振东粉丝网站，仅用于信息分享。') }}</p>
+
+      <!-- 联系信息 -->
+      <p class="contact">{{ t('footer.contact', '如有疑问或建议，请联系我们。') }}</p>
+
+      <!-- 版权信息 -->
+      <div class="copyright-section">
+        <p class="copyright">{{ t('footer.copyright', '© 2024 Fanzd.net - 樊振东非官方粉丝网站') }}</p>
+        <p class="rights">{{ t('footer.allRightsReserved', '保留所有权利') }}</p>
+      </div>
+    </div>
   </footer>
 </template>
+
+<script setup>
+const { t } = useI18n()
+</script>
 
 <style scoped>
 .site-footer {
@@ -16,7 +31,27 @@
   font-size: 0.9rem;
   border-top: 1px solid var(--border-color);
 }
-.site-footer p {
-  margin: 0.5rem 0;
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+  space-y: 1rem;
+}
+
+.disclaimer, .contact {
+  margin: 0.75rem 0;
+  line-height: 1.6;
+}
+
+.copyright-section {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.copyright, .rights {
+  margin: 0.25rem 0;
+  font-size: 0.8rem;
+  opacity: 0.8;
 }
 </style>

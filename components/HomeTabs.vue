@@ -2,16 +2,16 @@
   <div class="tabs-container">
     <div class="tabs-nav">
       <button v-for="tab in tabs" :key="tab.id" @click="activeTab = tab.id" :class="{ active: activeTab === tab.id }">
-        {{ tab.title }}
+        {{ t(`tabs.${tab.id}.title`, tab.title) }}
       </button>
     </div>
     <div class="tabs-content">
       <div v-for="tab in tabs" :key="tab.id">
         <div v-if="activeTab === tab.id">
-          <h3>{{ tab.title }}</h3>
-          <p>{{ tab.description }}</p>
-          <NuxtLink :to="tab.route" class="read-more">
-            查看更多 &rarr;
+          <h3>{{ t(`tabs.${tab.id}.title`, tab.title) }}</h3>
+          <p>{{ t(`tabs.${tab.id}.description`, tab.description) }}</p>
+          <NuxtLink :to="localePath(tab.route)" class="read-more">
+            {{ t('common.readMore', '查看更多') }} &rarr;
           </NuxtLink>
         </div>
       </div>
@@ -22,14 +22,18 @@
 <script setup>
 import { ref } from 'vue';
 
+// 使用 i18n
+const { t } = useI18n()
+const localePath = useLocalePath()
+
 const activeTab = ref('updates');
 
 const tabs = [
   {
     id: 'updates',
     title: '最新动态',
-    description: '关于樊振东的最新新闻、文章和动态。我们会密切关注各大体育媒体和社交平台，为您带来最及时的资讯。'
-,    route: '/updates'
+    description: '关于樊振东的最新新闻、文章和动态。我们会密切关注各大体育媒体和社交平台，为您带来最及时的资讯。',
+    route: '/updates'
   },
   {
     id: 'schedule',
@@ -46,8 +50,8 @@ const tabs = [
   {
     id: 'essays',
     title: '随笔',
-    description: '阅读关于乒乓球、体育精神以及樊振东职业生涯的深度分析和评论文章。'
-,    route: '/essays'
+    description: '阅读关于乒乓球、体育精神以及樊振东职业生涯的深度分析和评论文章。',
+    route: '/essays'
   },
 ];
 </script>

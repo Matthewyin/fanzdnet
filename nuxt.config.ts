@@ -1,11 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  compatibilityDate: '2025-08-22',
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/color-mode',
     '@nuxt/image',
+    '@nuxtjs/i18n',
     // '@nuxt/content', // 暂时禁用，迁移到 Firestore
-    // '@nuxtjs/i18n' // 暂时禁用，版本兼容性问题
   ],
   colorMode: {
     classSuffix: ''
@@ -27,6 +28,7 @@ export default defineNuxtConfig({
     locales: [
       { code: 'zh', language: 'zh-CN', name: '中文', file: 'zh-CN.json' },
       { code: 'en', language: 'en-US', name: 'English', file: 'en-US.json' },
+      { code: 'es', language: 'es-ES', name: 'Español', file: 'es-ES.json' },
       { code: 'fr', language: 'fr-FR', name: 'Français', file: 'fr-FR.json' },
       { code: 'de', language: 'de-DE', name: 'Deutsch', file: 'de-DE.json' },
       { code: 'ja', language: 'ja-JP', name: '日本語', file: 'ja-JP.json' },

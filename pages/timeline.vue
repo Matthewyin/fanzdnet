@@ -1,7 +1,7 @@
 
 <template>
   <div class="timeline-page">
-    <h1 class="page-title">大事记</h1>
+    <h1 class="page-title">{{ t('pages.timeline.title', '大事记') }}</h1>
     <div class="timeline-wrapper">
       <div class="timeline-line"></div>
       <div v-for="(event, index) in timelineData" :key="index" class="timeline-item" :class="{ 'item-right': index % 2 !== 0 }">
@@ -20,11 +20,20 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { timelineData } from '@/data/timelineData.ts';
 
+// 使用 i18n
+const { t, locale } = useI18n()
+
+// SEO 优化
+const { setPageSEO } = useSEO()
+setPageSEO('timeline', locale.value)
+
 const onImageError = (event) => {
-  event.target.style.display = 'none';
+  if (event && event.target) {
+    event.target.style.display = 'none';
+  }
 }
 </script>
 

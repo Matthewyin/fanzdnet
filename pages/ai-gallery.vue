@@ -1,41 +1,57 @@
 <template>
   <div class="ai-gallery-container">
-    <h2>AI 灵感站</h2>
-    <p>在这里获取一些关于应援物设计的创意灵感吧！</p>
+    <h2>{{ t('pages.aiGallery.title', 'AI 灵感站') }}</h2>
+    <p>{{ t('pages.aiGallery.description', '在这里获取一些关于应援物设计的创意灵感吧！') }}</p>
     <div class="suggestion-card">
-      <p v-if="loading">正在获取灵感...</p>
-      <p v-else-if="error">获取失败，请重试。</p>
+      <p v-if="loading">{{ t('aiGallery.loading', '正在获取灵感...') }}</p>
+      <p v-else-if="error">{{ t('aiGallery.error', '获取失败，请重试。') }}</p>
       <p v-else class="suggestion-text">{{ suggestion }}</p>
     </div>
     <button @click="fetchSuggestion" :disabled="loading">
-      {{ loading ? '思考中...' : '给我一条灵感！' }}
+      {{ loading ? t('aiGallery.loading', '思考中...') : t('pages.aiGallery.button', '给我一条灵感！') }}
     </button>
     <div class="copy-notice">
-      <p>复制上面的描述，到你喜欢的 AI 绘画工具中尝试生成吧！</p>
+      <p>{{ t('pages.aiGallery.instruction', '复制上面的描述，到你喜欢的 AI 绘画工具中尝试生成吧！') }}</p>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue'
 
-const suggestion = ref('点击下方的按钮，开始你的创作之旅。')
+// 使用 i18n
+const { t, locale } = useI18n()
+
+// SEO 优化
+const { setPageSEO } = useSEO()
+setPageSEO('aiGallery', locale.value)
+
+const suggestion = ref('')
 const loading = ref(false)
 const error = ref(null)
+
+// 初始化默认文本
+onMounted(() => {
+  suggestion.value = t('pages.aiGallery.subtitle', '点击下方的按钮，开始你的创作之旅。')
+})
 
 const fetchSuggestion = async () => {
   loading.value = true
   error.value = null
   try {
-    const response = await fetch('/api/ai/suggestion')
+    const response = await fetch(`/api/ai/suggestion?lang=${locale.value}`)
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
     const data = await response.json()
-    suggestion.value = data.suggestion
+    if (data.success) {
+      suggestion.value = data.suggestion
+    } else {
+      throw new Error(data.error)
+    }
   } catch (e) {
     error.value = e.message
-    suggestion.value = '抱歉，灵感暂时枯竭了，请稍后再试。'
+    suggestion.value = t('aiGallery.error', '抱歉，灵感暂时枯竭了，请稍后再试。')
   } finally {
     loading.value = false
   }

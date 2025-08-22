@@ -1,19 +1,15 @@
 
 <template>
   <div>
-    <header class="main-header">
-      <NuxtLink to="/" class="logo-link">
+    <NuxtLayout>
+      <header class="main-header">
+      <NuxtLink :to="localePath('/')" class="logo-link">
         <NuxtImg src="/logo.jpeg" alt="Fanzdnet Logo" class="logo-img" loading="lazy" />
       </NuxtLink>
 
       <!-- Desktop Navigation -->
       <nav class="desktop-nav">
-        <NuxtLink to="/updates">最新动态</NuxtLink>
-        <NuxtLink to="/schedule">赛事信息</NuxtLink>
-        <NuxtLink to="/timeline">大事记</NuxtLink>
-        <NuxtLink to="/ai-gallery">AI 灵感站</NuxtLink>
-        <NuxtLink to="/essays">随笔</NuxtLink>
-        <NuxtLink to="/about">关于</NuxtLink>
+        <NuxtLink v-for="link in navLinks" :key="link.path" :to="localePath(link.path)">{{ link.name }}</NuxtLink>
       </nav>
 
       <div class="header-right">
@@ -31,15 +27,16 @@
 
     <!-- Mobile Navigation Panel -->
     <nav class="mobile-nav" :class="{ open: isMobileMenuOpen }">
-      <NuxtLink v-for="link in navLinks" :key="link.path" :to="link.path" @click="closeMobileMenu">{{ link.name }}</NuxtLink>
+      <NuxtLink v-for="link in navLinks" :key="link.path" :to="localePath(link.path)" @click="closeMobileMenu">{{ link.name }}</NuxtLink>
     </nav>
 
     <div v-if="isMobileMenuOpen" class="overlay" @click="closeMobileMenu"></div>
 
-    <main>
-      <NuxtPage />
-    </main>
-    <TheFooter />
+      <main>
+        <NuxtPage />
+      </main>
+      <TheFooter />
+    </NuxtLayout>
   </div>
 </template>
 
@@ -52,7 +49,10 @@ import { NuxtImg } from '#components';
 import type { SupportedLanguage } from '~/types/firestore';
 
 const isMobileMenuOpen = ref(false);
-const currentLanguage = ref<SupportedLanguage>('zh');
+
+// 使用 i18n
+const { locale, t } = useI18n()
+const localePath = useLocalePath()
 
 const closeMobileMenu = () => {
   isMobileMenuOpen.value = false;
@@ -60,73 +60,25 @@ const closeMobileMenu = () => {
 
 // 处理语言切换
 const handleLanguageChange = (language: SupportedLanguage) => {
-  currentLanguage.value = language;
   console.log('语言已切换到:', language);
   // 这里可以添加更多语言切换逻辑
 };
 
-// 多语言导航链接
-const navLinksMap = {
-  zh: [
-    { name: '最新动态', path: '/updates' },
-    { name: '赛事信息', path: '/schedule' },
-    { name: '大事记', path: '/timeline' },
-    { name: 'AI 灵感站', path: '/ai-gallery' },
-    { name: '随笔', path: '/essays' },
-    { name: '关于', path: '/about' },
-  ],
-  en: [
-    { name: 'Latest Updates', path: '/updates' },
-    { name: 'Match Schedule', path: '/schedule' },
-    { name: 'Timeline', path: '/timeline' },
-    { name: 'AI Gallery', path: '/ai-gallery' },
-    { name: 'Essays', path: '/essays' },
-    { name: 'About', path: '/about' },
-  ],
-  fr: [
-    { name: 'Dernières Nouvelles', path: '/updates' },
-    { name: 'Calendrier des Matchs', path: '/schedule' },
-    { name: 'Chronologie', path: '/timeline' },
-    { name: 'Galerie IA', path: '/ai-gallery' },
-    { name: 'Essais', path: '/essays' },
-    { name: 'À Propos', path: '/about' },
-  ],
-  de: [
-    { name: 'Neueste Updates', path: '/updates' },
-    { name: 'Spielplan', path: '/schedule' },
-    { name: 'Zeitleiste', path: '/timeline' },
-    { name: 'KI-Galerie', path: '/ai-gallery' },
-    { name: 'Essays', path: '/essays' },
-    { name: 'Über', path: '/about' },
-  ],
-  ja: [
-    { name: '最新情報', path: '/updates' },
-    { name: '試合スケジュール', path: '/schedule' },
-    { name: 'タイムライン', path: '/timeline' },
-    { name: 'AIギャラリー', path: '/ai-gallery' },
-    { name: 'エッセイ', path: '/essays' },
-    { name: 'について', path: '/about' },
-  ],
-  ko: [
-    { name: '최신 소식', path: '/updates' },
-    { name: '경기 일정', path: '/schedule' },
-    { name: '타임라인', path: '/timeline' },
-    { name: 'AI 갤러리', path: '/ai-gallery' },
-    { name: '에세이', path: '/essays' },
-    { name: '소개', path: '/about' },
-  ],
-  sv: [
-    { name: 'Senaste Uppdateringar', path: '/updates' },
-    { name: 'Matchschema', path: '/schedule' },
-    { name: 'Tidslinje', path: '/timeline' },
-    { name: 'AI-galleri', path: '/ai-gallery' },
-    { name: 'Essäer', path: '/essays' },
-    { name: 'Om', path: '/about' },
-  ]
-};
+// 导航链接配置 - 使用翻译系统
+const navLinksConfig = [
+  { key: 'nav.updates', path: '/updates', fallback: '最新动态' },
+  { key: 'nav.schedule', path: '/schedule', fallback: '赛事信息' },
+  { key: 'nav.timeline', path: '/timeline', fallback: '大事记' },
+  { key: 'nav.aiGallery', path: '/ai-gallery', fallback: 'AI 灵感站' },
+  { key: 'nav.essays', path: '/essays', fallback: '随笔' },
+  { key: 'nav.about', path: '/about', fallback: '关于' },
+];
 
 const navLinks = computed(() => {
-  return navLinksMap[currentLanguage.value] || navLinksMap.zh;
+  return navLinksConfig.map(link => ({
+    name: t(link.key, link.fallback),
+    path: link.path
+  }));
 });
 </script>
 

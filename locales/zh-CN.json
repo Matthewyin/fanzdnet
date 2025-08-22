@@ -27,6 +27,10 @@
     "loading": "正在获取灵感...",
     "error": "抱歉，灵感暂时枯竭了，请稍后再试。"
   },
+  "about": {
+    "description1": "本网站是由球迷为樊振东建立的非官方信息站，旨在分享和记录他的职业生涯点滴。",
+    "description2": "所有内容均整理自公开网络渠道，如有任何疑问或建议，请随时联系我们。"
+  },
   "theme": {
     "switch": "切换主题",
     "light": "浅色模式",
@@ -35,25 +39,78 @@
   },
   "common": {
     "loading": "加载中...",
-    "error": "出错了",
+    "error": "发生错误",
     "retry": "重试",
     "close": "关闭",
     "menu": "菜单",
     "selectLanguage": "选择语言",
     "readMore": "查看更多"
   },
+  "languageSwitcher": {
+    "title": "选择语言",
+    "subtitle": "Choose your language",
+    "switchedTo": "语言已切换到",
+    "switchFailed": "语言切换失败",
+    "helpTranslate": "帮助翻译",
+    "moreComingSoon": "更多即将到来..."
+  },
   "tabs": {
     "updates": {
+      "title": "最新动态",
       "description": "关于樊振东的最新新闻、文章和动态。我们会密切关注各大体育媒体和社交平台，为您带来最及时的资讯。"
     },
     "schedule": {
+      "title": "赛事信息",
       "description": "详细的赛事日历、比赛结果和对阵信息。无论是国际大赛还是国内联赛，您都可以在这里找到。"
     },
     "timeline": {
+      "title": "大事记",
       "description": "以时间线的形式，记录樊振东职业生涯中的重要里程碑和高光时刻，回顾他从天才少年到乒坛传奇的每一步。"
     },
     "essays": {
+      "title": "随笔",
       "description": "阅读关于乒乓球、体育精神以及樊振东职业生涯的深度分析和评论文章。"
+    }
+  },
+  "footer": {
+    "disclaimer": "本站所有数据均来源于互联网公开信息，仅供球迷交流学习使用。",
+    "contact": "如有侵权或信息有误，请联系我们进行删除或更正。",
+    "copyright": "© 2024 Fanzd.net - 樊振东非官方粉丝网站",
+    "allRightsReserved": "保留所有权利"
+  },
+  "pages": {
+    "home": {
+      "title": "樊振东非官方粉丝网站 - Fanzd.net",
+      "description": "樊振东非官方粉丝网站，记录乒坛传奇的每一个精彩瞬间"
+    },
+    "updates": {
+      "title": "最新动态",
+      "description": "这里将展示关于樊振东的最新新闻、文章和动态。"
+    },
+    "schedule": {
+      "title": "赛事信息",
+      "description": "这里将展示樊振东的比赛日程和赛事信息。"
+    },
+    "timeline": {
+      "title": "大事记",
+      "description": "这里将展示樊振东职业生涯的重要时刻和里程碑。"
+    },
+    "aiGallery": {
+      "title": "AI 灵感站",
+      "description": "在这里获取一些关于应援物设计的创意灵感吧！",
+      "subtitle": "点击下方的按钮，开始你的创作之旅。",
+      "button": "给我一条灵感！",
+      "instruction": "复制上面的描述，到你喜欢的 AI 绘画工具中尝试生成吧！"
+    },
+    "essays": {
+      "title": "随笔",
+      "description": "这里将展示关于樊振东和乒乓球的深度文章和评论。"
+    },
+    "about": {
+      "title": "关于",
+      "description": "关于本站和樊振东的更多信息。",
+      "description1": "本网站是由球迷为樊振东建立的非官方信息站，旨在分享和记录他的职业生涯点滴。",
+      "description2": "所有内容均整理自公开网络渠道，如有任何疑问或建议，请随时联系我们。"
     }
   }
 }

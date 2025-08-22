@@ -19,10 +19,10 @@ export const useSEO = () => {
   const seoConfig: Record<SupportedLanguage, Record<string, SEOConfig>> = {
     zh: {
       home: {
-        title: '樊振东官方粉丝网站 - Fanzd.net',
-        description: '樊振东官方粉丝网站，提供最新赛事动态、职业生涯时间线、AI灵感站等内容。关注乒乓球大满贯冠军樊振东的精彩人生。',
+        title: '樊振东非官方粉丝网站 - Fanzd.net',
+        description: '樊振东非官方粉丝网站，提供最新赛事动态、职业生涯时间线、AI灵感站等内容。关注乒乓球大满贯冠军樊振东的精彩人生。',
         keywords: ['樊振东', '乒乓球', '大满贯', '奥运冠军', '世界冠军', '中国乒乓球', '体育', '粉丝网站'],
-        ogTitle: '樊振东官方粉丝网站 - 乒乓球大满贯冠军',
+        ogTitle: '樊振东非官方粉丝网站 - 乒乓球大满贯冠军',
         ogDescription: '探索樊振东的传奇职业生涯，从青年才俊到大满贯冠军的精彩历程。',
         ogImage: '/images/og/home-zh.jpg'
       },
@@ -43,10 +43,10 @@ export const useSEO = () => {
     },
     en: {
       home: {
-        title: 'Fan Zhendong Official Fan Site - Fanzd.net',
-        description: 'Official fan site for Fan Zhendong, featuring latest match updates, career timeline, AI gallery and more. Follow the Grand Slam champion\'s incredible journey.',
+        title: 'Fan Zhendong Unofficial Fan Site - Fanzd.net',
+        description: 'Unofficial fan site for Fan Zhendong, featuring latest match updates, career timeline, AI gallery and more. Follow the Grand Slam champion\'s incredible journey.',
         keywords: ['Fan Zhendong', 'Table Tennis', 'Grand Slam', 'Olympic Champion', 'World Champion', 'Chinese Table Tennis', 'Sports', 'Fan Site'],
-        ogTitle: 'Fan Zhendong Official Fan Site - Table Tennis Grand Slam Champion',
+        ogTitle: 'Fan Zhendong Unofficial Fan Site - Table Tennis Grand Slam Champion',
         ogDescription: 'Explore Fan Zhendong\'s legendary career from young talent to Grand Slam champion.',
         ogImage: '/images/og/home-en.jpg'
       },
@@ -67,10 +67,10 @@ export const useSEO = () => {
     },
     fr: {
       home: {
-        title: 'Site Officiel des Fans de Fan Zhendong - Fanzd.net',
-        description: 'Site officiel des fans de Fan Zhendong, avec les dernières actualités, chronologie de carrière, galerie IA et plus. Suivez le parcours incroyable du champion du Grand Chelem.',
+        title: 'Site Non-Officiel des Fans de Fan Zhendong - Fanzd.net',
+        description: 'Site non-officiel des fans de Fan Zhendong, avec les dernières actualités, chronologie de carrière, galerie IA et plus. Suivez le parcours incroyable du champion du Grand Chelem.',
         keywords: ['Fan Zhendong', 'Tennis de Table', 'Grand Chelem', 'Champion Olympique', 'Champion du Monde', 'Tennis de Table Chinois', 'Sports', 'Site de Fans'],
-        ogTitle: 'Site Officiel des Fans de Fan Zhendong - Champion du Grand Chelem de Tennis de Table',
+        ogTitle: 'Site Non-Officiel des Fans de Fan Zhendong - Champion du Grand Chelem de Tennis de Table',
         ogDescription: 'Explorez la carrière légendaire de Fan Zhendong, du jeune talent au champion du Grand Chelem.'
       },
       timeline: {
@@ -120,8 +120,8 @@ export const useSEO = () => {
     },
     ko: {
       home: {
-        title: '팬 전동 공식 팬 사이트 - Fanzd.net',
-        description: '팬 전동 공식 팬 사이트. 최신 경기 업데이트, 커리어 타임라인, AI 갤러리 등. 그랜드 슬램 챔피언의 놀라운 여정을 팔로우하세요.',
+        title: '팬 전동 비공식 팬 사이트 - Fanzd.net',
+        description: '팬 전동 비공식 팬 사이트. 최신 경기 업데이트, 커리어 타임라인, AI 갤러리 등. 그랜드 슬램 챔피언의 놀라운 여정을 팔로우하세요.',
         keywords: ['팬 전동', '탁구', '그랜드 슬램', '올림픽 챔피언', '세계 챔피언', '중국 탁구', '스포츠', '팬 사이트']
       },
       timeline: {
@@ -236,7 +236,7 @@ export const useSEO = () => {
   // 生成 hreflang 链接
   const generateHreflangLinks = (page: string) => {
     const links = []
-    const supportedLanguages: SupportedLanguage[] = ['zh', 'en', 'fr', 'de', 'ja', 'ko', 'sv']
+    const supportedLanguages: SupportedLanguage[] = ['zh', 'en', 'es', 'fr', 'de', 'ja', 'ko', 'sv']
     
     for (const lang of supportedLanguages) {
       links.push({

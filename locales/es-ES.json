@@ -1,0 +1,116 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "updates": "Últimas Noticias",
+    "schedule": "Calendario de Partidos",
+    "timeline": "Cronología",
+    "aiGallery": "Galería IA",
+    "essays": "Ensayos",
+    "about": "Acerca de"
+  },
+  "hero": {
+    "opening": {
+      "line1": "En el deporte competitivo, algunos atletas participan en juegos.",
+      "line2": "Otros, cambian el juego.",
+      "line3": "Redefinen los límites físicos con sus cuerpos,",
+      "line4": "forjan dinastías incomparables con su voluntad.",
+      "line5": "En este arte de velocidad y poder llamado tenis de mesa,",
+      "line6": "vivimos en tal mundo,",
+      "line7": "un mundo definido por él."
+    }
+  },
+  "aiGallery": {
+    "title": "Galería IA",
+    "subtitle": "Inspiración ilimitada para tu creatividad",
+    "description": "Haz clic en el botón de abajo para comenzar tu viaje creativo.",
+    "button": "Obtener Nueva Inspiración",
+    "loading": "Obteniendo inspiración...",
+    "error": "Lo siento, la inspiración se ha agotado temporalmente, inténtalo de nuevo más tarde."
+  },
+  "about": {
+    "description1": "Este sitio web es un centro de información no oficial creado por fanáticos para Fan Zhendong, dedicado a compartir y documentar cada momento de su carrera.",
+    "description2": "Todo el contenido está compilado de fuentes en línea disponibles públicamente. Si tienes alguna pregunta o sugerencia, no dudes en contactarnos."
+  },
+  "theme": {
+    "switch": "Cambiar Tema",
+    "light": "Modo Claro",
+    "dark": "Modo Oscuro",
+    "system": "Seguir Sistema"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Ocurrió un error",
+    "retry": "Reintentar",
+    "close": "Cerrar",
+    "menu": "Menú",
+    "selectLanguage": "Seleccionar Idioma",
+    "readMore": "Leer Más"
+  },
+  "languageSwitcher": {
+    "title": "Seleccionar Idioma",
+    "subtitle": "Choose your language",
+    "switchedTo": "Idioma cambiado a",
+    "switchFailed": "Falló el cambio de idioma",
+    "helpTranslate": "Ayudar a traducir",
+    "moreComingSoon": "Más próximamente..."
+  },
+  "tabs": {
+    "updates": {
+      "title": "Últimas Noticias",
+      "description": "Últimas noticias, artículos y actualizaciones sobre Fan Zhendong. Seguimos de cerca los principales medios deportivos y plataformas sociales para traerte la información más oportuna."
+    },
+    "schedule": {
+      "title": "Calendario de Partidos",
+      "description": "Calendario detallado de eventos, resultados de partidos e información de enfrentamientos. Ya sean torneos internacionales o ligas domésticas, puedes encontrarlos aquí."
+    },
+    "timeline": {
+      "title": "Cronología",
+      "description": "En formato de cronología, registrando hitos importantes y momentos destacados en la carrera de Fan Zhendong, revisando cada paso desde joven talentoso hasta leyenda del tenis de mesa."
+    },
+    "essays": {
+      "title": "Ensayos",
+      "description": "Lee artículos de análisis en profundidad y comentarios sobre tenis de mesa, espíritu deportivo y la carrera de Fan Zhendong."
+    }
+  },
+  "footer": {
+    "disclaimer": "Todos los datos de este sitio provienen de información públicamente disponible en internet, solo para comunicación de fanáticos y propósitos de aprendizaje.",
+    "contact": "Si hay alguna infracción o información incorrecta, por favor contáctanos para eliminación o corrección.",
+    "copyright": "© 2024 Fanzd.net - Sitio de Fanáticos No Oficial de Fan Zhendong",
+    "allRightsReserved": "Todos los derechos reservados"
+  },
+  "pages": {
+    "home": {
+      "title": "Sitio de Fanáticos No Oficial de Fan Zhendong - Fanzd.net",
+      "description": "Sitio de fanáticos no oficial de Fan Zhendong, registrando cada momento emocionante de la leyenda del tenis de mesa"
+    },
+    "updates": {
+      "title": "Últimas Noticias",
+      "description": "Las últimas noticias, artículos y actualizaciones sobre Fan Zhendong se mostrarán aquí."
+    },
+    "schedule": {
+      "title": "Calendario de Partidos",
+      "description": "El calendario de partidos de Fan Zhendong e información de torneos se mostrarán aquí."
+    },
+    "timeline": {
+      "title": "Cronología",
+      "description": "Momentos importantes e hitos en la carrera de Fan Zhendong se mostrarán aquí."
+    },
+    "aiGallery": {
+      "title": "Galería IA",
+      "description": "¡Obtén algo de inspiración creativa para el diseño de artículos de apoyo de fanáticos aquí!",
+      "subtitle": "Haz clic en el botón de abajo para comenzar tu viaje creativo.",
+      "button": "¡Dame una inspiración!",
+      "instruction": "¡Copia la descripción de arriba e intenta generarla en tu herramienta de dibujo IA favorita!"
+    },
+    "essays": {
+      "title": "Ensayos",
+      "description": "Artículos en profundidad y comentarios sobre Fan Zhendong y tenis de mesa se mostrarán aquí."
+    },
+    "about": {
+      "title": "Acerca de",
+      "description": "Más información sobre este sitio y Fan Zhendong.",
+      "description1": "Este sitio web es un centro de información no oficial creado por fanáticos para Fan Zhendong, dedicado a compartir y documentar cada momento de su carrera.",
+      "description2": "Todo el contenido está compilado de fuentes en línea disponibles públicamente. Si tienes alguna pregunta o sugerencia, no dudes en contactarnos."
+    }
+  }
+}

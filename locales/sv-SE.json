@@ -27,6 +27,10 @@
     "loading": "Hämtar inspiration...",
     "error": "Tyvärr är inspirationen tillfälligt uttömd, försök igen senare."
   },
+  "about": {
+    "description1": "Denna webbplats är ett inofficiellt informationsnav skapat av fans för Fan Zhendong, dedikerat till att dela och dokumentera varje ögonblick av hans karriär.",
+    "description2": "Allt innehåll är sammanställt från offentligt tillgängliga onlinekällor. Om du har några frågor eller förslag, tveka inte att kontakta oss."
+  },
   "theme": {
     "switch": "Byt Tema",
     "light": "Ljust Läge",
@@ -38,6 +42,84 @@
     "error": "Fel uppstod",
     "retry": "Försök igen",
     "close": "Stäng",
-    "menu": "Meny"
+    "menu": "Meny",
+    "selectLanguage": "Välj Språk",
+    "readMore": "Läs Mer"
+  },
+  "languageSwitcher": {
+    "title": "Välj Språk",
+    "subtitle": "Choose your language",
+    "switchedTo": "Språk bytt till",
+    "switchFailed": "Språkbyte misslyckades",
+    "helpTranslate": "Hjälp till att översätta",
+    "moreComingSoon": "Mer kommer snart..."
+  },
+  "tabs": {
+    "updates": {
+      "title": "Senaste Uppdateringar",
+      "description": "Senaste nyheter, artiklar och uppdateringar om Fan Zhendong. Vi följer noga stora sportmedier och sociala plattformar för att ge dig den mest aktuella informationen."
+    },
+    "schedule": {
+      "title": "Matchschema",
+      "description": "Detaljerad evenemangskalender, matchresultat och matchupinformation. Oavsett om det är internationella turneringar eller inhemska ligor kan du hitta dem här."
+    },
+    "timeline": {
+      "title": "Tidslinje",
+      "description": "I tidslinjeformat, registrerar viktiga milstolpar och höjdpunkter i Fan Zhendongs karriär, granskar varje steg från begåvad ungdom till bordtennislegend."
+    },
+    "essays": {
+      "title": "Essäer",
+      "description": "Läs djupgående analys- och kommentarartiklar om bordtennis, sportsanda och Fan Zhendongs karriär."
+    }
+  },
+  "common": {
+    "loading": "Laddar...",
+    "error": "Fel uppstod",
+    "retry": "Försök igen",
+    "close": "Stäng",
+    "menu": "Meny",
+    "selectLanguage": "Välj Språk",
+    "readMore": "Läs Mer"
+  },
+  "footer": {
+    "disclaimer": "All data på denna webbplats kommer från offentligt tillgänglig information på internet, endast för kommunikation och lärande mellan fans.",
+    "contact": "Om det finns upphovsrättsintrång eller felaktig information, vänligen kontakta oss för radering eller korrigering.",
+    "copyright": "© 2024 Fanzd.net - Inofficiell Fan Zhendong Fan-webbplats",
+    "allRightsReserved": "Alla rättigheter förbehållna"
+  },
+  "pages": {
+    "home": {
+      "title": "Inofficiell Fan Zhendong Fan-webbplats - Fanzd.net",
+      "description": "Inofficiell Fan Zhendong fan-webbplats, dokumenterar varje spännande ögonblick av bordtennislegenden"
+    },
+    "updates": {
+      "title": "Senaste Nyheterna",
+      "description": "De senaste nyheterna, artiklarna och uppdateringarna om Fan Zhendong kommer att visas här."
+    },
+    "schedule": {
+      "title": "Matchschema",
+      "description": "Fan Zhendongs matchschema och evenemangsinformation kommer att visas här."
+    },
+    "timeline": {
+      "title": "Tidslinje",
+      "description": "Viktiga ögonblick och milstolpar i Fan Zhendongs karriär kommer att visas här."
+    },
+    "aiGallery": {
+      "title": "AI-galleri",
+      "description": "Få kreativ inspiration för design av supportföremål här!",
+      "subtitle": "Klicka på knappen nedan för att börja din kreativa resa.",
+      "button": "Ge mig inspiration!",
+      "instruction": "Kopiera beskrivningen ovan och försök generera den i ditt favoritverktyg för AI-målning!"
+    },
+    "essays": {
+      "title": "Essäer",
+      "description": "Djupgående artiklar och kommentarer om Fan Zhendong och bordtennis kommer att visas här."
+    },
+    "about": {
+      "title": "Om",
+      "description": "Mer information om denna webbplats och Fan Zhendong.",
+      "description1": "Denna webbplats är ett inofficiellt informationsnav skapat av fans för Fan Zhendong, dedikerat till att dela och dokumentera varje ögonblick av hans karriär.",
+      "description2": "Allt innehåll är sammanställt från offentligt tillgängliga onlinekällor. Om du har några frågor eller förslag, tveka inte att kontakta oss."
+    }
   }
 }

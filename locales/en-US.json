@@ -27,6 +27,10 @@
     "loading": "Getting inspiration...",
     "error": "Sorry, inspiration is temporarily exhausted, please try again later."
   },
+  "about": {
+    "description1": "This website is an unofficial information hub created by fans for Fan Zhendong, dedicated to sharing and documenting every moment of his career.",
+    "description2": "All content is compiled from publicly available online sources. If you have any questions or suggestions, please feel free to contact us."
+  },
   "theme": {
     "switch": "Switch Theme",
     "light": "Light Mode",
@@ -35,25 +39,78 @@
   },
   "common": {
     "loading": "Loading...",
-    "error": "Error occurred",
+    "error": "An error occurred",
     "retry": "Retry",
     "close": "Close",
     "menu": "Menu",
     "selectLanguage": "Select Language",
     "readMore": "Read More"
   },
+  "languageSwitcher": {
+    "title": "Select Language",
+    "subtitle": "选择语言",
+    "switchedTo": "Language switched to",
+    "switchFailed": "Language switch failed",
+    "helpTranslate": "Help translate",
+    "moreComingSoon": "More coming soon..."
+  },
   "tabs": {
     "updates": {
+      "title": "Latest Updates",
       "description": "Latest news, articles and updates about Fan Zhendong. We closely follow major sports media and social platforms to bring you the most timely information."
     },
     "schedule": {
+      "title": "Match Schedule",
       "description": "Detailed event calendar, match results and matchup information. Whether it's international tournaments or domestic leagues, you can find them here."
     },
     "timeline": {
+      "title": "Timeline",
       "description": "In timeline format, recording important milestones and highlights in Fan Zhendong's career, reviewing every step from talented youth to table tennis legend."
     },
     "essays": {
+      "title": "Essays",
       "description": "Read in-depth analysis and commentary articles about table tennis, sportsmanship and Fan Zhendong's career."
+    }
+  },
+  "footer": {
+    "disclaimer": "All data on this site comes from publicly available information on the internet, for fan communication and learning purposes only.",
+    "contact": "If there is any infringement or incorrect information, please contact us for deletion or correction.",
+    "copyright": "© 2024 Fanzd.net - Unofficial Fan Zhendong Fan Site",
+    "allRightsReserved": "All rights reserved"
+  },
+  "pages": {
+    "home": {
+      "title": "Unofficial Fan Zhendong Fan Site - Fanzd.net",
+      "description": "Unofficial Fan Zhendong fan site, recording every exciting moment of the table tennis legend"
+    },
+    "updates": {
+      "title": "Latest Updates",
+      "description": "Latest news, articles and updates about Fan Zhendong will be displayed here."
+    },
+    "schedule": {
+      "title": "Match Schedule",
+      "description": "Fan Zhendong's match schedule and tournament information will be displayed here."
+    },
+    "timeline": {
+      "title": "Timeline",
+      "description": "Important moments and milestones in Fan Zhendong's career will be displayed here."
+    },
+    "aiGallery": {
+      "title": "AI Gallery",
+      "description": "Get some creative inspiration for fan support item design here!",
+      "subtitle": "Click the button below to start your creative journey.",
+      "button": "Give me an inspiration!",
+      "instruction": "Copy the description above and try generating it in your favorite AI drawing tool!"
+    },
+    "essays": {
+      "title": "Essays",
+      "description": "In-depth articles and commentary about Fan Zhendong and table tennis will be displayed here."
+    },
+    "about": {
+      "title": "About",
+      "description": "More information about this site and Fan Zhendong.",
+      "description1": "This website is an unofficial information hub created by fans for Fan Zhendong, dedicated to sharing and documenting every moment of his career.",
+      "description2": "All content is compiled from publicly available online sources. If you have any questions or suggestions, please feel free to contact us."
     }
   }
 }

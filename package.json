@@ -15,6 +15,7 @@
     "deploy:only": "bash scripts/deploy.sh deploy",
     "deploy:firebase": "firebase deploy --only apphosting",
     "health-check": "node scripts/health-check.js",
+    "check-translations": "node scripts/check-translations.js",
     "verify": "bash scripts/deploy.sh verify"
   },
   "dependencies": {

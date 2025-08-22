@@ -3,7 +3,7 @@
     <!-- 侧边栏 -->
     <div class="fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-gray-800 shadow-lg transform transition-transform duration-300 ease-in-out" :class="{ '-translate-x-full': !sidebarOpen, 'translate-x-0': sidebarOpen }">
       <div class="flex items-center justify-between h-16 px-6 border-b border-gray-200 dark:border-gray-700">
-        <NuxtLink to="/" class="flex items-center space-x-2">
+        <NuxtLink :to="localePath('/')" class="flex items-center space-x-2">
           <span class="text-xl font-bold text-gray-900 dark:text-white">Fanzd.net</span>
         </NuxtLink>
         <button @click="sidebarOpen = false" class="md:hidden">
@@ -87,11 +87,14 @@
           </button>
           
           <div class="flex items-center space-x-4">
+            <!-- 语言切换 -->
+            <LanguageSwitcher />
+
             <!-- 主题切换 -->
             <ThemeSwitcher />
-            
+
             <!-- 返回前台 -->
-            <NuxtLink to="/" class="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-600 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
+            <NuxtLink :to="localePath('/')" class="inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-600 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
               <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
               </svg>
@@ -113,6 +116,11 @@
 </template>
 
 <script setup lang="ts">
+import LanguageSwitcher from '@/components/LanguageSwitcher.vue'
+
+// 使用 i18n
+const localePath = useLocalePath()
+
 // 侧边栏状态
 const sidebarOpen = ref(false)
 

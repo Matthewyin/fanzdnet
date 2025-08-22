@@ -32,7 +32,9 @@
   defineProps({ item: Object });
 
   const onImageError = (event) => {
-    event.target.style.display = 'none';
+    if (event && event.target) {
+      event.target.style.display = 'none';
+    }
   }
 </script>
 

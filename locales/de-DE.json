@@ -27,6 +27,10 @@
     "loading": "Inspiration wird abgerufen...",
     "error": "Entschuldigung, die Inspiration ist vorübergehend erschöpft, bitte versuchen Sie es später erneut."
   },
+  "about": {
+    "description1": "Diese Website ist ein inoffizielles Informationszentrum, das von Fans für Fan Zhendong erstellt wurde und sich der Dokumentation und dem Teilen jedes Moments seiner Karriere widmet.",
+    "description2": "Alle Inhalte stammen aus öffentlich zugänglichen Online-Quellen. Wenn Sie Fragen oder Vorschläge haben, zögern Sie nicht, uns zu kontaktieren."
+  },
   "theme": {
     "switch": "Thema Wechseln",
     "light": "Heller Modus",
@@ -38,6 +42,75 @@
     "error": "Fehler aufgetreten",
     "retry": "Wiederholen",
     "close": "Schließen",
-    "menu": "Menü"
+    "menu": "Menü",
+    "selectLanguage": "Sprache Auswählen",
+    "readMore": "Mehr Lesen"
+  },
+  "languageSwitcher": {
+    "title": "Sprache Auswählen",
+    "subtitle": "Choose your language",
+    "switchedTo": "Sprache gewechselt zu",
+    "switchFailed": "Sprachwechsel fehlgeschlagen",
+    "helpTranslate": "Beim Übersetzen helfen",
+    "moreComingSoon": "Mehr kommt bald..."
+  },
+  "tabs": {
+    "updates": {
+      "title": "Neueste Updates",
+      "description": "Neueste Nachrichten, Artikel und Updates über Fan Zhendong. Wir verfolgen aufmerksam große Sportmedien und soziale Plattformen, um Ihnen die aktuellsten Informationen zu bringen."
+    },
+    "schedule": {
+      "title": "Spielplan",
+      "description": "Detaillierter Veranstaltungskalender, Spielergebnisse und Begegnungsinformationen. Ob internationale Turniere oder nationale Ligen, hier finden Sie sie."
+    },
+    "timeline": {
+      "title": "Zeitleiste",
+      "description": "Im Zeitleistenformat, wichtige Meilensteine und Höhepunkte in Fan Zhendongs Karriere aufzeichnend, jeden Schritt vom talentierten Jugendlichen zur Tischtennis-Legende überprüfend."
+    },
+    "essays": {
+      "title": "Essays",
+      "description": "Lesen Sie tiefgreifende Analyse- und Kommentarartikel über Tischtennis, Sportsgeist und Fan Zhendongs Karriere."
+    }
+  },
+  "footer": {
+    "disclaimer": "Alle Daten auf dieser Website stammen aus öffentlich verfügbaren Informationen im Internet und dienen nur der Kommunikation und dem Lernen zwischen Fans.",
+    "contact": "Bei Urheberrechtsverletzungen oder falschen Informationen kontaktieren Sie uns bitte zur Löschung oder Korrektur.",
+    "copyright": "© 2024 Fanzd.net - Inoffizielle Fan Zhendong Fan-Website",
+    "allRightsReserved": "Alle Rechte vorbehalten"
+  },
+  "pages": {
+    "home": {
+      "title": "Inoffizielle Fan Zhendong Fan-Website - Fanzd.net",
+      "description": "Inoffizielle Fan-Website von Fan Zhendong, die jeden aufregenden Moment der Tischtennis-Legende dokumentiert"
+    },
+    "updates": {
+      "title": "Neueste Nachrichten",
+      "description": "Die neuesten Nachrichten, Artikel und Updates über Fan Zhendong werden hier angezeigt."
+    },
+    "schedule": {
+      "title": "Spielplan",
+      "description": "Fan Zhendongs Spielplan und Veranstaltungsinformationen werden hier angezeigt."
+    },
+    "timeline": {
+      "title": "Zeitleiste",
+      "description": "Wichtige Momente und Meilensteine in Fan Zhendongs Karriere werden hier angezeigt."
+    },
+    "aiGallery": {
+      "title": "KI-Galerie",
+      "description": "Holen Sie sich hier kreative Inspiration für das Design von Fanartikeln!",
+      "subtitle": "Klicken Sie auf die Schaltfläche unten, um Ihre kreative Reise zu beginnen.",
+      "button": "Gib mir eine Inspiration!",
+      "instruction": "Kopieren Sie die obige Beschreibung und versuchen Sie, sie in Ihrem bevorzugten KI-Malwerkzeug zu generieren!"
+    },
+    "essays": {
+      "title": "Essays",
+      "description": "Tiefgreifende Artikel und Kommentare über Fan Zhendong und Tischtennis werden hier angezeigt."
+    },
+    "about": {
+      "title": "Über",
+      "description": "Weitere Informationen über diese Website und Fan Zhendong.",
+      "description1": "Diese Website ist ein inoffizielles Informationszentrum, das von Fans für Fan Zhendong erstellt wurde und sich der Dokumentation und dem Teilen jedes Moments seiner Karriere widmet.",
+      "description2": "Alle Inhalte stammen aus öffentlich zugänglichen Online-Quellen. Wenn Sie Fragen oder Vorschläge haben, zögern Sie nicht, uns zu kontaktieren."
+    }
   }
 }

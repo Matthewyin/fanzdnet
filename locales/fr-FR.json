@@ -27,6 +27,10 @@
     "loading": "Obtention d'inspiration...",
     "error": "Désolé, l'inspiration est temporairement épuisée, veuillez réessayer plus tard."
   },
+  "about": {
+    "description1": "Ce site web est un centre d'information non-officiel créé par des fans pour Fan Zhendong, dédié au partage et à la documentation de chaque moment de sa carrière.",
+    "description2": "Tout le contenu est compilé à partir de sources en ligne accessibles au public. Si vous avez des questions ou des suggestions, n'hésitez pas à nous contacter."
+  },
   "theme": {
     "switch": "Changer de Thème",
     "light": "Mode Clair",
@@ -38,6 +42,84 @@
     "error": "Erreur survenue",
     "retry": "Réessayer",
     "close": "Fermer",
-    "menu": "Menu"
+    "menu": "Menu",
+    "selectLanguage": "Sélectionner la Langue",
+    "readMore": "Lire Plus"
+  },
+  "languageSwitcher": {
+    "title": "Sélectionner la Langue",
+    "subtitle": "Choose your language",
+    "switchedTo": "Langue changée vers",
+    "switchFailed": "Échec du changement de langue",
+    "helpTranslate": "Aider à traduire",
+    "moreComingSoon": "Plus à venir..."
+  },
+  "tabs": {
+    "updates": {
+      "title": "Dernières Nouvelles",
+      "description": "Dernières nouvelles, articles et mises à jour sur Fan Zhendong. Nous suivons de près les principaux médias sportifs et plateformes sociales pour vous apporter les informations les plus récentes."
+    },
+    "schedule": {
+      "title": "Calendrier des Matchs",
+      "description": "Calendrier détaillé des événements, résultats des matchs et informations sur les confrontations. Qu'il s'agisse de tournois internationaux ou de ligues nationales, vous pouvez les trouver ici."
+    },
+    "timeline": {
+      "title": "Chronologie",
+      "description": "Au format chronologique, enregistrant les jalons importants et les moments forts de la carrière de Fan Zhendong, passant en revue chaque étape du jeune talent à la légende du tennis de table."
+    },
+    "essays": {
+      "title": "Essais",
+      "description": "Lisez des articles d'analyse approfondie et de commentaires sur le tennis de table, l'esprit sportif et la carrière de Fan Zhendong."
+    }
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "retry": "Réessayer",
+    "close": "Fermer",
+    "menu": "Menu",
+    "selectLanguage": "Sélectionner la Langue",
+    "readMore": "Lire Plus"
+  },
+  "footer": {
+    "disclaimer": "Toutes les données de ce site proviennent d'informations publiques disponibles sur Internet, uniquement à des fins de communication et d'apprentissage entre fans.",
+    "contact": "En cas de violation ou d'informations incorrectes, veuillez nous contacter pour suppression ou correction.",
+    "copyright": "© 2024 Fanzd.net - Site de Fans Non-officiel de Fan Zhendong",
+    "allRightsReserved": "Tous droits réservés"
+  },
+  "pages": {
+    "home": {
+      "title": "Site de Fans Non-officiel de Fan Zhendong - Fanzd.net",
+      "description": "Site de fans non-officiel de Fan Zhendong, enregistrant chaque moment passionnant de la légende du tennis de table"
+    },
+    "updates": {
+      "title": "Dernières Nouvelles",
+      "description": "Les dernières nouvelles, articles et mises à jour sur Fan Zhendong seront affichés ici."
+    },
+    "schedule": {
+      "title": "Calendrier des Matchs",
+      "description": "Le calendrier des matchs et les informations sur les événements de Fan Zhendong seront affichés ici."
+    },
+    "timeline": {
+      "title": "Chronologie",
+      "description": "Les moments importants et les jalons de la carrière de Fan Zhendong seront affichés ici."
+    },
+    "aiGallery": {
+      "title": "Galerie IA",
+      "description": "Obtenez ici de l'inspiration créative pour la conception d'objets de soutien !",
+      "subtitle": "Cliquez sur le bouton ci-dessous pour commencer votre voyage créatif.",
+      "button": "Donnez-moi une inspiration !",
+      "instruction": "Copiez la description ci-dessus et essayez de la générer dans votre outil de peinture IA préféré !"
+    },
+    "essays": {
+      "title": "Essais",
+      "description": "Des articles approfondis et des commentaires sur Fan Zhendong et le tennis de table seront affichés ici."
+    },
+    "about": {
+      "title": "À Propos",
+      "description": "Plus d'informations sur ce site et Fan Zhendong.",
+      "description1": "Ce site web est un centre d'information non-officiel créé par des fans pour Fan Zhendong, dédié au partage et à la documentation de chaque moment de sa carrière.",
+      "description2": "Tout le contenu est compilé à partir de sources en ligne accessibles au public. Si vous avez des questions ou des suggestions, n'hésitez pas à nous contacter."
+    }
   }
 }
