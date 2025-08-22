@@ -38,6 +38,22 @@
     "error": "Error occurred",
     "retry": "Retry",
     "close": "Close",
-    "menu": "Menu"
+    "menu": "Menu",
+    "selectLanguage": "Select Language",
+    "readMore": "Read More"
+  },
+  "tabs": {
+    "updates": {
+      "description": "Latest news, articles and updates about Fan Zhendong. We closely follow major sports media and social platforms to bring you the most timely information."
+    },
+    "schedule": {
+      "description": "Detailed event calendar, match results and matchup information. Whether it's international tournaments or domestic leagues, you can find them here."
+    },
+    "timeline": {
+      "description": "In timeline format, recording important milestones and highlights in Fan Zhendong's career, reviewing every step from talented youth to table tennis legend."
+    },
+    "essays": {
+      "description": "Read in-depth analysis and commentary articles about table tennis, sportsmanship and Fan Zhendong's career."
+    }
   }
 }

@@ -44,11 +44,15 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted, computed, nextTick } from 'vue';
-import { heroImages } from '@/data/heroData.ts';
+import { getHeroData } from '@/data/heroData/index.ts';
 import StarfieldBackground from './StarfieldBackground.vue';
 import CarouselItemContent from './CarouselItemContent.vue';
 
-const heroItems = ref(heroImages);
+// 使用 i18n
+const { locale } = useI18n()
+
+// 根据当前语言获取 hero 数据
+const heroItems = computed(() => getHeroData(locale.value))
 // Start at index 1 (the first real slide) because index 0 is a clone of the last slide.
 const currentIndex = ref(1);
 const isTransitioning = ref(true);

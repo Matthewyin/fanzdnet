@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/image',
     // '@nuxt/content', // 暂时禁用，迁移到 Firestore
-    '@nuxtjs/i18n'
+    // '@nuxtjs/i18n' // 暂时禁用，等待兼容性修复
   ],
   colorMode: {
     classSuffix: ''
@@ -35,7 +35,7 @@ export default defineNuxtConfig({
       { code: 'sv', language: 'sv-SE', name: 'Svenska', file: 'sv-SE.json' }
     ],
     lazy: true,
-    langDir: 'locales/',
+    langDir: 'locales',
     defaultLocale: 'zh',
     strategy: 'prefix_except_default',
     detectBrowserLanguage: {
