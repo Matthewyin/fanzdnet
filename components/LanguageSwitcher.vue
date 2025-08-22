@@ -120,26 +120,36 @@
 <script setup lang="ts">
 import type { SupportedLanguage } from '~/types/firestore'
 
-// 使用自定义 i18n composable
-const { locale, setLocale } = useI18n()
+// 使用 Nuxt i18n
+const { locale, locales, setLocale } = useI18n()
 
 // 响应式数据
 const showDropdown = ref(false)
 
-// 可用语言配置
-const availableLanguages = [
-  { code: 'zh' as SupportedLanguage, name: '中文', nativeName: '中文', flag: '🇨🇳' },
-  { code: 'en' as SupportedLanguage, name: 'English', nativeName: 'English', flag: '🇺🇸' },
-  { code: 'fr' as SupportedLanguage, name: 'Français', nativeName: 'Français', flag: '🇫🇷' },
-  { code: 'de' as SupportedLanguage, name: 'Deutsch', nativeName: 'Deutsch', flag: '🇩🇪' },
-  { code: 'ja' as SupportedLanguage, name: '日本語', nativeName: '日本語', flag: '🇯🇵' },
-  { code: 'ko' as SupportedLanguage, name: '한국어', nativeName: '한국어', flag: '🇰🇷' },
-  { code: 'sv' as SupportedLanguage, name: 'Svenska', nativeName: 'Svenska', flag: '🇸🇪' }
-]
+// 语言标志映射
+const languageFlags: Record<string, string> = {
+  'zh': '🇨🇳',
+  'en': '🇺🇸',
+  'fr': '🇫🇷',
+  'de': '🇩🇪',
+  'ja': '🇯🇵',
+  'ko': '🇰🇷',
+  'sv': '🇸🇪'
+}
+
+// 处理可用语言列表
+const availableLanguages = computed(() => {
+  return (locales.value as any[]).map(locale => ({
+    code: locale.code,
+    name: locale.name,
+    nativeName: locale.name,
+    flag: languageFlags[locale.code] || '🌐'
+  }))
+})
 
 // 计算当前语言
 const currentLanguage = computed(() => {
-  return availableLanguages.find(lang => lang.code === locale.value) || availableLanguages[0]
+  return availableLanguages.value.find(lang => lang.code === locale.value) || availableLanguages.value[0]
 })
 
 // 切换下拉菜单
@@ -148,14 +158,14 @@ const toggleDropdown = () => {
 }
 
 // 切换语言
-const switchLanguage = async (languageCode: SupportedLanguage) => {
+const switchLanguage = async (languageCode: string) => {
   if (languageCode === locale.value) {
     showDropdown.value = false
     return
   }
 
   try {
-    // 使用 i18n composable 切换语言
+    // 使用 Nuxt i18n 的 setLocale 方法
     await setLocale(languageCode)
 
     // 关闭下拉菜单
@@ -174,7 +184,7 @@ const switchLanguage = async (languageCode: SupportedLanguage) => {
 
 // 定义事件
 const emit = defineEmits<{
-  'language-changed': [language: SupportedLanguage]
+  'language-changed': [language: string]
 }>()
 
 // 监听路由变化，关闭下拉菜单

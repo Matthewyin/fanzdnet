@@ -1,12 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-28',
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/color-mode',
     '@nuxt/image',
     // '@nuxt/content', // 暂时禁用，迁移到 Firestore
-    // '@nuxtjs/i18n' // 暂时禁用，等待兼容性修复
+    // '@nuxtjs/i18n' // 暂时禁用，版本兼容性问题
   ],
   colorMode: {
     classSuffix: ''
@@ -46,7 +45,6 @@ export default defineNuxtConfig({
     }
   },
   nitro: {
-    compatibilityDate: '2025-07-28',
     preset: 'firebase'
   },
   runtimeConfig: {
@@ -64,7 +62,6 @@ export default defineNuxtConfig({
 
   // 预渲染配置
   nitro: {
-    compatibilityDate: '2025-07-28',
     preset: 'node-server',
     prerender: {
       routes: [
@@ -82,10 +79,6 @@ export default defineNuxtConfig({
     firebase: {
       gen: 2,
       nodeVersion: '20'
-    },
-    // 服务器配置
-    experimental: {
-      wasm: false
     }
   },
 
