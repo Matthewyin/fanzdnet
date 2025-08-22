@@ -118,24 +118,28 @@
 </template>
 
 <script setup lang="ts">
+import type { SupportedLanguage } from '~/types/firestore'
+
+// 使用自定义 i18n composable
+const { locale, setLocale } = useI18n()
+
 // 响应式数据
 const showDropdown = ref(false)
-const currentLocale = ref('zh')
 
 // 可用语言配置
 const availableLanguages = [
-  { code: 'zh', name: '中文', nativeName: '中文', flag: '🇨🇳' },
-  { code: 'en', name: 'English', nativeName: 'English', flag: '🇺🇸' },
-  { code: 'fr', name: 'Français', nativeName: 'Français', flag: '🇫🇷' },
-  { code: 'de', name: 'Deutsch', nativeName: 'Deutsch', flag: '🇩🇪' },
-  { code: 'ja', name: '日本語', nativeName: '日本語', flag: '🇯🇵' },
-  { code: 'ko', name: '한국어', nativeName: '한국어', flag: '🇰🇷' },
-  { code: 'sv', name: 'Svenska', nativeName: 'Svenska', flag: '🇸🇪' }
+  { code: 'zh' as SupportedLanguage, name: '中文', nativeName: '中文', flag: '🇨🇳' },
+  { code: 'en' as SupportedLanguage, name: 'English', nativeName: 'English', flag: '🇺🇸' },
+  { code: 'fr' as SupportedLanguage, name: 'Français', nativeName: 'Français', flag: '🇫🇷' },
+  { code: 'de' as SupportedLanguage, name: 'Deutsch', nativeName: 'Deutsch', flag: '🇩🇪' },
+  { code: 'ja' as SupportedLanguage, name: '日本語', nativeName: '日本語', flag: '🇯🇵' },
+  { code: 'ko' as SupportedLanguage, name: '한국어', nativeName: '한국어', flag: '🇰🇷' },
+  { code: 'sv' as SupportedLanguage, name: 'Svenska', nativeName: 'Svenska', flag: '🇸🇪' }
 ]
 
 // 计算当前语言
 const currentLanguage = computed(() => {
-  return availableLanguages.find(lang => lang.code === currentLocale.value) || availableLanguages[0]
+  return availableLanguages.find(lang => lang.code === locale.value) || availableLanguages[0]
 })
 
 // 切换下拉菜单
@@ -144,20 +148,15 @@ const toggleDropdown = () => {
 }
 
 // 切换语言
-const switchLanguage = async (languageCode: string) => {
-  if (languageCode === currentLocale.value) {
+const switchLanguage = async (languageCode: SupportedLanguage) => {
+  if (languageCode === locale.value) {
     showDropdown.value = false
     return
   }
 
   try {
-    // 更新当前语言
-    currentLocale.value = languageCode
-
-    // 保存到 localStorage
-    if (process.client) {
-      localStorage.setItem('preferred-language', languageCode)
-    }
+    // 使用 i18n composable 切换语言
+    await setLocale(languageCode)
 
     // 关闭下拉菜单
     showDropdown.value = false
@@ -168,9 +167,6 @@ const switchLanguage = async (languageCode: string) => {
     // 添加一些视觉反馈
     console.log(`✅ 语言已切换到: ${currentLanguage.value.name}`)
 
-    // TODO: 实现真正的语言切换逻辑
-    // 这里可以触发页面重新加载或更新内容
-
   } catch (error) {
     console.error('❌ 语言切换失败:', error)
   }
@@ -178,7 +174,7 @@ const switchLanguage = async (languageCode: string) => {
 
 // 定义事件
 const emit = defineEmits<{
-  'language-changed': [language: string]
+  'language-changed': [language: SupportedLanguage]
 }>()
 
 // 监听路由变化，关闭下拉菜单
@@ -203,18 +199,8 @@ onMounted(() => {
   })
 })
 
-// 初始化语言
-onMounted(() => {
-  if (process.client) {
-    const savedLanguage = localStorage.getItem('preferred-language')
-    if (savedLanguage && availableLanguages.some(lang => lang.code === savedLanguage)) {
-      currentLocale.value = savedLanguage
-    }
-  }
-})
-
 // 暴露当前语言给父组件
 defineExpose({
-  currentLanguage: computed(() => currentLocale.value)
+  currentLanguage: computed(() => locale.value)
 })
 </script>

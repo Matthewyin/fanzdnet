@@ -2,15 +2,17 @@
   <div class="tabs-container">
     <div class="tabs-nav">
       <button v-for="tab in tabs" :key="tab.id" @click="activeTab = tab.id" :class="{ active: activeTab === tab.id }">
-        {{ tab.title }}
+        <I18nText :key-path="`nav.${tab.id}`" :fallback="tab.title" />
       </button>
     </div>
     <div class="tabs-content">
       <div v-for="tab in tabs" :key="tab.id">
         <div v-if="activeTab === tab.id">
-          <h3>{{ tab.title }}</h3>
-          <p>{{ tab.description }}</p>
-          <NuxtLink :to="tab.route" class="read-more">查看更多 &rarr;</NuxtLink>
+          <h3><I18nText :key-path="`nav.${tab.id}`" :fallback="tab.title" /></h3>
+          <p><I18nText :key-path="`tabs.${tab.id}.description`" :fallback="tab.description" /></p>
+          <NuxtLink :to="tab.route" class="read-more">
+            <I18nText key-path="common.readMore" fallback="查看更多" /> &rarr;
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -20,6 +22,7 @@
 <script setup>
 import { ref } from 'vue';
 
+const { t } = useI18n()
 const activeTab = ref('updates');
 
 const tabs = [
