@@ -1,18 +1,80 @@
 
-const suggestions = [
-  "设计一款应援毛巾，上面有樊振东的Q版卡通形象和他标志性的庆祝动作，背景是燃烧的乒乓球火焰",
-  "生成一张手机壁纸，风格为赛博朋克，主体是樊振东的剪影，周围环绕着代表速度和力量的霓虹线条",
-  "创作一个'东'字的书法艺术logo，将乒乓球的旋转轨迹融入笔画之中",
-  "设计一款T恤图案，正面是'FAN Zhendong'的艺术字体，背后是他的名言：'Stay humble, stay hungry'",
-  "制作一个动画表情包，内容是樊振东在场上冷静思考和大力抽球的两种状态切换",
-  "设计一个应援手幅，主题是'东方巨龙'，将龙的元素与乒乓球拍结合起来",
-  "创作一幅数字油画，描绘樊振东在奥运赛场上赢得最后一分的瞬间，背景是飘扬的国旗",
-  "设计一个系列的徽章，每个徽章代表他获得的一次世界冠军，并刻上比赛日期和地点"
-];
+import { getFirestoreAdmin } from '~/server/utils/firebase'
+import { COLLECTIONS } from '~/types/firestore'
+import type { AIsuggestion, SupportedLanguage } from '~/types/firestore'
 
-export default defineEventHandler((event) => {
-  const randomIndex = Math.floor(Math.random() * suggestions.length);
-  return {
-    suggestion: suggestions[randomIndex]
+export default defineEventHandler(async (event) => {
+  try {
+    const query = getQuery(event)
+    const language = (query.lang as SupportedLanguage) || 'zh'
+
+    const db = getFirestoreAdmin()
+
+    // 获取所有活跃的 AI 建议
+    const suggestionsSnapshot = await db
+      .collection(COLLECTIONS.AI_SUGGESTIONS)
+      .where('isActive', '==', true)
+      .get()
+
+    if (suggestionsSnapshot.empty) {
+      return {
+        success: false,
+        error: language === 'zh' ? '暂无灵感，请稍后再试。' : 'No inspiration available, please try again later.'
+      }
+    }
+
+    // 收集所有建议文本
+    const allSuggestions: string[] = []
+
+    suggestionsSnapshot.docs.forEach(doc => {
+      const data = doc.data() as AIsuggestion
+      data.suggestions.forEach(suggestionGroup => {
+        const text = suggestionGroup[language] || suggestionGroup.zh
+        if (text) {
+          allSuggestions.push(text)
+        }
+      })
+    })
+
+    if (allSuggestions.length === 0) {
+      return {
+        success: false,
+        error: language === 'zh' ? '暂无该语言的灵感，请稍后再试。' : 'No inspiration available in this language, please try again later.'
+      }
+    }
+
+    // 随机选择一个建议
+    const randomIndex = Math.floor(Math.random() * allSuggestions.length)
+    const suggestion = allSuggestions[randomIndex]
+
+    return {
+      success: true,
+      suggestion: suggestion,
+      language: language
+    }
+
+  } catch (error) {
+    console.error('Error getting AI suggestion:', error)
+
+    // 回退到静态建议
+    const fallbackSuggestions = {
+      zh: "设计一款应援毛巾，上面有樊振东的Q版卡通形象和他标志性的庆祝动作，背景是燃烧的乒乓球火焰",
+      en: "Design a support towel featuring Fan Zhendong's Q-version cartoon image and his signature celebration pose, with burning ping pong ball flames in the background",
+      fr: "Concevez une serviette de soutien avec l'image de dessin animé Q-version de Fan Zhendong et sa pose de célébration signature",
+      de: "Entwerfen Sie ein Support-Handtuch mit Fan Zhendongs Q-Version-Cartoon-Bild und seiner charakteristischen Siegespose",
+      ja: "樊振東のQバージョンのカートゥーンイメージと彼の特徴的な祝勝ポーズを描いた応援タオルをデザイン",
+      ko: "팬 전동의 Q버전 만화 이미지와 그의 시그니처 세리머니 포즈가 있는 응원 타월을 디자인",
+      sv: "Designa en supporthandduk med Fan Zhendongs Q-version tecknad bild och hans signaturpose för firande"
+    }
+
+    const query = getQuery(event)
+    const language = (query.lang as SupportedLanguage) || 'zh'
+
+    return {
+      success: true,
+      suggestion: fallbackSuggestions[language] || fallbackSuggestions.zh,
+      language: language,
+      fallback: true
+    }
   }
 })

@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "updates": "Dernières Nouvelles",
+    "schedule": "Calendrier des Matchs",
+    "timeline": "Chronologie",
+    "aiGallery": "Galerie IA",
+    "essays": "Essais",
+    "about": "À Propos"
+  },
+  "hero": {
+    "opening": {
+      "line1": "Dans le sport de compétition, certains athlètes participent aux jeux.",
+      "line2": "D'autres, ils changent le jeu.",
+      "line3": "Ils redéfinissent les limites physiques avec leur corps,",
+      "line4": "forgent des dynasties inégalées avec leur volonté.",
+      "line5": "Dans cet art de vitesse et de puissance appelé tennis de table,",
+      "line6": "nous vivons dans un tel monde,",
+      "line7": "un monde défini par lui."
+    }
+  },
+  "aiGallery": {
+    "title": "Galerie IA",
+    "subtitle": "Inspiration illimitée pour votre créativité",
+    "description": "Cliquez sur le bouton ci-dessous pour commencer votre voyage créatif.",
+    "button": "Obtenir une Nouvelle Inspiration",
+    "loading": "Obtention d'inspiration...",
+    "error": "Désolé, l'inspiration est temporairement épuisée, veuillez réessayer plus tard."
+  },
+  "theme": {
+    "switch": "Changer de Thème",
+    "light": "Mode Clair",
+    "dark": "Mode Sombre",
+    "system": "Suivre le Système"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur survenue",
+    "retry": "Réessayer",
+    "close": "Fermer",
+    "menu": "Menu"
+  }
+}

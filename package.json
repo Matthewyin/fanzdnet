@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "fanzdnet",
   "private": true,
   "type": "module",
   "scripts": {
@@ -7,19 +7,29 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "start": "node .output/server/index.mjs",
+    "postinstall": "nuxt prepare",
+    "deploy": "bash scripts/deploy.sh",
+    "deploy:build": "bash scripts/deploy.sh build",
+    "deploy:only": "bash scripts/deploy.sh deploy",
+    "deploy:firebase": "firebase deploy --only apphosting",
+    "health-check": "node scripts/health-check.js",
+    "verify": "bash scripts/deploy.sh verify"
   },
   "dependencies": {
-    "better-sqlite3": "^12.2.0",
     "nuxt": "latest",
     "showdown": "^2.1.0",
     "vue": "^3.5.17",
     "vue-router": "^4.5.1",
     "@nuxt/content": "latest",
     "@nuxt/image": "latest",
-    "@nuxtjs/color-mode": "latest"
+    "@nuxtjs/color-mode": "latest",
+    "@nuxtjs/i18n": "8.0.0-rc.5",
+    "firebase-admin": "^12.7.0",
+    "firebase": "^10.14.1",
+    "firebase-functions": "^6.1.1"
   },
   "devDependencies": {
-    "wrangler": "^4.25.1"
+    "firebase-tools": "^13.25.0"
   }
 }

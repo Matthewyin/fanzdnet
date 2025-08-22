@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Home",
+    "updates": "Latest Updates",
+    "schedule": "Match Schedule",
+    "timeline": "Timeline",
+    "aiGallery": "AI Gallery",
+    "essays": "Essays",
+    "about": "About"
+  },
+  "hero": {
+    "opening": {
+      "line1": "In competitive sports, some athletes participate in games.",
+      "line2": "Others, they change the game.",
+      "line3": "They redefine physical limits with their bodies,",
+      "line4": "forge unmatched dynasties with their will.",
+      "line5": "In this art of speed and power called table tennis,",
+      "line6": "we are living in such a world,",
+      "line7": "a world defined by him."
+    }
+  },
+  "aiGallery": {
+    "title": "AI Gallery",
+    "subtitle": "Unlimited inspiration for your creativity",
+    "description": "Click the button below to start your creative journey.",
+    "button": "Get New Inspiration",
+    "loading": "Getting inspiration...",
+    "error": "Sorry, inspiration is temporarily exhausted, please try again later."
+  },
+  "theme": {
+    "switch": "Switch Theme",
+    "light": "Light Mode",
+    "dark": "Dark Mode",
+    "system": "Follow System"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error occurred",
+    "retry": "Retry",
+    "close": "Close",
+    "menu": "Menu"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "updates": "Neueste Updates",
+    "schedule": "Spielplan",
+    "timeline": "Zeitleiste",
+    "aiGallery": "KI-Galerie",
+    "essays": "Essays",
+    "about": "Über"
+  },
+  "hero": {
+    "opening": {
+      "line1": "Im Wettkampfsport nehmen manche Athleten an Spielen teil.",
+      "line2": "Andere, sie verändern das Spiel.",
+      "line3": "Sie definieren körperliche Grenzen mit ihrem Körper neu,",
+      "line4": "schmieden unvergleichliche Dynastien mit ihrem Willen.",
+      "line5": "In dieser Kunst der Geschwindigkeit und Kraft namens Tischtennis,",
+      "line6": "leben wir in einer solchen Welt,",
+      "line7": "einer Welt, die von ihm definiert wird."
+    }
+  },
+  "aiGallery": {
+    "title": "KI-Galerie",
+    "subtitle": "Unbegrenzte Inspiration für Ihre Kreativität",
+    "description": "Klicken Sie auf die Schaltfläche unten, um Ihre kreative Reise zu beginnen.",
+    "button": "Neue Inspiration Erhalten",
+    "loading": "Inspiration wird abgerufen...",
+    "error": "Entschuldigung, die Inspiration ist vorübergehend erschöpft, bitte versuchen Sie es später erneut."
+  },
+  "theme": {
+    "switch": "Thema Wechseln",
+    "light": "Heller Modus",
+    "dark": "Dunkler Modus",
+    "system": "System Folgen"
+  },
+  "common": {
+    "loading": "Laden...",
+    "error": "Fehler aufgetreten",
+    "retry": "Wiederholen",
+    "close": "Schließen",
+    "menu": "Menü"
+  }
+}

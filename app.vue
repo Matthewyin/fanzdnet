@@ -17,6 +17,7 @@
       </nav>
 
       <div class="header-right">
+        <LanguageSwitcher @language-changed="handleLanguageChange" />
         <ThemeSwitcher />
         <button @click="isMobileMenuOpen = !isMobileMenuOpen" class="mobile-menu-button" aria-label="Toggle menu">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -42,25 +43,91 @@
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue';
+<script setup lang="ts">
+import { ref, computed } from 'vue';
 import ThemeSwitcher from '@/components/ThemeSwitcher.vue';
+import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
 import TheFooter from '@/components/TheFooter.vue';
 import { NuxtImg } from '#components';
+import type { SupportedLanguage } from '~/types/firestore';
 
 const isMobileMenuOpen = ref(false);
+const currentLanguage = ref<SupportedLanguage>('zh');
+
 const closeMobileMenu = () => {
   isMobileMenuOpen.value = false;
 };
 
-const navLinks = [
-  { name: '最新动态', path: '/updates' },
-  { name: '赛事信息', path: '/schedule' },
-  { name: '大事记', path: '/timeline' },
-  { name: 'AI 灵感站', path: '/ai-gallery' },
-  { name: '随笔', path: '/essays' },
-  { name: '关于', path: '/about' },
-];
+// 处理语言切换
+const handleLanguageChange = (language: SupportedLanguage) => {
+  currentLanguage.value = language;
+  console.log('语言已切换到:', language);
+  // 这里可以添加更多语言切换逻辑
+};
+
+// 多语言导航链接
+const navLinksMap = {
+  zh: [
+    { name: '最新动态', path: '/updates' },
+    { name: '赛事信息', path: '/schedule' },
+    { name: '大事记', path: '/timeline' },
+    { name: 'AI 灵感站', path: '/ai-gallery' },
+    { name: '随笔', path: '/essays' },
+    { name: '关于', path: '/about' },
+  ],
+  en: [
+    { name: 'Latest Updates', path: '/updates' },
+    { name: 'Match Schedule', path: '/schedule' },
+    { name: 'Timeline', path: '/timeline' },
+    { name: 'AI Gallery', path: '/ai-gallery' },
+    { name: 'Essays', path: '/essays' },
+    { name: 'About', path: '/about' },
+  ],
+  fr: [
+    { name: 'Dernières Nouvelles', path: '/updates' },
+    { name: 'Calendrier des Matchs', path: '/schedule' },
+    { name: 'Chronologie', path: '/timeline' },
+    { name: 'Galerie IA', path: '/ai-gallery' },
+    { name: 'Essais', path: '/essays' },
+    { name: 'À Propos', path: '/about' },
+  ],
+  de: [
+    { name: 'Neueste Updates', path: '/updates' },
+    { name: 'Spielplan', path: '/schedule' },
+    { name: 'Zeitleiste', path: '/timeline' },
+    { name: 'KI-Galerie', path: '/ai-gallery' },
+    { name: 'Essays', path: '/essays' },
+    { name: 'Über', path: '/about' },
+  ],
+  ja: [
+    { name: '最新情報', path: '/updates' },
+    { name: '試合スケジュール', path: '/schedule' },
+    { name: 'タイムライン', path: '/timeline' },
+    { name: 'AIギャラリー', path: '/ai-gallery' },
+    { name: 'エッセイ', path: '/essays' },
+    { name: 'について', path: '/about' },
+  ],
+  ko: [
+    { name: '최신 소식', path: '/updates' },
+    { name: '경기 일정', path: '/schedule' },
+    { name: '타임라인', path: '/timeline' },
+    { name: 'AI 갤러리', path: '/ai-gallery' },
+    { name: '에세이', path: '/essays' },
+    { name: '소개', path: '/about' },
+  ],
+  sv: [
+    { name: 'Senaste Uppdateringar', path: '/updates' },
+    { name: 'Matchschema', path: '/schedule' },
+    { name: 'Tidslinje', path: '/timeline' },
+    { name: 'AI-galleri', path: '/ai-gallery' },
+    { name: 'Essäer', path: '/essays' },
+    { name: 'Om', path: '/about' },
+  ]
+};
+
+const navLinks = computed(() => {
+  return navLinksMap[currentLanguage.value] || navLinksMap.zh;
+});
 </script>
 
 <style>

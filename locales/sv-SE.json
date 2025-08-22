@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Hem",
+    "updates": "Senaste Uppdateringar",
+    "schedule": "Matchschema",
+    "timeline": "Tidslinje",
+    "aiGallery": "AI-galleri",
+    "essays": "Essäer",
+    "about": "Om"
+  },
+  "hero": {
+    "opening": {
+      "line1": "Inom tävlingssport deltar vissa idrottare i spel.",
+      "line2": "Andra, de förändrar spelet.",
+      "line3": "De omdefinierar fysiska gränser med sina kroppar,",
+      "line4": "skapar ojämförliga dynastier med sin vilja.",
+      "line5": "I denna konst av hastighet och kraft som kallas bordtennis,",
+      "line6": "lever vi i en sådan värld,",
+      "line7": "en värld definierad av honom."
+    }
+  },
+  "aiGallery": {
+    "title": "AI-galleri",
+    "subtitle": "Obegränsad inspiration för din kreativitet",
+    "description": "Klicka på knappen nedan för att börja din kreativa resa.",
+    "button": "Få Ny Inspiration",
+    "loading": "Hämtar inspiration...",
+    "error": "Tyvärr är inspirationen tillfälligt uttömd, försök igen senare."
+  },
+  "theme": {
+    "switch": "Byt Tema",
+    "light": "Ljust Läge",
+    "dark": "Mörkt Läge",
+    "system": "Följ System"
+  },
+  "common": {
+    "loading": "Laddar...",
+    "error": "Fel uppstod",
+    "retry": "Försök igen",
+    "close": "Stäng",
+    "menu": "Meny"
+  }
+}
