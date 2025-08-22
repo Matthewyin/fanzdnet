@@ -130,7 +130,7 @@ const goToSlide = (index) => {
 
 const startAutoplay = () => {
   stopAutoplay();
-  autoplayTimer = setInterval(nextSlide, 4000);
+  autoplayTimer = setInterval(nextSlide, 8000);
 };
 
 const stopAutoplay = () => {
