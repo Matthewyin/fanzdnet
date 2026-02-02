@@ -82,7 +82,6 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      firebaseProjectId: process.env.NUXT_PUBLIC_FIREBASE_PROJECT_ID || 'n8n-project-460516',
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://fanzd.net'
     }
   },
@@ -131,11 +130,6 @@ export default defineNuxtConfig({
       ],
       failOnError: false
     },
-    // Firebase App Hosting 配置
-    firebase: {
-      gen: 2,
-      nodeVersion: '20'
-    }
   },
 
   // 图片优化
