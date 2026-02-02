@@ -18,14 +18,14 @@ export const heroDataSv = [
     ]
   },
   {
-    url: '/images/carousel/hero-1.jpg',
+    url: '/images/carousel/hero-1.jpg', imgPosition: 'right top',
     title: '2016 · Tyskland Saarbrücken · Världscup',
     subtitle: 'Första Glimten av Briljans — Första Världscupsegern',
     quote: '"Världen känner hans namn, men de förstår ännu inte hans ambition."',
     description: 'Det året var han fortfarande bara en 19-årig pojke, en begåvad "utmanare". Men på tysk mark använde han ren kraft och längtan för att riva sönder alla förutbestämda manus. Detta var inte bara en seger, det var en deklaration. En prins av en ny era hade satt sin fot på sitt rättmätiga territorium.'
   },
   {
-    url: '/images/carousel/hero-2.jpg',
+    url: '/images/carousel/hero-2.jpg', imgPosition: 'right top',
     title: '2018 · Frankrike Paris · Världscup',
     subtitle: 'Territoriell Deklaration — Världscupförsvar',
     quote: '"När folk tror att du har nått toppen, måste du visa dem att ovanför toppen finns fortfarande himlen."',
@@ -46,7 +46,7 @@ export const heroDataSv = [
     description: 'Tre raka mästerskap. Detta enastående rekord vanns genom att besegra en gud och kröna sig själv. Han var inte längre en prins; han hade etablerat sin egen dynasti. Ett sjuspelsepos, ett ultimat test av viljestyrka, med motståndarens hals under sin fot.'
   },
   {
-    url: '/images/carousel/hero-5.jpg',
+    url: '/images/carousel/hero-5.jpg', imgPosition: 'center top',
     title: '2021 · USA Houston · Världsmästerskap',
     subtitle: 'Utdriva Demoner — Första Världsmästerskapet',
     quote: '"Vissa troféer vinner du inte för att besegra motståndare, utan för att besegra ditt förflutna jag."',

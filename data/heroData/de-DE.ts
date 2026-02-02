@@ -18,14 +18,14 @@ export const heroDataDe = [
     ]
   },
   {
-    url: '/images/carousel/hero-1.jpg',
+    url: '/images/carousel/hero-1.jpg', imgPosition: 'right top',
     title: '2016 · Deutschland Saarbrücken · Weltmeisterschaft',
     subtitle: 'Erster Glanz der Brillanz — Erster Weltcup-Sieg',
     quote: '"Die Welt kennt seinen Namen, aber sie verstehen seine Ambitionen noch nicht."',
     description: 'In jenem Jahr war er noch nur ein 19-jähriger Junge, ein begabter "Herausforderer". Aber auf deutschem Boden nutzte er pure Kraft und Verlangen, um alle vorbestimmten Drehbücher zu zerreißen. Das war nicht nur ein Sieg, es war eine Erklärung. Ein Prinz einer neuen Ära hatte sein rechtmäßiges Territorium betreten.'
   },
   {
-    url: '/images/carousel/hero-2.jpg',
+    url: '/images/carousel/hero-2.jpg', imgPosition: 'right top',
     title: '2018 · Frankreich Paris · Weltmeisterschaft',
     subtitle: 'Territoriale Erklärung — Weltcup-Verteidigung',
     quote: '"Wenn die Leute denken, du hast den Gipfel erreicht, musst du ihnen zeigen, dass über dem Gipfel noch der Himmel ist."',
@@ -46,7 +46,7 @@ export const heroDataDe = [
     description: 'Drei aufeinanderfolgende Meisterschaften. Dieser beispiellose Rekord wurde errungen, indem er einen Gott besiegte und sich selbst krönte. Er war nicht mehr ein Prinz; er hatte seine eigene Dynastie etabliert. Ein siebenteiliges Epos, ein ultimativer Test der Willenskraft, mit dem Hals seines Gegners unter seinem Fuß.'
   },
   {
-    url: '/images/carousel/hero-5.jpg',
+    url: '/images/carousel/hero-5.jpg', imgPosition: 'center top',
     title: '2021 · USA Houston · Weltmeisterschaften',
     subtitle: 'Dämonen Austreiben — Erster Weltmeisterschaftssieg',
     quote: '"Manche Trophäen gewinnst du nicht, um Gegner zu besiegen, sondern um dein vergangenes Selbst zu besiegen."',

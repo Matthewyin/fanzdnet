@@ -18,14 +18,14 @@ export const heroDataEn = [
     ]
   },
   {
-    url: '/images/carousel/hero-1.jpg',
+    url: '/images/carousel/hero-1.jpg', imgPosition: 'right top',
     title: '2016 · Germany Saarbrücken · World Cup',
     subtitle: 'First Glimpse of Brilliance — First World Cup Victory',
     quote: '"The world knows his name, but they don\'t yet understand his ambition."',
     description: 'That year, he was still just a 19-year-old boy, a gifted "challenger." But on German soil, he used pure power and desire to tear apart all predetermined scripts. This wasn\'t just a victory, it was a declaration. A prince of a new era had stepped onto his rightful territory.'
   },
   {
-    url: '/images/carousel/hero-2.jpg',
+    url: '/images/carousel/hero-2.jpg', imgPosition: 'right top',
     title: '2018 · France Paris · World Cup',
     subtitle: 'Territorial Declaration — World Cup Defense',
     quote: '"When people think you\'ve reached the peak, you must show them that above the peak, there\'s still the sky."',
@@ -46,7 +46,7 @@ export const heroDataEn = [
     description: 'Three consecutive championships. This unprecedented record was earned by defeating a god and crowning himself. He was no longer a prince; he had established his own dynasty. A seven-game epic, an ultimate test of willpower, with his opponent\'s neck under his foot.'
   },
   {
-    url: '/images/carousel/hero-5.jpg',
+    url: '/images/carousel/hero-5.jpg', imgPosition: 'center top',
     title: '2021 · USA Houston · World Championships',
     subtitle: 'Exorcising Demons — First World Championships Victory',
     quote: '"Some trophies you don\'t win to defeat opponents, but to defeat your past self."',

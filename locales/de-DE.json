@@ -44,7 +44,8 @@
     "close": "Schließen",
     "menu": "Menü",
     "selectLanguage": "Sprache Auswählen",
-    "readMore": "Mehr Lesen"
+    "readMore": "Mehr Lesen",
+    "backToTop": "Nach oben"
   },
   "languageSwitcher": {
     "title": "Sprache Auswählen",

@@ -1,64 +1,42 @@
 <template>
-  <div class="relative language-switcher">
+  <div class="language-switcher">
     <!-- 语言选择按钮 -->
     <button
       @click="toggleDropdown($event)"
-      class="flex items-center gap-2 px-6 py-2 min-w-24 text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-      :class="{
-        'bg-gray-50 dark:bg-gray-700 shadow-md': showDropdown,
-      }"
+      class="lang-btn"
+      :class="{ 'lang-btn-active': showDropdown }"
       :title="$t('languageSwitcher.title')"
     >
-      <!-- 国旗和语言代码在同一行 -->
-      <span class="text-lg">{{ currentLanguage.flag }}</span>
-      <span class="text-sm font-medium">{{
-        currentLanguage.code.toUpperCase()
-      }}</span>
+      <span class="lang-flag">{{ currentLanguage.flag }}</span>
+      <span class="lang-code">{{ currentLanguage.code.toUpperCase() }}</span>
+      <svg class="lang-arrow" :class="{ 'lang-arrow-up': showDropdown }" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
     </button>
 
     <!-- 下拉菜单 -->
-    <Transition
-      enter-active-class="transition duration-200 ease-out"
-      enter-from-class="transform scale-95 opacity-0 translate-y-1"
-      enter-to-class="transform scale-100 opacity-100 translate-y-0"
-      leave-active-class="transition duration-150 ease-in"
-      leave-from-class="transform scale-100 opacity-100 translate-y-0"
-      leave-to-class="transform scale-95 opacity-0 translate-y-1"
-    >
-      <div
-        v-if="showDropdown"
-        class="min-w-48 bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg rounded-lg shadow-2xl border border-gray-200/30 dark:border-gray-700/30 overflow-hidden"
-        :style="dropdownStyle"
-        @click.stop
-      >
-        <!-- 语言选项列表 - 强制垂直布局 -->
-        <div class="py-1" style="display: flex !important; flex-direction: column !important;">
+    <Transition name="dropdown">
+      <div v-if="showDropdown" class="lang-dropdown" :style="dropdownStyle" @click.stop>
+        <div class="lang-list">
           <button
             v-for="language in availableLanguages"
             :key="language.code"
             @click="switchLanguage(language.code)"
-            class="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-left hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-150 focus:outline-none"
-            :class="{
-              'bg-blue-50 dark:bg-blue-900/30 font-semibold text-blue-600 dark:text-blue-300':
-                currentLanguage.code === language.code,
-              'text-gray-800 dark:text-gray-200':
-                currentLanguage.code !== language.code,
-            }"
-            style="display: flex !important; flex-direction: row !important; width: 100% !important; margin: 0 !important; float: none !important;"
+            class="lang-option"
+            :class="{ 'lang-option-active': currentLanguage.code === language.code }"
           >
-            <span class="text-lg">{{ language.flag }}</span>
-            <span class="flex-1">{{ language.name }}</span>
+            <span class="lang-flag">{{ language.flag }}</span>
+            <span class="lang-name">{{ language.name }}</span>
+            <svg v-if="currentLanguage.code === language.code" class="lang-check" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
           </button>
         </div>
       </div>
     </Transition>
 
-    <!-- 点击外部关闭下拉菜单 -->
-    <div
-      v-if="showDropdown"
-      @click="showDropdown = false"
-      class="fixed inset-0 z-40"
-    ></div>
+    <!-- 点击外部关闭 -->
+    <div v-if="showDropdown" class="lang-overlay" @click="showDropdown = false"></div>
   </div>
 </template>
 
@@ -89,7 +67,7 @@ const availableLanguages = computed(() => {
     code: locale.code,
     name: locale.name,
     nativeName: locale.name,
-    flag: languageFlags[locale.code] || "🌐",
+     flag: languageFlags[locale.code] || "🇨🇳",
   }));
 });
 
@@ -201,58 +179,132 @@ defineExpose({
 
 <style scoped>
 .language-switcher {
-  z-index: 50;
+  position: relative;
+  z-index: var(--z-dropdown);
 }
 
-/* 国旗表情符号优化显示 */
-.language-switcher span {
-  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji",
-    sans-serif;
+/* 按钮样式 */
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px; /* 确保触摸目标至少 44px 高 */
+  min-width: 44px; /* 确保触摸目标至少 44px 宽 */
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-in-out);
 }
 
-/* 按钮悬停效果 */
-.language-switcher > button:hover {
-  transform: translateY(-1px);
+.lang-btn:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-secondary);
 }
 
-.language-switcher > button:active {
-  transform: translateY(0);
+.lang-btn-active {
+  background-color: var(--bg-tertiary);
+  border-color: var(--color-accent-500);
 }
 
-/* 强制垂直布局 */
-.language-switcher .py-1 {
-  display: flex !important;
-  flex-direction: column !important;
+.lang-flag {
+  font-size: var(--text-lg);
+  line-height: 1;
 }
 
-.language-switcher .py-1 button {
-  display: flex !important;
-  flex-direction: row !important;
-  width: 100% !important;
-  margin: 0 !important;
-  float: none !important;
-  clear: both !important;
+.lang-code {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
 }
 
-/* 毛玻璃效果增强 */
-.language-switcher [class*="backdrop-blur"] {
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  box-shadow:
-    0 25px 50px -12px rgba(0, 0, 0, 0.25),
-    0 0 0 1px rgba(255, 255, 255, 0.1);
+.lang-arrow {
+  color: var(--text-tertiary);
+  transition: transform var(--duration-fast) var(--ease-in-out);
 }
 
-/* 确保下拉菜单不影响布局 */
-.language-switcher > div[style*="position: fixed"] {
-  position: fixed !important;
-  z-index: 9999 !important;
-  pointer-events: auto;
+.lang-arrow-up {
+  transform: rotate(180deg);
 }
 
-/* 语言选项悬停效果 */
-.language-switcher .py-1 button:hover {
-  background-color: rgba(59, 130, 246, 0.1) !important;
-  backdrop-filter: blur(8px);
+/* 下拉菜单 */
+.lang-dropdown {
+  position: fixed;
+  min-width: clamp(160px, 40vw, 200px);
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  z-index: calc(var(--z-dropdown) + 100);
+}
+
+.lang-list {
+  padding: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: 44px; /* 确保触摸目标至少 44px 高 */
+  padding: var(--space-3) var(--space-4);
+  background: none;
+  border: none;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--duration-fast) var(--ease-in-out);
+}
+
+.lang-option:hover {
+  background-color: var(--bg-secondary);
+}
+
+.lang-option-active {
+  background-color: rgba(255, 215, 0, 0.1);
+}
+
+.lang-name {
+  flex: 1;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+}
+
+.lang-option-active .lang-name {
+  color: var(--color-accent-600);
+}
+
+.dark .lang-option-active .lang-name {
+  color: var(--color-accent-400);
+}
+
+.lang-check {
+  color: var(--color-accent-500);
+}
+
+/* 遮罩层 */
+.lang-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-dropdown);
+}
+
+/* 下拉动画 */
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.dropdown-enter-from,
+.dropdown-leave-to {
+  opacity: 0;
+  transform: translateY(-8px) scale(0.95);
 }
 </style>

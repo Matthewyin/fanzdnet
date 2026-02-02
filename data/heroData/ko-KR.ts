@@ -18,14 +18,14 @@ export const heroDataKo = [
     ]
   },
   {
-    url: '/images/carousel/hero-1.jpg',
+    url: '/images/carousel/hero-1.jpg', imgPosition: 'right top',
     title: '2016년 · 독일 자르브뤼켄 · 월드컵',
     subtitle: '재능의 첫 번째 빛 — 첫 월드컵 우승',
     quote: '"세계는 그의 이름을 알고 있지만, 아직 그의 야망을 이해하지 못한다."',
     description: '그 해, 그는 아직 19세의 소년, 천부적인 재능을 가진 "도전자"였다. 하지만 독일 땅에서, 그는 순수한 힘과 갈망으로 모든 기정사실화된 시나리오를 찢어버렸다. 이것은 단순한 승리가 아니라 선언이었다. 새로운 시대의 왕자가 그의 정당한 영토에 발을 디딘 것이다.'
   },
   {
-    url: '/images/carousel/hero-2.jpg',
+    url: '/images/carousel/hero-2.jpg', imgPosition: 'right top',
     title: '2018년 · 프랑스 파리 · 월드컵',
     subtitle: '영토 선언 — 월드컵 방어',
     quote: '"사람들이 당신이 정상에 도달했다고 생각할 때, 당신은 그들에게 보여줘야 한다. 정상 위에는 여전히 하늘이 있다는 것을."',
@@ -46,7 +46,7 @@ export const heroDataKo = [
     description: '3연패. 이 전례 없는 기록은 신을 이긴 후 스스로 왕관을 씌우며 얻어진 것이다. 그는 더 이상 왕자가 아니었다; 그는 자신의 왕조를 세웠다. 일곱 게임의 서사시, 의지력의 궁극적 줄다리기, 상대방의 목을 발 아래 짓밟으며.'
   },
   {
-    url: '/images/carousel/hero-5.jpg',
+    url: '/images/carousel/hero-5.jpg', imgPosition: 'center top',
     title: '2021년 · 미국 휴스턴 · 세계선수권',
     subtitle: '심마 퇴치 — 첫 세계선수권 우승',
     quote: '"어떤 트로피는 상대를 이기기 위해서가 아니라, 과거의 자신을 이기기 위해 따는 것이다."',

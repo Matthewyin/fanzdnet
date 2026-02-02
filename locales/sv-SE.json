@@ -44,7 +44,8 @@
     "close": "Stäng",
     "menu": "Meny",
     "selectLanguage": "Välj Språk",
-    "readMore": "Läs Mer"
+    "readMore": "Läs Mer",
+    "backToTop": "Tillbaka till toppen"
   },
   "languageSwitcher": {
     "title": "Välj Språk",
@@ -66,20 +67,7 @@
     "timeline": {
       "title": "Tidslinje",
       "description": "I tidslinjeformat, registrerar viktiga milstolpar och höjdpunkter i Fan Zhendongs karriär, granskar varje steg från begåvad ungdom till bordtennislegend."
-    },
-    "essays": {
-      "title": "Essäer",
-      "description": "Läs djupgående analys- och kommentarartiklar om bordtennis, sportsanda och Fan Zhendongs karriär."
     }
-  },
-  "common": {
-    "loading": "Laddar...",
-    "error": "Fel uppstod",
-    "retry": "Försök igen",
-    "close": "Stäng",
-    "menu": "Meny",
-    "selectLanguage": "Välj Språk",
-    "readMore": "Läs Mer"
   },
   "footer": {
     "disclaimer": "All data på denna webbplats kommer från offentligt tillgänglig information på internet, endast för kommunikation och lärande mellan fans.",

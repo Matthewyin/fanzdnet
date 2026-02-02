@@ -1,23 +1,32 @@
 <template>
-  <div>
+  <div class="home-page">
+    <!-- Hero Carousel -->
     <HeroCarousel />
-    <HomeTabs />
+
+    <!-- Features Section -->
+    <HomeFeatures />
+
+    <!-- Honor Hall -->
+    <HonorHall />
   </div>
 </template>
 
 <script setup lang="ts">
 import HeroCarousel from '@/components/HeroCarousel.vue';
-import HomeTabs from '@/components/HomeTabs.vue';
+import HomeFeatures from '@/components/HomeFeatures.vue';
+import HonorHall from '@/components/HonorHall.vue';
+
+const { locale } = useI18n();
 
 // SEO 优化
-const { setPageSEO, generateStructuredData } = useSEO()
-const { initPerformanceMonitoring } = usePerformance()
+const { setPageSEO, generateStructuredData } = useSEO();
+const { initPerformanceMonitoring } = usePerformance();
 
 // 设置页面 SEO
-setPageSEO('home', 'zh')
+setPageSEO('home', locale.value);
 
 // 添加结构化数据
-const structuredData = generateStructuredData('home', 'zh')
+const structuredData = generateStructuredData('home', locale.value);
 useHead({
   script: [
     {
@@ -25,10 +34,16 @@ useHead({
       children: JSON.stringify(structuredData)
     }
   ]
-})
+});
 
 // 初始化性能监控
 onMounted(() => {
-  initPerformanceMonitoring()
-})
+  initPerformanceMonitoring();
+});
 </script>
+
+<style scoped>
+.home-page {
+  min-height: 100vh;
+}
+</style>

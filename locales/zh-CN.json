@@ -8,6 +8,7 @@
     "essays": "随笔",
     "about": "关于"
   },
+  "backToTop": "返回顶部",
   "hero": {
     "opening": {
       "line1": "在竞技体育中，有些运动员参加比赛。",
@@ -44,7 +45,8 @@
     "close": "关闭",
     "menu": "菜单",
     "selectLanguage": "选择语言",
-    "readMore": "查看更多"
+    "readMore": "查看更多",
+    "backToTop": "返回顶部"
   },
   "languageSwitcher": {
     "title": "选择语言",
@@ -72,11 +74,72 @@
       "description": "阅读关于乒乓球、体育精神以及樊振东职业生涯的深度分析和评论文章。"
     }
   },
+  "updates": {
+    "filter": "筛选",
+    "all": "全部",
+    "match": "比赛",
+    "training": "训练",
+    "media": "媒体",
+    "life": "生活",
+    "total": "共 {count} 条动态",
+    "categories": "分类",
+    "item1": {
+      "title": "巴黎奥运会男单夺冠",
+      "excerpt": "樊振东在2024年巴黎奥运会乒乓球男子单打决赛中战胜对手，实现大满贯壮举。",
+      "source": "新华社"
+    },
+    "item2": {
+      "title": "WTT新加坡大满贯卫冕",
+      "excerpt": "樊振东在WTT新加坡大满贯男单决赛中发挥出色，成功卫冕冠军。",
+      "source": "WTT世界乒联"
+    },
+    "item3": {
+      "title": "备战世乒赛封闭集训",
+      "excerpt": "国乒全队抵达成都进行封闭集训，樊振东状态良好，积极备战即将到来的世乒赛。",
+      "source": "乒乓世界"
+    },
+    "item4": {
+      "title": "出席国际乒联颁奖典礼",
+      "excerpt": "樊振东身着正装出席年度颁奖典礼，获选年度最佳男运动员提名。",
+      "source": "ITTF"
+    }
+  },
   "footer": {
     "disclaimer": "本站所有数据均来源于互联网公开信息，仅供球迷交流学习使用。",
     "contact": "如有侵权或信息有误，请联系我们进行删除或更正。",
     "copyright": "© 2024 Fanzd.net - 樊振东非官方粉丝网站",
-    "allRightsReserved": "保留所有权利"
+    "allRightsReserved": "保留所有权利",
+    "tagline": "樊振东非官方粉丝网站",
+    "quickLinks": "快速链接",
+    "contactUs": "联系我们"
+  },
+  "home": {
+    "exploreTitle": "探索更多",
+    "exploreSubtitle": "了解樊振东的精彩世界",
+    "updatesDesc": "获取樊振东的最新新闻、比赛结果和训练动态",
+    "scheduleDesc": "查看即将举行的比赛日程和历史战绩",
+    "timelineDesc": "回顾樊振东职业生涯的重要时刻",
+    "essaysDesc": "阅读关于樊振东的深度文章和球迷感悟",
+    "honorTag": "荣誉殿堂",
+    "honorTitle": "辉煌成就",
+    "honorSubtitle": "见证樊振东的冠军之路",
+    "worldTitles": "世界冠军",
+    "olympicGolds": "奥运金牌",
+    "worldCupTitles": "世界杯冠军",
+    "worldChampionships": "世锦赛冠军"
+  },
+  "honor": {
+    "olympicSingles": "奥运会男单冠军",
+    "olympicTeam": "奥运会男团冠军",
+    "worldChampSingles": "世锦赛男单冠军",
+    "worldCup": "世界杯男单冠军",
+    "asianGames": "亚运会男单冠军",
+    "wtaFinals": "WTT 年终总决赛冠军",
+    "paris2024": "2024 巴黎奥运会",
+    "durban2023": "2023 德班世锦赛",
+    "xinxiang2022": "2022 新乡世界杯",
+    "hangzhou2023": "2023 杭州亚运会",
+    "nagoya2022": "2022 名古屋"
   },
   "pages": {
     "home": {
@@ -85,7 +148,10 @@
     },
     "updates": {
       "title": "最新动态",
-      "description": "这里将展示关于樊振东的最新新闻、文章和动态。"
+      "description": "这里将展示关于樊振东的最新新闻、文章和动态。",
+      "tag": "最新资讯",
+      "subtitle": "追踪樊振东的每一场比赛与活动",
+      "comingSoon": "更多精彩内容即将呈现..."
     },
     "schedule": {
       "title": "赛事信息",

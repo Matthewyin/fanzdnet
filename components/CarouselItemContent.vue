@@ -1,158 +1,292 @@
-
 <template>
   <div v-if="item.isOpening" class="opening-content">
     <div class="opening-text-container">
       <div v-for="(line, lineIndex) in item.openingText" :key="lineIndex"
            class="opening-line"
-           :style="{ animationDelay: (lineIndex * 0.5) + 's' }">
+           :style="{ animationDelay: (lineIndex * 0.6) + 's' }">
         {{ line }}
       </div>
     </div>
   </div>
-  <div v-else class="hero-content">
-    <div class="hero-image-container">
-      <NuxtImg :src="item.url" :alt="item.title" class="hero-image" @error="onImageError" loading="lazy" />
-    </div>
-    <div class="hero-text-container">
-      <div class="hero-text-overlay">
-        <h1 class="hero-title">{{ item.title }}</h1>
-        <h2 class="hero-subtitle">{{ item.subtitle }}</h2>
-        <p class="hero-quote">{{ item.quote }}</p>
-      </div>
+  <div v-else class="hero-content" :class="{ 'hero-content-active': isActive }">
+    <!-- Background Image Layer -->
+    <div class="hero-image-layer">
+      <NuxtImg
+        :src="item.url"
+        :alt="item.title"
+        class="hero-image"
+        width="1920"
+        height="1080"
+        :style="{ objectPosition: item.imgPosition || 'center 20%' }"
+        @error="onImageError"
+        loading="lazy"
+      />
+      <div class="hero-image-overlay"></div>
     </div>
 
-    <!-- 描述信息独立放置在底部 -->
-    <div class="carousel-info">
-      <p class="carousel-description">{{ item.description }}</p>
+    <!-- Text Content Layer (Skewed) -->
+    <div class="hero-text-layer">
+      <div class="hero-text-container">
+        <div class="hero-text-content">
+          <span class="hero-tag">{{ item.tag || 'CHAMPION' }}</span>
+          <h1 class="hero-title">{{ item.title }}</h1>
+          <h2 class="hero-subtitle">{{ item.subtitle }}</h2>
+          <p class="hero-quote">{{ item.quote }}</p>
+          <p class="hero-description">{{ item.description }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-  defineProps({ item: Object });
-
-  const onImageError = (event) => {
-    if (event && event.target) {
-      event.target.style.display = 'none';
-    }
+const props = defineProps({
+  item: Object,
+  isActive: {
+    type: Boolean,
+    default: false
   }
+});
+
+const onImageError = (event) => {
+  if (event && event.target) {
+    event.target.style.display = 'none';
+  }
+}
 </script>
 
 <style scoped>
-/* Desktop-first styles */
-.opening-content, .hero-content { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
-.opening-content { text-align: center; }
-.opening-text-container { max-width: 800px; padding: 0 2rem; }
-.opening-line { font-size: 2.5rem; font-weight: 700; color: #ffffff; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); margin: 1rem 0; opacity: 0; transform: translateY(30px); animation: fadeInUp 1s ease-out forwards; }
+/* Opening Content */
+.opening-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
-.hero-content { justify-content: space-between; padding: 0 4rem; position: relative; }
-.hero-text-container { flex: 1; max-width: 50%; z-index: 3; position: relative; display: flex; flex-direction: column; justify-content: center; }
-.hero-text-overlay { padding: 2.5rem; }
+.opening-text-container {
+  max-width: clamp(600px, 90vw, 900px);
+  padding: 0 var(--space-8);
+}
 
-.hero-title { font-size: 3rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); }
-.hero-subtitle { font-size: 2rem; font-weight: 600; color: #ffd700; margin-bottom: 1.5rem; }
-.hero-quote { font-size: 1.5rem; color: #e0e7ff; margin-bottom: 2rem; font-style: italic; line-height: 1.6; }
+.opening-line {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: var(--font-bold);
+  color: var(--text-inverse, #ffffff);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  margin: var(--space-4) 0;
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  animation: openingFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
 
+@keyframes openingFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 
+/* Hero Content */
+.hero-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
 
-.hero-image-container { position: absolute; right: 0; top: 0; width: 50%; height: 100%; z-index: 1; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.hero-image { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-
-/* 描述信息独立定位 */
-.carousel-info {
+/* Image Layer - Bottom, No Skew */
+.hero-image-layer {
   position: absolute;
-  bottom: 2rem;
-  left: 4rem;
-  right: 4rem;
-  text-align: left;
-  z-index: 3;
-}
-.carousel-description {
-  font-size: 1.2rem;
-  color: #ffffff;
-  padding: 1.5rem 2rem;
-  border-radius: 12px;
-  max-width: 75%;
-  margin: 0;
-  line-height: 1.6;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6);
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
 }
 
-@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-content-active .hero-image {
+  transform: scale(1.05);
+}
+
+.hero-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.6) 40%,
+    rgba(0, 0, 0, 0.3) 70%,
+    transparent 100%
+  );
+  width: 100%;
+  height: 100%;
+}
+
+/* Text Layer - Top, Skewed */
+.hero-text-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  transform: skewX(-6deg) scale(1.1);
+  transform-origin: center top;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Text Container */
+.hero-text-container {
+  position: relative;
+  width: 100%;
+  max-width: min(700px, 90vw);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: var(--space-12) var(--space-8);
+  padding-left: 8%;
+  transform: skewX(6deg) scale(1.0);
+  transform-origin: center;
+}
+
+.hero-text-content {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: textSlideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+@keyframes textSlideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-tag {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  background: rgba(255, 215, 0, 0.15);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  letter-spacing: 0.1em;
+  color: var(--color-accent-400);
+  margin-bottom: var(--space-6);
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: var(--font-extrabold);
+  color: var(--text-inverse, #ffffff);
+  margin-bottom: var(--space-4);
+  line-height: var(--leading-tight);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  font-weight: var(--font-semibold);
+  color: var(--color-accent-400);
+  margin-bottom: var(--space-6);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-quote {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.9);
+  font-style: italic;
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-6);
+  padding-left: var(--space-4);
+  border-left: 3px solid var(--color-accent-500);
+}
+
+.hero-description {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: var(--leading-relaxed);
+  max-width: min(600px, 85vw);
+}
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-  .hero-content {
-    flex-direction: column;
-    padding: 1rem;
-    text-align: center;
-    justify-content: flex-start;
-    overflow-y: auto;
+  .hero-image-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.5) 40%,
+      rgba(0, 0, 0, 0.95) 100%
+    );
   }
 
-  .hero-image-container {
-    position: relative;
-    order: 1;
-    width: 100%;
-    height: 220px;
-    margin-bottom: 1rem;
-  }
-
-  .hero-image {
-    object-fit: contain;
+  .hero-text-layer {
+    transform: none; /* Remove skew on mobile */
   }
 
   .hero-text-container {
-    order: 2;
-    width: 100%;
     max-width: 100%;
-    padding: 0 1rem;
-    justify-content: flex-start;
+    align-items: flex-end;
+    padding: var(--space-6);
+    padding-bottom: var(--space-24);
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+    transform: none; /* Remove counter-skew on mobile */
   }
 
-  .hero-text-overlay {
-    padding: 1rem 0;
+  .hero-text-content {
+    text-align: left;
+    width: 100%;
+  }
+
+  .hero-tag {
+    margin-bottom: var(--space-3);
+    font-size: var(--text-xs);
   }
 
   .hero-title {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-2);
+    font-size: var(--text-2xl);
+    line-height: 1.2;
   }
 
   .hero-subtitle {
-    font-size: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-4);
+    font-size: var(--text-lg);
+    color: var(--color-accent-400);
   }
 
   .hero-quote {
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+    border-left: 2px solid var(--color-accent-500);
+    padding-left: var(--space-3);
+    margin-bottom: var(--space-4);
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.95);
+    background: rgba(0, 0, 0, 0.3);
+    padding: var(--space-3);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    backdrop-filter: blur(4px);
   }
 
-
-
-  /* 移动端描述信息 */
-  .carousel-info {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    right: auto;
-    padding: 0 1rem;
-    margin-top: 1rem;
-    text-align: center;
-    order: 3;
-  }
-
-  .carousel-description {
-    font-size: 0.9rem;
-    padding: 1rem;
-    max-width: 100%;
-    color: #ffffff;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 16px rgba(0, 0, 0, 0.7);
+  .hero-description {
+    display: none;
   }
 
   .opening-line {
-    font-size: 1.5rem;
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+  }
+}
+
+/* Large screens */
+@media (min-width: 1280px) {
+  .hero-text-container {
+    padding-left: 12%; /* Reduced padding for better left alignment */
   }
 }
 </style>

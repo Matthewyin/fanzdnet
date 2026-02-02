@@ -44,7 +44,8 @@
     "close": "Fermer",
     "menu": "Menu",
     "selectLanguage": "Sélectionner la Langue",
-    "readMore": "Lire Plus"
+    "readMore": "Lire Plus",
+    "backToTop": "Retour en haut"
   },
   "languageSwitcher": {
     "title": "Sélectionner la Langue",
@@ -66,20 +67,7 @@
     "timeline": {
       "title": "Chronologie",
       "description": "Au format chronologique, enregistrant les jalons importants et les moments forts de la carrière de Fan Zhendong, passant en revue chaque étape du jeune talent à la légende du tennis de table."
-    },
-    "essays": {
-      "title": "Essais",
-      "description": "Lisez des articles d'analyse approfondie et de commentaires sur le tennis de table, l'esprit sportif et la carrière de Fan Zhendong."
     }
-  },
-  "common": {
-    "loading": "Chargement...",
-    "error": "Une erreur s'est produite",
-    "retry": "Réessayer",
-    "close": "Fermer",
-    "menu": "Menu",
-    "selectLanguage": "Sélectionner la Langue",
-    "readMore": "Lire Plus"
   },
   "footer": {
     "disclaimer": "Toutes les données de ce site proviennent d'informations publiques disponibles sur Internet, uniquement à des fins de communication et d'apprentissage entre fans.",

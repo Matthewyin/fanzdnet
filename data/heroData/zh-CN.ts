@@ -18,14 +18,14 @@ export const heroDataZh = [
     ]
   },
   {
-    url: '/images/carousel/hero-1.jpg',
+    url: '/images/carousel/hero-1.jpg', imgPosition: 'right top',
     title: '2016 · 德国 萨尔布吕肯 · 世界杯',
     subtitle: '初露锋芒——首夺世界杯',
     quote: '"世界知道他的名字，但他们还不了解他的野心。"',
     description: '那一年，他还只是一个19岁的少年，一个天赋异禀的"挑战者"。但在德国的赛场上，他用最纯粹的力量和渴望，撕碎了所有的既定剧本。这不是一次胜利，这是一次宣告。一个新时代的王子，踏上了属于他的领地。'
   },
   {
-    url: '/images/carousel/hero-2.jpg',
+    url: '/images/carousel/hero-2.jpg', imgPosition: 'right top',
     title: '2018 · 法国 巴黎 · 世界杯',
     subtitle: '领地宣誓——卫冕世界杯',
     quote: '"当人们以为你已经到达顶峰，你必须向他们展示，顶峰之上，还有天空。"',
@@ -46,7 +46,7 @@ export const heroDataZh = [
     description: '三连冠。这个前无古人的纪录，是在击败了神之后，亲手为自己戴上的。他不再是王子，他建立了自己的王朝。一场七局的史诗，一场意志力的极限拉扯，将对手脖子踩在脚下。'
   },
   {
-    url: '/images/carousel/hero-5.jpg',
+    url: '/images/carousel/hero-5.jpg', imgPosition: 'center top',
     title: '2021 · 美国 休斯敦 · 世乒赛',
     subtitle: '驱逐心魔——首夺世乒赛',
     quote: '"有些奖杯，你不是为了战胜对手而赢，而是为了战胜过去的自己。"',

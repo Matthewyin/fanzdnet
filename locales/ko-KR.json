@@ -44,7 +44,8 @@
     "close": "닫기",
     "menu": "메뉴",
     "selectLanguage": "언어 선택",
-    "readMore": "더 읽기"
+    "readMore": "더 읽기",
+    "backToTop": "맨 위로"
   },
   "languageSwitcher": {
     "title": "언어 선택",

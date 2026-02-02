@@ -44,7 +44,8 @@
     "close": "Close",
     "menu": "Menu",
     "selectLanguage": "Select Language",
-    "readMore": "Read More"
+    "readMore": "Read More",
+    "backToTop": "Back to Top"
   },
   "languageSwitcher": {
     "title": "Select Language",
@@ -76,7 +77,38 @@
     "disclaimer": "All data on this site comes from publicly available information on the internet, for fan communication and learning purposes only.",
     "contact": "If there is any infringement or incorrect information, please contact us for deletion or correction.",
     "copyright": "© 2024 Fanzd.net - Unofficial Fan Zhendong Fan Site",
-    "allRightsReserved": "All rights reserved"
+    "allRightsReserved": "All rights reserved",
+    "tagline": "Unofficial Fan Zhendong Fan Site",
+    "quickLinks": "Quick Links",
+    "contactUs": "Contact Us"
+  },
+  "home": {
+    "exploreTitle": "Explore More",
+    "exploreSubtitle": "Discover the world of Fan Zhendong",
+    "updatesDesc": "Get the latest news, match results and training updates about Fan Zhendong",
+    "scheduleDesc": "View upcoming match schedules and historical records",
+    "timelineDesc": "Relive the important moments of Fan Zhendong's career",
+    "essaysDesc": "Read in-depth articles and fan reflections about Fan Zhendong",
+    "honorTag": "Hall of Fame",
+    "honorTitle": "Glorious Achievements",
+    "honorSubtitle": "Witness Fan Zhendong's Road to Championship",
+    "worldTitles": "World Titles",
+    "olympicGolds": "Olympic Golds",
+    "worldCupTitles": "World Cup Titles",
+    "worldChampionships": "World Championships"
+  },
+  "honor": {
+    "olympicSingles": "Olympic Men's Singles Champion",
+    "olympicTeam": "Olympic Men's Team Champion",
+    "worldChampSingles": "World Championships Men's Singles Champion",
+    "worldCup": "World Cup Men's Singles Champion",
+    "asianGames": "Asian Games Men's Singles Champion",
+    "wtaFinals": "WTT Finals Champion",
+    "paris2024": "2024 Paris Olympics",
+    "durban2023": "2023 Durban World Championships",
+    "xinxiang2022": "2022 Xinxiang World Cup",
+    "hangzhou2023": "2023 Hangzhou Asian Games",
+    "nagoya2022": "2022 Nagoya"
   },
   "pages": {
     "home": {

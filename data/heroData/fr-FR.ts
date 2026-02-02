@@ -18,14 +18,14 @@ export const heroDataFr = [
     ]
   },
   {
-    url: '/images/carousel/hero-1.jpg',
+    url: '/images/carousel/hero-1.jpg', imgPosition: 'right top',
     title: '2016 · Allemagne Sarrebruck · Coupe du Monde',
     subtitle: 'Premier Éclat de Génie — Première Victoire en Coupe du Monde',
     quote: '"Le monde connaît son nom, mais ils ne comprennent pas encore son ambition."',
     description: 'Cette année-là, il n\'était encore qu\'un garçon de 19 ans, un "challenger" doué. Mais sur le sol allemand, il a utilisé la puissance pure et le désir pour déchirer tous les scénarios prédéterminés. Ce n\'était pas seulement une victoire, c\'était une déclaration. Un prince d\'une nouvelle ère avait posé le pied sur son territoire légitime.'
   },
   {
-    url: '/images/carousel/hero-2.jpg',
+    url: '/images/carousel/hero-2.jpg', imgPosition: 'right top',
     title: '2018 · France Paris · Coupe du Monde',
     subtitle: 'Déclaration Territoriale — Défense de la Coupe du Monde',
     quote: '"Quand les gens pensent que vous avez atteint le sommet, vous devez leur montrer qu\'au-dessus du sommet, il y a encore le ciel."',
@@ -46,7 +46,7 @@ export const heroDataFr = [
     description: 'Trois championnats consécutifs. Ce record sans précédent a été gagné en battant un dieu et en se couronnant lui-même. Il n\'était plus un prince ; il avait établi sa propre dynastie. Une épopée de sept jeux, un test ultime de volonté, avec le cou de son adversaire sous son pied.'
   },
   {
-    url: '/images/carousel/hero-5.jpg',
+    url: '/images/carousel/hero-5.jpg', imgPosition: 'center top',
     title: '2021 · États-Unis Houston · Championnats du Monde',
     subtitle: 'Exorciser les Démons — Première Victoire aux Championnats du Monde',
     quote: '"Certains trophées, vous ne les gagnez pas pour vaincre des adversaires, mais pour vaincre votre moi passé."',

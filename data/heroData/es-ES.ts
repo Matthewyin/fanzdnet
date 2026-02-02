@@ -14,14 +14,14 @@ export const heroDataEs = [
     ]
   },
   {
-    url: '/images/carousel/hero-1.jpg',
+    url: '/images/carousel/hero-1.jpg', imgPosition: 'right top',
     title: '2016 · Alemania Saarbrücken · Copa del Mundo',
     subtitle: 'Primer Destello de Brillantez — Primera Victoria en Copa del Mundo',
     quote: '"El mundo conoce su nombre, pero aún no entienden su ambición."',
     description: 'Ese año, todavía era solo un chico de 19 años, un "retador" talentoso. Pero en suelo alemán, usó poder puro y deseo para destrozar todos los guiones predeterminados. Esto no fue solo una victoria, fue una declaración. Un príncipe de una nueva era había pisado su territorio legítimo.'
   },
   {
-    url: '/images/carousel/hero-2.jpg',
+    url: '/images/carousel/hero-2.jpg', imgPosition: 'right top',
     title: '2018 · Francia París · Copa del Mundo',
     subtitle: 'Declaración Territorial — Defensa de la Copa del Mundo',
     quote: '"Cuando la gente piensa que has alcanzado la cima, debes mostrarles que por encima de la cima, todavía está el cielo."',
@@ -42,7 +42,7 @@ export const heroDataEs = [
     description: 'Tres campeonatos consecutivos. Este récord sin precedentes se ganó derrotando a un dios y coronándose a sí mismo. Ya no era un príncipe; había establecido su propia dinastía. Una épica de siete juegos, una prueba definitiva de fuerza de voluntad, con el cuello de su oponente bajo su pie.'
   },
   {
-    url: '/images/carousel/hero-5.jpg',
+    url: '/images/carousel/hero-5.jpg', imgPosition: 'center top',
     title: '2021 · Estados Unidos Houston · Campeonatos Mundiales',
     subtitle: 'Exorcizando Demonios — Primera Victoria en Campeonatos Mundiales',
     quote: '"Algunos trofeos no los ganas para derrotar oponentes, sino para derrotar a tu yo pasado."',

@@ -44,7 +44,8 @@
     "close": "閉じる",
     "menu": "メニュー",
     "selectLanguage": "言語を選択",
-    "readMore": "もっと読む"
+    "readMore": "もっと読む",
+    "backToTop": "トップに戻る"
   },
   "languageSwitcher": {
     "title": "言語を選択",

@@ -18,14 +18,14 @@ export const heroDataJa = [
     ]
   },
   {
-    url: '/images/carousel/hero-1.jpg',
+    url: '/images/carousel/hero-1.jpg', imgPosition: 'right top',
     title: '2016年 · ドイツ ザールブリュッケン · ワールドカップ',
     subtitle: '才能の片鱗 — 初のワールドカップ優勝',
     quote: '"世界は彼の名前を知っているが、彼らはまだ彼の野心を理解していない。"',
     description: 'その年、彼はまだ19歳の少年、天賦の才を持つ「挑戦者」だった。しかしドイツの地で、彼は純粋な力と渇望で、すべての既定のシナリオを引き裂いた。これは単なる勝利ではなく、宣言だった。新時代の王子が、彼の正当な領土に足を踏み入れたのだ。'
   },
   {
-    url: '/images/carousel/hero-2.jpg',
+    url: '/images/carousel/hero-2.jpg', imgPosition: 'right top',
     title: '2018年 · フランス パリ · ワールドカップ',
     subtitle: '領土宣言 — ワールドカップ防衛',
     quote: '"人々があなたが頂点に達したと思う時、あなたは彼らに示さなければならない。頂点の上には、まだ空があることを。"',
@@ -46,7 +46,7 @@ export const heroDataJa = [
     description: '3連覇。この前例のない記録は、神を倒した後、自ら王冠を戴くことで獲得された。彼はもはや王子ではなく、自分の王朝を築いたのだ。7ゲームの叙事詩、意志力の究極の引っ張り合い、対戦相手の首を足の下に踏みつけて。'
   },
   {
-    url: '/images/carousel/hero-5.jpg',
+    url: '/images/carousel/hero-5.jpg', imgPosition: 'center top',
     title: '2021年 · アメリカ ヒューストン · 世界選手権',
     subtitle: '心の悪魔を追放 — 初の世界選手権優勝',
     quote: '"あるトロフィーは、対戦相手を倒すためではなく、過去の自分を倒すために勝つものだ。"',
