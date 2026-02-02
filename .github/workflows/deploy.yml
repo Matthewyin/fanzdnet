@@ -75,7 +75,7 @@ jobs:
           OSS_BUCKET: ${{ secrets.OSS_BUCKET }}
 
       - name: Refresh CDN cache
-        if: env.CDN_DOMAIN != ''
+        if: ${{ secrets.CDN_DOMAIN != '' }}
         run: |
           npm install @alicloud/pop-core
 
