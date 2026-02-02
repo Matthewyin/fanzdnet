@@ -1,0 +1,56 @@
+name: Deploy to Alibaba Cloud
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Nuxt static site
+        run: npm run generate
+        env:
+          CI: true
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: root
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script_stop: true
+          script: |
+            set -e
+
+            # 进入项目目录
+            cd /var/www/fanzdnet
+
+            # 拉取最新代码
+            git fetch origin
+            git reset --hard origin/main
+
+            # 安装依赖
+            npm ci --silent
+
+            # 构建静态文件
+            npm run generate --silent
+
+            # 重启 OpenResty
+            systemctl reload openresty
+
+            echo "✅ Deployment completed successfully!"
