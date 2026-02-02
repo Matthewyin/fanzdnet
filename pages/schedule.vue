@@ -375,7 +375,6 @@ const historyMatches = computed(() => [
 .page-header {
   text-align: left;
   margin-bottom: var(--space-12);
-  transform: skewX(-5deg);
   padding-left: var(--space-6);
 }
 
@@ -391,7 +390,6 @@ const historyMatches = computed(() => [
   font-weight: var(--font-medium);
   color: var(--color-accent-400);
   margin-bottom: var(--space-4);
-  transform: skewX(5deg);
 }
 
 .page-title {
@@ -400,13 +398,11 @@ const historyMatches = computed(() => [
   color: #ffffff;
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
   margin-bottom: var(--space-3);
-  transform: skewX(5deg);
 }
 
 .page-subtitle {
   font-size: var(--text-xl);
   color: rgba(255, 255, 255, 0.8);
-  transform: skewX(5deg);
 }
 
 /* 主内容网格 */
@@ -437,7 +433,6 @@ const historyMatches = computed(() => [
   border-radius: var(--radius-2xl);
   border: 1px solid rgba(255, 255, 255, 0.12);
   padding: var(--space-6);
-  transform: skewX(-5deg);
 }
 
 .nav-title {
@@ -450,7 +445,6 @@ const historyMatches = computed(() => [
   margin-bottom: var(--space-5);
   padding-bottom: var(--space-4);
   border-bottom: 2px solid rgba(255, 215, 0, 0.2);
-  transform: skewX(5deg);
 }
 
 .toggle-btn {
@@ -468,14 +462,13 @@ const historyMatches = computed(() => [
   cursor: pointer;
   transition: all var(--duration-fast) var(--ease-out);
   text-align: left;
-  transform: skewX(5deg);
 }
 
 .toggle-btn:hover {
   color: #ffffff;
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.15);
-  transform: skewX(5deg) translateX(4px);
+  transform: translateX(4px);
 }
 
 .toggle-btn.active {
@@ -495,12 +488,10 @@ const historyMatches = computed(() => [
   border-radius: var(--radius-2xl);
   border: 1px solid rgba(255, 215, 0, 0.2);
   padding: var(--space-6);
-  transform: skewX(-5deg);
 }
 
 .stat-item {
   text-align: center;
-  transform: skewX(5deg);
 }
 
 .stat-number {
@@ -530,7 +521,6 @@ const historyMatches = computed(() => [
   width: 1px;
   height: 40px;
   background: rgba(255, 215, 0, 0.3);
-  transform: skewX(5deg);
 }
 
 /* 右侧面板 */
@@ -566,38 +556,18 @@ const historyMatches = computed(() => [
   overflow: hidden;
   transition: all var(--duration-normal) var(--ease-out);
   position: relative;
-  transform: rotate(-1deg);
   animation: cardFadeIn 0.6s ease-out backwards;
 }
 
 @keyframes cardFadeIn {
   from {
     opacity: 0;
-    transform: rotate(-1deg) translateY(20px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: rotate(-1deg) translateY(0);
+    transform: translateY(0);
   }
-}
-
-.match-card:nth-child(even) {
-  transform: rotate(1deg);
-}
-
-@keyframes cardFadeInEven {
-  from {
-    opacity: 0;
-    transform: rotate(1deg) translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: rotate(1deg) translateY(0);
-  }
-}
-
-.match-card:nth-child(even) {
-  animation-name: cardFadeInEven;
 }
 
 .match-card::before {
@@ -624,7 +594,7 @@ const historyMatches = computed(() => [
 }
 
 .match-card:hover {
-  transform: rotate(0deg) translateY(-6px) scale(1.02);
+  transform: translateY(-6px) scale(1.02);
   background: rgba(255, 255, 255, 0.12);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.15);
   border-color: rgba(255, 215, 0, 0.4);
@@ -772,7 +742,6 @@ const historyMatches = computed(() => [
   backdrop-filter: blur(10px);
   border-radius: var(--radius-2xl);
   border: 1px dashed rgba(255, 255, 255, 0.2);
-  transform: skewX(-5deg);
 }
 
 .empty-icon {
@@ -784,7 +753,6 @@ const historyMatches = computed(() => [
 
 .empty-state p {
   color: rgba(255, 255, 255, 0.6);
-  transform: skewX(5deg);
 }
 
 /* 数据来源 */

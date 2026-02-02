@@ -1,0 +1,111 @@
+name: Deploy to Alibaba Cloud OSS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Nuxt
+        run: npm run generate
+
+      - name: Upload to OSS
+        run: |
+          npm install -g ali-oss
+
+          cat > upload.js << 'EOF'
+          const OSS = require('ali-oss');
+          const path = require('path');
+          const fs = require('fs');
+
+          const client = new OSS({
+            region: process.env.OSS_REGION.replace('oss-', '').replace('.aliyuncs.com', ''),
+            accessKeyId: process.env.OSS_ACCESS_KEY_ID,
+            accessKeySecret: process.env.OSS_ACCESS_KEY_SECRET,
+            bucket: process.env.OSS_BUCKET
+          });
+
+          async function uploadDirectory(dir, prefix = '') {
+            const files = fs.readdirSync(dir);
+
+            for (const file of files) {
+              const filePath = path.join(dir, file);
+              const fileStat = fs.statSync(filePath);
+              const objectKey = prefix + file;
+
+              if (fileStat.isDirectory()) {
+                await uploadDirectory(filePath, objectKey + '/');
+              } else {
+                console.log(`Uploading: ${objectKey}`);
+                await client.put(objectKey, filePath);
+              }
+            }
+          }
+
+          console.log('Starting upload to OSS...');
+          await uploadDirectory('.output/public');
+          console.log('Upload completed!');
+          EOF
+
+          node upload.js
+        env:
+          OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+          OSS_REGION: ${{ secrets.OSS_REGION }}
+          OSS_BUCKET: ${{ secrets.OSS_BUCKET }}
+
+      - name: Refresh CDN cache
+        if: secrets.CDN_DOMAIN != ''
+        run: |
+          npm install @alicloud/pop-core
+
+          cat > refresh-cdn.js << 'EOF'
+          const Core = require('@alicloud/pop-core');
+          const client = new Core({
+            accessKeyId: process.env.OSS_ACCESS_KEY_ID,
+            accessKeySecret: process.env.OSS_ACCESS_KEY_SECRET,
+            endpoint: 'https://cdn.aliyuncs.com',
+            apiVersion: '2018-05-10'
+          });
+
+          const params = {
+            Action: 'RefreshObjectCaches',
+            ObjectPath: process.env.CDN_DOMAIN + '/',
+            ObjectType: 'Directory'
+          };
+
+          client.request('RefreshObjectCaches', params).then(
+            (result) => {
+              console.log('CDN cache refresh initiated:', result);
+            },
+            (ex) => {
+              console.error('CDN cache refresh failed:', ex);
+            }
+          );
+          EOF
+
+          node refresh-cdn.js
+        env:
+          OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+          CDN_DOMAIN: ${{ secrets.CDN_DOMAIN }}

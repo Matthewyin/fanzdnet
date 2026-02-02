@@ -315,7 +315,6 @@ const copySuggestion = async () => {
 .page-header {
   text-align: left;
   margin-bottom: var(--space-12);
-  transform: skewX(-5deg);
   padding-left: var(--space-6);
 }
 
@@ -331,7 +330,6 @@ const copySuggestion = async () => {
   font-weight: var(--font-medium);
   color: #c084fc;
   margin-bottom: var(--space-4);
-  transform: skewX(5deg);
 }
 
 .page-title {
@@ -340,13 +338,11 @@ const copySuggestion = async () => {
   color: #ffffff;
   text-shadow: 0 2px 20px rgba(168, 85, 247, 0.5);
   margin-bottom: var(--space-3);
-  transform: skewX(5deg);
 }
 
 .page-subtitle {
   font-size: var(--text-xl);
   color: rgba(255, 255, 255, 0.8);
-  transform: skewX(5deg);
 }
 
 /* 主内容网格 */
@@ -377,7 +373,6 @@ const copySuggestion = async () => {
   border-radius: var(--radius-2xl);
   border: 1px solid rgba(255, 255, 255, 0.12);
   padding: var(--space-6);
-  transform: skewX(-5deg);
 }
 
 .nav-title {
@@ -390,13 +385,11 @@ const copySuggestion = async () => {
   margin-bottom: var(--space-5);
   padding-bottom: var(--space-4);
   border-bottom: 2px solid rgba(168, 85, 247, 0.3);
-  transform: skewX(5deg);
 }
 
 .instructions-list {
   list-style: decimal;
   padding-left: var(--space-5);
-  transform: skewX(5deg);
 }
 
 .instructions-list li {
@@ -414,7 +407,6 @@ const copySuggestion = async () => {
   border-radius: var(--radius-2xl);
   border: 1px solid rgba(255, 255, 255, 0.12);
   padding: var(--space-6);
-  transform: skewX(-5deg);
 }
 
 .section-title {
@@ -422,7 +414,6 @@ const copySuggestion = async () => {
   font-weight: var(--font-semibold);
   color: #ffffff;
   margin-bottom: var(--space-4);
-  transform: skewX(5deg);
 }
 
 .tools-grid {
@@ -443,13 +434,12 @@ const copySuggestion = async () => {
   border-radius: var(--radius-lg);
   text-decoration: none;
   transition: all var(--duration-fast) var(--ease-out);
-  transform: skewX(5deg);
 }
 
 .tool-card:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(168, 85, 247, 0.4);
-  transform: skewX(5deg) translateY(-4px);
+  transform: translateY(-4px);
 }
 
 .tool-icon {
@@ -479,7 +469,6 @@ const copySuggestion = async () => {
   border: 1px solid rgba(168, 85, 247, 0.3);
   overflow: hidden;
   position: relative;
-  transform: rotate(-1deg);
   transition: all var(--duration-normal) var(--ease-out);
 }
 
@@ -507,7 +496,7 @@ const copySuggestion = async () => {
 }
 
 .inspiration-card:hover {
-  transform: rotate(0deg) translateY(-8px) scale(1.02);
+  transform: translateY(-8px) scale(1.02);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(168, 85, 247, 0.2);
   border-color: rgba(168, 85, 247, 0.5);
 }
