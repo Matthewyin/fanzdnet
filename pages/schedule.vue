@@ -206,9 +206,17 @@ setPageSEO('schedule', locale.value);
 // 视图模式
 const viewMode = ref<'upcoming' | 'history'>('history');
 
-// 即将进行的比赛（示例数据 - 由于樊振东已退出世界排名，可能没有确定的比赛安排）
+// 即将进行的比赛
 const upcomingMatches = computed(() => [
-  // 可以添加德甲联赛的比赛安排
+  {
+    id: 1,
+    event: t('schedule.event.germanLeague', '德国甲级联赛'),
+    round: t('schedule.round.regular', '第13轮'),
+    date: '2026-02-28',
+    player1: t('player.fanzhendong', '樊振东'),
+    player2: t('player.opponent', '对手'),
+    location: t('schedule.location.germany', '德国')
+  }
 ]);
 
     // 历史战绩（部分重要比赛 - 数据来源维基百科）
@@ -218,10 +226,12 @@ const historyMatches = computed(() => [
     round: t('schedule.round.final', '决赛'),
     date: '2021-11-29',
     player1: t('player.fanzhendong', '樊振东'),
-    player2: t('player.opponent', '勒布伦'),
-    player2Flag: '🇳🇺',  // 法国国旗
-    score: '0:0',
-    result: 'win' as const
+    player2: t('player.opponent', '对手'),
+    player2Flag: '🇸🇪', 
+    score1: 4,
+    score2: 0,
+    result: 'win' as const,
+    location: '休斯顿'
   },
   {
     id: 6,
@@ -230,7 +240,7 @@ const historyMatches = computed(() => [
     date: '2025-11-18',
     player1: t('player.fanzhendong', '樊振东'),
     score1: '4:1',
-    player2: t('player.linshidong', '林诗栋'),
+    player2: t('player.opponent', '对手'),
     result: 'win',
     player2Flag: '🇳🇳',
     player1Flag: '🇨🇨',
