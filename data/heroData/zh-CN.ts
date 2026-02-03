@@ -1,5 +1,5 @@
 // 樊振东大事记数据 - 更新到2026年2月1日
-import { HeroEvent, HeroEventType } from '~/types'
+import { HeroEvent, HeroEventType } from '~/types/firestore'
 
 export const heroEventsData: HeroEvent[] = [
   // === 2024年 ===
