@@ -212,15 +212,15 @@ const updatesData = computed(() => [
     category: 'match',
     date: '2026-01-04',
     title: t('updates.item1.title', '德国杯夺冠！樊振东助萨尔布吕肯俱乐部赢得冠军'),
-    excerpt: t('updates.item1.excerpt', '樊振东效力的萨尔布吕肯俱乐部以3:1战胜对手俱乐部，夺得乒乓球德国杯冠军，这是樊振东留洋生涯的首个冠军。'),
+    excerpt: t('updates.item1.excerpt', '樊振东效力的萨尔布吕肯俱乐部以3:1战胜富尔达-马伯策尔俱乐部，夺得乒乓球德国杯冠军，这是樊振东留洋生涯的首个冠军。'),
     source: t('updates.item1.source', '新华网')
   },
   {
     id: 2,
     category: 'match',
     date: '2025-11-16',
-    title: t('updates.item2.title', '全运会男单成卫冕成功'),
-    excerpt: t('updates.item2.excerpt', '在第十五届全运会男单比赛中，樊振东以4:1战胜对手夺得冠军，成卫冕成功。'),
+    title: t('updates.item2.title', '全运会男单卫冕成功'),
+    excerpt: t('updates.item2.excerpt', '在第十五届全运会男单比赛中，樊振东以4:1战胜林诗栋夺得冠军，卫冕成功。'),
     source: t('updates.item2.source', '央视体育')
   },
   {
@@ -236,7 +236,7 @@ const updatesData = computed(() => [
     category: 'match',
     date: '2024-08-04',
     title: t('updates.item4.title', '巴黎奥运会男单夺冠，完成大满贯'),
-    excerpt: t('updates.item4.excerpt', '在巴黎奥运会乒乓球男单决赛中，樊振东4:1战胜对手夺得金牌，集齐奥运会、世锦赛、世界杯三大赛单打冠军，完成大满贯伟业。'),
+    excerpt: t('updates.item4.excerpt', '在巴黎奥运会乒乓球男单决赛中，樊振东4:1战胜莫雷加德夺得金牌，集齐奥运会、世锦赛、世界杯三大赛单打冠军，完成大满贯伟业。'),
     source: t('updates.item4.source', 'Olympics.com')
   }
 ]);

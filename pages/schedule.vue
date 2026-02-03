@@ -214,7 +214,7 @@ const upcomingMatches = computed(() => [
     round: t('schedule.round.regular', '第13轮'),
     date: '2026-02-28',
     player1: t('player.fanzhendong', '樊振东'),
-    player2: t('player.opponent', '对手'),
+    player2: t('player.opponent', '穆尔豪森'),
     location: t('schedule.location.germany', '德国')
   }
 ]);
@@ -226,7 +226,7 @@ const historyMatches = computed(() => [
     round: t('schedule.round.final', '决赛'),
     date: '2021-11-29',
     player1: t('player.fanzhendong', '樊振东'),
-    player2: t('player.opponent', '对手'),
+    player2: t('player.moregard', '莫雷加德'),
     player2Flag: '🇸🇪', 
     score1: 4,
     score2: 0,
@@ -240,7 +240,7 @@ const historyMatches = computed(() => [
     date: '2025-11-18',
     player1: t('player.fanzhendong', '樊振东'),
     score1: '4:1',
-    player2: t('player.opponent', '对手'),
+    player2: t('player.linshidong', '林诗栋'),
     result: 'win',
     player2Flag: '🇳🇳',
     player1Flag: '🇨🇨',
