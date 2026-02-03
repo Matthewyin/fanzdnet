@@ -22,6 +22,26 @@ export const heroEventsData: HeroEvent[] = [
     location: '德国萨尔布吕肯'
   },
   {
+    date: '2025-09-06',
+    year: '2025',
+    title: '德甲第2轮 - 迎来首胜',
+    description: '客场挑战巴特柯尼希斯霍芬队,樊振东在第二盘3:1战胜Zeljko Filip,第四盘3:1战胜Andre Bertelsmeier,取得个人德甲首胜,帮助球队3:0获胜。',
+    eventType: HeroEventType.Tournament,
+    location: '德国',
+    score: '3-0',
+    opponent: '巴特柯尼希斯霍芬'
+  },
+  {
+    date: '2025-09-14',
+    year: '2025',
+    title: '德甲第3轮 - 继续连胜',
+    description: '樊振东3:0战胜Cedric Nuytinck,帮助球队3:0轻取贝格诺伊施塔特队。',
+    eventType: HeroEventType.Tournament,
+    location: '德国',
+    score: '3-0',
+    opponent: '贝格诺伊施塔特'
+  },
+  {
     date: '2025-11-15',
     year: '2025',
     title: '全运会男单半决赛 - 击败王楚钦',
@@ -52,6 +72,16 @@ export const heroEventsData: HeroEvent[] = [
     score: null,
     opponent: '北京队'
   },
+  {
+    date: '2025-12-14',
+    year: '2025',
+    title: '德甲第10轮 - 主场胜利',
+    description: '萨尔布吕肯俱乐部主场3:0战胜奥克森豪森队,樊振东在第二盘3:0战胜Kirill,为球队锁定胜局。',
+    eventType: HeroEventType.Tournament,
+    location: '德国',
+    score: '3-0',
+    opponent: '奥克森豪森队'
+  },
 
   // === 2026年 ===
   {
@@ -76,77 +106,6 @@ export const heroEventsData: HeroEvent[] = [
     score: '3-1',
     opponent: '富尔达马伯策尔'
   },
-// === 德甲联赛数据 ===
-  {
-    date: '2025-09-06',
-    year: '2025',
-    title: '德甲第2轮 - 迎来首胜',
-    description: '客场挑战巴特柯尼希斯霍芬队,樊振东在第二盘3:1战胜Zeljko Filip,第四盘3:1战胜Andre Bertelsmeier,取得个人德甲首胜,帮助球队3:0获胜。',
-    eventType: HeroEventType.Tournament,
-    location: '德国',
-    score: '3-0',
-    opponent: '巴特柯尼希斯霍芬'
-  },
-  {
-    date: '2025-09-14',
-    year: '2025',
-    title: '德甲第3轮 - 继续连胜',
-    description: '樊振东3:0战胜Cedric Nuytinck,帮助球队3:0轻取贝格诺伊施塔特队。',
-    eventType: HeroEventType.Tournament,
-    location: '德国',
-    score: '3-0',
-    opponent: '贝格诺伊施塔特'
-  },
-  {
-    date: '2025-12-14',
-    year: '2025',
-    title: '德甲第10轮 - 主场胜利',
-    description: '萨尔布吕肯俱乐部主场3:0战胜奥克森豪森队,樊振东在第二盘3:0战胜Kirill,为球队锁定胜局。',
-    eventType: HeroEventType.Tournament,
-    location: '德国',
-    score: '3-0',
-    opponent: '奥克森豪森队'
-  },
-  {
-    date: '2026-01-13',
-    year: '2026',
-    title: '德甲第12轮 - 独得2分',
-    description: '在德甲第12轮比赛中,萨尔布吕肯俱乐部主场迎战杜塞尔多夫队。樊振东在第二盘3:0战胜奇里塔,第四盘3:0击败世界冠军卡尔森,独得2分,但队友弗朗西斯卡和约内斯库先后失利,球队最终2:3告负。',
-    eventType: HeroEventType.Tournament,
-    location: '德国',
-    score: '2-3',
-    opponent: '杜塞尔多夫队'
-  },
-  {
-    date: '2026-02-20',
-    year: '2026',
-    title: '欧冠1/4决赛首回合 - 3:0获胜',
-    description: '在欧冠1/4决赛首回合比赛中,樊振东3:2逆转法国名将西蒙·高茨,帮助球队客场3:0战胜法国亨尼邦队。',
-    eventType: HeroEventType.Tournament,
-    location: '法国',
-    score: '3-0',
-    opponent: '法国亨尼邦队'
-  },
-  {
-    date: '2025-09-14',
-    year: '2025',
-    title: '德甲第3轮 - 继续连胜',
-    description: '樊振东3:0战胜Cedric Nuytinck,帮助球队3:0轻取贝格诺伊施塔特队。',
-    eventType: HeroEventType.Tournament,
-    location: '德国',
-    score: '3-0',
-    opponent: '贝格诺伊施塔特'
-  },
-  {
-    date: '2025-12-14',
-    year: '2025',
-    title: '德甲第10轮 - 主场胜利',
-    description: '萨尔布吕肯俱乐部主场3:0战胜奥克森豪森队,樊振东在第二盘3:0战胜Kirill,为球队锁定胜局。',
-    eventType: HeroEventType.Tournament,
-    location: '德国',
-    score: '3-0',
-    opponent: '奥克森豪森'
-  },
   {
     date: '2026-01-13',
     year: '2026',
@@ -168,3 +127,5 @@ export const heroEventsData: HeroEvent[] = [
     opponent: '法国亨尼邦队'
   }
 ]
+
+export const heroDataZh = heroEventsData
