@@ -207,20 +207,6 @@ const activeCategory = ref('all');
 
 // 示例动态数据（后续可从 API 或 Firestore 获取）
 const updatesData = computed(() => [
-  {
-    id: 5,
-    category: 'match',
-    date: '2024-08-04',
-    title: t('updates.item4.title', '巴黎奥运会男单夺冠，完成大满贯'),
-    excerpt: t('updates.item4.excerpt', '在巴黎奥运会乒乓球男单决赛中，樊振东以4:1战胜对手夺得金牌，集齐奥运会、世锦赛、世界杯三大赛单打冠军，完成大满贯伟业。'),
-    source: t('updates.item4.source', 'Olympics.com')
-  {
-    id: 4,
-    category: 'match',
-    date: '2024-08-04',
-    title: t('updates.item4.title', '巴黎奥运会男单夺冠，完成大满贯'),
-    excerpt: t('updates.item4.excerpt', '在巴黎奥运会乒乓球男单决赛中，樊振东4:1战胜对手夺得金牌，集齐奥运会、世锦赛、世界杯三大赛单打冠军，完成大满贯伟业。'),
-    source: t('updates.item4.source', 'Olympics.com')
   }
 ]);
 
