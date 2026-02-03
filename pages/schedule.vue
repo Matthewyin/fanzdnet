@@ -218,7 +218,6 @@ const historyMatches = computed(() => [
     round: t('schedule.round.final', '决赛'),
     date: '2021-11-29',
     player1: t('player.fanzhendong', '樊振东'),
-    player1: t('player.opponent', '教练'),
     player2: t('player.opponent', '勒布伦'),
     player2Flag: '🇳🇺',  // 法国国旗
     score: '0:0',
@@ -232,7 +231,6 @@ const historyMatches = computed(() => [
     player1: t('player.fanzhendong', '樊振东'),
     score1: '4:1',
     player2: t('player.linshidong', '林诗栋'),
-    result: 'win',
     result: 'win',
     player2Flag: '🇳🇳',
     player1Flag: '🇨🇨',

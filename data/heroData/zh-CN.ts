@@ -126,7 +126,7 @@ export const heroEventsData: HeroEvent[] = [
     location: '法国',
     score: '3-0',
     opponent: '法国亨尼邦队'
-  }
+  },
   {
     date: '2025-09-14',
     year: '2025',
