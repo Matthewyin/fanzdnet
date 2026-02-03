@@ -1,5 +1,25 @@
 // Firestore 数据模型定义
 
+export enum HeroEventType {
+  Announcement = 'announcement',
+  Transfer = 'transfer',
+  Tournament = 'tournament',
+  WorldChampionship = 'world_championship'
+}
+
+export interface HeroEvent {
+  date: string
+  year: string
+  title: string
+  description: string
+  eventType: HeroEventType
+  location: string | null
+  achievements?: string[]
+  finalStanding?: string | null
+  score?: string | null
+  opponent?: string | null
+}
+
 export interface MultiLanguageText {
   zh: string
   en: string
