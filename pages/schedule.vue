@@ -211,85 +211,32 @@ const upcomingMatches = computed(() => [
   // 可以添加德甲联赛的比赛安排
 ]);
 
-// 历史战绩（部分重要比赛 - 数据来源维基百科）
+    // 历史战绩（部分重要比赛 - 数据来源维基百科）
 const historyMatches = computed(() => [
   {
-    id: 1,
-    event: t('schedule.event.germanCup', '德国杯'),
-    round: t('schedule.round.final', '决赛'),
-    date: '2026-01-04',
-    player1: t('player.fanzhendong', '樊振东'),
-    player2: t('schedule.opponent.club', '富尔达俱乐部'),
-    player2Flag: '🇩🇪',
-    score1: 3,
-    score2: 1,
-    result: 'win' as const,
-    location: t('schedule.location.germany', '德国')
-  },
-  {
-    id: 2,
-    event: t('schedule.event.nationalGames', '全运会'),
-    round: t('schedule.round.final', '决赛'),
-    date: '2025-11-16',
-    player1: t('player.fanzhendong', '樊振东'),
-    player2: t('player.linshidong', '林诗栋'),
-    player2Flag: '🇨🇳',
-    score1: 4,
-    score2: 1,
-    result: 'win' as const,
-    location: t('schedule.location.macao', '澳门')
-  },
-  {
-    id: 3,
-    event: t('schedule.event.parisOlympics', '巴黎奥运会'),
-    round: t('schedule.round.final', '决赛'),
-    date: '2024-08-04',
-    player1: t('player.fanzhendong', '樊振东'),
-    player2: t('player.moregard', '莫雷加德'),
-    player2Flag: '🇸🇪',
-    score1: 4,
-    score2: 1,
-    result: 'win' as const,
-    location: t('schedule.location.paris', '巴黎')
-  },
-  {
-    id: 4,
-    event: t('schedule.event.parisOlympics', '巴黎奥运会'),
-    round: t('schedule.round.semi', '半决赛'),
-    date: '2024-08-03',
-    player1: t('player.fanzhendong', '樊振东'),
-    player2: t('player.lebrun', '勒布伦'),
-    player2Flag: '🇫🇷',
-    score1: 4,
-    score2: 0,
-    result: 'win' as const,
-    location: t('schedule.location.paris', '巴黎')
-  },
-  {
-    id: 5,
-    event: t('schedule.event.durbanWC', '德班世锦赛'),
-    round: t('schedule.round.final', '决赛'),
-    date: '2023-05-28',
-    player1: t('player.fanzhendong', '樊振东'),
-    player2: t('player.wangchuqin', '王楚钦'),
-    player2Flag: '🇨🇳',
-    score1: 4,
-    score2: 2,
-    result: 'win' as const,
-    location: t('schedule.location.durban', '德班')
-  },
-  {
-    id: 6,
     event: t('schedule.event.houstonWC', '休斯顿世锦赛'),
     round: t('schedule.round.final', '决赛'),
     date: '2021-11-29',
     player1: t('player.fanzhendong', '樊振东'),
-    player2: t('player.malong', '马龙'),
-    player2Flag: '🇨🇳',
-    score1: 4,
-    score2: 1,
-    result: 'win' as const,
-    location: t('schedule.location.houston', '休斯顿')
+    player1: t('player.opponent', '教练'),
+    player2: t('player.opponent', '勒布伦'),
+    player2Flag: '🇳🇺',  // 法国国旗
+    score: '0:0',
+    result: 'win' as const
+  },
+  {
+    id: 6,
+    event: t('schedule.event.nationalGames', '全运会'),
+    round: t('schedule.round.final', '决赛'),
+    date: '2025-11-18',
+    player1: t('player.fanzhendong', '樊振东'),
+    score1: '4:1',
+    player2: t('player.linshidong', '林诗栋'),
+    result: 'win',
+    result: 'win',
+    player2Flag: '🇳🇳',
+    player1Flag: '🇨🇨',
+    location: '澳门'
   }
 ]);
 </script>

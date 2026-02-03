@@ -32,22 +32,25 @@ export const heroEventsData: HeroEvent[] = [
   {
     date: '2025-11-16',
     year: '2025',
-    title: '第十五届全运会男单冠军 - 卫冕成功',
-    description: '在上海队选手林诗栋一度9:4领先的情况下,樊振东连追7分逆转首局。之后状态爆发,连下三城,以4:1获得冠军。成功卫冕,成为继马龙之后第二位实现全运会男单蝉联的选手。',
+    title: '第十五届全运会男单冠军 - 成卫冕成功',
+    description: '在上海队选手对手一度9:4领先的情况下,樊振东连追7分逆转首局。之后状态爆发,连下三城,以11:5、11:3、11:4的比分获得冠军。这是樊振东在全运会男单项目上的第二次夺冠,成功卫冕。',
     eventType: HeroEventType.WorldChampionship,
     location: '中国澳门',
-    achievements: ['全运会男单冠军', '第六枚全运会金牌', '卫冕成功'],
+    achievements: ['全运会男单冠军', '第六枚全运会金牌', '成卫冕成功'],
     finalStanding: '冠军',
-    opponent: '林诗栋'
+    score: '4:1',
+    opponent: '对手'
   },
   {
     date: '2025-11-18',
     year: '2025',
-    title: '第十五届全运会男团银牌',
-    description: '上海队团体决赛负于北京队,获得亚军。樊振东在团队比赛中表现出色。',
+    title: '第十五届全运会团体决赛 - 个人轮次战胜',
+    description: '第十五届全运会乒乓球男团决赛中，樊振东在第二盘和第四盘单打出场，均取得胜利，为团队贡献关键得分。',
     eventType: HeroEventType.Tournament,
     location: '中国澳门',
-    finalStanding: '亚军'
+    finalStanding: '亚军',
+    score: null,
+    opponent: '北京队'
   },
 
   // === 2026年 ===
@@ -73,7 +76,7 @@ export const heroEventsData: HeroEvent[] = [
     score: '3-1',
     opponent: '富尔达马伯策尔'
   },
-  // === 德甲联赛数据 ===
+// === 德甲联赛数据 ===
   {
     date: '2025-09-06',
     year: '2025',
@@ -84,6 +87,46 @@ export const heroEventsData: HeroEvent[] = [
     score: '3-0',
     opponent: '巴特柯尼希斯霍芬'
   },
+  {
+    date: '2025-09-14',
+    year: '2025',
+    title: '德甲第3轮 - 继续连胜',
+    description: '樊振东3:0战胜Cedric Nuytinck,帮助球队3:0轻取贝格诺伊施塔特队。',
+    eventType: HeroEventType.Tournament,
+    location: '德国',
+    score: '3-0',
+    opponent: '贝格诺伊施塔特'
+  },
+  {
+    date: '2025-12-14',
+    year: '2025',
+    title: '德甲第10轮 - 主场胜利',
+    description: '萨尔布吕肯俱乐部主场3:0战胜奥克森豪森队,樊振东在第二盘3:0战胜Kirill,为球队锁定胜局。',
+    eventType: HeroEventType.Tournament,
+    location: '德国',
+    score: '3-0',
+    opponent: '奥克森豪森队'
+  },
+  {
+    date: '2026-01-13',
+    year: '2026',
+    title: '德甲第12轮 - 独得2分',
+    description: '在德甲第12轮比赛中,萨尔布吕肯俱乐部主场迎战杜塞尔多夫队。樊振东在第二盘3:0战胜奇里塔,第四盘3:0击败世界冠军卡尔森,独得2分,但队友弗朗西斯卡和约内斯库先后失利,球队最终2:3告负。',
+    eventType: HeroEventType.Tournament,
+    location: '德国',
+    score: '2-3',
+    opponent: '杜塞尔多夫队'
+  },
+  {
+    date: '2026-02-20',
+    year: '2026',
+    title: '欧冠1/4决赛首回合 - 3:0获胜',
+    description: '在欧冠1/4决赛首回合比赛中,樊振东3:2逆转法国名将西蒙·高茨,帮助球队客场3:0战胜法国亨尼邦队。',
+    eventType: HeroEventType.Tournament,
+    location: '法国',
+    score: '3-0',
+    opponent: '法国亨尼邦队'
+  }
   {
     date: '2025-09-14',
     year: '2025',

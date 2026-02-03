@@ -200,39 +200,23 @@ setPageSEO('updates', locale.value);
 const categories = computed(() => [
   { id: 'all', name: t('updates.all', '全部'), icon: 'list' },
   { id: 'match', name: t('updates.match', '比赛'), icon: 'trophy' },
-  { id: 'training', name: t('updates.training', '训练'), icon: 'dumbbell' },
-  { id: 'media', name: t('updates.media', '媒体'), icon: 'film' },
-  { id: 'life', name: t('updates.life', '生活'), icon: 'sparkles' }
+  { id: 'media', name: t('updates.media', '媒体'), icon: 'film' }
 ]);
 
 const activeCategory = ref('all');
 
 // 示例动态数据（后续可从 API 或 Firestore 获取）
 const updatesData = computed(() => [
+  }
   {
-    id: 1,
+    id: 5,
     category: 'match',
-    date: '2026-01-04',
-    title: t('updates.item1.title', '德国杯夺冠！樊振东助萨尔布吕肯俱乐部赢得冠军'),
-    excerpt: t('updates.item1.excerpt', '樊振东效力的萨尔布吕肯俱乐部以3:1战胜富尔达-马伯策尔俱乐部，夺得乒乓球德国杯冠军，这是樊振东留洋生涯的首个冠军。'),
-    source: t('updates.item1.source', '新华网')
+    date: '2024-08-04',
+    title: t('updates.item4.title', '巴黎奥运会男单夺冠，完成大满贯'),
+    excerpt: t('updates.item4.excerpt', '在巴黎奥运会乒乓球男单决赛中，樊振东以4:1战胜对手夺得金牌，集齐奥运会、世锦赛、世界杯三大赛单打冠军，完成大满贯伟业。'),
+    source: t('updates.item4.source', 'Olympics.com')
   },
-  {
-    id: 2,
-    category: 'media',
-    date: '2025-11-16',
-    title: t('updates.item2.title', '全运会男单卫冕！成为历史第二人'),
-    excerpt: t('updates.item2.excerpt', '在第十五届全运会男单比赛中，樊振东以4:1战胜对手夺得冠军，成为第二位卫冕全运会男单冠军的乒乓球运动员。'),
-    source: t('updates.item2.source', '央视体育')
-  },
-  {
-    id: 3,
-    category: 'life',
-    date: '2025-06-01',
-    title: t('updates.item3.title', '加盟德甲萨尔布吕肯俱乐部'),
-    excerpt: t('updates.item3.excerpt', '德国球会萨尔布吕肯乒乓球俱乐部宣布樊振东将会加盟，开启海外征战新篇章。'),
-    source: t('updates.item3.source', '德国之声')
-  },
+  }
   {
     id: 4,
     category: 'match',
@@ -255,9 +239,7 @@ const filteredUpdates = computed(() => {
 const getCategoryName = (category: string): string => {
   const names: Record<string, string> = {
     match: t('updates.match', '比赛'),
-    training: t('updates.training', '训练'),
-    media: t('updates.media', '媒体'),
-    life: t('updates.life', '生活')
+    media: t('updates.media', '媒体')
   };
   return names[category] || category;
 };
