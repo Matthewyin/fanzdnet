@@ -1,5 +1,6 @@
 // 樊振东时间线数据 - 更新到2026年2月1日
-import { HeroEvent, HeroEventType } from '~/types'
+import type { HeroEvent } from '~/types/firestore'
+import { HeroEventType } from '~/types/firestore'
 
 export const heroTimelineData: HeroEvent[] = [
   // === 2024年 ===
@@ -12,7 +13,6 @@ export const heroTimelineData: HeroEvent[] = [
     achievements: ['奥运男单金牌', '超级全贯', '大满贯'],
     finalStanding: '冠军',
     score: '4-1'
-  }
   },
 
   // === 2025年 ===

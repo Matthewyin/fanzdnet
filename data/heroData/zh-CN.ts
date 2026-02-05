@@ -1,5 +1,6 @@
 // 樊振东大事记数据 - 更新到2026年2月1日
-import { HeroEvent, HeroEventType } from '~/types/firestore'
+import type { HeroEvent } from '~/types/firestore'
+import { HeroEventType } from '~/types/firestore'
 
 export const heroDataZh = [
   {
@@ -121,17 +122,17 @@ export const heroEventsData: HeroEvent[] = [
   {
     date: '2025-11-16',
     year: '2025',
-    title: '第十五届全运会男单冠军 - 成卫冕成功',
+    title: '第十五届全运会男单冠军 - 成功卫冕',
     description: '在上海队选手林诗栋一度9:4领先的情况下,樊振东连追7分逆转首局。之后状态爆发,连下三城,以11:5、11:3、11:4的比分获得冠军。这是樊振东在全运会男单项目上的第二次夺冠,成功卫冕。',
     eventType: HeroEventType.WorldChampionship,
     location: '中国澳门',
-    achievements: ['全运会男单冠军', '第六枚全运会金牌', '成卫冕成功'],
+    achievements: ['全运会男单冠军', '第六枚全运会金牌', '成功卫冕'],
     finalStanding: '冠军',
     score: '4:1',
     opponent: '林诗栋'
   },
   {
-    date: '2025-11-18',
+    date: '2025-11-16',
     year: '2025',
     title: '第十五届全运会团体决赛 - 个人轮次战胜王楚钦',
     description: '第十五届全运会乒乓球男团决赛中，樊振东在个人轮次中战胜王楚钦，为团队贡献关键得分。',

@@ -62,8 +62,28 @@ export const timelineDataEn: TimelineEvent[] = [
     description: 'Winning the men\'s singles final at the Paris Olympics, he collected singles titles from all three major competitions—Olympics, World Championships, and World Cup—achieving the "Grand Slam" feat and becoming a legend in table tennis history.',
   },
   {
+    year: '2024',
+    title: 'Withdrawing from World Rankings',
+    description: 'On December 27, he announced via social media that he would withdraw from the world ranking system, but clearly stated he would "not retire" and would continue participating in domestic competitions and club matches.',
+  },
+  {
     year: '2025',
-    title: 'Embarking on New Journey',
-    description: 'Making a rare decision to sign with both the Chinese Super League and German Bundesliga, joining Saarbrücken club, after achieving the highest honors, he began exploring new possibilities in table tennis.',
+    title: 'New Journey - Joining Bundesliga',
+    description: 'On June 1, he officially signed with German club Saarbrücken to compete in the 2025-2026 German Table Tennis Bundesliga and European Champions League, embarking on his overseas career.',
+  },
+  {
+    year: '2025',
+    title: 'First Bundesliga Victory',
+    description: 'On September 6, in the 2nd round of the Bundesliga, he achieved his first Bundesliga victory away against Bad Königshofen, helping his team win 3:0.',
+  },
+  {
+    year: '2025',
+    title: 'National Games Singles Title Defense',
+    description: 'On November 16, in the 15th National Games men\'s singles final, he defeated Lin Shidong 4:1 to successfully defend his title, becoming the second player after Ma Long to achieve back-to-back National Games men\'s singles titles.',
+  },
+  {
+    year: '2026',
+    title: 'German Cup Champion - First Overseas Title',
+    description: 'On January 5, in the German Cup final, Saarbrücken club defeated Fulda-Maberzell 3:1. Fan Zhendong won all four matches in one day and was named MVP, capturing his first overseas career title.',
   },
 ]

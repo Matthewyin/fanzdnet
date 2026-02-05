@@ -222,6 +222,7 @@ const upcomingMatches = computed(() => [
     // 历史战绩（部分重要比赛 - 数据来源维基百科）
 const historyMatches = computed(() => [
   {
+    id: 1,
     event: t('schedule.event.houstonWC', '休斯顿世锦赛'),
     round: t('schedule.round.final', '决赛'),
     date: '2021-11-29',
@@ -234,16 +235,42 @@ const historyMatches = computed(() => [
     location: '休斯顿'
   },
   {
-    id: 6,
-    event: t('schedule.event.nationalGames', '全运会'),
-    round: t('schedule.round.final', '决赛'),
-    date: '2025-11-18',
+    id: 2,
+    event: t('schedule.event.parisOG', '巴黎奥运会'),
+    round: t('schedule.round.final', '男单决赛'),
+    date: '2024-08-04',
     player1: t('player.fanzhendong', '樊振东'),
-    score1: '4:1',
+    player2: t('player.moregard', '莫雷加德'),
+    player2Flag: '🇸🇪',
+    score1: 4,
+    score2: 1,
+    result: 'win' as const,
+    location: '巴黎'
+  },
+  {
+    id: 3,
+    event: t('schedule.event.germanCup', '德国杯'),
+    round: t('schedule.round.final', '决赛'),
+    date: '2026-01-05',
+    player1: t('player.fanzhendong', '樊振东'),
+    player2: t('player.opponent', '富尔达马伯策尔'),
+    player2Flag: '🇩🇪',
+    score1: 3,
+    score2: 1,
+    result: 'win' as const,
+    location: '德国新乌尔姆'
+  },
+  {
+    id: 4,
+    event: t('schedule.event.nationalGames', '全运会'),
+    round: t('schedule.round.final', '男单决赛'),
+    date: '2025-11-16',
+    player1: t('player.fanzhendong', '樊振东'),
+    score1: 4,
+    score2: 1,
     player2: t('player.linshidong', '林诗栋'),
-    result: 'win',
-    player2Flag: '🇳🇳',
-    player1Flag: '🇨🇨',
+    player2Flag: '🇨🇳',
+    result: 'win' as const,
     location: '澳门'
   }
 ]);

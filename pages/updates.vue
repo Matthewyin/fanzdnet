@@ -210,34 +210,58 @@ const updatesData = computed(() => [
   {
     id: 1,
     category: 'match',
-    date: '2026-01-04',
-    title: t('updates.item1.title', '德国杯夺冠！樊振东助萨尔布吕肯俱乐部赢得冠军'),
-    excerpt: t('updates.item1.excerpt', '樊振东效力的萨尔布吕肯俱乐部以3:1战胜富尔达-马伯策尔俱乐部，夺得乒乓球德国杯冠军，这是樊振东留洋生涯的首个冠军。'),
+    date: '2026-01-05',
+    title: t('updates.item1.title', '德国杯夺冠！樊振东当选MVP收获留洋首冠'),
+    excerpt: t('updates.item1.excerpt', '德国杯决赛中，樊振东效力的萨尔布吕肯俱乐部以3:1战胜富尔达-马伯策尔俱乐部。樊振东一天四战全胜，当选MVP，夺得留洋生涯首个冠军。'),
     source: t('updates.item1.source', '新华网')
   },
   {
     id: 2,
     category: 'match',
     date: '2025-11-16',
-    title: t('updates.item2.title', '全运会男单卫冕成功'),
-    excerpt: t('updates.item2.excerpt', '在第十五届全运会男单比赛中，樊振东以4:1战胜林诗栋夺得冠军，卫冕成功。'),
+    title: t('updates.item2.title', '全运会男单卫冕成功，收获第六枚全运会金牌'),
+    excerpt: t('updates.item2.excerpt', '在第十五届全运会男单决赛中，樊振东以4:1战胜林诗栋成功卫冕，成为继马龙之后第二位实现全运会男单蝉联的选手。'),
     source: t('updates.item2.source', '央视体育')
   },
   {
     id: 3,
-    category: 'media',
-    date: '2025-06-01',
-    title: t('updates.item3.title', '加盟德甲萨尔布吕肯俱乐部'),
-    excerpt: t('updates.item3.excerpt', '德国球会萨尔布吕肯乒乓球俱乐部宣布樊振东将会加盟，开启海外征战新篇章。'),
-    source: t('updates.item3.source', '德国之声')
+    category: 'match',
+    date: '2025-09-06',
+    title: t('updates.item3.title', '德甲联赛迎来首胜'),
+    excerpt: t('updates.item3.excerpt', '德甲第二轮比赛中，萨尔布吕肯俱乐部客场3:1击败巴特柯尼希斯霍芬俱乐部，樊振东取得个人德甲联赛首场胜利。'),
+    source: t('updates.item3.source', '新华社')
   },
   {
     id: 4,
+    category: 'media',
+    date: '2025-06-01',
+    title: t('updates.item4.title', '正式加盟德甲萨尔布吕肯俱乐部'),
+    excerpt: t('updates.item4.excerpt', '德国乒乓球甲级联赛萨尔布吕肯俱乐部官方宣布，正式签约樊振东参加2025-2026赛季德甲联赛和欧洲冠军联赛，开启海外征战新篇章。'),
+    source: t('updates.item4.source', 'Olympics.com')
+  },
+  {
+    id: 5,
+    category: 'media',
+    date: '2024-12-27',
+    title: t('updates.item5.title', '宣布退出世界排名系统'),
+    excerpt: t('updates.item5.excerpt', '樊振东通过社交媒体发文宣布退出世界排名系统，但明确表示"不会退役"，将继续参加国内赛事和俱乐部比赛。'),
+    source: t('updates.item5.source', '微博')
+  },
+  {
+    id: 6,
     category: 'match',
     date: '2024-08-04',
-    title: t('updates.item4.title', '巴黎奥运会男单夺冠，完成大满贯'),
-    excerpt: t('updates.item4.excerpt', '在巴黎奥运会乒乓球男单决赛中，樊振东4:1战胜莫雷加德夺得金牌，集齐奥运会、世锦赛、世界杯三大赛单打冠军，完成大满贯伟业。'),
-    source: t('updates.item4.source', 'Olympics.com')
+    title: t('updates.item6.title', '巴黎奥运会男单夺冠，成就大满贯伟业'),
+    excerpt: t('updates.item6.excerpt', '在巴黎奥运会乒乓球男单决赛中，樊振东4:1战胜莫雷加德夺得金牌，集齐奥运会、世锦赛、世界杯三大赛单打冠军，成就大满贯伟业。'),
+    source: t('updates.item6.source', 'Olympics.com')
+  },
+  {
+    id: 7,
+    category: 'match',
+    date: '2024-08-01',
+    title: t('updates.item7.title', '巴黎奥运经典逆转！4:3险胜张本智和晋级四强'),
+    excerpt: t('updates.item7.excerpt', '巴黎奥运会男单1/4决赛，樊振东在0:2、2:3落后的绝境下，以4:3逆转击败日本选手张本智和。第七局7:7平时连得4分，上演惊天大逆转，这场比赛被誉为奥运史上的经典之战。'),
+    source: t('updates.item7.source', '央视体育')
   }
 ]);
 
@@ -574,7 +598,7 @@ const getCategoryName = (category: string): string => {
 
 .card-image {
   position: relative;
-  height: 180px;
+  height: 60px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
 }
 
@@ -589,6 +613,8 @@ const getCategoryName = (category: string): string => {
 .placeholder-icon {
   opacity: 0.3;
   color: rgba(255, 255, 255, 0.6);
+  width: 32px;
+  height: 32px;
 }
 
 .card-category {
@@ -643,7 +669,9 @@ const getCategoryName = (category: string): string => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: var(--space-3);
+  padding: var(--space-3) 0;
+  margin-top: var(--space-3);
+  background: transparent;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -668,10 +696,11 @@ const getCategoryName = (category: string): string => {
 .load-more-section {
   text-align: center;
   padding: var(--space-8);
-  background: rgba(255, 255, 255, 0.05);
+  background: linear-gradient(135deg, rgba(26, 58, 138, 0.4), rgba(255, 215, 0, 0.25));
   backdrop-filter: blur(10px);
   border-radius: var(--radius-2xl);
-  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.1);
 }
 
 .coming-soon {
