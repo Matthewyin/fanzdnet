@@ -1,5 +1,7 @@
 # fanzd.net (重构版)
 
+[![Deploy to Alibaba Cloud](https://github.com/Matthewyin/fanzdnet/actions/workflows/deploy.yml/badge.svg)](https://github.com/Matthewyin/fanzdnet/actions/workflows/deploy.yml)
+
 本项目是 fanzd.net 粉丝站的重构版本，采用现代、轻量且高性能的技术栈构建。
 
 ## 项目简介
@@ -12,7 +14,7 @@
 *   **语言:** TypeScript
 *   **UI 框架:** Vue 3
 *   **样式:** 标准 CSS，使用 CSS 变量实现主题切换。
-*   **部署平台:** [Cloudflare Pages](https://pages.cloudflare.com/)
+*   **部署平台:** 阿里云香港服务器 + OpenResty
 
 ## 主要功能
 
@@ -55,16 +57,24 @@ npm run dev
 
 ## 部署
 
-本项目已针对 **Cloudflare Pages** 的官方 Git 集成流程进行了优化，可实现无缝部署。
+本项目使用 **GitHub Actions** 自动部署到阿里云香港服务器。
 
-1.  **推送至 GitHub:** 将您的代码提交并推送到 `main` 分支。
+### 自动部署
 
-2.  **配置 Cloudflare Pages:**
-    *   登录到 Cloudflare 仪表板。
-    *   创建一个新的 Pages 项目，并将其连接到您的 GitHub 仓库。
-    *   在构建设置中使用以下配置：
-        *   **框架预设 (Framework preset):** `Nuxt`
-        *   **构建命令 (Build command):** `npm run build`
-        *   **构建输出目录 (Build output directory):** `.output/public`
+每次推送到 `main` 分支后，GitHub Actions 会自动：
+1. 连接服务器 (47.239.220.136)
+2. 拉取最新代码
+3. 安装依赖并构建
+4. 重启 OpenResty
 
-每次推送到 `main` 分支后，Cloudflare 都会自动拉取代码、构建并部署您的网站。
+### 手动触发
+
+在 GitHub 仓库页面：
+**Actions** → **Deploy to Alibaba Cloud** → **Run workflow**
+
+### 服务器信息
+
+- **IP:** 47.239.220.136
+- **Web服务器:** OpenResty
+- **网站目录:** `/var/www/fanzdnet/.output/public`
+- **访问地址:** https://fanzd.net
