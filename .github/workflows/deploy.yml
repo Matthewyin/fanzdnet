@@ -5,28 +5,15 @@ on:
     branches: [main]
   workflow_dispatch:
 
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build Nuxt static site
-        run: npm run generate
-        env:
-          CI: true
-
       - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
@@ -34,23 +21,47 @@ jobs:
           username: root
           password: ${{ secrets.SERVER_PASSWORD }}
           script_stop: true
+          timeout: 300s
           script: |
             set -e
-
+            echo "🚀 Starting deployment..."
+            
             # 进入项目目录
             cd /var/www/fanzdnet
-
+            
+            # 保存当前的 .output（万一失败可以恢复）
+            if [ -d ".output/public" ]; then
+              mv .output/public .output/public.backup 2>/dev/null || true
+            fi
+            
             # 拉取最新代码
+            echo "📥 Pulling latest code..."
             git fetch origin
             git reset --hard origin/main
-
+            
             # 安装依赖
+            echo "📦 Installing dependencies..."
             npm ci --silent
-
+            
             # 构建静态文件
+            echo "🔨 Building site..."
             npm run generate --silent
-
+            
+            # 检查构建是否成功
+            if [ ! -f ".output/public/index.html" ]; then
+              echo "❌ Build failed! Restoring backup..."
+              rm -rf .output/public
+              mv .output/public.backup .output/public 2>/dev/null || true
+              exit 1
+            fi
+            
+            # 清理备份
+            rm -rf .output/public.backup 2>/dev/null || true
+            
             # 重启 OpenResty
+            echo "🔄 Reloading OpenResty..."
             systemctl reload openresty
-
+            
             echo "✅ Deployment completed successfully!"
+            echo "🌐 Website: https://fanzd.net"
+            echo "📅 Time: $(date)"
