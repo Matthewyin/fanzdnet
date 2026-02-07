@@ -61,5 +61,19 @@ export const heroDataEs = [
     subtitle: 'Coronación Real — Primer Campeón Olímpico Individual Masculino',
     quote: '"La gente siempre dice que ganar esta medalla de oro significa que lo tienes todo. Pero están equivocados. Ganarla es cuando todo realmente comienza. Porque desde este momento, ya no eres el perseguidor—eres la montaña."',
     description: 'Los Juegos Olímpicos. Este era el grial final, el único boleto al panteón. Llevó el peso de una era a la cancha final, enfrentando un reencuentro destinado con su oponente, como si el guión de la historia hubiera sido escrito hace mucho tiempo, esperando solo que él pasara la página final. Esto no era luchar por récords o títulos. Esto era luchar por lo que era "merecido". En el momento en que la medalla de oro colgó alrededor de su cuello, sonaron las campanas del Super Grand Slam. Fan Zhendong—este nombre ahora se encuentra junto a la inmortalidad. No completó su último baile; simplemente abrió una nueva era definida por él.'
+  },
+  {
+    url: 'https://placehold.co/1920x1080/1e3a8a/FFF?text=2025+National+Games',
+    title: '2025 · China Macau · Juegos Nacionales',
+    subtitle: 'Regreso del Rey — Defensa Exitosa del Título Individual',
+    quote: '"Algunos campeonatos los ganas no solo para ti, sino para demostrar que nunca dejaste esa cima."',
+    description: 'En los días sin clasificación mundial, las voces de duda nunca cesaron. Pero un verdadero rey no necesita clasificación para probarse. En Macau, respondió a todo con oro. Detrás del marcador 4:1 estaban innumerables diálogos internos, el hambre que permaneció después de dejar los reflectores. El segundo jugador en la historia de los Juegos Nacionales en defender exitosamente el título individual—este récord pesa más que cualquier clasificación.'
+  },
+  {
+    url: 'https://placehold.co/1920x1080/1e3a8a/FFF?text=2026+German+Cup',
+    title: '2026 · Alemania Neu-Ulm · Copa de Alemania',
+    subtitle: 'Conquistando Europa — Primer Título en el Extranjero, Coronado MVP',
+    quote: '"Los verdaderos campeones no temen campos de batalla desconocidos. Donde hay tenis de mesa, ahí está mi territorio."',
+    description: 'A través de medio planeta, comenzando desde cero. Barreras idiomáticas, entorno desconocido, dudas interminables—pero estos nunca fueron razones para que un guerrero retrocediera. En el escenario de la final de la Copa de Alemania, ganó cuatro partidos en un día, diciéndole a Europa: este rey de China todavía puede dominar su arena. El trofeo MVP fue el mejor regalo de bienvenida. El primer campeonato de su carrera en el extranjero—esto es solo el principio.'
   }
 ]

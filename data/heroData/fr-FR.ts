@@ -65,5 +65,19 @@ export const heroDataFr = [
     subtitle: 'Couronnement Royal — Premier Champion Olympique Simple Messieurs',
     quote: '"Les gens disent toujours que gagner cette médaille d\'or signifie que vous avez tout. Mais ils se trompent. La gagner, c\'est quand tout commence vraiment. Car à partir de ce moment, vous n\'êtes plus le poursuivant—vous êtes la montagne."',
     description: 'Les Jeux Olympiques. C\'était le graal final, le seul billet pour le panthéon. Il a porté le poids d\'une ère sur le court final, face à des retrouvailles destinées avec son adversaire, comme si le script de l\'histoire avait été écrit depuis longtemps, attendant seulement qu\'il tourne la dernière page. Ce n\'était pas se battre pour des records ou des titres. C\'était se battre pour ce qui était "mérité". Au moment où la médaille d\'or s\'est accrochée autour de son cou, les cloches du Super Grand Chelem ont retenti. Fan Zhendong—ce nom se dresse maintenant aux côtés de l\'immortalité. Il n\'a pas terminé sa dernière danse ; il a simplement ouvert une nouvelle ère définie par lui.'
+  },
+  {
+    url: 'https://placehold.co/1920x1080/1e3a8a/FFF?text=2025+National+Games',
+    title: '2025 · Chine Macau · Jeux Nationaux',
+    subtitle: 'Retour du Roi — Défense Réussie du Titre Individuel',
+    quote: '"Certains championnats, vous ne les gagnez pas seulement pour vous, mais pour prouver que vous n\'avez jamais quitté ce sommet."',
+    description: 'Aux jours sans classement mondial, les voix du doute n\'ont jamais cessé. Mais un vrai roi n\'a besoin d\'aucun classement pour se prouver. À Macau, il a répondu à tout par l\'or. Derrière le score de 4:1 se trouvaient d\'innombrables dialogues intérieurs, la faim qui est restée après avoir quitté les projecteurs. Le deuxième joueur de l\'histoire des Jeux Nationaux à défendre avec succès le titre individuel—ce record pèse plus lourd que tout classement.'
+  },
+  {
+    url: 'https://placehold.co/1920x1080/1e3a8a/FFF?text=2026+German+Cup',
+    title: '2026 · Allemagne Neu-Ulm · Coupe d\'Allemagne',
+    subtitle: 'Conquérir l\'Europe — Premier Titre à l\'Étranger, Couronné MVP',
+    quote: '"Les vrais champions ne craignent aucun champ de bataille inconnu. Où il y a tennis de table, là est mon territoire."',
+    description: 'À travers la moitié du globe, en partant de zéro. Barrières de langue, environnement inconnu, doutes sans fin—mais ce n\'étaient jamais des raisons pour un guerrier de reculer. Sur la scène de la finale de la Coupe d\'Allemagne, il a gagné quatre matchs en une journée, disant à l\'Europe : ce roi de Chine peut toujours dominer votre arène. Le trophée MVP était le meilleur cadeau de bienvenue. Le premier championnat de sa carrière à l\'étranger—ce n\'est que le début.'
   }
 ]

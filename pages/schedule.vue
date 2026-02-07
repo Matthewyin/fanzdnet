@@ -142,9 +142,23 @@
 
           <!-- 历史战绩 -->
           <section v-else class="matches-section">
+            <!-- 分类筛选 -->
+            <div class="category-filter">
+              <button
+                v-for="cat in categories"
+                :key="cat.key"
+                class="filter-btn"
+                :class="{ active: selectedCategory === cat.key }"
+                @click="selectedCategory = cat.key"
+              >
+                <span class="filter-icon">{{ cat.icon }}</span>
+                {{ cat.label }}
+                <span class="filter-count">({{ cat.count }})</span>
+              </button>
+            </div>
             <div class="matches-grid">
               <article
-                v-for="(match, index) in historyMatches"
+                v-for="(match, index) in filteredHistoryMatches"
                 :key="match.id"
                 class="match-card history"
                 :style="{ animationDelay: `${index * 0.1}s` }"
@@ -206,74 +220,592 @@ setPageSEO('schedule', locale.value);
 // 视图模式
 const viewMode = ref<'upcoming' | 'history'>('history');
 
-// 即将进行的比赛
+// 分类筛选
+const selectedCategory = ref<string>('all');
+
+// 分类配置
+const categories = computed(() => [
+  { key: 'all', label: '全部', icon: '🏓', count: historyMatches.value.length },
+  { key: 'olympic', label: '奥运会', icon: '🥇', count: olympicMatches.length },
+  { key: 'national', label: '全运会', icon: '🏆', count: nationalGamesMatches.length },
+  { key: 'bundesliga', label: '德甲', icon: '🇩🇪', count: bundesligaMatches.length },
+  { key: 'germancup', label: '德国杯', icon: '⚽', count: germanCupMatches.length }
+]);
+
+// 按日期从新到旧排序的辅助函数
+const sortByDateDesc = (matches: any[]) => {
+  return [...matches].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+};
+
+// 筛选后的历史战绩（每个分类都从新到旧排序）
+const filteredHistoryMatches = computed(() => {
+  switch (selectedCategory.value) {
+    case 'olympic':
+      return sortByDateDesc(olympicMatches);
+    case 'national':
+      return sortByDateDesc(nationalGamesMatches);
+    case 'bundesliga':
+      return sortByDateDesc(bundesligaMatches);
+    case 'germancup':
+      return sortByDateDesc(germanCupMatches);
+    default:
+      return historyMatches.value;
+  }
+});
+
+// 即将进行的比赛（2026年2月）
 const upcomingMatches = computed(() => [
   {
     id: 1,
-    event: t('schedule.event.germanLeague', '德国甲级联赛'),
-    round: t('schedule.round.regular', '第13轮'),
-    date: '2026-02-28',
-    player1: t('player.fanzhendong', '樊振东'),
-    player2: t('player.opponent', '穆尔豪森'),
-    location: t('schedule.location.germany', '德国')
-  }
-]);
-
-    // 历史战绩（部分重要比赛 - 数据来源维基百科）
-const historyMatches = computed(() => [
-  {
-    id: 1,
-    event: t('schedule.event.houstonWC', '休斯顿世锦赛'),
-    round: t('schedule.round.final', '决赛'),
-    date: '2021-11-29',
-    player1: t('player.fanzhendong', '樊振东'),
-    player2: t('player.moregard', '莫雷加德'),
-    player2Flag: '🇸🇪', 
-    score1: 4,
-    score2: 0,
-    result: 'win' as const,
-    location: '休斯顿'
+    event: '德甲联赛',
+    round: '第16轮',
+    date: '2026-02-11',
+    player1: '樊振东',
+    player2: '格瑞扎',
+    player2Flag: '🇩🇪',
+    location: '德国·萨尔布吕肯（主场）'
   },
   {
     id: 2,
-    event: t('schedule.event.parisOG', '巴黎奥运会'),
-    round: t('schedule.round.final', '男单决赛'),
-    date: '2024-08-04',
-    player1: t('player.fanzhendong', '樊振东'),
-    player2: t('player.moregard', '莫雷加德'),
+    event: '欧冠联赛',
+    round: '1/4决赛次回合',
+    date: '2026-02-14',
+    player1: '樊振东',
+    player2: '亨尼邦（法）',
+    player2Flag: '🇫🇷',
+    location: '德国·特里尔（主场）'
+  },
+  {
+    id: 3,
+    event: '德甲联赛',
+    round: '第17轮',
+    date: '2026-02-16',
+    player1: '樊振东',
+    player2: '杜塞尔多夫',
+    player2Flag: '🇩🇪',
+    location: '德国·杜塞尔多夫（客场）'
+  }
+]);
+
+// 历史战绩 - 按赛事分类
+// 1. 巴黎奥运会 (2024年) - 男单+男团
+const olympicMatches = [
+  // 男团比赛
+  {
+    id: 'oly-team-1',
+    event: '巴黎奥运会',
+    round: '男团1/8决赛',
+    date: '2024-08-06',
+    player1: '樊振东',
+    player2: '阿昌塔',
+    player2Flag: '🇮🇳',
+    score1: 3,
+    score2: 1,
+    result: 'win' as const,
+    location: '巴黎'
+  },
+  {
+    id: 'oly-team-2',
+    event: '巴黎奥运会',
+    round: '男团1/4决赛',
+    date: '2024-08-07',
+    player1: '樊振东',
+    player2: '林钟勋',
+    player2Flag: '🇰🇷',
+    score1: 3,
+    score2: 1,
+    result: 'win' as const,
+    location: '巴黎'
+  },
+  {
+    id: 'oly-team-3',
+    event: '巴黎奥运会',
+    round: '男团半决赛',
+    date: '2024-08-08',
+    player1: '樊振东',
+    player2: 'F·勒布伦',
+    player2Flag: '🇫🇷',
+    score1: 3,
+    score2: 1,
+    result: 'win' as const,
+    location: '巴黎'
+  },
+  {
+    id: 'oly-team-4',
+    event: '巴黎奥运会',
+    round: '男团决赛 🥇',
+    date: '2024-08-09',
+    player1: '樊振东',
+    player2: '莫雷高德',
     player2Flag: '🇸🇪',
+    score1: 3,
+    score2: 2,
+    result: 'win' as const,
+    location: '巴黎'
+  },
+  // 男单比赛
+  {
+    id: 'oly-1',
+    event: '巴黎奥运会',
+    round: '男单1/32决赛',
+    date: '2024-07-28',
+    player1: '樊振东',
+    player2: '扎穆登科',
+    player2Flag: '🇺🇦',
+    score1: 4,
+    score2: 0,
+    result: 'win' as const,
+    location: '巴黎'
+  },
+  {
+    id: 'oly-2',
+    event: '巴黎奥运会',
+    round: '男单1/16决赛',
+    date: '2024-07-29',
+    player1: '樊振东',
+    player2: '黄镇廷',
+    player2Flag: '🇭🇰',
     score1: 4,
     score2: 1,
     result: 'win' as const,
     location: '巴黎'
   },
   {
-    id: 3,
-    event: t('schedule.event.germanCup', '德国杯'),
-    round: t('schedule.round.final', '决赛'),
-    date: '2026-01-05',
-    player1: t('player.fanzhendong', '樊振东'),
-    player2: t('player.opponent', '富尔达马伯策尔'),
+    id: 'oly-3',
+    event: '巴黎奥运会',
+    round: '男单1/8决赛',
+    date: '2024-07-31',
+    player1: '樊振东',
+    player2: '卡纳克·贾哈',
+    player2Flag: '🇺🇸',
+    score1: 4,
+    score2: 0,
+    result: 'win' as const,
+    location: '巴黎'
+  },
+  {
+    id: 'oly-4',
+    event: '巴黎奥运会',
+    round: '男单1/4决赛',
+    date: '2024-08-01',
+    player1: '樊振东',
+    player2: '张本智和',
+    player2Flag: '🇯🇵',
+    score1: 4,
+    score2: 3,
+    result: 'win' as const,
+    location: '巴黎'
+  },
+  {
+    id: 'oly-5',
+    event: '巴黎奥运会',
+    round: '男单半决赛',
+    date: '2024-08-02',
+    player1: '樊振东',
+    player2: 'F·勒布伦',
+    player2Flag: '🇫🇷',
+    score1: 4,
+    score2: 0,
+    result: 'win' as const,
+    location: '巴黎'
+  },
+  {
+    id: 'oly-6',
+    event: '巴黎奥运会',
+    round: '男单决赛 🥇',
+    date: '2024-08-04',
+    player1: '樊振东',
+    player2: '莫雷高德',
+    player2Flag: '🇸🇪',
+    score1: 4,
+    score2: 1,
+    result: 'win' as const,
+    location: '巴黎'
+  }
+];
+
+// 2. 全运会 (2025年) - 男单+男团
+const nationalGamesMatches = [
+  // 男团比赛
+  {
+    id: 'ng-team-1',
+    event: '全运会',
+    round: '男团小组赛',
+    date: '2025-11-14',
+    player1: '樊振东',
+    player2: '孙闻',
+    player2Flag: '🇨🇳',
+    score1: 3,
+    score2: 1,
+    result: 'win' as const,
+    location: '澳门'
+  },
+  {
+    id: 'ng-team-2',
+    event: '全运会',
+    round: '男团小组赛',
+    date: '2025-11-17',
+    player1: '樊振东',
+    player2: '于何一',
+    player2Flag: '🇨🇳',
+    score1: 3,
+    score2: 2,
+    result: 'win' as const,
+    location: '澳门'
+  },
+  {
+    id: 'ng-team-3',
+    event: '全运会',
+    round: '男团1/4决赛',
+    date: '2025-11-18',
+    player1: '樊振东',
+    player2: '梁靖崑',
+    player2Flag: '🇨🇳',
+    score1: 3,
+    score2: 2,
+    result: 'win' as const,
+    location: '澳门'
+  },
+  {
+    id: 'ng-team-4',
+    event: '全运会',
+    round: '男团半决赛',
+    date: '2025-11-18',
+    player1: '樊振东',
+    player2: '徐瑛彬',
+    player2Flag: '🇨🇳',
+    score1: 3,
+    score2: 0,
+    result: 'win' as const,
+    location: '澳门'
+  },
+  {
+    id: 'ng-team-5',
+    event: '全运会',
+    round: '男团决赛 🥈',
+    date: '2025-11-20',
+    player1: '樊振东',
+    player2: '王楚钦',
+    player2Flag: '🇨🇳',
+    score1: 3,
+    score2: 1,
+    result: 'win' as const,
+    location: '澳门'
+  },
+  // 男单比赛
+  {
+    id: 'ng-1',
+    event: '全运会',
+    round: '男单1/16决赛',
+    date: '2025-11-09',
+    player1: '樊振东',
+    player2: '周雨',
+    player2Flag: '🇨🇳',
+    score1: 4,
+    score2: 0,
+    result: 'win' as const,
+    location: '澳门'
+  },
+  {
+    id: 'ng-2',
+    event: '全运会',
+    round: '男单1/8决赛',
+    date: '2025-11-11',
+    player1: '樊振东',
+    player2: '薛飞',
+    player2Flag: '🇨🇳',
+    score1: 4,
+    score2: 1,
+    result: 'win' as const,
+    location: '澳门'
+  },
+  {
+    id: 'ng-3',
+    event: '全运会',
+    round: '男单1/4决赛',
+    date: '2025-11-13',
+    player1: '樊振东',
+    player2: '孙正',
+    player2Flag: '🇨🇳',
+    score1: 4,
+    score2: 0,
+    result: 'win' as const,
+    location: '澳门'
+  },
+  {
+    id: 'ng-4',
+    event: '全运会',
+    round: '男单半决赛',
+    date: '2025-11-15',
+    player1: '樊振东',
+    player2: '王楚钦',
+    player2Flag: '🇨🇳',
+    score1: 4,
+    score2: 2,
+    result: 'win' as const,
+    location: '澳门'
+  },
+  {
+    id: 'ng-5',
+    event: '全运会',
+    round: '男单决赛 🥇',
+    date: '2025-11-16',
+    player1: '樊振东',
+    player2: '林诗栋',
+    player2Flag: '🇨🇳',
+    score1: 4,
+    score2: 1,
+    result: 'win' as const,
+    location: '澳门'
+  }
+];
+
+// 3. 德甲联赛 (2025-2026) - 每场比赛按出场次数记录
+const bundesligaMatches = [
+  // 第12轮（2场）
+  {
+    id: 'bl-12-1',
+    event: '德甲联赛',
+    round: '第12轮',
+    date: '2026-01-12',
+    player1: '樊振东',
+    player2: 'Alberto Mino',
+    player2Flag: '🇪🇨',
+    score1: 3,
+    score2: 0,
+    result: 'win' as const,
+    location: '多特蒙德（客场）'
+  },
+  {
+    id: 'bl-12-2',
+    event: '德甲联赛',
+    round: '第12轮',
+    date: '2026-01-12',
+    player1: '樊振东',
+    player2: 'Kristian Karlsson',
+    player2Flag: '🇸🇪',
+    score1: 3,
+    score2: 0,
+    result: 'win' as const,
+    location: '多特蒙德（客场）'
+  },
+  // 第11轮（2场）
+  {
+    id: 'bl-11-1',
+    event: '德甲联赛',
+    round: '第11轮',
+    date: '2025-12-21',
+    player1: '樊振东',
+    player2: 'Borgar Haug',
+    player2Flag: '🇳🇴',
+    score1: 3,
+    score2: 0,
+    result: 'win' as const,
+    location: '萨尔布吕肯（主场）'
+  },
+  {
+    id: 'bl-11-2',
+    event: '德甲联赛',
+    round: '第11轮',
+    date: '2025-12-21',
+    player1: '樊振东',
+    player2: 'Kanak Jha',
+    player2Flag: '🇺🇸',
+    score1: 3,
+    score2: 1,
+    result: 'win' as const,
+    location: '萨尔布吕肯（主场）'
+  },
+  // 第10轮（1场）
+  {
+    id: 'bl-10-1',
+    event: '德甲联赛',
+    round: '第10轮',
+    date: '2025-12-14',
+    player1: '樊振东',
+    player2: 'Iulian Chirita',
+    player2Flag: '🇷🇴',
+    score1: 3,
+    score2: 0,
+    result: 'win' as const,
+    location: '萨尔布吕肯（主场）'
+  },
+  // 第5轮（2场）
+  {
+    id: 'bl-5-1',
+    event: '德甲联赛',
+    round: '第5轮',
+    date: '2025-10-05',
+    player1: '樊振东',
+    player2: 'Marcelo Aguirre',
+    player2Flag: '🇵🇾',
+    score1: 1,
+    score2: 3,
+    result: 'loss' as const,
+    location: '云达不来梅（客场）'
+  },
+  {
+    id: 'bl-5-2',
+    event: '德甲联赛',
+    round: '第5轮',
+    date: '2025-10-05',
+    player1: '樊振东',
+    player2: 'Mattias Falck',
+    player2Flag: '🇸🇪',
+    score1: 3,
+    score2: 0,
+    result: 'win' as const,
+    location: '云达不来梅（客场）'
+  },
+  // 第3轮（1场）
+  {
+    id: 'bl-3-1',
+    event: '德甲联赛',
+    round: '第3轮',
+    date: '2025-09-14',
+    player1: '樊振东',
+    player2: 'Cedric Nuytinck',
+    player2Flag: '🇧🇪',
+    score1: 3,
+    score2: 0,
+    result: 'win' as const,
+    location: '萨尔布吕肯（主场）'
+  },
+  // 第2轮（2场）
+  {
+    id: 'bl-2-1',
+    event: '德甲联赛',
+    round: '第2轮',
+    date: '2025-09-06',
+    player1: '樊振东',
+    player2: 'Filip Zeljko',
+    player2Flag: '🇭🇷',
+    score1: 3,
+    score2: 1,
+    result: 'win' as const,
+    location: '巴特柯尼希斯霍芬（客场）'
+  },
+  {
+    id: 'bl-2-2',
+    event: '德甲联赛',
+    round: '第2轮',
+    date: '2025-09-06',
+    player1: '樊振东',
+    player2: 'Andre Bertelsmeier',
     player2Flag: '🇩🇪',
     score1: 3,
     score2: 1,
     result: 'win' as const,
-    location: '德国新乌尔姆'
+    location: '巴特柯尼希斯霍芬（客场）'
+  },
+  // 第1轮（2场）
+  {
+    id: 'bl-1-1',
+    event: '德甲联赛',
+    round: '第1轮',
+    date: '2025-08-31',
+    player1: '樊振东',
+    player2: 'Romain Ruiz',
+    player2Flag: '🇫🇷',
+    score1: 2,
+    score2: 3,
+    result: 'loss' as const,
+    location: '贝格诺伊斯塔特（客场）'
   },
   {
-    id: 4,
-    event: t('schedule.event.nationalGames', '全运会'),
-    round: t('schedule.round.final', '男单决赛'),
-    date: '2025-11-16',
-    player1: t('player.fanzhendong', '樊振东'),
-    score1: 4,
-    score2: 1,
-    player2: t('player.linshidong', '林诗栋'),
-    player2Flag: '🇨🇳',
-    result: 'win' as const,
-    location: '澳门'
+    id: 'bl-1-2',
+    event: '德甲联赛',
+    round: '第1轮',
+    date: '2025-08-31',
+    player1: '樊振东',
+    player2: 'Benedikt Duda',
+    player2Flag: '🇩🇪',
+    score1: 1,
+    score2: 3,
+    result: 'loss' as const,
+    location: '贝格诺伊斯塔特（客场）'
   }
-]);
+];
+
+// 4. 德国杯 (2025-2026)
+const germanCupMatches = [
+  {
+    id: 'gc-1',
+    event: '德国杯',
+    round: '1/8决赛',
+    date: '2025-09-19',
+    player1: '樊振东',
+    player2: '斯佐迪',
+    player2Flag: '🇭🇺',
+    score1: 3,
+    score2: 0,
+    result: 'win' as const,
+    location: '德国'
+  },
+  {
+    id: 'gc-2',
+    event: '德国杯',
+    round: '半决赛',
+    date: '2026-01-04',
+    player1: '樊振东',
+    player2: '阿比奥顿',
+    player2Flag: '🇵🇹',
+    score1: 3,
+    score2: 1,
+    result: 'win' as const,
+    location: '新乌尔姆'
+  },
+  {
+    id: 'gc-3',
+    event: '德国杯',
+    round: '半决赛',
+    date: '2026-01-04',
+    player1: '樊振东',
+    player2: '户上隼辅',
+    player2Flag: '🇯🇵',
+    score1: 3,
+    score2: 1,
+    result: 'win' as const,
+    location: '新乌尔姆'
+  },
+  {
+    id: 'gc-4',
+    event: '德国杯',
+    round: '决赛 🏆',
+    date: '2026-01-04',
+    player1: '樊振东',
+    player2: '奥恰洛夫',
+    player2Flag: '🇩🇪',
+    score1: 3,
+    score2: 0,
+    result: 'win' as const,
+    location: '新乌尔姆'
+  },
+  {
+    id: 'gc-5',
+    event: '德国杯',
+    round: '决赛 🏆',
+    date: '2026-01-04',
+    player1: '樊振东',
+    player2: '菲鲁斯',
+    player2Flag: '🇩🇪',
+    score1: 3,
+    score2: 0,
+    result: 'win' as const,
+    location: '新乌尔姆'
+  }
+];
+
+// 合并所有历史战绩（按日期从新到旧排序）
+const historyMatches = computed(() => {
+  const allMatches = [
+    ...olympicMatches,
+    ...nationalGamesMatches,
+    ...bundesligaMatches,
+    ...germanCupMatches
+  ];
+  return allMatches.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+});
 </script>
 
 <style scoped>
@@ -510,6 +1042,57 @@ const historyMatches = computed(() => [
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
+}
+
+/* 分类筛选 */
+.category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  padding: var(--space-4);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.filter-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  color: var(--color-accent-400);
+  background: rgba(255, 215, 0, 0.15);
+  border-color: rgba(255, 215, 0, 0.4);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+}
+
+.filter-icon {
+  font-size: var(--text-base);
+}
+
+.filter-count {
+  font-size: var(--text-xs);
+  opacity: 0.7;
 }
 
 /* 比赛列表 */

@@ -65,5 +65,19 @@ export const heroDataEn = [
     subtitle: 'Royal Coronation — First Olympic Men\'s Singles Champion',
     quote: '"People always say that winning this gold medal means you have everything. But they\'re wrong. Winning it is when everything truly begins. Because from this moment, you\'re no longer the pursuer—you are the mountain."',
     description: 'The Olympics. This was the final grail, the only ticket to the pantheon. He carried the weight of an era onto the final court, facing a destined reunion with his opponent, as if history\'s script had long been written, waiting only for him to turn the final page. This wasn\'t fighting for records or titles. This was fighting for what was "deserved." The moment the gold medal hung around his neck, the bells of the Super Grand Slam rang out. Fan Zhendong—this name now stands alongside immortality. He didn\'t complete his final dance; he simply opened a new era defined by him.'
+  },
+  {
+    url: 'https://placehold.co/1920x1080/1a3a8a/FFF?text=National+Games',
+    title: '2025 · China Macau · National Games',
+    subtitle: 'Return of the King — Successfully Defending National Games Title',
+    quote: '"Even without the halo of world rankings, a king is still a king. True strength never needs numbers to prove it."',
+    description: 'In the days without world rankings, the voices of doubt never ceased. But he chose to respond to everything with pure performance on the court. In Macau, facing the impact of a new generation, he reversed the tide in desperate situations and blossomed under pressure. His sixth National Games gold medal made him the second player after Ma Long to achieve consecutive National Games men\'s singles titles. This wasn\'t a comeback—because he never left.'
+  },
+  {
+    url: 'https://placehold.co/1920x1080/0a1428/FFF?text=German+Cup',
+    title: '2026 · Germany Neu-Ulm · German Cup',
+    subtitle: 'Conquering Europe — First Overseas Title',
+    quote: '"When you stand at the top of the world, you can choose to stay or walk toward broader horizons."',
+    description: 'Starting from Saarbrücken, he brought the spirit of Chinese table tennis onto European soil. Four matches in one day, all victories, crowned MVP. This championship belongs not only to Saarbrücken club but also to every fan who supports him. The first title of his overseas career is a new beginning and a declaration to the world: no matter where he is, he remains the warrior born for championships.'
   }
 ]

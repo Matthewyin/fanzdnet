@@ -65,5 +65,19 @@ export const heroDataSv = [
     subtitle: 'Kunglig Kröning — Första Olympiska Herrsingelmästaren',
     quote: '"Folk säger alltid att att vinna denna guldmedalj betyder att du har allt. Men de har fel. Att vinna den är när allt verkligen börjar. För från detta ögonblick är du inte längre förföljaren—du är berget."',
     description: 'De olympiska spelen. Detta var den sista gralen, den enda biljetten till panteon. Han bar vikten av en era till den slutliga banan, mötte ett ödesdigert återseende med sin motståndare, som om historiens manus länge hade varit skrivet och bara väntade på att han skulle vända den sista sidan. Detta var inte att kämpa för rekord eller titlar. Detta var att kämpa för vad som var "förtjänt". I ögonblicket när guldmedaljen hängde runt hans hals ringde klockorna för Super Grand Slam. Fan Zhendong—detta namn står nu bredvid odödlighet. Han fullbordade inte sin sista dans; han öppnade helt enkelt en ny era definierad av honom.'
+  },
+  {
+    url: 'https://placehold.co/1920x1080/1e3a8a/FFF?text=2025+National+Games',
+    title: '2025 · Kina Macau · Nationella Spelen',
+    subtitle: 'Konungens Återkomst — Framgångsrikt TitelFörsvar',
+    quote: '"Vissa mästerskap vinner du inte bara för dig själv, utan för att bevisa att du aldrig lämnade den toppen."',
+    description: 'I dagarna utan världsranking tystnade aldrig tvivlarnas röster. Men en sann kung behöver ingen ranking för att bevisa sig. I Macau svarade han på allt med guld. Bakom 4:1-resultatet låg otaliga inre samtal, hungern som fanns kvar efter att ha lämnat strålkastarljuset. Den andra spelaren i Nationella Spelens historia att framgångsrikt försvara singeltiteln—denna rekord väger tyngre än någon ranking.'
+  },
+  {
+    url: 'https://placehold.co/1920x1080/1e3a8a/FFF?text=2026+German+Cup',
+    title: '2026 · Tyskland Neu-Ulm · Tyska Cupen',
+    subtitle: 'Erobring av Europa — Första Utlandstiteln, Krönt MVP',
+    quote: '"Sanna mästare fruktar inga okända slagfält. Där det finns bordtennis, där är mitt territorium."',
+    description: 'Genom halva jordklotet, börja från noll. Språkbarriärer, främmande miljö, ändlöst tvivel—men detta var aldrig skäl för en krigare att dra sig tillbaka. På scenen i finalen av Tyska Cupen vann han fyra matcher på en dag och sade till Europa: denna kung från Kina kan fortfarande härska över er arena. MVP-trofén var den bästa välkomstgåvan. Det första mästerskapet i hans utlandskarriär—detta är bara början.'
   }
 ]
