@@ -127,7 +127,7 @@ export const heroEventsDataSv = [
     date: '2025-11-16',
     year: '2025',
     title: 'Nationella Spelen lagfinal - Segrar över Wang Chuqin',
-    description: 'I herrarnas lagfinal i bordtennis vid den 15:e Nationella Spelen besegrade Fan Zhendong Wang Chuqin i sin singelrunda och uppnådde därmed en dubbel seger över motståndaren i turneringen, vilket bidrog med viktiga poäng till laget.'}
+    description: 'I herrarnas lagfinal i bordtennis vid den 15:e Nationella Spelen besegrade Fan Zhendong Wang Chuqin i sin singelrunda och uppnådde därmed en dubbel seger över motståndaren i turneringen, vilket bidrog med viktiga poäng till laget.',
     eventType: 'tournament',
     location: 'Macao, Kina',
     finalStanding: 'Silver',
