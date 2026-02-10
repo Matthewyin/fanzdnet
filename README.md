@@ -77,4 +77,4 @@ npm run dev
 - **IP:** 47.239.220.136
 - **Web服务器:** OpenResty
 - **网站目录:** `/var/www/fanzdnet/.output/public`
-- **访问地址:** https://fanzd.net
+- **访问地址:** https://fanzd.net# Test GitHub Actions
