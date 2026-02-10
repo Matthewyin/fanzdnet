@@ -20,8 +20,7 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: root
           password: ${{ secrets.SERVER_PASSWORD }}
-          script_stop: true
-          timeout: 300s
+          timeout: 300
           script: |
             set -e
             echo "🚀 Starting deployment..."
