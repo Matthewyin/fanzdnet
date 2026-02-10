@@ -127,7 +127,7 @@ export const heroEventsDataKo = [
     date: '2025-11-16',
     year: '2025',
     title: '전국울동회 단체 결승 - 왕추친에게 승리',
-    description: '제15회 전국울동회 탁구 남자 단체 결승에서, 팬전동은 개인전에서 왕추친에게 승리하여 대회에서 상대방에게 더블 승리를 달성하고 팀에 중요한 포인트를 기여했다.'}
+    description: '제15회 전국울동회 탁구 남자 단체 결승에서, 팬전동은 개인전에서 왕추친에게 승리하여 대회에서 상대방에게 더블 승리를 달성하고 팀에 중요한 포인트를 기여했다.',
     eventType: 'tournament',
     location: '중국 마카오',
     finalStanding: '준우승',
