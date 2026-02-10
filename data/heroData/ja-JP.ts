@@ -127,7 +127,7 @@ export const heroEventsDataJa = [
     date: '2025-11-16',
     year: '2025',
     title: '全国運動会団体決勝 - 王楚欽に勝利',
-    description: '第15回全国運動会卓球男子団体決勝で、樊振東は個人戦で王楚欽に勝利し、大会で対戦相手にダブル勝利を達成し、チームに重要なポイントを貢献した。'}
+    description: '第15回全国運動会卓球男子団体決勝で、樊振東は個人戦で王楚欽に勝利し、大会で対戦相手にダブル勝利を達成し、チームに重要なポイントを貢献した。',
     eventType: 'tournament',
     location: '中国 マカオ',
     finalStanding: '準優勝',
