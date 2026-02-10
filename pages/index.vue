@@ -7,8 +7,8 @@
     <section class="champion-showcase-section">
       <div class="container-wide">
         <div class="section-header">
-          <h2 class="section-title">{{ $t('home.champion.title', '超级全满贯') }}</h2>
-          <p class="section-subtitle">{{ $t('home.champion.subtitle', '点击左侧蜂巢筛选冠军，乒坛史上第3位超级全满贯得主') }}</p>
+          <h2 class="section-title">{{ $t('home.champion.title', '超级金满贯') }}</h2>
+          <p class="section-subtitle">{{ $t('home.champion.subtitle', '点击左侧蜂巢筛选冠军，唯一超级金满贯得主') }}</p>
         </div>
         <ChampionShowcase />
       </div>

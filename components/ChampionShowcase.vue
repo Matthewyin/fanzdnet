@@ -8,7 +8,7 @@
             <h2 class="player-name">樊振东</h2>
             <span class="player-year">1997</span>
           </div>
-          <p class="champion-subtitle">超级全满贯得主</p>
+          <p class="champion-subtitle">唯一超级金满贯</p>
         </div>
 
         <!-- 蜂巢金字塔 -->

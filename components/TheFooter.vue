@@ -42,7 +42,7 @@
 
       <!-- 底部版权 -->
       <div class="footer-bottom">
-        <p class="copyright">{{ t('footer.copyright', '© 2024 Fanzd.net - 樊振东非官方粉丝网站') }}</p>
+        <p class="copyright">{{ t('footer.copyright', '© 2026 Fanzd.net - 樊振东非官方粉丝网站') }}</p>
         <p class="rights">{{ t('footer.allRightsReserved', '保留所有权利') }}</p>
       </div>
     </div>
