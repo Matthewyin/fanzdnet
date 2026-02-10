@@ -264,7 +264,7 @@ const articles = computed(() => [
     category: t('essays.category.insight', '个人感悟'),
     date: '2024-05-08',
     title: t('essays.article3Title', '小胖与球迷的双向奔赴'),
-    description: t('essays.article3Desc', '探讨樊振东与粉丝之间的特殊情感联结，以及他对球迷的真诚态度。')
+    description: t('essays.article3Desc', '探讨樊振东与球迷之间的特殊情感联结，以及他对球迷的真诚态度。')
   }
 ]);
 

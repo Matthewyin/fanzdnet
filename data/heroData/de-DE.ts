@@ -29,7 +29,7 @@ export const heroDataDe = [
     title: '2018 · Frankreich Paris · Weltmeisterschaft',
     subtitle: 'Territoriale Erklärung — Weltcup-Verteidigung',
     quote: '"Wenn die Leute denken, du hast den Gipfel erreicht, musst du ihnen zeigen, dass über dem Gipfel noch der Himmel ist."',
-    description: 'Zwei Jahre später war er nicht mehr der Herausforderer; er war derjenige, der herausgefordert wurde. In der legendären europäischen Hochburg, angesichts der donnernden Unterstützung der Fans seines Gegners, musste er gewinnen, um zu beweisen, dass seine Dominanz kein Zufall war. Er betrat den Palast seines Gegners und machte ihn ruhig zu seinem eigenen. Das war Reife und noch wichtiger, eine Aussage.'
+    description: 'Zwei Jahre später war er nicht mehr der Herausforderer; er war derjenige, der herausgefordert wurde. In der legendären europäischen Hochburg, angesichts des donnernden Unterstützung der Fans seines Gegners, musste er gewinnen, um zu beweisen, dass seine Dominanz kein Zufall war. Er betrat den Palast seines Gegners und machte ihn ruhig zu seinem eigenen. Das war Reife und noch wichtiger, eine Aussage.'
   },
   {
     url: '/images/carousel/hero-3.jpg',
@@ -79,5 +79,73 @@ export const heroDataDe = [
     subtitle: 'Eroberung Europas — Erster Auslandstitel, Gekrönter MVP',
     quote: '"Wahre Champions fürchten keine unbekannten Schlachtfelder. Wo Tischtennis ist, da ist mein Territorium."',
     description: 'Über den halben Erdball, von Null anfangend. Sprachbarrieren, fremde Umgebung, endlose Zweifel—aber das waren nie Gründe für einen Krieger zurückzuschrecken. Auf der Bühne des DFB-Pokal-Finales gewann er vier Spiele an einem Tag und erzählte Europa: Dieser König aus China kann immer noch eure Arena beherrschen. Die MVP-Trophäe war das beste Willkommensgeschenk. Die erste Meisterschaft seiner Auslandskarriere—dies ist erst der Anfang.'
+  }
+]
+
+// Detaillierte Veranstaltungsdaten auf Deutsch
+export const heroEventsDataDe = [
+  // === 2024年 ===
+  {
+    date: '2024-12-27',
+    year: '2024',
+    title: 'Kündigt Rücktritt vom Weltranking an',
+    description: 'Kündigte über soziale Medien an, dass er das Weltranking-System verlassen wird, stellte aber klar, dass er "nicht zurücktritt" und weiterhin an nationalen Wettbewerben und Clubspielen teilnehmen wird.',
+    eventType: 'announcement',
+    location: null
+  },
+
+  // === 2025年 ===
+  {
+    date: '2025-06-01',
+    year: '2025',
+    title: 'Schließt sich offiziell dem Saarbrücken-Club in Deutschland an',
+    description: 'Unterzeichnete offiziell beim Saarbrücken-Club in Deutschland, um der Tischtennis-Bundesliga (TTBL) und der Champions League für die Saison 2025-2026 beizutreten.',
+    eventType: 'transfer',
+    location: 'Saarbrücken, Deutschland'
+  },
+  {
+    date: '2025-11-15',
+    year: '2025',
+    title: 'Nationalspiele Einzel Halbfinale - Sieg über Wang Chuqin',
+    description: 'In der Galaxy Arena in Macau besiegte Fan Zhendong Wang Chuqin, der zu diesem Zeitpunkt auf dem ersten Platz der Weltrangliste stand, mit 4:2 und zog als Erster in das Finale ein.',
+    eventType: 'tournament',
+    location: 'Macao, China'
+  },
+  {
+    date: '2025-11-16',
+    year: '2025',
+    title: 'Nationalspiele Einzel Champion - Erfolgreiche Titelverteidigung',
+    description: 'Als der Gegner Lin Shidong mit 9:4 führte, holte Fan Zhendong 7 Punkte in Folge auf und gewann den ersten Satz. Dann, in explosiver Form, gewann er drei Sätze in Folge. Dies ist die zweite Einzelmeisterschaft von Fan Zhendong bei den Nationalspielen, bei der er den Titel erfolgreich verteidigt hat.',
+    eventType: 'world_championship',
+    location: 'Macao, China',
+    achievements: ['Nationalspiele Einzel Champion', 'Sechste Nationalspiele Goldmedaille', 'Erfolgreiche Titelverteidigung'],
+    finalStanding: 'Champion',
+    score: '4:1',
+    opponent: 'Lin Shidong'
+  },
+  {
+    date: '2025-11-16',
+    year: '2025',
+    title: 'Nationalspiele Mannschaftsfinale - Sieg über Wang Chuqin',
+    description: 'Im Mannschaftsfinale des Tischtennis der Nationalspiele besiegte Fan Zhendong Wang Chuqin in seiner Einzelrunde, erzielte einen Doppelsieg über den Gegner im Turnier und trug entscheidend zur Mannschaftsleistung bei.',
+    eventType: 'tournament',
+    location: 'Macao, China',
+    finalStanding: 'Vizemeister',
+    score: null,
+    opponent: 'Team Peking'
+  },
+
+  // === 2026年 ===
+  {
+    date: '2026-01-05',
+    year: '2026',
+    title: 'DFB-Pokal Champion - Erster Auslandstitel',
+    description: 'Das DFB-Pokal-Finale fand in Neu-Ulm statt. Fan Zhendong gewann 3:0 gegen Ovtcharov im ersten Satz und 3:0 gegen Filus im vierten Satz. Vier Siege an einem Tag, zum MVP gewählt.',
+    eventType: 'world_championship',
+    location: 'Neu-Ulm, Deutschland',
+    achievements: ['DFB-Pokal Champion', 'Erster Auslandstitel', 'MVP'],
+    finalStanding: 'Champion',
+    score: '3-1',
+    opponent: 'Fulda-Maberzell'
   }
 ]

@@ -25,10 +25,10 @@
     "description": "Klicka på knappen nedan för att börja din kreativa resa.",
     "button": "Få Ny Inspiration",
     "loading": "Hämtar inspiration...",
-    "error": "Tyvärr är inspirationen tillfälligt uttömd, försök igen senare."
+    "error": "Ursäkta, inspirationen laddas för tillfället. Försök igen senare."
   },
   "about": {
-    "description1": "Denna webbplats är ett inofficiellt informationsnav skapat av fans för Fan Zhendong, dedikerat till att dela och dokumentera varje ögonblick av hans karriär.",
+    "description1": "Denna webbplats är ett inofficiellt informationsnav skapat av fans för Fan Zhendong, för att dela och dokumentera varje ögonblick av hans karriär.",
     "description2": "Allt innehåll är sammanställt från offentligt tillgängliga onlinekällor. Om du har några frågor eller förslag, tveka inte att kontakta oss."
   },
   "theme": {
@@ -67,17 +67,64 @@
     "timeline": {
       "title": "Tidslinje",
       "description": "I tidslinjeformat, registrerar viktiga milstolpar och höjdpunkter i Fan Zhendongs karriär, granskar varje steg från begåvad ungdom till bordtennislegend."
+    },
+    "essays": {
+      "title": "Essäer",
+      "description": "Läs djupgående analyser och kommentarartiklar om bordtennis, idrottsanda och Fan Zhendongs karriär."
+    }
+  },
+  "updates": {
+    "filter": "Filtrera",
+    "all": "Alla",
+    "match": "Match",
+    "media": "Media",
+    "total": "Totalt {count} uppdateringar",
+    "categories": "Kategorier",
+    "item1": {
+      "title": "Tyska Cupen mästare! Fan Zhendong MVP och första utländska titeln",
+      "excerpt": "I finalen av Tyska Cupen besegrade Fan Zhendongs klubb Saarbrücken motståndaren med 3-1. Fan Zhendong vann MVP efter fyra segrar på en dag och tog sin första titel utomlands.",
+      "source": "Xinhua News"
+    },
+    "item2": {
+      "title": "Försvarade herrsingeltiteln vid National Games, sjätte guldet totalt",
+      "excerpt": "I herrsingelfinalen vid den 15:e National Games besegrade Fan Zhendong Lin Shidong med 4-1 för att försvara sin titel och säkra sin andra raka herrsingeltitel vid National Games.",
+      "source": "CCTV Sports"
+    },
+    "item3": {
+      "title": "Första segern i Bundesliga",
+      "excerpt": "I den andra omgången av Bundesliga besegrade Saarbrücken borta Bad Königshofen med 3-1. Fan Zhendong tog sin första personliga seger i Bundesliga.",
+      "source": "Xinhua"
+    },
+    "item4": {
+      "title": "Officiellt ansluten till Bundesliga-klubben Saarbrücken",
+      "excerpt": "Bundesliga-klubben Saarbrücken meddelade officiellt att de har tecknat kontrakt med Fan Zhendong för Bundesliga-säsongen 2025-2026 och Champions League.",
+      "source": "Olympics.com"
+    },
+    "item5": {
+      "title": "Meddelade utträde från världsrankningssystemet",
+      "excerpt": "Fan Zhendong meddelade via sociala medier att han lämnar världsrankningssystemet, men klargjorde att han inte slutar som aktiv spelare och kommer fortsätta delta i inhemska turneringar och klubbmatcher.",
+      "source": "Weibo"
+    },
+    "item6": {
+      "title": "Guld i herrsingel vid OS i Paris, uppnådde Super Golden Slam",
+      "excerpt": "I herrsingelfinalen i bordtennis vid OS i Paris besegrade Fan Zhendong Truls Möregårdh med 4-1 och vann guld. Han fullbordade Grand Slam och uppnådde Super Golden Slam.",
+      "source": "Olympics.com"
+    },
+    "item7": {
+      "title": "Klassisk vändning vid OS i Paris! 4:3 seger mot Tomokazu Harimoto till semifinal",
+      "excerpt": "I kvartsfinalen i herrsingel vid OS i Paris, efter att ha legat under med 0-2 och 2-3, vände Fan Zhendong matchen och besegrade japanske Tomokazu Harimoto med 4-3 och avancerade till semifinal.",
+      "source": "CCTV Sports"
     }
   },
   "footer": {
     "disclaimer": "All data på denna webbplats kommer från offentligt tillgänglig information på internet, endast för kommunikation och lärande mellan fans.",
     "contact": "Om det finns upphovsrättsintrång eller felaktig information, vänligen kontakta oss för radering eller korrigering.",
-    "copyright": "© 2024 Fanzd.net - Inofficiell Fan Zhendong Fan-webbplats",
+    "copyright": "© 2026 Fanzd.net - Inofficiell Fan Zhendong Fan-webbplats",
     "allRightsReserved": "Alla rättigheter förbehållna"
   },
   "pages": {
     "home": {
-      "title": "Inofficiell Fan Zhendong Fan-webbplats - Fanzd.net",
+      "title": "fanzd.net",
       "description": "Inofficiell Fan Zhendong fan-webbplats, dokumenterar varje spännande ögonblick av bordtennislegenden"
     },
     "updates": {
@@ -106,7 +153,7 @@
     "about": {
       "title": "Om",
       "description": "Mer information om denna webbplats och Fan Zhendong.",
-      "description1": "Denna webbplats är ett inofficiellt informationsnav skapat av fans för Fan Zhendong, dedikerat till att dela och dokumentera varje ögonblick av hans karriär.",
+      "description1": "Denna webbplats är ett inofficiellt informationsnav skapat av fans för Fan Zhendong, för att dela och dokumentera varje ögonblick av hans karriär.",
       "description2": "Allt innehåll är sammanställt från offentligt tillgängliga onlinekällor. Om du har några frågor eller förslag, tveka inte att kontakta oss."
     }
   }

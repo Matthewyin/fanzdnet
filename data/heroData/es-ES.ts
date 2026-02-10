@@ -77,3 +77,71 @@ export const heroDataEs = [
     description: 'A través de medio planeta, comenzando desde cero. Barreras idiomáticas, entorno desconocido, dudas interminables—pero estos nunca fueron razones para que un guerrero retrocediera. En el escenario de la final de la Copa de Alemania, ganó cuatro partidos en un día, diciéndole a Europa: este rey de China todavía puede dominar su arena. El trofeo MVP fue el mejor regalo de bienvenida. El primer campeonato de su carrera en el extranjero—esto es solo el principio.'
   }
 ]
+
+// 西班牙语详细赛事数据
+export const heroEventsDataEs = [
+  // === 2024年 ===
+  {
+    date: '2024-12-27',
+    year: '2024',
+    title: 'Anuncia su retiro del ranking mundial',
+    description: 'Anunció a través de las redes sociales que dejará el sistema de ranking mundial, pero dejó claro que "no se retira" y continuará participando en competiciones nacionales y de clubes.',
+    eventType: 'announcement',
+    location: null
+  },
+
+  // === 2025年 ===
+  {
+    date: '2025-06-01',
+    year: '2025',
+    title: 'Se une oficialmente al club Saarbrücken de Alemania',
+    description: 'Firmó oficialmente con el club Saarbrücken de Alemania para unirse a la Bundesliga de Tenis de Mesa (TTBL) y la Liga de Campeones de Europa para la temporada 2025-2026.',
+    eventType: 'transfer',
+    location: 'Saarbrücken, Alemania'
+  },
+  {
+    date: '2025-11-15',
+    year: '2025',
+    title: 'Semifinal individual de los Juegos Nacionales - Derrota a Wang Chuqin',
+    description: 'En el Galaxy Arena de Macau, Fan Zhendong derrotó a Wang Chuqin, quien ocupaba el primer lugar en el ranking mundial en ese momento, con un marcador de 4:2, avanzando primero a la final.',
+    eventType: 'tournament',
+    location: 'Macao, China'
+  },
+  {
+    date: '2025-11-16',
+    year: '2025',
+    title: 'Campeón individual de los Juegos Nacionales - Defensa exitosa del título',
+    description: 'Cuando el oponente Lin Shidong lideraba 9:4, Fan Zhendong remontó 7 puntos consecutivos para ganar el primer set. Luego, con un estado explosivo, ganó tres sets consecutivos. Este es el segundo campeonato individual de Fan Zhendong en los Juegos Nacionales, defendiendo exitosamente el título.',
+    eventType: 'world_championship',
+    location: 'Macao, China',
+    achievements: ['Campeón individual de los Juegos Nacionales', 'Sexta medalla de oro de los Juegos Nacionales', 'Defensa exitosa del título'],
+    finalStanding: 'Campeón',
+    score: '4:1',
+    opponent: 'Lin Shidong'
+  },
+  {
+    date: '2025-11-16',
+    year: '2025',
+    title: 'Final por equipos de los Juegos Nacionales - Victoria sobre Wang Chuqin',
+    description: 'En la final por equipos de tenis de mesa masculino de los Juegos Nacionales, Fan Zhendong derrotó a Wang Chuqin en su turno individual, logrando una doble victoria sobre el oponente en el torneo, contribuyendo puntos clave para el equipo.',
+    eventType: 'tournament',
+    location: 'Macao, China',
+    finalStanding: 'Subcampeón',
+    score: null,
+    opponent: 'Equipo de Pekín'
+  },
+
+  // === 2026年 ===
+  {
+    date: '2026-01-05',
+    year: '2026',
+    title: 'Campeón de la Copa de Alemania - Primer título en el extranjero',
+    description: 'La final de la Copa de Alemania se celebró en Neu-Ulm. Fan Zhendong ganó 3:0 contra Ovtcharov en el primer set y 3:0 contra Filus en el cuarto set. Cuatro victorias en un día, elegido MVP.',
+    eventType: 'world_championship',
+    location: 'Neu-Ulm, Alemania',
+    achievements: ['Campeón de la Copa de Alemania', 'Primer título en el extranjero', 'MVP'],
+    finalStanding: 'Campeón',
+    score: '3-1',
+    opponent: 'Fulda-Maberzell'
+  }
+]

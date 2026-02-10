@@ -10,7 +10,7 @@ export const heroTimelineData: HeroEvent[] = [
     description: '在2024年巴黎奥运会上,樊振东在队友王楚钦因实力不济出局的情况下,成功夺得男子单打金牌,成为集奥运会、世锦赛、世界杯、亚运会、亚锦赛、亚洲杯、巡回赛总决赛、全运会及全锦赛单打冠军于一身的"唯一超级金满贯"选手。',
     location: '法国巴黎',
     eventType: HeroEventType.WorldChampionship,
-    achievements: ['奥运男单金牌', '超级全贯', '大满贯'],
+    achievements: ['奥运男单金牌', '超级全贯', '超级金满贯'],
     finalStanding: '冠军',
     score: '4-1'
   },
@@ -84,7 +84,7 @@ export const heroTimelineData: HeroEvent[] = [
   },
   {
     date: '2026-01-05',
-    title: '德国杯冠军 - 留洋首冠',
+    title: '德国杯冠军 - 留德首冠',
     description: '德国杯决赛4日在德国新乌尔姆举行,樊振东所在的萨尔布吕肯俱乐部以3:1战胜富尔达马伯策尔俱乐部,夺得冠军，并获得杯赛MVP。这是樊振东加盟萨尔布吕肯俱乐部以来获得的首个冠军,也是他职业生涯正式比赛第115冠。',
     location: '德国新乌尔姆',
     eventType: HeroEventType.Tournament,

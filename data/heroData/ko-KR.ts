@@ -81,3 +81,71 @@ export const heroDataKo = [
     description: '지구 반대편까지, 제로부터 시작. 언어 장벽, 낯선 환경, 끝없는 의심—하지만 그것들은 전사가 물러설 이유가 되지 않았다. 독일컵 결승 물대에서 그는 하루에 4경기 전승을 거두며 유럽에 알렸다: 이 중국에서 온 왕은 여러분의 경기장도 지배할 수 있다. MVP 트로피는 최고의 환영 선물이었다. 해외 경력 첫 우승—이것은 시작에 불과하다.'
   }
 ]
+
+// 한국어 버전 상세 이벤트 데이터
+export const heroEventsDataKo = [
+  // === 2024年 ===
+  {
+    date: '2024-12-27',
+    year: '2024',
+    title: '세계랭킹에서의 은퇴 발표',
+    description: '소셜 미디어를 통해 세계랭킹 시스템에서 은퇴할 것을 발표했으나, "은퇴하지 않겠다"고 명확히 하고 국내 대회와 클럽 경기에 계속 참여할 것을 밝혔다.',
+    eventType: 'announcement',
+    location: null
+  },
+
+  // === 2025年 ===
+  {
+    date: '2025-06-01',
+    year: '2025',
+    title: '독일 자륵브뤼켄 클럽에 정식 입단',
+    description: '2025-2026 시즌 독일 탁구 분데스리가(TTBL)와 유럽 챔피언스 리그 참가를 위해 독일 자륵브뤼켄 클럽과 정식 계약을 체결했다.',
+    eventType: 'transfer',
+    location: '독일 자륵브뤼켄'
+  },
+  {
+    date: '2025-11-15',
+    year: '2025',
+    title: '전국울동회 단식 준결승 - 왕추친 격파',
+    description: '마카오 갤럭시 아레나에서, 팬전동은 당시 세계랭킹 1위였던 왕추친을 4:2로 격파하고 결승에 먼저 진출했다.',
+    eventType: 'tournament',
+    location: '중국 마카오'
+  },
+  {
+    date: '2025-11-16',
+    year: '2025',
+    title: '전국울동회 단식 우승 - 2연패 달성',
+    description: '상대방 린스동이 9:4로 앞선 상황에서, 팬전동은 7점을 연속으로 따라잡아 1세트를 역전했다. 이후 폭발적인 상태로 11:5, 11:3, 11:4의 스코어로 3세트를 연속으로 승리하며 전국울동회 단식 2번째 우승, 2연패를 달성했다.',
+    eventType: 'world_championship',
+    location: '중국 마카오',
+    achievements: ['전국울동회 단식 우승', '6번째 전국울동회 금메달', '2연패 달성'],
+    finalStanding: '우승',
+    score: '4:1',
+    opponent: '린스동'
+  },
+  {
+    date: '2025-11-16',
+    year: '2025',
+    title: '전국울동회 단체 결승 - 왕추친에게 승리',
+    description: '제15회 전국울동회 탁구 남자 단체 결승에서, 팬전동은 개인전에서 왕추친에게 승리하여 대회에서 상대방에게 더블 승리를 달성하고 팀에 중요한 포인트를 기여했다.'}
+    eventType: 'tournament',
+    location: '중국 마카오',
+    finalStanding: '준우승',
+    score: null,
+    opponent: '베이징팀'
+  },
+
+  // === 2026年 ===
+  {
+    date: '2026-01-05',
+    year: '2026',
+    title: '독일컵 우승 - 해외 첫 타이틀',
+    description: '독일컵 결승은 노이울름에서 열렸다. 팬전동은 1세트에서 오브차로프에게 3:0, 4세트에서 필루스에게 3:0으로 승리했다. 하루에 4경기 전승, MVP 수상.',
+    eventType: 'world_championship',
+    location: '독일 노이울름',
+    achievements: ['독일컵 우승', '해외 첫 타이틀', 'MVP'],
+    finalStanding: '우승',
+    score: '3-1',
+    opponent: '풀다-마버첼'
+  }
+]

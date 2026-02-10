@@ -25,10 +25,10 @@
     "description": "Click the button below to start your creative journey.",
     "button": "Get New Inspiration",
     "loading": "Getting inspiration...",
-    "error": "Sorry, inspiration is temporarily exhausted, please try again later."
+    "error": "Sorry, inspiration is loading, please try again later."
   },
   "about": {
-    "description1": "This website is an unofficial information hub created by fans for Fan Zhendong, dedicated to sharing and documenting every moment of his career.",
+    "description1": "This website is an unofficial information hub created by fans for Fan Zhendong, sharing and documenting every moment of his career.",
     "description2": "All content is compiled from publicly available online sources. If you have any questions or suggestions, please feel free to contact us."
   },
   "theme": {
@@ -73,10 +73,53 @@
       "description": "Read in-depth analysis and commentary articles about table tennis, sportsmanship and Fan Zhendong's career."
     }
   },
+  "updates": {
+    "filter": "Filter",
+    "all": "All",
+    "match": "Match",
+    "media": "Media",
+    "total": "Total {count} updates",
+    "categories": "Categories",
+    "item1": {
+      "title": "German Cup Champion! Fan Zhendong Wins MVP in First Overseas Title",
+      "excerpt": "In the German Cup final, Fan Zhendong's Saarbrücken club defeated their opponent 3:1. Fan Zhendong won all four matches in one day and was named MVP, claiming his first championship since joining the overseas club.",
+      "source": "Xinhua News Agency"
+    },
+    "item2": {
+      "title": "National Games Men's Singles Title Successfully Defended, Sixth National Games Gold Medal Won",
+      "excerpt": "In the 15th National Games men's singles final, Fan Zhendong defeated Lin Shidong 4:1 to successfully defend his title, winning consecutive National Games men's singles championships.",
+      "source": "CCTV Sports"
+    },
+    "item3": {
+      "title": "First Victory in Bundesliga",
+      "excerpt": "In the second round of the Bundesliga, Saarbrücken Club defeated巴特柯尼希斯霍芬 Club 3:1 away, and Fan Zhendong achieved his first victory in the Bundesliga.",
+      "source": "Xinhua News Agency"
+    },
+    "item4": {
+      "title": "Officially Joined Bundesliga Saarbrücken Club",
+      "excerpt": "The German Table Tennis Bundesliga club Saarbrücken officially announced the signing of Fan Zhendong to participate in the 2025-2026 Bundesliga and European Champions League seasons.",
+      "source": "Olympics.com"
+    },
+    "item5": {
+      "title": "Announced Withdrawal from World Ranking System",
+      "excerpt": "Fan Zhendong announced his withdrawal from the world ranking system through social media, but explicitly stated that he will not retire and will continue to participate in domestic events and club competitions.",
+      "source": "Weibo"
+    },
+    "item6": {
+      "title": "Paris Olympics Men's Singles Champion, Achieving Grand Slam Glory",
+      "excerpt": "In the Paris Olympics table tennis men's singles final, Fan Zhendong defeated Truls Moregard 4:1 to win the gold medal, completing the Grand Slam and achieving the Super Golden Slam.",
+      "source": "Olympics.com"
+    },
+    "item7": {
+      "title": "Classic Comeback at Paris Olympics! Defeated Harimoto 4:3 to Reach Semifinals",
+      "excerpt": "In the Paris Olympics men's singles quarterfinals, Fan Zhendong reversed and defeated Japanese player Tomokazu Harimoto 4:3 after trailing 0:2 and 2:3, staging a stunning comeback.",
+      "source": "CCTV Sports"
+    }
+  },
   "footer": {
     "disclaimer": "All data on this site comes from publicly available information on the internet, for fan communication and learning purposes only.",
     "contact": "If there is any infringement or incorrect information, please contact us for deletion or correction.",
-    "copyright": "© 2024 Fanzd.net - Unofficial Fan Zhendong Fan Site",
+    "copyright": "© 2026 Fanzd.net - Unofficial Fan Zhendong Fan Site",
     "allRightsReserved": "All rights reserved",
     "tagline": "Unofficial Fan Zhendong Fan Site",
     "quickLinks": "Quick Links",
@@ -112,7 +155,7 @@
   },
   "pages": {
     "home": {
-      "title": "Unofficial Fan Zhendong Fan Site - Fanzd.net",
+      "title": "Unofficial Fan Zhendong Fan Site - fanzd.net",
       "description": "Unofficial Fan Zhendong fan site, recording every exciting moment of the table tennis legend"
     },
     "updates": {

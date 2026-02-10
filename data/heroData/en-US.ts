@@ -1,4 +1,7 @@
 // English version of Hero data
+import type { HeroEvent } from '~/types/firestore'
+import { HeroEventType } from '~/types/firestore'
+
 export const heroDataEn = [
   {
     url: 'https://placehold.co/1920x1080/0a1428/FFF?text=Fanzd.net',
@@ -79,5 +82,132 @@ export const heroDataEn = [
     subtitle: 'Conquering Europe — First Overseas Title',
     quote: '"When you stand at the top of the world, you can choose to stay or walk toward broader horizons."',
     description: 'Starting from Saarbrücken, he brought the spirit of Chinese table tennis onto European soil. Four matches in one day, all victories, crowned MVP. This championship belongs not only to Saarbrücken club but also to every fan who supports him. The first title of his overseas career is a new beginning and a declaration to the world: no matter where he is, he remains the warrior born for championships.'
+  }
+]
+
+export const heroEventsDataEn: HeroEvent[] = [
+  // === 2024 ===
+  {
+    date: '2024-12-27',
+    year: '2024',
+    title: 'Announced Withdrawal from World Rankings',
+    description: 'Announced via social media the decision to withdraw from the world ranking system, but explicitly stated "will not retire" and will continue to participate in domestic tournaments and club competitions. This was a response to the WTT\'s new policy of fining players for non-participation.',
+    eventType: HeroEventType.Announcement,
+    location: null
+  },
+
+  // === 2025 ===
+  {
+    date: '2025-06-01',
+    year: '2025',
+    title: 'Officially Joined German Saarbrücken Club',
+    description: 'Officially signed with German Saarbrücken club to join the 2025-2026 German Table Tennis Bundesliga (TTBL) and European Champions League. Base salary of 1.2 million euros, setting a new record for foreign players joining the German league.',
+    eventType: HeroEventType.Transfer,
+    location: 'Saarbrücken, Germany'
+  },
+  {
+    date: '2025-09-06',
+    year: '2025',
+    title: 'Bundesliga Round 2 - First Victory',
+    description: 'Away challenge against Bad Königshofen, Fan Zhendong defeated Zeljko Filip 3:1 in the second match and Andre Bertelsmeier 3:1 in the fourth match, achieving his first personal Bundesliga victory and helping the team win 3:0.',
+    eventType: HeroEventType.Tournament,
+    location: 'Germany',
+    score: '3-0',
+    opponent: 'Bad Königshofen'
+  },
+  {
+    date: '2025-09-14',
+    year: '2025',
+    title: 'Bundesliga Round 3 - Continuing Winning Streak',
+    description: 'Fan Zhendong defeated Cedric Nuytinck 3:0, helping the team easily defeat Bergneustadt 3:0.',
+    eventType: HeroEventType.Tournament,
+    location: 'Germany',
+    score: '3-0',
+    opponent: 'Bergneustadt'
+  },
+  {
+    date: '2025-11-15',
+    year: '2025',
+    title: 'National Games Men\'s Singles Semi-final - Defeated Wang Chuqin',
+    description: 'A peak showdown at the Galaxy Arena in Macau, Fan Zhendong defeated Wang Chuqin, then world No. 1, 4:2 to advance to the final first. This match demonstrated that Fan Zhendong remains at world-class level even without world rankings.',
+    eventType: HeroEventType.Tournament,
+    location: 'Macau, China'
+  },
+  {
+    date: '2025-11-16',
+    year: '2025',
+    title: '15th National Games Men\'s Singles Champion - Successfully Defended',
+    description: 'When opponent Lin Shidong led 9:4, Fan Zhendong came back to win 7 consecutive points to reverse the first game. Then his form exploded, winning three more games with scores of 11:5, 11:3, and 11:4 to claim the championship. This was Fan Zhendong\'s second National Games men\'s singles title, successfully defending his crown.',
+    eventType: HeroEventType.WorldChampionship,
+    location: 'Macau, China',
+    achievements: ['National Games Men\'s Singles Champion', 'Sixth National Games Gold Medal', 'Successful Defense'],
+    finalStanding: 'Champion',
+    score: '4:1',
+    opponent: 'Lin Shidong'
+  },
+  {
+    date: '2025-11-16',
+    year: '2025',
+    title: '15th National Games Team Final - Won Individual Match Against Wang Chuqin',
+    description: 'In the 15th National Games men\'s team final, Fan Zhendong defeated Wang Chuqin in his individual match, achieving a double victory over the opponent in the tournament, contributing crucial points to the team.',
+    eventType: HeroEventType.Tournament,
+    location: 'Macau, China',
+    finalStanding: 'Runner-up',
+    score: null,
+    opponent: 'Beijing Team'
+  },
+  {
+    date: '2025-12-14',
+    year: '2025',
+    title: 'Bundesliga Round 10 - Home Victory',
+    description: 'Saarbrücken club defeated Ochsenhausen 3:0 at home, with Fan Zhendong defeating his opponent 3:0 in the second match to seal the victory for the team.',
+    eventType: HeroEventType.Tournament,
+    location: 'Germany',
+    score: '3-0',
+    opponent: 'Ochsenhausen'
+  },
+
+  // === 2026 ===
+  {
+    date: '2026-01-04',
+    year: '2026',
+    title: 'German Cup Semi-final - Winning Debut',
+    description: 'In the New Year debut of the German Cup, Fan Zhendong played consecutively in the second and fourth matches, defeating 17-year-old Portuguese player Abiodun 3:1, helping the team draw 2:1 with defending champion Ochsenhausen and advance to the final.',
+    eventType: HeroEventType.Tournament,
+    location: 'Neu-Ulm, Germany',
+    score: '3-1',
+    opponent: 'Ochsenhausen'
+  },
+  {
+    date: '2026-01-05',
+    year: '2026',
+    title: 'German Cup Champion - First Overseas Title',
+    description: 'The German Cup final was held in Neu-Ulm, Germany on the 4th. In the first match, Fan Zhendong swept German star Ovtcharov 3:0 to give Saarbrücken an early lead. In the fourth match, Fan Zhendong defeated Filus 3:0 to seal the victory for the team. Four victories in one day, named MVP. This is the first championship since Fan Zhendong joined Saarbrücken club.',
+    eventType: HeroEventType.WorldChampionship,
+    location: 'Neu-Ulm, Germany',
+    achievements: ['German Cup Champion', 'First Overseas Title', 'MVP'],
+    finalStanding: 'Champion',
+    score: '3-1',
+    opponent: 'Fulda-Maberzell'
+  },
+  {
+    date: '2026-01-13',
+    year: '2026',
+    title: 'Bundesliga Round 12 - Scored 2 Points in Defeat',
+    description: 'In Bundesliga Round 12, Saarbrücken lost 2:3 to Dortmund at home. Fan Zhendong defeated Mino 3:0 in the second match and world champion Karlsson 3:0 in the fourth match, scoring 2 points alone, but teammates lost successively, and the team ultimately fell.',
+    eventType: HeroEventType.Tournament,
+    location: 'Germany',
+    score: '2-3',
+    opponent: 'Dortmund'
+  },
+  {
+    date: '2026-02-20',
+    year: '2026',
+    title: 'Champions League Quarter-final First Leg - 3:0 Victory',
+    description: 'In the first leg of the Champions League quarter-final, Fan Zhendong came from behind to defeat French star Simon Gauzy 3:2 in the second match, helping the team win 3:0 away against French Hennebont, gaining the upper hand in the two-legged tie.',
+    eventType: HeroEventType.Tournament,
+    location: 'France',
+    score: '3-0',
+    opponent: 'Hennebont, France'
   }
 ]

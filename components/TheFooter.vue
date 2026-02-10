@@ -9,7 +9,7 @@
             <NuxtImg src="/logo.jpeg" alt="Fanzdnet Logo" class="footer-logo-img" width="176" height="176" loading="lazy" />
             <span class="footer-logo-text">Fanzd.net</span>
           </NuxtLink>
-          <p class="footer-tagline">{{ t('footer.tagline', '樊振东非官方粉丝网站') }}</p>
+          <p class="footer-tagline">{{ t('footer.tagline', '樊振东球迷网站') }}</p>
           <p class="footer-description">{{ t('footer.disclaimer', '本站所有数据均来源于互联网公开信息，仅供球迷交流学习使用。') }}</p>
         </div>
 
@@ -42,7 +42,7 @@
 
       <!-- 底部版权 -->
       <div class="footer-bottom">
-        <p class="copyright">{{ t('footer.copyright', '© 2026 Fanzd.net - 樊振东非官方粉丝网站') }}</p>
+        <p class="copyright">{{ t('footer.copyright', '© 2026 Fanzd.net - 樊振东球迷网站') }}</p>
         <p class="rights">{{ t('footer.allRightsReserved', '保留所有权利') }}</p>
       </div>
     </div>

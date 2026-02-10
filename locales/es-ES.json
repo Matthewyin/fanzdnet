@@ -25,7 +25,7 @@
     "description": "Haz clic en el botón de abajo para comenzar tu viaje creativo.",
     "button": "Obtener Nueva Inspiración",
     "loading": "Obteniendo inspiración...",
-    "error": "Lo siento, la inspiración se ha agotado temporalmente, inténtalo de nuevo más tarde."
+    "error": "Lo siento, la inspiración está cargando, inténtalo de nuevo más tarde."
   },
   "about": {
     "description1": "Este sitio web es un centro de información no oficial creado por fanáticos para Fan Zhendong, dedicado a compartir y documentar cada momento de su carrera.",
@@ -73,15 +73,58 @@
       "description": "Lee artículos de análisis en profundidad y comentarios sobre tenis de mesa, espíritu deportivo y la carrera de Fan Zhendong."
     }
   },
+  "updates": {
+    "filter": "Filtrar",
+    "all": "Todo",
+    "match": "Partido",
+    "media": "Medios",
+    "total": "{count} actualizaciones en total",
+    "categories": "Categorías",
+    "item1": {
+      "title": "¡Campeón de la Copa Alemana! Fan Zhendong elegido MVP y gana su primer título en el extranjero",
+      "excerpt": "En la final de la Copa Alemana, el club Saarbrücken de Fan Zhendong derrotó al rival 3:1. Fan Zhendong ganó los cuatro partidos del día y fue elegido MVP, conquistando su primer campeonato en su carrera en el extranjero.",
+      "source": "Xinhua"
+    },
+    "item2": {
+      "title": "Defensa exitosa del título individual en los Juegos Nacionales, ganando la sexta medalla de oro",
+      "excerpt": "En la final individual masculina de los XV Juegos Nacionales, Fan Zhendong derrotó a Lin Shidong 4:1 para defender con éxito su título, logrando el bicampeonato individual en los Juegos Nacionales.",
+      "source": "CCTV Sports"
+    },
+    "item3": {
+      "title": "Primera victoria en la Bundesliga",
+      "excerpt": "En la segunda jornada de la Bundesliga, el club Saarbrücken derrotó 3:1 al club Bad Königshofen en condición de visitante, y Fan Zhendong logró su primera victoria en la Bundesliga.",
+      "source": "Xinhua"
+    },
+    "item4": {
+      "title": "Fichaje oficial con el club Saarbrücken de la Bundesliga",
+      "excerpt": "El club Saarbrücken de la Bundesliga alemana anunció oficialmente la firma de Fan Zhendong para participar en la temporada 2025-2026 de la Bundesliga y la Liga de Campeones de Europa.",
+      "source": "Olympics.com"
+    },
+    "item5": {
+      "title": "Anuncia su retiro del sistema de rankings mundiales",
+      "excerpt": "Fan Zhendong anunció mediante redes sociales su retiro del sistema de rankings mundiales, pero dejó claro que no se retira del deporte y continuará participando en competiciones nacionales y partidos de clubes.",
+      "source": "Weibo"
+    },
+    "item6": {
+      "title": "Campeón individual en los Juegos Olímpicos de París, logrando el Grand Slam",
+      "excerpt": "En la final individual masculina de tenis de mesa de los Juegos Olímpicos de París, Fan Zhendong derrotó 4:1 a Moregard para ganar la medalla de oro, completando los campeonatos individuales de los tres grandes torneos y logrando el Super Golden Grand Slam.",
+      "source": "Olympics.com"
+    },
+    "item7": {
+      "title": "¡Remontada clásica en los Juegos Olímpicos de París! Victoria 4:3 sobre Harimoto para clasificar a semifinales",
+      "excerpt": "En los cuartos de final individuales masculinos de los Juegos Olímpicos de París, Fan Zhendong remontó desde el 0:2 y 2:3 en desventaja para derrotar 4:3 al jugador japonés Tomokazu Harimoto, protagonizando una remontada espectacular.",
+      "source": "CCTV Sports"
+    }
+  },
   "footer": {
     "disclaimer": "Todos los datos de este sitio provienen de información públicamente disponible en internet, solo para comunicación de fanáticos y propósitos de aprendizaje.",
     "contact": "Si hay alguna infracción o información incorrecta, por favor contáctanos para eliminación o corrección.",
-    "copyright": "© 2024 Fanzd.net - Sitio de Fanáticos No Oficial de Fan Zhendong",
+    "copyright": "© 2026 Fanzd.net - Sitio de Fanáticos No Oficial de Fan Zhendong",
     "allRightsReserved": "Todos los derechos reservados"
   },
   "pages": {
     "home": {
-      "title": "Sitio de Fanáticos No Oficial de Fan Zhendong - Fanzd.net",
+      "title": "fanzd.net",
       "description": "Sitio de fanáticos no oficial de Fan Zhendong, registrando cada momento emocionante de la leyenda del tenis de mesa"
     },
     "updates": {
@@ -113,5 +156,33 @@
       "description1": "Este sitio web es un centro de información no oficial creado por fanáticos para Fan Zhendong, dedicado a compartir y documentar cada momento de su carrera.",
       "description2": "Todo el contenido está compilado de fuentes en línea disponibles públicamente. Si tienes alguna pregunta o sugerencia, no dudes en contactarnos."
     }
+  },
+  "home": {
+    "exploreTitle": "Explorar más",
+    "exploreSubtitle": "Descubre el fascinante mundo de Fan Zhendong",
+    "updatesDesc": "Obtén las últimas noticias, resultados de partidos y dinámicas de entrenamiento de Fan Zhendong",
+    "scheduleDesc": "Consulta el calendario de partidos próximos y los registros históricos",
+    "timelineDesc": "Revive los momentos importantes de la carrera de Fan Zhendong",
+    "essaysDesc": "Lee artículos profundos y reflexiones de fanáticos sobre Fan Zhendong",
+    "honorTag": "Salón de la Fama",
+    "honorTitle": "Logros Brillantes",
+    "honorSubtitle": "Presencia el camino hacia el campeonato de Fan Zhendong",
+    "worldTitles": "Campeonatos Mundiales",
+    "olympicGolds": "Medallas Olímpicas de Oro",
+    "worldCupTitles": "Copas del Mundo",
+    "worldChampionships": "Campeonatos Mundiales"
+  },
+  "honor": {
+    "olympicSingles": "Campeón Individual Olímpico",
+    "olympicTeam": "Campeón por Equipos Olímpico",
+    "worldChampSingles": "Campeón Individual del Mundial",
+    "worldCup": "Campeón Individual de la Copa del Mundo",
+    "asianGames": "Campeón Individual de los Juegos Asiáticos",
+    "wtaFinals": "Campeón de las Finales WTT",
+    "paris2024": "Juegos Olímpicos de París 2024",
+    "durban2023": "Campeonato Mundial de Durban 2023",
+    "xinxiang2022": "Copa del Mundo de Xinxiang 2022",
+    "hangzhou2023": "Juegos Asiáticos de Hangzhou 2023",
+    "nagoya2022": "Nagoya 2022"
   }
 }

@@ -19,18 +19,18 @@ export const useSEO = () => {
   const seoConfig: Record<SupportedLanguage, Record<string, SEOConfig>> = {
     zh: {
       home: {
-        title: '樊振东非官方粉丝网站 - Fanzd.net',
-        description: '樊振东非官方粉丝网站，提供最新赛事动态、职业生涯时间线、AI灵感站等内容。关注乒乓球大满贯冠军樊振东的精彩人生。',
-        keywords: ['樊振东', '乒乓球', '大满贯', '奥运冠军', '世界冠军', '中国乒乓球', '体育', '粉丝网站'],
-        ogTitle: '樊振东非官方粉丝网站 - 乒乓球大满贯冠军',
-        ogDescription: '探索樊振东的传奇职业生涯，从青年才俊到大满贯冠军的精彩历程。',
+        title: '樊振东球迷网站 - Fanzd.net',
+        description: '樊振东球迷网站，提供最新赛事动态、职业生涯时间线、AI灵感站等内容。关注乒乓球超级金满贯冠军樊振东精彩的职业生涯。',
+        keywords: ['樊振东', '乒乓球', '超级金满贯', '奥运冠军', '世界冠军', '中国乒乓球', '体育', '粉丝网站'],
+        ogTitle: '樊振东球迷网站 - 乒乓球超级金满贯冠军',
+        ogDescription: '探索樊振东的传奇职业生涯，从青年才俊到超级金满贯冠军的精彩历程。',
         ogImage: '/images/og/home-zh.jpg'
       },
       timeline: {
         title: '樊振东职业生涯大事记 - Fanzd.net',
         description: '回顾樊振东从2012年进入国家队到2024年奥运夺冠的完整职业生涯历程，见证乒乓球传奇的诞生。',
         keywords: ['樊振东', '职业生涯', '大事记', '时间线', '乒乓球历史', '冠军之路'],
-        ogTitle: '樊振东职业生涯大事记 - 从青年才俊到大满贯冠军',
+        ogTitle: '樊振东职业生涯大事记 - 从青年才俊到超级金满贯冠军',
         ogDescription: '完整记录樊振东职业生涯的重要时刻和辉煌成就。'
       },
       'ai-gallery': {

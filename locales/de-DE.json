@@ -25,10 +25,10 @@
     "description": "Klicken Sie auf die Schaltfläche unten, um Ihre kreative Reise zu beginnen.",
     "button": "Neue Inspiration Erhalten",
     "loading": "Inspiration wird abgerufen...",
-    "error": "Entschuldigung, die Inspiration ist vorübergehend erschöpft, bitte versuchen Sie es später erneut."
+    "error": "Entschuldigung, die Inspiration lädt gerade auf, bitte versuchen Sie es später erneut."
   },
   "about": {
-    "description1": "Diese Website ist ein inoffizielles Informationszentrum, das von Fans für Fan Zhendong erstellt wurde und sich der Dokumentation und dem Teilen jedes Moments seiner Karriere widmet.",
+    "description1": "Diese Website ist ein inoffizielles Informationszentrum, das von Fans für Fan Zhendong erstellt wurde, um jeden Moment seiner Karriere zu dokumentieren und zu teilen.",
     "description2": "Alle Inhalte stammen aus öffentlich zugänglichen Online-Quellen. Wenn Sie Fragen oder Vorschläge haben, zögern Sie nicht, uns zu kontaktieren."
   },
   "theme": {
@@ -73,15 +73,58 @@
       "description": "Lesen Sie tiefgreifende Analyse- und Kommentarartikel über Tischtennis, Sportsgeist und Fan Zhendongs Karriere."
     }
   },
+  "updates": {
+    "filter": "Filtern",
+    "all": "Alle",
+    "match": "Spiel",
+    "media": "Medien",
+    "total": "Insgesamt {count} Updates",
+    "categories": "Kategorien",
+    "item1": {
+      "title": "Deutscher Pokalsieg! Fan Zhendong zum MVP gewählt und erster Titel im Ausland",
+      "excerpt": "Im Finale des Deutschen Pokals besiegte der 1. FC Saarbrücken, für den Fan Zhendong spielt, den Gegner mit 3:1. Fan Zhendong gewann alle vier Spiele an einem Tag und wurde zum MVP gewählt, was ihm den ersten Titel in seiner Auslandskarriere einbrachte.",
+      "source": "Xinhua"
+    },
+    "item2": {
+      "title": "Erfolgreiche Titelverteidigung im Einzel der Nationalspiele, sechste Goldmedaille gewonnen",
+      "excerpt": "Im Finale des Einzelwettbewerbs der 15. Nationalen Spiele besiegte Fan Zhendong Lin Shidong mit 4:1 und verteidigte seinen Titel erfolgreich. Er gewann damit zum zweiten Mal in Folge die Goldmedaille im Einzel der Nationalen Spiele.",
+      "source": "CCTV Sports"
+    },
+    "item3": {
+      "title": "Erster Sieg in der Bundesliga",
+      "excerpt": "In der zweiten Runde der Bundesliga besiegte der 1. FC Saarbrücken auswärts den TTC Bad Königshofen mit 3:1. Fan Zhendong feierte seinen ersten persönlichen Sieg in der Bundesliga.",
+      "source": "Xinhua"
+    },
+    "item4": {
+      "title": "Offizieller Wechsel zum 1. FC Saarbrücken in der Bundesliga",
+      "excerpt": "Der 1. FC Saarbrücken aus der Deutschen Tischtennis-Bundesliga gab offiziell bekannt, Fan Zhendong für die Saison 2025-2026 in der Bundesliga und der Champions League verpflichtet zu haben.",
+      "source": "Olympics.com"
+    },
+    "item5": {
+      "title": "Rückzug aus dem Weltranglistensystem angekündigt",
+      "excerpt": "Fan Zhendong kündigte über soziale Medien seinen Rückzug aus dem Weltranglistensystem an, betonte aber ausdrücklich, dass er nicht zurücktreten werde und weiterhin an nationalen Turnieren und Clubspielen teilnehmen werde.",
+      "source": "Weibo"
+    },
+    "item6": {
+      "title": "Olympiasieg im Einzel in Paris, Super-Grand-Slam vollendet",
+      "excerpt": "Im Finale des Einzelwettbewerbs im Tischtennis bei den Olympischen Spielen in Paris besiegte Fan Zhendong Truls Moregard mit 4:1 und gewann die Goldmedaille. Damit vervollständigte er seine Sammlung von Einzeltiteln bei den drei größten Turnieren und erreichte den Super-Grand-Slam.",
+      "source": "Olympics.com"
+    },
+    "item7": {
+      "title": "Klassisches Comeback in Paris! 4:3-Sieg über Tomokazu Harimoto und Einzug ins Halbfinale",
+      "excerpt": "Im Viertelfinale des Einzelwettbewerbs bei den Olympischen Spielen in Paris drehte Fan Zhendong nach Rückständen von 0:2 und 2:3 das Spiel und besiegte den japanischen Spieler Tomokazu Harimoto mit 4:3 – ein sensationelles Comeback.",
+      "source": "CCTV Sports"
+    }
+  },
   "footer": {
     "disclaimer": "Alle Daten auf dieser Website stammen aus öffentlich verfügbaren Informationen im Internet und dienen nur der Kommunikation und dem Lernen zwischen Fans.",
     "contact": "Bei Urheberrechtsverletzungen oder falschen Informationen kontaktieren Sie uns bitte zur Löschung oder Korrektur.",
-    "copyright": "© 2024 Fanzd.net - Inoffizielle Fan Zhendong Fan-Website",
+    "copyright": "© 2026 Fanzd.net - Inoffizielle Fan Zhendong Fan-Website",
     "allRightsReserved": "Alle Rechte vorbehalten"
   },
   "pages": {
     "home": {
-      "title": "Inoffizielle Fan Zhendong Fan-Website - Fanzd.net",
+      "title": "Inoffizielle Fan Zhendong Fan-Website - fanzd.net",
       "description": "Inoffizielle Fan-Website von Fan Zhendong, die jeden aufregenden Moment der Tischtennis-Legende dokumentiert"
     },
     "updates": {
@@ -110,7 +153,7 @@
     "about": {
       "title": "Über",
       "description": "Weitere Informationen über diese Website und Fan Zhendong.",
-      "description1": "Diese Website ist ein inoffizielles Informationszentrum, das von Fans für Fan Zhendong erstellt wurde und sich der Dokumentation und dem Teilen jedes Moments seiner Karriere widmet.",
+      "description1": "Diese Website ist ein inoffizielles Informationszentrum, das von Fans für Fan Zhendong erstellt wurde, um jeden Moment seiner Karriere zu dokumentieren und zu teilen.",
       "description2": "Alle Inhalte stammen aus öffentlich zugänglichen Online-Quellen. Wenn Sie Fragen oder Vorschläge haben, zögern Sie nicht, uns zu kontaktieren."
     }
   }

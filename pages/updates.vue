@@ -251,8 +251,8 @@ const updatesData = computed(() => [
     id: 6,
     category: 'match',
     date: '2024-08-04',
-    title: t('updates.item6.title', '巴黎奥运会男单夺冠，成就大满贯伟业'),
-    excerpt: t('updates.item6.excerpt', '在巴黎奥运会乒乓球男单决赛中，樊振东4:1战胜莫雷加德夺得金牌，集齐奥运会、世锦赛、世界杯三大赛单打冠军，成就大满贯伟业。'),
+    title: t('updates.item6.title', '巴黎奥运会男单夺冠，成就超级金满贯伟业'),
+    excerpt: t('updates.item6.excerpt', '在巴黎奥运会乒乓球男单决赛中，樊振东4:1战胜莫雷加德夺得金牌，集齐奥运会、世锦赛、世界杯三大赛单打冠军，成就超级金满贯伟业。'),
     source: t('updates.item6.source', 'Olympics.com')
   },
   {

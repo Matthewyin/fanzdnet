@@ -1,6 +1,6 @@
 // 多语言 Hero 数据索引
-import { heroDataZh } from './zh-CN'
-import { heroDataEn } from './en-US'
+import { heroDataZh, heroEventsData } from './zh-CN'
+import { heroDataEn, heroEventsDataEn } from './en-US'
 import { heroDataEs } from './es-ES'
 import { heroDataFr } from './fr-FR'
 import { heroDataDe } from './de-DE'
@@ -27,3 +27,6 @@ export function getHeroData(language: SupportedLanguage = 'zh') {
 // 导出默认中文数据以保持向后兼容
 export const heroImages = heroDataZh
 export { heroDataZh, heroDataEn, heroDataEs, heroDataFr, heroDataDe, heroDataJa, heroDataKo, heroDataSv }
+
+// 导出事件数据
+export { heroEventsData, heroEventsDataEn }

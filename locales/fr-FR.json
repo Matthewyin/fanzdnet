@@ -25,10 +25,10 @@
     "description": "Cliquez sur le bouton ci-dessous pour commencer votre voyage créatif.",
     "button": "Obtenir une Nouvelle Inspiration",
     "loading": "Obtention d'inspiration...",
-    "error": "Désolé, l'inspiration est temporairement épuisée, veuillez réessayer plus tard."
+    "error": "L'inspiration se recharge, veuillez réessayer plus tard."
   },
   "about": {
-    "description1": "Ce site web est un centre d'information non-officiel créé par des fans pour Fan Zhendong, dédié au partage et à la documentation de chaque moment de sa carrière.",
+    "description1": "Ce site web est un centre d'information non-officiel créé par des fans pour Fan Zhendong, partageant et documentant chaque moment de sa carrière.",
     "description2": "Tout le contenu est compilé à partir de sources en ligne accessibles au public. Si vous avez des questions ou des suggestions, n'hésitez pas à nous contacter."
   },
   "theme": {
@@ -69,15 +69,58 @@
       "description": "Au format chronologique, enregistrant les jalons importants et les moments forts de la carrière de Fan Zhendong, passant en revue chaque étape du jeune talent à la légende du tennis de table."
     }
   },
+  "updates": {
+    "filter": "Filtrer",
+    "all": "Tout",
+    "match": "Match",
+    "media": "Média",
+    "total": "{count} actualités au total",
+    "categories": "Catégories",
+    "item1": {
+      "title": "Victoire en Coupe d'Allemagne ! Fan Zhendong élu MVP et remporte son premier titre à l'étranger",
+      "excerpt": "En finale de la Coupe d'Allemagne, le club de Sarrebruck de Fan Zhendong a battu son adversaire 3-1. Fan Zhendong a remporté ses quatre matchs de la journée et a été élu MVP, décrochant ainsi son premier titre depuis son arrivée en Europe.",
+      "source": "Xinhua News"
+    },
+    "item2": {
+      "title": "Défense réussie du titre simple aux Jeux Nationaux, sixième médaille d'or remportée",
+      "excerpt": "En finale du simple messieurs de la 15e édition des Jeux Nationaux, Fan Zhendong a battu Lin Shidong 4-1 pour conserver son titre de champion du simple, remportant consécutivement le titre du simple messieurs aux Jeux Nationaux.",
+      "source": "CCTV Sports"
+    },
+    "item3": {
+      "title": "Première victoire en Bundesliga",
+      "excerpt": "Lors de la deuxième journée de la Bundesliga, le club de Sarrebruck s'est imposé 3-1 à l'extérieur contre le club de Bad Königshofen. Fan Zhendong a décroché sa première victoire personnelle en Bundesliga.",
+      "source": "Xinhua News Agency"
+    },
+    "item4": {
+      "title": "Signature officielle avec le club de Sarrebruck en Bundesliga",
+      "excerpt": "Le club de Sarrebruck de la Bundesliga allemande de tennis de table a officiellement annoncé la signature de Fan Zhendong pour la saison 2025-2026 de la Bundesliga et la Ligue des Champions européenne.",
+      "source": "Olympics.com"
+    },
+    "item5": {
+      "title": "Annonce du retrait du système de classement mondial",
+      "excerpt": "Fan Zhendong a annoncé son retrait du système de classement mondial via les réseaux sociaux, mais a clairement indiqué qu'il ne prendrait pas sa retraite et continuerait de participer aux compétitions nationales et aux matchs de club.",
+      "source": "Weibo"
+    },
+    "item6": {
+      "title": "Victoire en simple aux Jeux Olympiques de Paris, accomplissement du Grand Chelem",
+      "excerpt": "En finale du simple messieurs de tennis de table aux Jeux Olympiques de Paris, Fan Zhendong a battu Truls Möregårdh 4-1 pour remporter la médaille d'or, complétant ainsi sa collection de titres en simple des trois grands tournois et réalisant l'exploit du Super Grand Chelem d'or.",
+      "source": "Olympics.com"
+    },
+    "item7": {
+      "title": "Remontée classique aux Jeux Olympiques de Paris ! Victoire 4-3 contre Tomokazu Harimoto en quarts de finale",
+      "excerpt": "En quarts de finale du simple messieurs aux Jeux Olympiques de Paris, Fan Zhendong, mené 0-2 puis 2-3, a renversé le Japonais Tomokazu Harimoto 4-3, réalisant une remontée spectaculaire.",
+      "source": "CCTV Sports"
+    }
+  },
   "footer": {
     "disclaimer": "Toutes les données de ce site proviennent d'informations publiques disponibles sur Internet, uniquement à des fins de communication et d'apprentissage entre fans.",
     "contact": "En cas de violation ou d'informations incorrectes, veuillez nous contacter pour suppression ou correction.",
-    "copyright": "© 2024 Fanzd.net - Site de Fans Non-officiel de Fan Zhendong",
+    "copyright": "© 2026 Fanzd.net - Site de Fans Non-officiel de Fan Zhendong",
     "allRightsReserved": "Tous droits réservés"
   },
   "pages": {
     "home": {
-      "title": "Site de Fans Non-officiel de Fan Zhendong - Fanzd.net",
+      "title": "fanzd.net",
       "description": "Site de fans non-officiel de Fan Zhendong, enregistrant chaque moment passionnant de la légende du tennis de table"
     },
     "updates": {
@@ -106,7 +149,7 @@
     "about": {
       "title": "À Propos",
       "description": "Plus d'informations sur ce site et Fan Zhendong.",
-      "description1": "Ce site web est un centre d'information non-officiel créé par des fans pour Fan Zhendong, dédié au partage et à la documentation de chaque moment de sa carrière.",
+      "description1": "Ce site web est un centre d'information non-officiel créé par des fans pour Fan Zhendong, partageant et documentant chaque moment de sa carrière.",
       "description2": "Tout le contenu est compilé à partir de sources en ligne accessibles au public. Si vous avez des questions ou des suggestions, n'hésitez pas à nous contacter."
     }
   }

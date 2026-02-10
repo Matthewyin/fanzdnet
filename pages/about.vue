@@ -41,7 +41,7 @@
                 <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
               </svg>
               <h2 class="card-title">{{ t('about.siteTitle', '这是什么网站？') }}</h2>
-              <p class="card-text">{{ t('about.description1', '本网站是由球迷为樊振东建立的非官方信息站，旨在分享和记录他的职业生涯点滴。') }}</p>
+              <p class="card-text">{{ t('about.description1', '本网站是由球迷为樊振东建立的信息站，旨在分享和记录他的职业生涯点滴。') }}</p>
               <p class="card-text">{{ t('about.description2', '所有内容均整理自公开网络渠道，如有任何疑问或建议，请随时联系我们。') }}</p>
             </div>
           </section>

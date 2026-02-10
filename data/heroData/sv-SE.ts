@@ -64,7 +64,7 @@ export const heroDataSv = [
     title: '2024 · Frankrike Paris · Olympiska spelen',
     subtitle: 'Kunglig Kröning — Första Olympiska Herrsingelmästaren',
     quote: '"Folk säger alltid att att vinna denna guldmedalj betyder att du har allt. Men de har fel. Att vinna den är när allt verkligen börjar. För från detta ögonblick är du inte längre förföljaren—du är berget."',
-    description: 'De olympiska spelen. Detta var den sista gralen, den enda biljetten till panteon. Han bar vikten av en era till den slutliga banan, mötte ett ödesdigert återseende med sin motståndare, som om historiens manus länge hade varit skrivet och bara väntade på att han skulle vända den sista sidan. Detta var inte att kämpa för rekord eller titlar. Detta var att kämpa för vad som var "förtjänt". I ögonblicket när guldmedaljen hängde runt hans hals ringde klockorna för Super Grand Slam. Fan Zhendong—detta namn står nu bredvid odödlighet. Han fullbordade inte sin sista dans; han öppnade helt enkelt en ny era definierad av honom.'
+    description: 'De olympiska spelen. Detta var den sista gralen, den enda biljetten till panteon. Han bar vikten av en era till den slutiga banan, mötte ett ödesdigert återseende med sin motståndare, som om historiens manus länge hade varit skrivet och bara väntade på att han skulle vända den sista sidan. Detta var inte att kämpa för rekord eller titlar. Detta var att kämpa för vad som var "förtjänt". I ögonblicket när guldmedaljen hängde runt hans hals ringde klockorna för Super Grand Slam. Fan Zhendong—detta namn står nu bredvid odödlighet. Han fullbordade inte sin sista dans; han öppnade helt enkelt en ny era definierad av honom.'
   },
   {
     url: 'https://placehold.co/1920x1080/1e3a8a/FFF?text=2025+National+Games',
@@ -79,5 +79,73 @@ export const heroDataSv = [
     subtitle: 'Erobring av Europa — Första Utlandstiteln, Krönt MVP',
     quote: '"Sanna mästare fruktar inga okända slagfält. Där det finns bordtennis, där är mitt territorium."',
     description: 'Genom halva jordklotet, börja från noll. Språkbarriärer, främmande miljö, ändlöst tvivel—men detta var aldrig skäl för en krigare att dra sig tillbaka. På scenen i finalen av Tyska Cupen vann han fyra matcher på en dag och sade till Europa: denna kung från Kina kan fortfarande härska över er arena. MVP-trofén var den bästa välkomstgåvan. Det första mästerskapet i hans utlandskarriär—detta är bara början.'
+  }
+]
+
+// Detaljerade evenemangsdatar på svenska
+export const heroEventsDataSv = [
+  // === 2024年 ===
+  {
+    date: '2024-12-27',
+    year: '2024',
+    title: 'Meddelar tillbakadragande från världsrankingen',
+    description: 'Meddelade via sociala medier att han kommer att lämna världsrankingsystemet, men gjorde det klart att han "inte går i pension" och fortsätter delta i nationella tävlingar och klubbmatcher.',
+    eventType: 'announcement',
+    location: null
+  },
+
+  // === 2025年 ===
+  {
+    date: '2025-06-01',
+    year: '2025',
+    title: 'Ansluter sig officiellt till Saarbrücken-klubben i Tyskland',
+    description: 'Skrev officiellt på för Saarbrücken-klubben i Tyskland för att delta i Bundesliga för bordtennis (TTBL) och Champions League för säsongen 2025-2026.',
+    eventType: 'transfer',
+    location: 'Saarbrücken, Tyskland'
+  },
+  {
+    date: '2025-11-15',
+    year: '2025',
+    title: 'Nationella Spelen singel semifinal - Besegrar Wang Chuqin',
+    description: 'I Galaxy Arena i Macau besegrade Fan Zhendong Wang Chuqin, som vid den tiden var rankad etta i världen, med 4:2 och avancerade först till finalen.',
+    eventType: 'tournament',
+    location: 'Macao, Kina'
+  },
+  {
+    date: '2025-11-16',
+    year: '2025',
+    title: 'Nationella Spelen singelmästare - Framgångsrikt titelförsvar',
+    description: 'När motståndaren Lin Shidong ledde med 9:4, kom Fan Zhendong ikapp med 7 poäng i rad och vann första set. Därefter, i explosiv form, vann han tre set i rad med siffrorna 11:5, 11:3 och 11:4. Detta är Fan Zhendongs andra singeltitel vid Nationella Spelen, där han framgångsrikt försvarade titeln.',
+    eventType: 'world_championship',
+    location: 'Macao, Kina',
+    achievements: ['Nationella Spelen singelmästare', 'Sjätte Nationella Spelen guldmedalj', 'Framgångsrikt titelförsvar'],
+    finalStanding: 'Mästare',
+    score: '4:1',
+    opponent: 'Lin Shidong'
+  },
+  {
+    date: '2025-11-16',
+    year: '2025',
+    title: 'Nationella Spelen lagfinal - Segrar över Wang Chuqin',
+    description: 'I herrarnas lagfinal i bordtennis vid den 15:e Nationella Spelen besegrade Fan Zhendong Wang Chuqin i sin singelrunda och uppnådde därmed en dubbel seger över motståndaren i turneringen, vilket bidrog med viktiga poäng till laget.'}
+    eventType: 'tournament',
+    location: 'Macao, Kina',
+    finalStanding: 'Silver',
+    score: null,
+    opponent: 'Peking-laget'
+  },
+
+  // === 2026年 ===
+  {
+    date: '2026-01-05',
+    year: '2026',
+    title: 'Tyska Cupen mästare - Första utlandstiteln',
+    description: 'Finalen i Tyska Cupen hölls i Neu-Ulm. Fan Zhendong vann 3:0 mot Ovtcharov i första set och 3:0 mot Filus i fjärde set. Fyra segrar på en dag, utsedd till MVP.',
+    eventType: 'world_championship',
+    location: 'Neu-Ulm, Tyskland',
+    achievements: ['Tyska Cupen mästare', 'Första utlandstiteln', 'MVP'],
+    finalStanding: 'Mästare',
+    score: '3-1',
+    opponent: 'Fulda-Maberzell'
   }
 ]
