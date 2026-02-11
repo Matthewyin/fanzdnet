@@ -70,14 +70,14 @@ export const heroDataZh = [
     description: '奥运会。这是最后的圣杯，是通往万神殿的唯一门票。他背负着一个时代的重量走上决赛场，对手是宿命的重逢，仿佛历史的剧本早已写好，只等他亲手翻开最后一页。这不是为纪录而战，也不是为头衔而战。这是为"应得的"而战。金牌挂上脖颈的那一刻，超级金满贯的钟声敲响。樊振东，这个名字，从此与不朽并列。他没有完成最后一舞，他只是开启了一个由他定义的新时代。'
   },
   {
-    url: 'https://placehold.co/1920x1080/1a3a8a/FFF?text=National+Games',
+    url: '/images/carousel/hero-8.jpeg',
     title: '2025 · 中国 澳门 · 第十五届全运会',
     subtitle: '王者归来——成功卫冕全运会男单冠军',
     quote: '"即使退出了世界排名，王者依然是王者。真正的实力，从来不需要数字来证明。"',
     description: '在没有世界排名的日子里，质疑声从未停止。但他选择用最纯粹的赛场表现回应一切。在澳门，面对小辈的冲击，他在绝境中逆转，在压力下绽放。第六枚全运会金牌入账，蝉联男单冠军。这不是 comeback，因为他从未离开。'
   },
   {
-    url: 'https://placehold.co/1920x1080/0a1428/FFF?text=German+Cup',
+    url: '/images/carousel/hero-9.webp',
     title: '2026 · 德国 新乌尔姆 · 德国杯',
     subtitle: '征服欧洲——留德首冠',
     quote: '"当你站在世界之巅，你可以选择停留，也可以选择走向更广阔的天地。"',
@@ -181,11 +181,11 @@ export const heroEventsData: HeroEvent[] = [
   {
     date: '2026-01-05',
     year: '2026',
-    title: '德国杯冠军 - 留洋首冠',
+    title: '德国杯冠军 - 留德首冠',
     description: '德国杯决赛4日在德国新乌尔姆市举行。首盘樊振东3:0横扫德国名将奥恰洛夫,为萨尔布吕肯先拔头筹。第四盘樊振东3:0战胜菲卢斯,为球队锁定胜局。一天四战全胜,当选MVP。这是樊振东加盟萨尔布吕肯俱乐部以来获得的首个冠军。',
     eventType: HeroEventType.WorldChampionship,
     location: '德国新乌尔姆',
-    achievements: ['德国杯冠军', '留洋首冠', 'MVP'],
+    achievements: ['德国杯冠军', '留德首冠', 'MVP'],
     finalStanding: '冠军',
     score: '3-1',
     opponent: '富尔达马伯策尔'

@@ -211,8 +211,8 @@ const updatesData = computed(() => [
     id: 1,
     category: 'match',
     date: '2026-01-05',
-    title: t('updates.item1.title', '德国杯夺冠！樊振东当选MVP收获留洋首冠'),
-    excerpt: t('updates.item1.excerpt', '德国杯决赛中，樊振东效力的萨尔布吕肯俱乐部以3:1战胜富尔达-马伯策尔俱乐部。樊振东一天四战全胜，当选MVP，夺得留洋生涯首个冠军。'),
+    title: t('updates.item1.title', '德国杯夺冠！樊振东当选MVP收获留德首冠'),
+    excerpt: t('updates.item1.excerpt', '德国杯决赛中，樊振东效力的萨尔布吕肯俱乐部以3:1战胜富尔达-马伯策尔俱乐部。樊振东一天四战全胜，当选MVP，夺得留德生涯首个冠军。'),
     source: t('updates.item1.source', '新华网')
   },
   {

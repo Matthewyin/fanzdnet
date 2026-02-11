@@ -67,14 +67,14 @@ export const heroDataDe = [
     description: 'Die Olympischen Spiele. Das war der finale Gral, das einzige Ticket zum Pantheon. Er trug das Gewicht einer Ära auf den finalen Platz, stand einem schicksalhaften Wiedersehen mit seinem Gegner gegenüber, als ob das Drehbuch der Geschichte längst geschrieben worden wäre und nur darauf wartete, dass er die letzte Seite umblättert. Das war nicht der Kampf um Rekorde oder Titel. Das war der Kampf um das, was "verdient" war. In dem Moment, als die Goldmedaille um seinen Hals hing, erklangen die Glocken des Super Grand Slam. Fan Zhendong—dieser Name steht nun neben der Unsterblichkeit. Er vollendete nicht seinen letzten Tanz; er eröffnete einfach eine neue Ära, die von ihm definiert wird.'
   },
   {
-    url: 'https://placehold.co/1920x1080/1e3a8a/FFF?text=2025+National+Games',
+    url: '/images/carousel/hero-8.jpeg',
     title: '2025 · China Macau · Nationale Spiele',
     subtitle: 'Rückkehr des Königs — Erfolgreiche Titelverteidigung',
     quote: '"Manche Meisterschaften gewinnst du nicht nur für dich selbst, sondern um zu beweisen, dass du den Gipfel nie verlassen hast."',
     description: 'In den Tagen ohne Weltrangliste verstummten die Stimmen des Zweifels nie. Aber ein wahrer König braucht keine Rangliste, um sich zu beweisen. In Macau antwortete er auf alles mit Gold. Hinter dem 4:1-Ergebnis lagen unzählige innere Dialoge, der Hunger, der blieb, nachdem er den Scheinwerfern den Rücken gekehrt hatte. Der zweite Spieler in der Geschichte der Nationalen Spiele, der den Einzeltitel erfolgreich verteidigte—dieser Rekord wiegt schwerer als jede Rangliste.'
   },
   {
-    url: 'https://placehold.co/1920x1080/1e3a8a/FFF?text=2026+German+Cup',
+    url: '/images/carousel/hero-9.webp',
     title: '2026 · Deutschland Neu-Ulm · DFB-Pokal',
     subtitle: 'Eroberung Europas — Erster Auslandstitel, Gekrönter MVP',
     quote: '"Wahre Champions fürchten keine unbekannten Schlachtfelder. Wo Tischtennis ist, da ist mein Territorium."',

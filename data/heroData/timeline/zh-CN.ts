@@ -88,7 +88,7 @@ export const heroTimelineData: HeroEvent[] = [
     description: '德国杯决赛4日在德国新乌尔姆举行,樊振东所在的萨尔布吕肯俱乐部以3:1战胜富尔达马伯策尔俱乐部,夺得冠军，并获得杯赛MVP。这是樊振东加盟萨尔布吕肯俱乐部以来获得的首个冠军,也是他职业生涯正式比赛第115冠。',
     location: '德国新乌尔姆',
     eventType: HeroEventType.Tournament,
-    achievements: ['德国杯冠军', 'MVP'],
+    achievements: ['德国杯冠军', '留德首冠', 'MVP'],
     finalStanding: '冠军',
     score: '3-1',
     opponent: '富尔达马伯策尔'
